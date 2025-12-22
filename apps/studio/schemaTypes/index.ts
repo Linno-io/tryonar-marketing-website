@@ -4,6 +4,7 @@ import {commentType} from './commentType'
 import {seoType} from './seoType'
 import {categoryType} from './categoryType'
 import {userType} from './userType'
+import {heroSectionType} from './heroSectionType'
 
 export const schemaTypes = [
   pageType,
@@ -11,5 +12,6 @@ export const schemaTypes = [
   commentType,
   seoType,
   categoryType,
+  heroSectionType
   // userType
 ]
