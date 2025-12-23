@@ -1,0 +1,22 @@
+[build]
+  # Point to the Next.js app directory
+  base = "apps/web"
+  # Build command
+  command = "pnpm build"
+  # Output directory for Next.js
+  publish = ".next"
+
+[build.environment]
+  # Node version
+  NODE_VERSION = "20"
+  # Use pnpm
+  NPM_FLAGS = "--prefix=/dev/null"
+
+# Next.js specific configuration
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Environment variables (set these in Netlify UI)
+# NEXT_PUBLIC_SANITY_PROJECT_ID = "90a20xmm"
+# NEXT_PUBLIC_SANITY_DATASET = "production"
+# SANITY_API_TOKEN = "your-read-token" (optional, for ISR)
