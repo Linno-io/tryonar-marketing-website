@@ -37,7 +37,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         <Container className="flex flex-col items-center text-center z-10">
           
           {/* Main Heading */}
-          <Heading as="h1" className="text-4xl md:text-[56px] font-extrabold text-[#1F2937] tracking-tight leading-[1.1] max-w-3xl mb-6">
+          <Heading level={1} className="text-4xl md:text-[56px] font-extrabold text-[#1F2937] tracking-tight leading-[1.1] max-w-3xl mb-6">
             {heading.split('\n').map((line, i) => (
               <span key={i}>
                 {line}
