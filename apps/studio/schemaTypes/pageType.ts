@@ -12,7 +12,11 @@ export const pageType = defineType({
       title: 'Page Sections',
       type: 'array',
       of: [
-        { type: 'heroSectionType' }
+        { type: 'heroSectionType' },
+        { type: 'realitySectionType' },
+        { type: 'ctaSectionType' },
+        { type: 'successStoriesSectionType' },
+        { type: 'industrySolutionsSectionType' }
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

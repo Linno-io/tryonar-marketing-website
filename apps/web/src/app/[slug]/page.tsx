@@ -22,5 +22,12 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: PageProps) {
-  return notFound()
+  const { slug } = await params
+  const page = await getPageBySlug(slug)
+  
+  if (!page) {
+    return notFound()
+  }
+
+  return <PageRenderer sections={page.sections || []} />
 }

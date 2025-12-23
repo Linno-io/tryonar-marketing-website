@@ -1,4 +1,5 @@
 import { createClient } from "next-sanity";
+import imageUrlBuilder from '@sanity/image-url'
 
 export const client = createClient({
   projectId: "tlwbga8t",
@@ -7,6 +8,11 @@ export const client = createClient({
   useCdn: false,
 });
 
+const builder = imageUrlBuilder(client)
+
+export function urlFor(source: any) {
+  return builder.image(source)
+}
 
 export async function getAllPages() {
   const query = `*[_type == "page"]{title, slug}`

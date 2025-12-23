@@ -1,120 +1,145 @@
 'use client'
-import Container from '@/components/ui/Container'
-import { Heading, Text } from '@/components/ui'
+import { useState } from 'react'
+import {Heading, Text, Container} from '@/components/ui'
+import Image from 'next/image'
+import { Store, Target, TrendingUp, RefreshCcw, Quote } from 'lucide-react'
+import { urlFor } from '@/lib/sanity/client'
+import { SuccessStoriesSection as SuccessStoriesSectionProps } from '@/lib/types/section'
 
-export default function SuccessStoriesSection() {
-  const stats = [
-    {
-      value: '10,000+',
-      label: 'Active Stores',
-      icon: (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      ),
-    },
-    {
-      value: '50M+',
-      label: 'AR Interactions',
-      icon: (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v6a1.5 1.5 0 003 0m0-6V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-        </svg>
-      ),
-    },
-    {
-      value: '94%',
-      label: 'Avg Conversion Lift',
-      icon: (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-        </svg>
-      ),
-    },
-    {
-      value: '64%',
-      label: 'Return Reduction',
-      icon: (
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
-        </svg>
-      ),
-    },
-  ]
+const iconMap = {
+  'Store': Store,
+  'Target': Target,
+  'TrendingUp': TrendingUp,
+  'RefreshCcw': RefreshCcw,
+}
+
+interface Props {
+  data: SuccessStoriesSectionProps
+}
+
+export default function SuccessStoriesSection({ data }: Props) {
+  const [activeTab, setActiveTab] = useState(0)
+
+  const { eyebrow, heading, description, stats, stories } = data
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-24 bg-[#f7f7ff]">
       <Container>
         <div className="text-center mb-16">
-          <Text className="text-sm font-semibold text-[#0AA44C] uppercase tracking-wider mb-4">
-            TRUSTED BY INDUSTRY LEADERS
+          <Text className="font-bold text-[#0AA44C] tracking-widest uppercase mb-4" as="span">
+            {eyebrow}
           </Text>
-          <Heading level={1} className="mb-6">
-            Join thousands of successful stores
+          <Heading level={3} className="font-extrabold text-[#1F2937] mb-6">
+            {heading}
           </Heading>
-          <Text className="text-lg text-gray-600 max-w-3xl mx-auto">
-            See how leading e-commerce brands are transforming their customer experience with
-            TryOnAR.
+          <Text variant="large" className="text-gray-500 max-w-2xl mx-auto">
+            {description}
           </Text>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:border-[#9F3AED] transition-colors"
-              >
-                <div className="text-[#9F3AED] mb-4">{stat.icon}</div>
-                <Heading level={3} className="text-gray-900 mb-2">
-                  {stat.value}
-                </Heading>
-                <Text className="text-gray-600 text-sm">{stat.label}</Text>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-[50px] items-start">          
+          {/* Left Column: Stat Cards */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            {stats.map((stat, idx) => {
+              const IconComponent = iconMap[stat.icon as keyof typeof iconMap] || Store
+              return (
+                <div 
+                  key={idx} 
+                  className="bg-white p-6 rounded-xl shadow-sm border border-white flex items-center gap-5"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-[#f7f7ff] flex items-center justify-center flex-shrink-0">
+                    <IconComponent className="w-5 h-5 text-[#9F3AED]" />
+                  </div>
+                  <div>
+                    <Heading level={4} className="text-[#1F2937] leading-none mb-1">
+                      {stat.label}
+                    </Heading>
+                    <Text variant="small" className="font-medium text-gray-400">
+                      {stat.sublabel}
+                    </Text>
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
-          {/* Testimonial Card */}
-          <div className="bg-white border-2 border-gray-200 rounded-xl p-8 relative">
-            <div className="absolute top-6 left-6 text-[#9F3AED] text-6xl font-bold opacity-20">
-              "
+          {/* Right Column: Carousel Card */}
+          <div className="lg:col-span-8 relative">
+            <div className="absolute -left-[28px] top-12 z-20 hidden md:flex w-14 h-14 bg-white shadow-xl rounded-xl items-center justify-center text-[#9F3AED]">
+              <Quote size={28} fill="currentColor" />
             </div>
-            <div className="relative z-10">
-              <Text className="text-sm font-semibold text-[#9F3AED] uppercase tracking-wider mb-4">
-                Success Story - Fashion Industry
-              </Text>
-              <Text className="text-lg text-gray-700 mb-6 leading-relaxed">
-                "The 3-tap setup was incredible. We had AR running on our sneaker store in under 10
-                minutes. Sales increased 94% for AR-enabled products."
-              </Text>
-              <div className="mb-6">
-                <Text className="font-semibold text-gray-900">Jonathon Doe</Text>
-                <Text className="text-sm text-gray-600">E-COMMERCE DIRECTOR</Text>
+
+            <div className="bg-white rounded-[32px] p-8 md:p-14 shadow-sm border border-white min-h-[520px] flex flex-col justify-between">
+              <div>
+                <Text variant="small" className="font-bold text-gray-400 uppercase tracking-widest mb-2">
+                  Success Story
+                </Text>
+                <Heading level={3} className="text-[#1F2937] mb-8">
+                  {stories[activeTab].industry}
+                </Heading>
+                
+                <Text variant="lead" className="italic leading-relaxed mb-10 text-[#4B5563]">
+                  &quot;{stories[activeTab].quote}&quot;
+                </Text>
+
+                <div className="flex items-center gap-4 mb-12">
+                  <div className="w-14 h-14 rounded-full bg-gray-200 overflow-hidden relative">
+                     <Image 
+                       src={urlFor(stories[activeTab].avatar).width(56).height(56).url()} 
+                       alt={stories[activeTab].author} 
+                       fill
+                       className="object-cover" 
+                     />
+                  </div>
+                  <div>
+                    <Text className="font-bold text-[#1F2937]">
+                      {stories[activeTab].author}
+                    </Text>
+                    <Text variant="small" className="font-bold text-gray-400 tracking-wider uppercase">
+                      {stories[activeTab].role}
+                    </Text>
+                  </div>
+                </div>
               </div>
-              <div className="flex gap-6">
-                <div>
-                  <Text className="text-2xl font-bold text-[#0AA44C]">+127%</Text>
-                  <Text className="text-xs text-gray-600">Conversion</Text>
-                </div>
-                <div>
-                  <Text className="text-2xl font-bold text-[#0AA44C]">-68%</Text>
-                  <Text className="text-xs text-gray-600">Return</Text>
-                </div>
-                <div>
-                  <Text className="text-2xl font-bold text-[#0AA44C]">4.9/5</Text>
-                  <Text className="text-xs text-gray-600">Satisfaction</Text>
+
+              <div>
+                <hr className="border-gray-100 mb-10" />
+                <div className="grid grid-cols-3 gap-4">
+                  {/* Results Metrics */}
+                  <div>
+                    <p className="text-2xl md:text-3xl font-bold text-[#0AA44C] mb-1">{stories[activeTab].metrics.conversion}</p>
+                    <Text variant="small" className="font-bold text-gray-400 uppercase tracking-wider">
+                      Conversion
+                    </Text>
+                  </div>
+                  <div>
+                    <p className="text-2xl md:text-3xl font-bold text-[#0AA44C] mb-1">{stories[activeTab].metrics.return}</p>
+                    <Text variant="small" className="font-bold text-gray-400 uppercase tracking-wider">
+                      Return
+                    </Text>
+                  </div>
+                  <div>
+                    <p className="text-2xl md:text-3xl font-bold text-[#0AA44C] mb-1">{stories[activeTab].metrics.satisfaction}</p>
+                    <Text variant="small" className="font-bold text-gray-400 uppercase tracking-wider">
+                      Satisfaction
+                    </Text>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* Carousel dots */}
-            <div className="flex gap-2 mt-6 justify-center">
-              {[1, 2, 3].map((dot) => (
-                <div
-                  key={dot}
-                  className={`w-2 h-2 rounded-full ${
-                    dot === 1 ? 'bg-[#9F3AED]' : 'bg-gray-300'
+
+            {/* Indicator Dots */}
+            <div className="flex justify-center gap-2 mt-10">
+              {stories.map((_, i) => (
+                <button 
+                  key={i}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    i === activeTab 
+                      ? 'w-10 bg-[#9F3AED]' 
+                      : 'w-2.5 bg-[#E5E7EB] hover:bg-gray-300'
                   }`}
+                  onClick={() => setActiveTab(i)}
                 />
               ))}
             </div>
@@ -124,4 +149,3 @@ export default function SuccessStoriesSection() {
     </section>
   )
 }
-
