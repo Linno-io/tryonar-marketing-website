@@ -16,19 +16,19 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
-  
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
+
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus-visible:ring-gray-600',
-    outline: 'border-2 border-gray-300 bg-transparent hover:bg-gray-100 focus-visible:ring-gray-600',
-    ghost: 'bg-transparent hover:bg-gray-100 focus-visible:ring-gray-600',
+    primary: 'bg-[#9F3AED] text-white hover:bg-[#8B2FD9] shadow-md hover:shadow-lg focus-visible:ring-[#9F3AED]',
+    secondary: 'bg-[#0AA44C] text-white hover:bg-[#089038] shadow-md hover:shadow-lg focus-visible:ring-[#0AA44C]',
+    outline: 'border-2 border-gray-900 bg-transparent text-gray-900 hover:bg-gray-50 focus-visible:ring-gray-900',
+    ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-600',
   }
-  
+
   const sizes = {
-    sm: 'text-sm px-3 py-1.5 rounded',
-    md: 'text-base px-4 py-2 rounded-md',
-    lg: 'text-lg px-6 py-3 rounded-lg',
+    sm: 'text-sm px-4 py-2 rounded-lg',
+    md: 'text-base px-6 py-2.5 rounded-lg',
+    lg: 'text-base px-8 py-3.5 rounded-xl font-semibold',
   }
   
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`

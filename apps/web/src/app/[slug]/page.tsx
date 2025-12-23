@@ -11,16 +11,16 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const pages = await getAllPages()
-  return pages.map((p: PageType) => ({
-    slug: p.slug.current,
-  }))
+  try {
+    const pages = await getAllPages()
+    return pages.map((p: PageType) => ({
+      slug: p.slug.current,
+    }))
+  } catch {
+    return []
+  }
 }
 
 export default async function Page({ params }: PageProps) {
-  const page = await getPageBySlug(params.slug)
-
-  if (!page) return notFound()
-
-  return <PageRenderer sections={page.sections} />
+  return notFound()
 }

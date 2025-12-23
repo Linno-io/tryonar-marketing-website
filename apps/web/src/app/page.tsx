@@ -1,11 +1,23 @@
-import PageRenderer from '@/components/PageRenderer'
-import { getPageBySlug } from '@/lib/sanity/client'
-import { notFound } from 'next/navigation'
+import Navigation from '@/components/Navigation'
+import HeroSection from '@/components/sections/HeroSection'
+import RealityCheckSection from '@/components/sections/RealityCheckSection'
+import SolveChallengesSection from '@/components/sections/SolveChallengesSection'
+import SuccessStoriesSection from '@/components/sections/SuccessStoriesSection'
+import IndustrySolutionsSection from '@/components/sections/IndustrySolutionsSection'
+import TransformStoreSection from '@/components/sections/TransformStoreSection'
+import Footer from '@/components/Footer'
 
-export default async function HomePage() {
-  const page = await getPageBySlug('home')
-
-  if (!page) return notFound()
-
-  return <PageRenderer sections={page.sections} />
+export default function HomePage() {
+  return (
+    <>
+      <Navigation />
+      <HeroSection />
+      <RealityCheckSection />
+      <SolveChallengesSection />
+      <SuccessStoriesSection />
+      <IndustrySolutionsSection />
+      <TransformStoreSection />
+      <Footer />
+    </>
+  )
 }

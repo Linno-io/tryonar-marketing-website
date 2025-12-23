@@ -17,11 +17,7 @@ export async function getPageBySlug(slug: string) {
   const query = `*[_type == "page" && slug.current == $slug][0]{
     title,
     slug,
-    sections[]{
-      ..., 
-      _type == "heroSection" => {...},
-      _type == "featuresSection" => {...}
-    },
+    sections,
     seo
   }`
   return client.fetch(query, { slug })
