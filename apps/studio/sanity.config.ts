@@ -5,9 +5,9 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'TryonAR Marketing',
+  title: 'TryonAR Marketing Hub',
 
-  projectId: 'tlwbga8t',
+  projectId: '90a20xmm',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
