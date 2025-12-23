@@ -27,7 +27,7 @@ export default async function RootLayout({
         {children}
         <Footer 
           logo={siteSettings?.logo}
-          footerMenus={siteSettings?.footerMenus}
+          footerMenus={siteSettings?.footerMenus || []}
           copyrightText={siteSettings?.copyrightText}
           socialLinks={siteSettings?.socialLinks}
         />

@@ -22,7 +22,6 @@ export default function Footer({
   copyrightText = 'Copyright © 2013 - 2024 TryOn AR',
   socialLinks = []
 }: FooterProps) {
-
   return (
     <footer>
       {/* Reduced main section padding */}
