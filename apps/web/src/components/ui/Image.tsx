@@ -10,14 +10,17 @@ export default function Image({
   src,
   fallbackSrc = '/placeholder.svg',
   alt,
-  aspectRatio,
+  aspectRatio = '4 / 5',
   className = '',
   ...props
 }: ImageProps) {
   const imageSrc = src || fallbackSrc
 
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ aspectRatio }}>
+    <div
+      className={`relative overflow-hidden ${className}`}
+      style={{ aspectRatio }}
+    >
       <NextImage
         src={imageSrc}
         alt={alt}

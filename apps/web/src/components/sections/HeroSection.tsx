@@ -1,104 +1,84 @@
 'use client'
-import { Button, Badge } from '@/components/ui'
-import Container from '@/components/ui/Container'
+import { Button, Container, Heading, Text } from '@/components/ui'
+import Image from 'next/image'
+import { ArrowUpRight, Play, CheckCircle2 } from 'lucide-react'
 
 export default function HeroSection() {
   const trustBadges = [
-    { text: '94% Higher Conversion', icon: '✓' },
-    { text: '64% Fewer Returns', icon: '✓' },
-    { text: '3-Tap Setup', icon: '✓' },
+    { text: '94% Higher Conversion' },
+    { text: '64% Fewer Returns' },
+    { text: '3-Tap Setup' },
   ]
 
   return (
-    <section className="relative bg-white pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
-      <Container>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start lg:items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-              AR for Everyone, Not Just Tech Giants
-            </h1>
+    <section className="relative overflow-hidden bg-white">
+      <div 
+        className="absolute w-[417px] h-[722px] -left-[350px] top-[350px] bg-[#24EC2C]/30 blur-[80px] rounded-full rotate-[56.76deg] pointer-events-none"
+      />
+      
+      <div 
+        className="absolute w-[450px] h-[700px] -right-[100px] top-[250px] bg-[#9F5CF0]/20 blur-[80px] rounded-full rotate-[71.2deg] pointer-events-none"
+      />
+      <div className="relative pt-[120px] pb-0 flex flex-col items-center">
+        <Container className="flex flex-col items-center text-center z-10">
+          
+          {/* Main Heading */}
+          <Heading as="h1" className="text-4xl md:text-[56px] font-extrabold text-[#1F2937] tracking-tight leading-[1.1] max-w-3xl mb-6">
+            AR for Everyone, <br /> Not Just Tech Giants
+          </Heading>
 
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Transform your e-commerce store with 3-tap AR integration. Let customers try before
-              they buy, reduce returns by 64%, and boost conversions by 94% with our no-code AR
-              solution.
-            </p>
+          {/* Subtext */}
+          <Text className="text-gray-500 text-base md:text-lg max-w-2xl mb-8 leading-relaxed">
+            Transform your e-commerce store with 3-tap AR integration. Let customers try before 
+            they buy, reduce returns by 64%, and boost conversions by 94% with our no-code AR solution.
+          </Text>
 
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-              {trustBadges.map((badge) => (
-                <Badge 
-                  key={badge.text} 
-                  variant="success" 
-                  icon={<span className="text-[#0AA44C] font-bold text-lg">{badge.icon}</span>}
-                >
-                  {badge.text}
-                </Badge>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Button variant="primary" size="lg" href="#start-trial">
-                Start Free Trial
-              </Button>
-              <Button variant="outline" size="lg" href="#watch-demo">
-                Watch Demo
-              </Button>
-            </div>
+          {/* Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            {trustBadges.map((badge) => (
+              <div key={badge.text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#E9F7EF] text-[#27AE60] text-sm font-semibold border border-[#D5F1E0]">
+                <div className="bg-[#27AE60] text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px]">
+                  ✓
+                </div>
+                {badge.text}
+              </div>
+            ))}
           </div>
 
-          {/* Right Content - AR Visualization */}
-          <div className="relative">
-            <div className="relative">
-              {/* Man with sunglasses image */}
-              <div className="relative z-10">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop"
-                    alt="Man wearing AR sunglasses"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
+            <Button 
+              variant="primary"
+              className="w-[209px] h-[60px] !bg-[#9F3AED] !rounded-[10px] !font-bold !text-lg gap-[10px] shadow-[20px_20px_60px_rgba(59,26,115,0.2)]"
+            >
+              Start Free Trial <ArrowUpRight size={20} />
+            </Button>
+            <Button 
+              variant="outline" 
+              className="w-[209px] h-[60px] !bg-white !border-[#9F3AED] !text-[#2A2730] px-8 py-7 !rounded-[10px] flex items-center gap-2 bg-white/50 backdrop-blur-sm text-lg font-medium">
+              Watch Demo 
+              <Play size={20} fill="#ffffff" className="ml-0.5" />
+            </Button>
+          </div>
 
-              {/* UI Element showing sunglasses selection */}
-              <div className="absolute -bottom-12 -left-12 bg-[#9F3AED] rounded-2xl p-6 shadow-2xl z-20 w-64">
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-white rounded-lg p-3 aspect-square flex items-center justify-center">
-                    <div className="w-12 h-12 bg-gray-200 rounded"></div>
-                  </div>
-                  <div className="bg-white rounded-lg p-3 aspect-square flex items-center justify-center">
-                    <div className="w-12 h-12 bg-gray-300 rounded"></div>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <button className="w-full bg-white text-[#9F3AED] font-semibold py-2.5 rounded-lg text-sm hover:bg-gray-50 transition-colors">
-                    Buy Now
-                  </button>
-                  <button className="w-full bg-[#9F3AED] text-white font-semibold py-2.5 rounded-lg text-sm border-2 border-white hover:bg-[#8B2FD9] transition-colors">
-                    TryOn AR
-                  </button>
-                </div>
-              </div>
-
-              {/* Dotted line connecting UI to face */}
-              <svg 
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10 w-40 h-32"
-                viewBox="0 0 160 128"
-                style={{ pointerEvents: 'none' }}
-              >
-                <path
-                  d="M 80 0 Q 40 64 0 128"
-                  stroke="#9F3AED"
-                  strokeWidth="3"
-                  strokeDasharray="6 6"
-                  fill="none"
-                />
-              </svg>
+          {/* --- THE IMAGE (Partial Overlap) --- */}
+          {/* Using -mb-32 to create a less-than-50% overlap into the section below */}
+          <div className="relative w-full max-w-5xl px-4 -mb-32 z-20">
+            <div className="rounded-[32px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.14)] border-4 border-white">
+              <Image 
+                src="/latest_hero.jpg" 
+                alt="AR Dashboard Mockup"
+                width={1200}
+                height={600}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
+
+      <div className="h-[200px] bg-white" />
     </section>
   )
 }
