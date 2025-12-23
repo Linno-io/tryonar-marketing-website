@@ -1,4 +1,4 @@
-// src/app/[slug]/page.tsx
+export const revalidate = 60
 import { notFound } from 'next/navigation'
 import PageRenderer from '@/components/PageRenderer'
 import { getAllPages, getPageBySlug } from '@/lib/sanity/client'

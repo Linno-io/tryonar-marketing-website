@@ -1,3 +1,4 @@
+export const revalidate = 60
 import PageRenderer from '@/components/PageRenderer'
 import { getPageBySlug } from '@/lib/sanity/client'
 

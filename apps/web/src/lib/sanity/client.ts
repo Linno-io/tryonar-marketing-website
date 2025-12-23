@@ -16,7 +16,7 @@ export function urlFor(source: any) {
 
 export async function getAllPages() {
   const query = `*[_type == "page"]{title, slug}`
-  return client.fetch(query)
+  return client.fetch(query, {}, { next: { revalidate: 60 } })
 }
 
 export async function getPageBySlug(slug: string) {
@@ -26,5 +26,5 @@ export async function getPageBySlug(slug: string) {
     sections,
     seo
   }`
-  return client.fetch(query, { slug })
+  return client.fetch(query, { slug }, { next: { revalidate: 60 } })
 }
