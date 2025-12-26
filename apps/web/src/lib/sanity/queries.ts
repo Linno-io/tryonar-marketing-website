@@ -7,6 +7,7 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
       "url": logo.asset->url,
       "alt": logo.alt
     },
+    "favicon": favicon.asset->url,
     headerMenu[]{
       label,
       link,

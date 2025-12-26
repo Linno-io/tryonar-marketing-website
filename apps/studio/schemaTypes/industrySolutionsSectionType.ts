@@ -46,14 +46,20 @@ export const industrySolutionsSectionType = defineType({
               name: 'title',
               title: 'Title',
               type: 'string',
-              validation: (rule) => rule.required()
+              validation: (rule) => rule.custom((value, context) => {
+                if (context.parent?.comingSoon) return true
+                return value ? true : 'Required'
+              })
             },
             {
               name: 'description',
               title: 'Description',
               type: 'text',
               rows: 2,
-              validation: (rule) => rule.required()
+              validation: (rule) => rule.custom((value, context) => {
+                if (context.parent?.comingSoon) return true
+                return value ? true : 'Required'
+              })
             },
             {
               name: 'image',
@@ -62,13 +68,19 @@ export const industrySolutionsSectionType = defineType({
               options: {
                 hotspot: true
               },
-              validation: (rule) => rule.required()
+              validation: (rule) => rule.custom((value, context) => {
+                if (context.parent?.comingSoon) return true
+                return value ? true : 'Required'
+              })
             },
             {
               name: 'roi',
               title: 'ROI Value',
               type: 'string',
-              validation: (rule) => rule.required(),
+              validation: (rule) => rule.custom((value, context) => {
+                if (context.parent?.comingSoon) return true
+                return value ? true : 'Required'
+              }),
               description: 'ROI percentage (e.g., "+127%")'
             },
             {
@@ -108,7 +120,12 @@ export const industrySolutionsSectionType = defineType({
                   }
                 }
               ],
-              validation: (rule) => rule.required().min(3).max(6)
+              validation: (rule) => rule.custom((value, context) => {
+                if (context.parent?.comingSoon) return true
+                if (!value || value.length < 3) return 'At least 3 features required'
+                if (value.length > 6) return 'No more than 6 features allowed'
+                return true
+              })
             },
             {
               name: 'stats',
@@ -141,7 +158,19 @@ export const industrySolutionsSectionType = defineType({
                   }
                 }
               ],
-              validation: (rule) => rule.required().min(3).max(4)
+              validation: (rule) => rule.custom((value, context) => {
+                if (context.parent?.comingSoon) return true
+                if (!value || value.length < 3) return 'At least 3 stats required'
+                if (value.length > 4) return 'No more than 4 stats allowed'
+                return true
+              })
+            },
+            {
+              name: 'comingSoon',
+              title: 'Coming Soon',
+              type: 'boolean',
+              description: 'Mark this industry as coming soon (not yet available)',
+              initialValue: false
             }
           ],
           preview: {

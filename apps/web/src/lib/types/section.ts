@@ -131,5 +131,6 @@ export interface IndustrySolutionsSection extends Section {
       value: string
       label: string
     }[]
+    comingSoon?: boolean
   }[]
 }

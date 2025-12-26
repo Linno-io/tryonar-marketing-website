@@ -107,9 +107,9 @@ export default function RealityCheckSection({ data }: Props) {
 
             {/* Right: Tab Details */}
             <div className="lg:col-span-8">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#9F3AED] mb-6">
+              <h3 className="text-3xl md:text-4xl font-extrabold text-[#9F3AED] mb-6">
                 {activeContent.detailsTitle}
-              </h2>
+              </h3>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed">
                 {activeContent.detailsDescription}
               </p>

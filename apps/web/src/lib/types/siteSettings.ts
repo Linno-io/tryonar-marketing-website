@@ -29,6 +29,7 @@ export interface SocialLink {
 
 export interface SiteSettings {
   logo: SanityImage
+  favicon?: SanityImage
   headerMenu: MenuItem[]
   footerMenus: FooterMenu[]
   copyrightText: string

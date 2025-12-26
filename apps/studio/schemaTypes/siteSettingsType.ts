@@ -6,6 +6,23 @@ export default defineType({
   title: 'Site Settings',
   fields: [
     {
+      name: 'favicon',
+      type: 'image',
+      title: 'Favicon',
+      description: 'Upload a favicon for your site (recommended: 32x32 PNG or ICO)',
+      options: {
+        hotspot: false,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alt text',
+          description: 'Alternative text for the favicon (optional)',
+        },
+      ],
+    },
+    {
       name: 'logo',
       type: 'image',
       title: 'Logo',
