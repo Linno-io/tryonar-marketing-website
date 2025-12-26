@@ -11,11 +11,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "TryOn AR - AR for Everyone, Not Just Tech Giants",
     description:
       "Transform your e-commerce store with 3-tap AR integration. Let customers try before they buy, reduce returns by 64%, and boost conversions by 94% with our no-code AR solution.",
-    icons: siteSettings?.favicon
+    icons: siteSettings?.favicon?.url
       ? {
           icon: [
             {
-              url: siteSettings.favicon,
+              url: siteSettings.favicon.url,
               rel: "icon",
               type: "image/png",
             },
