@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface DotBackgroundProps {
+export interface DotBackgroundProps {
   dotSize?: number;
   gap?: number;
   color?: string; // e.g., "bg-slate-300"
