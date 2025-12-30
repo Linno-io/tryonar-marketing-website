@@ -25,7 +25,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
     : '/hand-holding-phone.png' 
 
   return (
-    <section className="relative bg-white overflow-hidden pt-36 pb-20 lg:pt-52 lg:pb-32 border-b border-[#eeedf2]">      <div className="absolute inset-0 pointer-events-none z-0">
+    <section className="relative bg-white overflow-hidden pt-36 pb-20 lg:pt-52 lg:pb-32 border-b border-[#eeedf2]">      <div className="absolute inset-0 pointer-events-none z-0" style={{background: 'linear-gradient(180deg, #E3D5FF 0%, #FFF 43.22%, #FFF 100%)'}}>
         <div 
           className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[120px]" 
           style={{ background: 'radial-gradient(circle, rgba(159, 58, 237, 0.15) 0%, rgba(159, 58, 237, 0) 70%)' }}

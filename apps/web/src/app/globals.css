@@ -32,3 +32,25 @@ body {
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
+
+.arrow-border {
+  position: relative;
+}
+.arrow-border:before {
+    content: "";
+    background: #D7D7D7;
+    width: 1px;
+    height: 32px;
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: -27px;
+    transform: rotate(45deg);
+}
+
+@media (width <= 64rem /* 1024px */) {
+  .arrow-border:before {
+      content: "";
+      display: none;
+  }
+}
