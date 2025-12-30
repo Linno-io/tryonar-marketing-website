@@ -52,6 +52,15 @@ body {
     position: relative;
 }
 
+.gallery-section::before {
+    content: "";
+    background: linear-gradient(180deg, #FFF 3.85%, rgba(255, 255, 255, 0.00) 63.94%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
 /* .section-experience:before {
     content: "";
     border-radius: 988.455px;
