@@ -27,7 +27,7 @@ const VirtualTryOnSection = () => {
 
         {/* Right Visual Column */}
         <div className="relative bg-slate-50 rounded-3xl overflow-hidden flex items-center justify-center min-h-[400px]">
-          <Image src="/virtual-tryon.png" alt="Virtual Try-On Platforms" width={400} height={300} className="object-contain max-h-72" />
+          <img src="/virtual-tryon.png" alt="Virtual Try-On Platforms" className="object-contain w-full" />
         </div>
 
       </div>
