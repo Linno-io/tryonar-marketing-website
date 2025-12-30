@@ -18,7 +18,7 @@ const industries = [
       { name: 'Social sharing integration', icon: <Share2 size={18} /> },
     ],
     stats: { conversion: '+127%', return: '-68%', engagement: '89+' },
-    image: '/eyewear-model.png' 
+    image: '/sunglass-face.png' 
   },
   {
     id: 'headwear',
@@ -28,7 +28,7 @@ const industries = [
     description: 'Ensure the perfect fit for hats, helmets, and beanies with 3D head mapping.',
     features: ['Head size calibration', 'Hair occlusion technology', 'Style matching', 'Material texture preview'],
     stats: { conversion: '+95%', return: '-42%', engagement: '74+' },
-    image: '/headwear-model.png'
+    image: '/headwear-image.png'
   },
   {
     id: 'jewelry',
@@ -181,20 +181,24 @@ export default function IndustryARSection() {
 
             {/* Bottom Stats Overlay (Glassmorphism) */}
             <div className="absolute bottom-10 left-10 right-10">
-              <div className="bg-white/50 backdrop-blur-2xl border border-white/60 rounded-[32px] p-8 shadow-2xl flex justify-around items-center">
-                <div className="text-center px-4">
-                  <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.conversion}</div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Conversion</div>
+              <div className="bg-white/50 backdrop-blur-2xl border border-white/60 rounded-[32px] p-8 shadow-2xl flex flex-col sm:flex-row justify-around items-stretch sm:items-center gap-4 sm:gap-0">
+                <div className="flex-1 flex flex-row sm:flex-col items-center sm:items-center justify-center sm:justify-center text-center px-0 sm:px-4 border-b sm:border-b-0 sm:border-r border-slate-200/50 last:border-b-0 sm:last:border-r-0 pb-4 sm:pb-0">
+                  <div>
+                    <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.conversion}</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Conversion</div>
+                  </div>
                 </div>
-                <div className="w-[1px] h-10 bg-slate-200/50" />
-                <div className="text-center px-4">
-                  <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.return}</div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Return</div>
+                <div className="flex-1 flex flex-row sm:flex-col items-center sm:items-center justify-center sm:justify-center text-center px-0 sm:px-4 border-b sm:border-b-0 sm:border-r border-slate-200/50 last:border-b-0 sm:last:border-r-0 pb-4 sm:pb-0">
+                  <div>
+                    <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.return}</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Return</div>
+                  </div>
                 </div>
-                <div className="w-[1px] h-10 bg-slate-200/50" />
-                <div className="text-center px-4">
-                  <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.engagement}</div>
-                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Engagement</div>
+                <div className="flex-1 flex flex-row sm:flex-col items-center sm:items-center justify-center sm:justify-center text-center px-0 sm:px-4 pb-0">
+                  <div>
+                    <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.engagement}</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Engagement</div>
+                  </div>
                 </div>
               </div>
             </div>
