@@ -24,7 +24,7 @@ export default function Container({
   }
 
   const paddingClass = padding ? 'px-4 sm:px-6 md:px-8' : ''
-  const borderClass = withBorder ? 'border-l border-r border-[#D1D5DB]' : ''
+  const borderClass = withBorder ? 'border-l border-r border-[#EEEDF2]' : ''
   const classes = `mx-auto w-full ${sizes[size]} ${paddingClass} ${borderClass} ${className}`
   return (
     <div className={classes} {...props}>

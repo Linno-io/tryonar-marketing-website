@@ -17,8 +17,8 @@ export default function ReadyToSolveSection() {
         />
       </Container>
       
-      <Container className="relative border-x-[1px] border-[#EEEDF2] bg-[#FFFFFF] p-8 lg:p-16 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)] overflow-hidden">
-        <div className="relative z-10 text-center max-w-2xl mx-auto mb-16">
+      <Container withBorder={true} className='py-24 !px-[10px]'>
+        <div className="relative z-10 text-center mx-auto mb-16">
           <Heading level={2} className="text-[#1A202C] text-4xl lg:text-5xl font-bold mb-6">
             Ready to Solve These <span className="text-gray-400">Challenges?</span>
           </Heading>

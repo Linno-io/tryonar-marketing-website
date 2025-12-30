@@ -66,14 +66,14 @@ export default function EcommerceChallenge() {
 
   return (
     <section className="bg-[#ffffff]font-sans text-[#1f2937]">
-      <Container size="xl" withBorder={true} className='py-24 px-0'>
+      <Container size="xl" withBorder={true} className='py-24 !px-[10px]'>
         {/* Header */}
         <div className="text-center mb-16">
           <span className="text-[#FFA49B] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 mb-6">
             <span className="border border-[#FFA49B] rounded-full w-5 h-5 flex items-center justify-center text-[10px] italic">i</span>
             The Reality Check
           </span>
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6">
             E-commerce's Biggest <span className="text-[#9ca3af]">Challenge</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
