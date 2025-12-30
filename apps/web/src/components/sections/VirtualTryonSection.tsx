@@ -26,31 +26,8 @@ const VirtualTryOnSection = () => {
         </div>
 
         {/* Right Visual Column */}
-        <div className="relative bg-slate-50 rounded-3xl p-8 md:p-12 overflow-hidden flex items-center justify-center min-h-[400px]">
-          {/* Decorative Background Grid */}
-          <div className="absolute inset-0 opacity-40 pointer-events-none" 
-               style={{ backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', size: '40px 40px' }} 
-          />
-          
-          {/* Platform Logos Grid/Composition */}
-          <div className="relative grid grid-cols-2 gap-6 md:gap-8 rotate-[-10deg]">
-             {/* Magento */}
-            <div className="bg-orange-600 p-6 rounded-2xl shadow-xl transform hover:scale-105 transition-transform">
-               <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-2xl">M</div>
-            </div>
-            {/* Shopify */}
-            <div className="bg-white p-6 rounded-2xl shadow-xl translate-y-8 transform hover:scale-105 transition-transform">
-               <div className="w-12 h-12 bg-[#95BF47] rounded-md" />
-            </div>
-            {/* BigCommerce */}
-            <div className="bg-[#121118] p-6 rounded-2xl shadow-xl -translate-y-4 transform hover:scale-105 transition-transform">
-               <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-2xl italic">B</div>
-            </div>
-            {/* WooCommerce */}
-            <div className="bg-[#96588A] p-6 rounded-2xl shadow-xl translate-y-4 transform hover:scale-105 transition-transform">
-               <div className="w-12 h-12 flex items-center justify-center text-white font-bold text-xl">Woo</div>
-            </div>
-          </div>
+        <div className="relative bg-slate-50 rounded-3xl overflow-hidden flex items-center justify-center min-h-[400px]">
+          <Image src="/virtual-tryon.png" alt="Virtual Try-On Platforms" width={400} height={300} className="object-contain max-h-72" />
         </div>
 
       </div>

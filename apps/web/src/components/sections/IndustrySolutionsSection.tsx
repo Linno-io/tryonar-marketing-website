@@ -70,7 +70,7 @@ export default function IndustryARSection() {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Main Header */}
         <div className="text-center mb-16">
-          <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[10px] uppercase mb-4">Industry Solutions</p>
+          <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-4">Industry Solutions</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
             Tailored AR experiences for <span className="text-slate-400">every industry</span>
           </h2>

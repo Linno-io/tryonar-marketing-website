@@ -136,55 +136,10 @@ export default function EcommerceChallenge() {
                 </div>
               </div>
 
-              {/* Right Content: Chart */}
-              <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-gray-100">
-                <div className="flex justify-between items-center mb-16">
-                   <h4 className="text-[11px] font-black tracking-widest text-gray-400 italic uppercase">
-                    CONVERSION RATE
-                   </h4>
-                   <div className="text-[#a855f7]">
-                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                     </svg>
-                   </div>
-                </div>
-
-                <div className="relative h-56 w-full flex items-end justify-between px-2">
-                  {/* Grid Lines */}
-                  <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
-                    {[0, 1, 2, 3].map((line) => (
-                      <div key={line} className="w-full border-t border-dashed border-gray-100" />
-                    ))}
-                  </div>
-
-                  {/* Dynamic Data Points */}
-                  {current.chartData.map((point: any, i: number) => (
-                    <div key={i} className="relative flex flex-col items-center z-10 h-full justify-end">
-                      <motion.div 
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="w-3 h-3 rounded-full"
-                        style={{ 
-                          backgroundColor: point.color,
-                          marginBottom: `${point.value}%`,
-                          boxShadow: `0 0 20px ${point.color}60`
-                        }}
-                      />
-                      <span 
-                        className="absolute font-bold text-xs"
-                        style={{ bottom: `${point.value + 8}%`, color: point.color }}
-                      >
-                        {point.label}
-                      </span>
-                      <span className="mt-4 text-[10px] font-bold text-gray-400 uppercase">
-                        {point.month}
-                      </span>
-                    </div>
-                  ))}
-                  
-                  {/* Subtle Background Fill Curve (Simplified) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#FFA49B08] to-transparent rounded-b-3xl" />
-                </div>
+              {/* Right Content: Image Placeholder */}
+              <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-gray-100 flex items-center justify-center min-h-[300px]">
+                {/* Replace the src below with your image path */}
+                <img src="/placeholder-image.png" alt="E-commerce Challenge" className="max-h-60 object-contain" />
               </div>
             </motion.div>
           </AnimatePresence>
