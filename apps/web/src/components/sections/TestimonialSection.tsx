@@ -37,7 +37,7 @@ export default function TestimonialSection() {
 
         {/* Grid */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-h-[720px] overflow-hidden"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-h-[880px] overflow-hidden"
           style={{
             maskImage:
               "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
@@ -55,7 +55,7 @@ export default function TestimonialSection() {
                 key={i}
                 className={`bg-white border border-gray-100 rounded-[28px] p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-opacity duration-300 ${
                   isFaded ? "opacity-40" : "opacity-100"
-                }`}
+                } ${rowIndex === 0 ? "-mt-35 bg-[linear-gradient(180deg,#F8F8F9_71.75%,#FFF_100%)]" : ""}`}
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-5">
