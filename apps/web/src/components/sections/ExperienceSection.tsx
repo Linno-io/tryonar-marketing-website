@@ -46,7 +46,7 @@ const ExperienceSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-16 items-center">
 
                     {/* Left Column */}
-                    <div className="relative order-2 lg:order-1 flex flex-col items-start">
+                    <div className="order-2">
                         {features.slice(0, 2).map((item, idx) => (
                             <Fragment key={idx}>
                                 <div key={idx} className="group relative z-10 py-10">
@@ -69,9 +69,8 @@ const ExperienceSection = () => {
 
 
                     {/* Center Phone Image */}
-                    <div className="order-1 lg:order-2 flex justify-center relative mb-0 z-20 lg:-mb-[95px] scale-100 lg:scale-150">
+                    <div className="order-1 lg:order-2 flex justify-center relative mb-0 z-20 lg:-mb-[55%] scale-100 lg:scale-150">
                         <div className="relative w-[280px] h-[580px] md:w-[320px] md:h-[650px]">
-                            {/* Replace with your Sanity Image URL */}
                             <img
                                 src="/export-shopping.png"
                                 alt="App Interface"
@@ -80,11 +79,11 @@ const ExperienceSection = () => {
                         </div>
                     </div>
 
-                    {/* Right Column */}
-                    <div className="space-y-24 order-3">
+
+                    <div className="order-3">
                         {features.slice(2, 4).map((item, idx) => (
                             <Fragment key={idx}>
-                                <div key={idx} className="group relative z-10">
+                                <div key={idx} className="group relative z-10 py-10">
                                     <div className="mb-8 p-3 w-fit rounded-lg bg-white/5 border border-white/10 group-hover:border-purple-500 transition-colors">
                                         {item.icon}
                                     </div>
@@ -100,7 +99,6 @@ const ExperienceSection = () => {
                             </Fragment>
                         ))}
                     </div>
-
                 </div>
             </div>
         </section>

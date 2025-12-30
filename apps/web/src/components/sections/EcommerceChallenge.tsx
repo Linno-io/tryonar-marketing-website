@@ -23,6 +23,7 @@ const contentData: Record<TabId, any> = {
       { month: 'Jul', value: 35, label: '1.8%', color: '#FFD166' },
       { month: 'Sep', value: 15, label: '0.7%', color: '#EF4444' },
     ],
+    image: '/low-conversion.png',
   },
   'return-rate': {
     title: '30% Return Rate',
@@ -40,6 +41,7 @@ const contentData: Record<TabId, any> = {
       { month: 'Jul', value: 80, label: '30%', color: '#EF4444' },
       { month: 'Sep', value: 85, label: '32%', color: '#EF4444' },
     ],
+    image: '/return-rate.png',
   },
   'dev-complexity': {
     title: 'Dev Complexity',
@@ -57,6 +59,7 @@ const contentData: Record<TabId, any> = {
       { month: 'Jul', value: 90, label: 'Hard', color: '#EF4444' },
       { month: 'Sep', value: 95, label: 'Extreme', color: '#EF4444' },
     ],
+    image: '/dev-complexity.png',
   },
 };
 
@@ -83,17 +86,17 @@ export default function EcommerceChallenge() {
 
         {/* Tabs Selection */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {(Object.keys(contentData) as TabId[]).map((id) => (
+          {Object.entries(contentData).map(([id, data]) => (
             <button
               key={id}
-              onClick={() => setActiveTab(id)}
+              onClick={() => setActiveTab(id as TabId)}
               className={`px-8 py-2.5 rounded-full border-2 text-sm font-semibold transition-all duration-300 ${
                 activeTab === id
                   ? 'border-[#FFA49B] text-[#FFA49B] bg-white shadow-sm'
                   : 'border-transparent text-gray-400 hover:text-gray-600'
               }`}
             >
-              {contentData[id].title.split(' ')[0]} {contentData[id].title.split(' ')[1] || ''}
+              {data.title.split(' ')[0]} {data.title.split(' ')[1] || ''}
             </button>
           ))}
         </div>
@@ -136,10 +139,12 @@ export default function EcommerceChallenge() {
                 </div>
               </div>
 
-              {/* Right Content: Image Placeholder */}
               <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-gray-100 flex items-center justify-center min-h-[300px]">
-                {/* Replace the src below with your image path */}
-                <img src="/placeholder-image.png" alt="E-commerce Challenge" className="max-h-60 object-contain" />
+                <img
+                  src={current.image}
+                  alt={current.title}
+                  className="w-full object-contain"
+                />
               </div>
             </motion.div>
           </AnimatePresence>

@@ -1,15 +1,59 @@
 import Image from "next/image";
 import { Container } from "@/components/ui";
 
-const testimonial = {
-  name: "Jonathon Doe",
-  handle: "@daviswin",
-  quote:
-    "The 3-tap setup was incredible. We had AR running on our sneaker store in under 10 minutes. Sales increased 94% for AR-enabled products.",
-};
+const testimonials = [
+  {
+    name: "Jonathon Doe",
+    handle: "@daviswin",
+    quote:
+      "The 3-tap setup was incredible. We had AR running on our sneaker store in under 10 minutes. Sales increased 94% for AR-enabled products.",
+  },
+  {
+    name: "Sarah Lee",
+    handle: "@sarahlee",
+    quote:
+      "TryonAR made our sunglasses launch a hit. Customers loved the virtual try-on, and our returns dropped by 40%.",
+  },
+  {
+    name: "Carlos Mendez",
+    handle: "@carlitos",
+    quote:
+      "Integration was seamless. Our conversion rate improved instantly. Highly recommend for any e-commerce store!",
+  },
+  {
+    name: "Priya Singh",
+    handle: "@priyasingh",
+    quote:
+      "Our customers are spending more time on product pages and sharing their try-on photos. Engagement is up 3x!",
+  },
+  {
+    name: "Emily Chen",
+    handle: "@emchen",
+    quote:
+      "We saw a 60% increase in AR-enabled product sales. The setup was so easy, even for our small team.",
+  },
+  {
+    name: "David Kim",
+    handle: "@davidkim",
+    quote:
+      "TryonAR gave us a competitive edge. Our sneaker drops now sell out faster than ever.",
+  },
+  {
+    name: "Fatima Al-Farsi",
+    handle: "@fatimaal",
+    quote:
+      "The analytics dashboard is a game changer. We can see exactly how AR impacts our sales and customer behavior.",
+  },
+  {
+    name: "Luca Rossi",
+    handle: "@lucarossi",
+    quote:
+      "Customers love the AR experience. We get daily messages about how fun and easy it is to use.",
+  },
+];
 
-// 12 cards → 4 rows × 3 cols
-const items = Array.from({ length: 12 }, () => testimonial);
+// Use up to 8 testimonials
+const items = testimonials.slice(0, 8);
 
 export default function TestimonialSection() {
   return (

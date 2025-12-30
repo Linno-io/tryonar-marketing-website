@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react'; // Assuming you use lucide-react fo
 
 const VirtualTryOnSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <section className="max-w-7xl mx-auto px-6 py-16 md:py-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         {/* Left Content Column */}

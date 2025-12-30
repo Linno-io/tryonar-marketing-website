@@ -50,10 +50,9 @@ body {
 
 .section-experience {
     position: relative;
-    overflow: hidden;
 }
 
-.section-experience:before {
+/* .section-experience:before {
     content: "";
     border-radius: 988.455px;
     background: #FFA49B;
@@ -81,7 +80,7 @@ body {
     z-index: 0;
     left: 30%;
     transform: translateX(-50%) rotate(-13.504deg);
-}
+} */
 
 @media (width <= 64rem /* 1024px */) {
   .arrow-border:before {
