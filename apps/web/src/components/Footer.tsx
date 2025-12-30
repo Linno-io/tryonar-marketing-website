@@ -75,7 +75,7 @@ export default function Footer({
       </Container>
 
       {/* Full-Width Background Text - Break out of container */}
-      <div className="mt-10 relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] pointer-events-none select-none">
+      <div className="mt-10 relative w-screen left-1/2 right-1/2 -mb-45 -ml-[50vw] -mr-[50vw] pointer-events-none select-none">
         <svg 
           viewBox="0 0 1400 320" 
           preserveAspectRatio="xMinYMin slice" 
