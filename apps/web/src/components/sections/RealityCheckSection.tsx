@@ -23,7 +23,7 @@ export default function RealityCheckSection({ data }: Props) {
   const activeContent = tabs.find((t) => t.id === activeTab) || tabs[0]
 
   return (
-    <section className="bg-[#f7f7ff] relative" style={{ paddingTop: '280px', paddingBottom: '80px' }}>
+    <section className="bg-[#f7f7ff] relative py-30">
       <Container>
         {/* Header Section */}
         <div className="text-center mb-12 px-4">

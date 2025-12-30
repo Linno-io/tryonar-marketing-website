@@ -1,7 +1,7 @@
 'use client'
 import { Button, Container, Heading, Text } from '@/components/ui'
 import Image from 'next/image'
-import { ArrowUpRight, Play } from 'lucide-react'
+import { ArrowUpRight, Play, Check } from 'lucide-react'
 import { HeroSection as HeroSectionType } from '@/lib/types/section'
 import { urlFor } from '@/lib/sanity/client'
 
@@ -19,73 +19,89 @@ export default function HeroSection({ data }: HeroSectionProps) {
   ]
   const primaryCta = data?.primaryCta || { text: 'Start Free Trial', link: '#' }
   const secondaryCta = data?.secondaryCta || { text: 'Watch Demo', link: '#' }
-  const heroImageUrl = data?.heroImage ? urlFor(data.heroImage).width(1200).height(600).url() : '/latest_hero.jpg'
-  const heroImageAlt = data?.heroImage?.alt || 'AR Dashboard Mockup'
+  
+  const heroImageUrl = data?.heroImage 
+    ? urlFor(data.heroImage).width(1200).url() 
+    : '/hand-holding-phone.png' 
 
   return (
-    <section className="relative bg-white z-10">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute w-[40vw] h-[70vh] left-[-10%] top-[10%] bottom-[10%] -translate-x-1/2 bg-[#24EC2C]/30 blur-[100px] rounded-full rotate-[56deg]" />
-        <div className="absolute w-[80vw] h-[70vh] right-[-5%] top-[100%] translate-x-1/3 bg-[#9F5CF0]/20 blur-[100px] rounded-full rotate-[71deg]" />
+    <section className="relative bg-white overflow-hidden pt-36 pb-20 lg:pt-52 lg:pb-32 border-b border-[#eeedf2]">      <div className="absolute inset-0 pointer-events-none z-0">
+        <div 
+          className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[120px]" 
+          style={{ background: 'radial-gradient(circle, rgba(159, 58, 237, 0.15) 0%, rgba(159, 58, 237, 0) 70%)' }}
+        />
+        <div 
+          className="absolute top-[20%] right-[-10%] w-[700px] h-[800px] rounded-full blur-[130px]" 
+          style={{ background: 'radial-gradient(circle, rgba(255, 165, 0, 0.12) 0%, rgba(255, 165, 0, 0) 70%)' }}
+        />
       </div>
-      <div className="relative pt-[120px] pb-0 flex flex-col items-center">
-        <Container className="flex flex-col items-center text-center z-10">          
-          <Heading level={1} className="text-4xl md:text-[56px] font-extrabold text-[#1F2937] tracking-tight leading-[1.1] max-w-3xl mb-6">
-            {heading.split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < heading.split('\n').length - 1 && <br />}
-              </span>
-            ))}
-          </Heading>
 
-          <Text className="text-gray-500 text-base md:text-lg max-w-2xl mb-8 leading-relaxed">
-            {subtext}
-          </Text>
+      <Container className="relative z-10">
+        <div className="grid lg:grid-cols-10 gap-10 items-center">          
+          <div className="lg:col-span-6 flex flex-col text-left">
+            <Heading 
+              level={1} 
+              className="text-[#1A202C] font-bold tracking-[-4px] leading-[90px] mb-8"
+              style={{ 
+                fontFamily: "'Circular Std', sans-serif", 
+              }}
+            >
+              {heading.split('\n').map((line, i) => (
+                <span key={i} className="block whitespace-nowrap">{line}</span>
+              ))}
+            </Heading>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            {trustBadges.map((badge, index) => (
-              <div key={index} className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#E9F7EF] text-[#27AE60] text-sm font-semibold border border-[#D5F1E0]">
-                <div className="bg-[#27AE60] text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px]">
-                  ✓
+            <Text className="text-gray-500 text-[20px] mb-10 leading-[1.6] max-w-[580px]">
+              {subtext}
+            </Text>
+
+            {/* Trust Badges */}
+            <div className="flex flex-wrap gap-3 mb-12">
+              {trustBadges.map((badge, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-100 bg-white/80 shadow-sm"
+                >
+                  <Check size={16} className="text-[#1A202C] stroke-[3px]" />
+                  <span className="text-sm font-bold text-[#1A202C]">
+                    {badge.text}
+                  </span>
                 </div>
-                {badge.text}
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex items-center gap-4">
+              <Button 
+                variant="primary"
+                className="h-[64px] px-10 !bg-[#1A202C] !text-white !rounded-xl !font-bold text-lg flex items-center gap-2 shadow-2xl shadow-black/10"
+              >
+                {primaryCta.text} <ArrowUpRight size={22} />
+              </Button>
+              <Button 
+                variant="outline" 
+                className="h-[64px] px-10 !bg-[#F3F4F6] !border-transparent !text-[#1A202C] !rounded-xl !font-bold text-lg flex items-center gap-2"
+              >
+                {secondaryCta.text} <Play size={20} className="fill-[#1A202C]" />
+              </Button>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-            <Button 
-              variant="primary"
-              className="w-[209px] h-[60px] !bg-[#9F3AED] !rounded-[10px] !font-bold !text-lg gap-[10px] shadow-[20px_20px_60px_rgba(59,26,115,0.2)]"
-              onClick={() => window.location.href = primaryCta.link}
-            >
-              {primaryCta.text} <ArrowUpRight size={20} />
-            </Button>
-            <Button 
-              variant="outline" 
-              className="w-[209px] h-[60px] !bg-white !border-[#9F3AED] !text-[#2A2730] px-8 py-7 !rounded-[10px] flex items-center gap-2 bg-white/50 backdrop-blur-sm text-lg font-medium"
-              onClick={() => window.location.href = secondaryCta.link}
-            >
-              {secondaryCta.text}
-              <Play size={20} fill="#ffffff" className="ml-0.5" />
-            </Button>
-          </div>
-
-          <div className="relative w-full max-w-5xl px-4 z-20" style={{ marginBottom: '-180px' }}>
-            <div className="rounded-[32px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.14)] border-4 border-white">
+          <div className="lg:col-span-4 relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[480px]">
               <Image 
                 src={heroImageUrl} 
-                alt={heroImageAlt}
-                width={1200}
-                height={600}
-                className="w-full h-auto"
+                alt="AR Try-on Mockup"
+                width={500}
+                height={700}
+                className="w-full h-auto object-contain drop-shadow-2xl"
                 priority
               />
             </div>
           </div>
-        </Container>
-      </div>
+
+        </div>
+      </Container>
     </section>
   )
 }

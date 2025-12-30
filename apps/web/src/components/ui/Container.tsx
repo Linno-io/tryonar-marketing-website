@@ -3,7 +3,8 @@ import { HTMLAttributes, ReactNode } from 'react'
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
-  padding?: boolean
+  padding?: boolean,
+  withBorder?: boolean
 }
 
 export default function Container({
@@ -11,6 +12,7 @@ export default function Container({
   size = 'xl',
   padding = true,
   className = '',
+  withBorder = false,
   ...props
 }: ContainerProps) {
   const sizes = {
@@ -22,8 +24,8 @@ export default function Container({
   }
 
   const paddingClass = padding ? 'px-4 sm:px-6 md:px-8' : ''
-  const classes = `mx-auto w-full ${sizes[size]} ${paddingClass} ${className}`
-
+  const borderClass = withBorder ? 'border-l border-r border-[#D1D5DB]' : ''
+  const classes = `mx-auto w-full ${sizes[size]} ${paddingClass} ${borderClass} ${className}`
   return (
     <div className={classes} {...props}>
       {children}

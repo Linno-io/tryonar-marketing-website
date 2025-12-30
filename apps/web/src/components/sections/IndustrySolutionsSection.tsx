@@ -1,161 +1,207 @@
-'use client'
-import { useState } from 'react'
-import Container from '@/components/ui/Container'
-import Heading from '@/components/ui/Heading'
-import Text from '@/components/ui/Text'
-import Button from '@/components/ui/Button'
-import Image from 'next/image'
-import { Scan, Sparkles, LayoutPanelLeft, Share2, ArrowUpRight, Play } from 'lucide-react'
-import { IndustrySolutionsSection as IndustrySolutionsSectionProps } from '@/lib/types/section'
-import { urlFor } from '@/lib/sanity/client'
+"use client";
 
-interface Props {
-  data: IndustrySolutionsSectionProps
-}
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkles, ScanFace, Ruler, Share2, Play, ArrowUpRight } from 'lucide-react';
 
-const iconMap = {
-  scan: <Scan size={18} />,
-  sparkles: <Sparkles size={18} />,
-  layoutPanel: <LayoutPanelLeft size={18} />,
-  share: <Share2 size={18} />
-}
+const industries = [
+  {
+    id: 'eyewear',
+    name: 'Eyewear',
+    isComingSoon: false,
+    title: 'Eyewear',
+    description: 'Try on glasses, sunglasses, and contact lenses virtually',
+    features: [
+      { name: 'Face shape analysis', icon: <ScanFace size={18} /> },
+      { name: 'Virtual fitting rooms', icon: <Ruler size={18} /> },
+      { name: 'Size recommendation AI', icon: <Sparkles size={18} /> },
+      { name: 'Social sharing integration', icon: <Share2 size={18} /> },
+    ],
+    stats: { conversion: '+127%', return: '-68%', engagement: '89+' },
+    image: '/eyewear-model.png' 
+  },
+  {
+    id: 'headwear',
+    name: 'Headwear',
+    isComingSoon: false,
+    title: 'Headwear & Hats',
+    description: 'Ensure the perfect fit for hats, helmets, and beanies with 3D head mapping.',
+    features: ['Head size calibration', 'Hair occlusion technology', 'Style matching', 'Material texture preview'],
+    stats: { conversion: '+95%', return: '-42%', engagement: '74+' },
+    image: '/headwear-model.png'
+  },
+  {
+    id: 'jewelry',
+    name: 'Jewelry',
+    isComingSoon: true,
+    title: 'Jewelry',
+    description: 'Hyper-realistic gemstone and metal rendering for rings and necklaces.',
+    features: ['Hand tracking', 'Realistic shaders', 'Size sizer', 'Multi-stacking preview'],
+    stats: { conversion: '+110%', return: '-52%', engagement: '78+' },
+    image: '/jewelry-model.png'
+  },
+  {
+    id: 'footwear',
+    name: 'Footwear',
+    isComingSoon: true,
+    title: 'Footwear',
+    description: 'Step into the future with real-time foot tracking and virtual sneaker try-ons.',
+    features: ['Ankle occlusion', 'Surface detection', 'PBR textures', 'Direct-to-cart'],
+    stats: { conversion: '+142%', return: '-70%', engagement: '95+' },
+    image: '/footwear-model.png'
+  },
+];
 
-export default function IndustrySolutionsSection({ data }: Props) {
-  const [activeTab, setActiveTab] = useState(data.industries[0]?.id?.current || '')
-
-  const activeData = data.industries.find((ind) => ind.id.current === activeTab) || data.industries[0]
-  const isComingSoon = activeData?.comingSoon;
+export default function IndustryARSection() {
+  const [activeTab, setActiveTab] = useState(industries[0]);
 
   return (
-    <section className="py-24 bg-white">
-      <Container>
-        {/* Header */}
-        <div className="text-center mb-10">
-          <Text className="font-bold text-[#0AA44C] tracking-widest uppercase mb-3" variant="small">
-            Industry Solutions
-          </Text>
-          <Heading level={2} className="text-[#1F2937] mb-4 font-extrabold">
-            {data.heading}
-          </Heading>
-          <Text className="text-gray-500 max-w-2xl mx-auto font-medium">
-            {data.subheading}
-          </Text>
+    <section className="bg-[#F7F8F9] py-24 px-6 min-h-screen flex items-center relative overflow-hidden">
+      
+      {/* BOTTOM RIGHT GRADIENT GLOW */}
+      <div 
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none z-0"
+        style={{
+          background: 'radial-gradient(circle at bottom right, rgba(232, 193, 255, 0.6) 0%, rgba(255, 186, 186, 0.4) 30%, transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        {/* Main Header */}
+        <div className="text-center mb-16">
+          <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[10px] uppercase mb-4">Industry Solutions</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            Tailored AR experiences for <span className="text-slate-400">every industry</span>
+          </h2>
+          <p className="text-slate-500 mt-5 max-w-2xl mx-auto text-lg leading-relaxed">
+            From fashion to jewelry, our AR solutions are customized to meet the unique needs of your industry
+          </p>
         </div>
 
-        {/* Tab Navigation - Rectangular with Soft Corners */}
-        <div className="flex flex-wrap justify-center gap-2 mb-16">
-          {data.industries.map((ind) => {
-            const isComingSoon = ind.comingSoon;
-            return (
-              <button
-                key={ind.id.current}
-                onClick={() => !isComingSoon && setActiveTab(ind.id.current)}
-                className={`px-5 py-2 rounded-lg font-bold text-sm transition-all duration-200 relative ${
-                  activeTab === ind.id.current
-                    ? 'bg-[#9F3AED] text-white'
-                    : isComingSoon
-                      ? 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-60'
-                      : 'bg-[#F9FAFB] text-gray-500 hover:bg-gray-100'
-                }`}
-                disabled={isComingSoon}
-                aria-disabled={isComingSoon}
-                tabIndex={isComingSoon ? -1 : 0}
-              >
-                {ind.label}
-                {isComingSoon && (
-                  <span className="absolute -top-2 -right-2 bg-purple-400 text-xs text-white px-2 py-0.5 rounded-full font-bold shadow">Coming Soon</span>
-                )}
-              </button>
-            )
-          })}
-        </div>
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+          
+          {/* LEFT COLUMN: Tabs and Info */}
+          <div className="bg-white rounded-[48px] p-10 md:p-14 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+            
+            {/* Navigation Tabs inside Left Card */}
+            <div className="flex flex-wrap gap-3 mb-14">
+              {industries.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => !tab.isComingSoon && setActiveTab(tab)}
+                  className={`relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all border
+                    ${activeTab.id === tab.id 
+                      ? 'bg-white border-red-100 text-slate-900 shadow-sm' 
+                      : 'bg-transparent border-dashed border-slate-200 text-slate-400'}
+                    ${tab.isComingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'hover:border-slate-300'}
+                  `}
+                >
+                  <span className="flex items-center gap-2">
+                    {tab.name}
+                    
+                    {/* Notification Dot for Active Tab */}
+                    {!tab.isComingSoon && activeTab.id === tab.id && (
+                       <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF8080] rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+                          <div className="w-1 h-1 bg-white rounded-full opacity-60" />
+                       </span>
+                    )}
 
-        {/* Content Grid */}
-        {!isComingSoon && (
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-            {/* Image with ROI Badge */}
-            <div className="relative">
-              <div className="rounded-xl overflow-hidden border border-[#9F3AED]/10">
-                <div className="aspect-square sm:aspect-[4/4] bg-gray-50 relative">
-                  {activeData?.image && (
-                    <Image 
-                      src={urlFor(activeData.image).width(800).height(800).url()} 
-                      alt={activeData.title} 
-                      fill 
-                      className="object-cover"
-                    />
-                  )}
-                </div>
-              </div>
-              {/* ROI Badge */}
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm shadow-md rounded-lg px-3 py-2 text-center border border-gray-100">
-                <Text className="text-[#0AA44C] font-black text-lg leading-none">
-                  {activeData?.roi}
-                </Text>
-                <Text className="text-gray-400 font-bold text-[10px] uppercase tracking-tighter">
-                  ROI
-                </Text>
-              </div>
+                    {/* Coming Soon Indicator */}
+                    {tab.isComingSoon && (
+                       <div className="bg-slate-100 text-[8px] px-1.5 py-0.5 rounded text-slate-400 font-bold uppercase tracking-tighter">
+                         Soon
+                       </div>
+                    )}
+                  </span>
+                </button>
+              ))}
             </div>
 
-            {/* Right Column Content */}
-            <div className="flex flex-col pt-2">
-              <Heading level={3} size="3xl" className="text-[#1F2937] mb-3">
-                {activeData?.title}
-              </Heading>
-              <Text className="text-gray-500 mb-8 leading-snug">
-                {activeData?.description}
-              </Text>
+            {/* Interactive Content Container */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab.id}
+                initial={{ opacity: 0, x: -15 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 15 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="flex-grow flex flex-col"
+              >
+                <h3 className="text-5xl font-bold text-slate-900 mb-5">{activeTab.title}</h3>
+                <p className="text-slate-500 text-lg mb-12 leading-relaxed max-w-md">{activeTab.description}</p>
 
-              <Text className="text-gray-900 mb-4 font-extrabold" variant="body">
-                Key Features
-              </Text>
+                <div className="mb-12">
+                  <h4 className="font-bold text-slate-900 text-[11px] uppercase tracking-[0.2em] mb-8">Key Features</h4>
+                  <ul className="space-y-6">
+                    {activeTab.features.map((feature: any, idx) => (
+                      <li key={idx} className="flex items-center gap-4 text-slate-600">
+                        <span className="text-slate-300">
+                          {feature.icon || <Sparkles size={20} />}
+                        </span>
+                        <span className="font-medium text-[16px]">
+                          {typeof feature === 'string' ? feature : feature.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Tight Features Grid */}
-              <div className="grid grid-cols-2 gap-x-4 gap-y-3 mb-10">
-                {activeData?.features?.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <span className="text-[#9F3AED] shrink-0">{iconMap[feature.icon]}</span>
-                    <Text variant="small" className="font-bold text-[#4B5563] leading-tight">
-                      {feature.label}
-                    </Text>
-                  </div>
-                ))}
-              </div>
+                <div className="flex flex-wrap gap-4 mt-auto">
+                  <button className="bg-[#121212] text-white px-9 py-4.5 rounded-[20px] font-bold flex items-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                    Start Free Trial <ArrowUpRight size={20} />
+                  </button>
+                  <button className="bg-slate-50 text-slate-900 px-9 py-4.5 rounded-[20px] font-bold flex items-center gap-2 hover:bg-slate-100 transition-colors border border-slate-200/50">
+                    Watch Demo <Play size={18} fill="currentColor" />
+                  </button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-              {/* Tight Metrics Row */}
-              <div className="flex gap-10 mb-10">
-                {activeData?.stats?.map((stat, idx) => (
-                  <div key={idx}>
-                    <Text className="text-2xl font-black text-[#0AA44C] leading-none mb-1">
-                      {stat.value}
-                    </Text>
-                    <Text className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">
-                      {stat.label}
-                    </Text>
-                  </div>
-                ))}
-              </div>
-
-              {/* Buttons */}
-              <div className="flex gap-4">
-                <Button 
-                  variant="primary" 
-                  className="!bg-[#9F3AED] !rounded-lg h-12 px-6 !font-bold text-sm"
+          {/* RIGHT COLUMN: Visual and Stats Card */}
+          <div className="bg-white rounded-[48px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col min-h-[620px]">
+            <div className="flex-grow flex items-center justify-center p-14">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab.id}
+                  initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  exit={{ opacity: 0, scale: 1.1, rotate: 1 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  Start Free Trial <ArrowUpRight size={20} />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="!border-gray-200 !rounded-lg h-12 px-6 !font-bold text-sm text-gray-800"
-                >
-                  Watch Demo <Play size={20} fill="#ffffff" className="ml-0.5" />
-                </Button>
+                  <img
+                    src={activeTab.image}
+                    alt={activeTab.title}
+                    className="max-h-[500px] w-auto object-contain drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Bottom Stats Overlay (Glassmorphism) */}
+            <div className="absolute bottom-10 left-10 right-10">
+              <div className="bg-white/50 backdrop-blur-2xl border border-white/60 rounded-[32px] p-8 shadow-2xl flex justify-around items-center">
+                <div className="text-center px-4">
+                  <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.conversion}</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Conversion</div>
+                </div>
+                <div className="w-[1px] h-10 bg-slate-200/50" />
+                <div className="text-center px-4">
+                  <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.return}</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Return</div>
+                </div>
+                <div className="w-[1px] h-10 bg-slate-200/50" />
+                <div className="text-center px-4">
+                  <div className="text-3xl font-bold text-slate-900 tracking-tight">{activeTab.stats.engagement}</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400 tracking-[0.1em] mt-1.5">Engagement</div>
+                </div>
               </div>
             </div>
           </div>
-        )}
-      </Container>
+
+        </div>
+      </div>
     </section>
-  )
+  );
 }
