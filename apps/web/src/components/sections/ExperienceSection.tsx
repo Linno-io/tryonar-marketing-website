@@ -67,7 +67,7 @@ const ExperienceSection = () => {
             <div className="relative w-[280px] h-[580px] md:w-[320px] md:h-[650px] transform rotate-[-5deg] hover:rotate-0 transition-transform duration-700">
                 {/* Replace with your Sanity Image URL */}
                 <img 
-                  src="/phone-mockup.png" 
+                  src="/ready-to-solve-image.png" 
                   alt="App Interface" 
                   className="w-full h-full object-contain drop-shadow-2xl"
                 />
