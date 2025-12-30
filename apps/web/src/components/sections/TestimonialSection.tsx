@@ -7,48 +7,56 @@ const testimonials = [
     handle: "@daviswin",
     quote:
       "The 3-tap setup was incredible. We had AR running on our sneaker store in under 10 minutes. Sales increased 94% for AR-enabled products.",
+    image: "/head1.jpg",
   },
   {
     name: "Sarah Lee",
     handle: "@sarahlee",
     quote:
       "TryonAR made our sunglasses launch a hit. Customers loved the virtual try-on, and our returns dropped by 40%.",
+    image: "/head2.jpg",
   },
   {
     name: "Carlos Mendez",
     handle: "@carlitos",
     quote:
       "Integration was seamless. Our conversion rate improved instantly. Highly recommend for any e-commerce store!",
+    image: "/head3.jpg",
   },
   {
     name: "Priya Singh",
     handle: "@priyasingh",
     quote:
       "Our customers are spending more time on product pages and sharing their try-on photos. Engagement is up 3x!",
+    image: "/head4.jpg",
   },
   {
     name: "Emily Chen",
     handle: "@emchen",
     quote:
       "We saw a 60% increase in AR-enabled product sales. The setup was so easy, even for our small team.",
+    image: "/head1.jpg",
   },
   {
     name: "David Kim",
     handle: "@davidkim",
     quote:
       "TryonAR gave us a competitive edge. Our sneaker drops now sell out faster than ever.",
+    image: "/head2.jpg",
   },
   {
     name: "Fatima Al-Farsi",
     handle: "@fatimaal",
     quote:
       "The analytics dashboard is a game changer. We can see exactly how AR impacts our sales and customer behavior.",
+    image: "/head3.jpg",
   },
   {
     name: "Luca Rossi",
     handle: "@lucarossi",
     quote:
       "Customers love the AR experience. We get daily messages about how fun and easy it is to use.",
+    image: "/head4.jpg",
   },
 ];
 
@@ -123,7 +131,7 @@ export default function TestimonialSection() {
                 <div className="flex items-center gap-3">
                   <div className="relative w-10 h-10 rounded-full bg-gray-100 overflow-hidden">
                     <Image
-                      src="/api/placeholder/40/40"
+                      src={item.image}
                       alt={item.name}
                       fill
                       className="object-cover grayscale"
