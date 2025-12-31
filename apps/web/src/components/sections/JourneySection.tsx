@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { Link2, CloudUpload, Rocket, ArrowUpRight, ChevronRight } from 'lucide-react'
+import { Container } from '../ui';
 
 const ConnectIcon = () => (
     <svg fill="none" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><g fill="#000" clipPath="url(#clip0_273_1372)"><path d="M17.429 16.395a.83.83 0 00-1.174 0l-1.868 1.868-2.65-2.65 1.868-1.867a.83.83 0 10-1.174-1.175l-1.868 1.868-1.493-1.493a.83.83 0 00-1.174 0l-3.303 3.302a6.305 6.305 0 00-.431 8.426.819.819 0 00-.078.068l-3.84 3.84a.83.83 0 001.173 1.175l3.841-3.84a.84.84 0 00.068-.079 6.28 6.28 0 003.974 1.41 6.276 6.276 0 004.452-1.841l3.302-3.303a.83.83 0 000-1.174l-1.493-1.493 1.868-1.868a.83.83 0 000-1.174zm-4.851 7.837a4.64 4.64 0 01-6.555 0l-.255-.255a4.64 4.64 0 010-6.555l2.715-2.715 6.81 6.81-2.715 2.715zM29.757 1.417A.83.83 0 0028.583.243l-3.841 3.84a.823.823 0 00-.068.079A6.248 6.248 0 0020.7 2.749a6.254 6.254 0 00-4.452 1.844l-3.302 3.303a.83.83 0 000 1.174l7.984 7.984a.83.83 0 001.174 0l3.303-3.302A6.254 6.254 0 0027.25 9.3a6.247 6.247 0 00-1.412-3.974.847.847 0 00.078-.068l3.84-3.84zm-5.525 11.16l-2.715 2.716-6.81-6.81 2.715-2.715A4.605 4.605 0 0120.7 4.41c1.238 0 2.402.482 3.277 1.358l.255.255A4.605 4.605 0 0125.59 9.3a4.605 4.605 0 01-1.358 3.278z" /><path d="M21.918 11.527l-3.445-3.445a.83.83 0 00-1.174 1.174l3.445 3.445a.828.828 0 001.174 0 .83.83 0 000-1.174zm-9.136 9.136l-3.445-3.445a.83.83 0 00-1.174 1.174l3.445 3.445a.828.828 0 001.174 0 .83.83 0 000-1.174z" /></g><defs><clipPath id="clip0_273_1372"><path fill="#fff" d="M0 0h30v30H0z" /></clipPath></defs></svg>
@@ -42,8 +43,8 @@ const steps = [
 
 export default function JourneySection() {
     return (
-        <section className="py-10 md:py-24 bg-[#E5E7EB]/30 font-sans">
-            <div className="max-w-6xl mx-auto px-0">
+        <section className="bg-[#E5E7EB]/30 font-sans">
+             <Container className='py-10 md:py-24 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-4">
                         Your Journey to <span className="text-[#838383]">AR Success</span>
@@ -97,7 +98,7 @@ export default function JourneySection() {
                         <ArrowUpRight size={20} />
                     </button>
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }
