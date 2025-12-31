@@ -45,6 +45,22 @@ h1 {
   line-height: 1.1;
 }
 
+.challenge-active-tab {
+  position: relative;
+}
+
+.challenge-active-tab:after {
+    content: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkZBNDlCIiBkPSJNOCAwQzMuNTg5IDAgMCAzLjU4OSAwIDhzMy41ODkgOCA4IDggOC0zLjU4OSA4LTgtMy41ODktOC04LTh6bS0uMDYgMTAuMjhhMS4zMzQgMS4zMzQgMCAwMS0xLjg4Mi0uMDAzTDQuMjAyIDguNDc4bC45MjgtLjk1OCAxLjg2MiAxLjgwNCAzLjg3My0zLjguOTM2Ljk1LTMuODYzIDMuODA0eiIvPjwvc3ZnPg==);
+    display: block;
+    background: #FFFFFF;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    right: -5px;
+}
+
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
