@@ -20,7 +20,7 @@ const Logo = (props: LogoProps) => {
                     alt={alt || 'Logo'}
                     width={32}
                     height={32}
-                    className="h-8 w-auto brightness-200"
+                    className="h-5 lg:h-8 w-auto brightness-200"
                 />
             </Link>
         </>

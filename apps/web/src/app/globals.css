@@ -1,12 +1,21 @@
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* Circular Std font import */
+@font-face {
+  font-family: 'Circular Std';
+  src: url('/fonts/circular-std.woff2') format('woff2');
+}
 
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
   --primary: #9F3AED;
   --secondary: #0AA44C;
-  --font-heading: 'Sora', sans-serif;
+  --font-heading: 'Circular Std', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -27,6 +36,13 @@ body {
 @keyframes float {
   0%, 100% { transform: translateY(0) translateX(-50%); }
   50% { transform: translateY(-10px) translateX(-50%); }
+}
+
+h1 {
+  font-family: var(--font-heading);
+  color: #1A202C;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
 .animate-float {
@@ -60,36 +76,6 @@ body {
     position: absolute;
     top: 0;
 }
-
-/* .section-experience:before {
-    content: "";
-    border-radius: 988.455px;
-    background: #FFA49B;
-    filter: blur(200px);
-    display: block;
-    width: 648.455px;
-    height: 578.232px;
-    position: absolute;
-    top: -480px;
-    z-index: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(-13.504deg);
-}
-
-.section-experience:after {
-    content: "";
-    border-radius: 988.455px;
-    background: #AA73E4;
-    filter: blur(200px);
-    display: block;
-    width: 408.455px;
-    height: 578.232px;
-    position: absolute;
-    top: -560px;
-    z-index: 0;
-    left: 30%;
-    transform: translateX(-50%) rotate(-13.504deg);
-} */
 
 @media (width <= 64rem /* 1024px */) {
   .arrow-border:before {

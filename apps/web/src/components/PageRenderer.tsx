@@ -53,7 +53,7 @@ export default function PageRenderer({ sections }: Props) {
             return null
         }
       })} 
-      <EcommerceChallenge />
+      {/* <EcommerceChallenge />
       <ReadyToSolveSection />
       <JourneySection />
       <IndustrySolutionsSection />
@@ -61,7 +61,7 @@ export default function PageRenderer({ sections }: Props) {
       <TestimonialSection />
       <ExperienceSection />
       <VirtualTryOnSection />
-      <CTASection data={ctaData as CTASectionProps} />
+      <CTASection data={ctaData as CTASectionProps} /> */}
       
     </>
   )

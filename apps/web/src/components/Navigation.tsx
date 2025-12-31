@@ -28,8 +28,8 @@ const Navigation = (props: NavigationProps) => {
 
     return (
         <>
-            <nav className="absolute top-8 left-0 right-0 z-50 flex justify-center px-4">
-                <div className="w-full max-w-[747px] h-[70px] bg-[#1A1A1A] rounded-full flex items-center justify-between px-8 shadow-2xl border border-white/5">
+            <nav className="absolute top-6.5 left-0 right-0 z-50 flex justify-center px-4">
+                <div className="w-full max-w-[747px] h-[50px] lg:h-[70px] bg-[#1A1A1A] rounded-full flex items-center justify-between px-8 shadow-2xl border border-white/5">
                     <div className="flex items-center">
                         <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
                     </div>
@@ -64,10 +64,10 @@ const Navigation = (props: NavigationProps) => {
                 </div>
 
                 {mobileMenuOpen && (
-                    <div className="absolute top-20 left-4 right-4 bg-[#1A1A1A] rounded-2xl p-6 shadow-2xl md:hidden border border-white/10">
-                        <div className="flex flex-col gap-4">
+                    <div className="absolute top-15 left-4 right-4 bg-[#1A1A1A] rounded-2xl p-6 shadow-2xl md:hidden border border-white/10">
+                        <div className="flex flex-col gap-2">
                             {menuItems.map((item, index) => (
-                                <a key={index} href={getMenuItemUrl(item)} className="text-white text-lg py-2 border-b border-white/5">
+                                <a key={index} href={getMenuItemUrl(item)} className="text-white text-base py-2 border-b border-white/5">
                                     {item.label}
                                 </a>
                             ))}
