@@ -42,40 +42,39 @@ const steps = [
 
 export default function JourneySection() {
     return (
-        <section className="py-24 bg-[#E5E7EB]/30 font-sans">
+        <section className="py-10 md:py-24 bg-[#E5E7EB]/30 font-sans">
             <div className="max-w-6xl mx-auto px-0">
-                {/* Header */}
-                <div className="text-center mb-20">
+                <div className="text-center mb-10 md:mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-4">
-                        Your Journey to <span className="text-gray-400">AR Success</span>
+                        Your Journey to <span className="text-[#838383]">AR Success</span>
                     </h2>
-                    <p className="text-gray-600 text-lg">
+                    <p className="text-[#3E3E42] text-lg">
                         Three simple steps to transform your e-commerce experience
                     </p>
                 </div>
 
                 {/* Steps */}
-                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-3">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 md:gap-12 lg:gap-3">
                     {steps.map((step, index) => (
                         <React.Fragment key={index}>
                             {/* Step Card */}
                             <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left relative">
                                 {/* Icon Box */}
-                                <div className="relative z-10 pl-7 mb-5">
-                                    <div className="w-14 h-14 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center justify-center text-gray-800 border border-gray-50">
+                                <div className="relative z-10 pl-7 mb-2 md:mb-5">
+                                    <div className="w-14 h-14 border border-[#ECEDF1] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center justify-center text-gray-800">
                                         {step.icon}
                                     </div>
                                 </div>
 
                                 {/* Text Content */}
-                                <div className="relative pt-6 border-l-0 lg:border-l border-[#D7D7D7] pl-7 arrow-border">
-                                    <h3 className="text-3xl font-bold text-[#1e1b4b] mb-3 flex items-center justify-center lg:justify-start gap-2">
+                                <div className="relative pt-3 md:pt-6 border-l-0 lg:border-l border-[#D7D7D7] pl-7 arrow-border">
+                                    <h3 className="text-3xl font-bold text-[#1A202C] mb-3 flex items-center justify-center lg:justify-start gap-2">
                                         <span className="text-gray-900">{index + 1}.</span> {step.title}
                                     </h3>
-                                    <p className="text-gray-800 font-bold text-[17px] mb-2">
+                                    <p className="text-[#1A202C] font-bold text-[17px] mb-2">
                                         {step.description}
                                     </p>
-                                    <p className="text-gray-400 leading-relaxed text-[15px] max-w-[280px]">
+                                    <p className="text-[#3E3E42] leading-relaxed text-[15px] max-w-[280px]">
                                         {step.subtext}
                                     </p>
                                 </div>
@@ -92,8 +91,8 @@ export default function JourneySection() {
                 </div>
 
                 {/* CTA Button */}
-                <div className="flex justify-center mt-16">
-                    <button className="bg-[#18181b] text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
+                <div className="flex justify-center mt-8 md:mt-16">
+                    <button className="bg-[#18181b] text-white px-6 md:px-8 py-4 rounded-2xl cursor-pointer font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
                         Start Free Trial
                         <ArrowUpRight size={20} />
                     </button>
