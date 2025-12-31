@@ -24,7 +24,7 @@ const contentData: Record<TabId, any> = {
             { month: 'Jul', value: 35, label: '1.8%', color: '#FFD166' },
             { month: 'Sep', value: 15, label: '0.7%', color: '#EF4444' },
         ],
-        image: '/low-conversion.png',
+        image: '/low-conversion-1.png',
     },
     'return-rate': {
         title: '30% Return Rate',
