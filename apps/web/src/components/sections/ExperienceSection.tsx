@@ -41,7 +41,7 @@ const ExperienceSection = () => {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     {/* Header */}
-                    <h2 className="text-4xl md:text-6xl font-bold text-center mb-16 tracking-tight">
+                    <h2 className="text-4xl md:text-6xl font-bold text-center mb-0 md:mb-16 tracking-tight">
                         Experience the <span className="text-[#998188]">New Era</span> of Shopping
                     </h2>
 
@@ -51,7 +51,7 @@ const ExperienceSection = () => {
                         <div className="order-2">
                             {features.slice(0, 2).map((item, idx) => (
                                 <Fragment key={idx}>
-                                    <div key={idx} className="group relative z-10 py-10">
+                                    <div key={idx} className={`group relative z-10 py-10 ${idx === 0 ? 'pt-0 md:pt-10' : ''}`}>
                                         <div className="mb-8 p-3 w-fit">
                                             {item.icon}
                                         </div>
