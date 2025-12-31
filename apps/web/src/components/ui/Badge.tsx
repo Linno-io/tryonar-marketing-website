@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-interface BadgeProps {
+export interface BadgeProps {
     text: string;
     icon?: React.ReactNode;
 }
