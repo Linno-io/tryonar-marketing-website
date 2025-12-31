@@ -57,7 +57,7 @@ export default function PageRenderer({ sections }: Props) {
       <ReadyToSolveSection />
       <JourneySection />
       <IndustrySolutionsSection />
-      {/* <GallerySection /> */}
+      <GallerySection />
       {/* <TestimonialSection /> */}
       {/* <ExperienceSection /> */}
       {/* <VirtualTryOnSection /> */}
