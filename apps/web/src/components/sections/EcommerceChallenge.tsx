@@ -70,7 +70,7 @@ export default function EcommerceChallenge() {
 
     return (
         <section className="bg-[#ffffff]font-sans text-[#1f2937]">
-            <Container size="xl" withBorder={true} className='py-24 !px-[10px]'>
+            <Container size="xl" withBorder={true} className='py-10 md:py-24 !px-[10px]'>
                 <div className="text-center mb-6 lg:mb-10">
                     <span className="text-[#FFA49B] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 mb-6">
                         <svg fill="none" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="8.25" stroke="#FFA49B" strokeWidth="1.5"/><path stroke="#FFA49B" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5.4v4.725"/><path stroke="#FFA49B" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 13.005v.09"/></svg>
