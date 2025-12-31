@@ -58,9 +58,9 @@ export default function PageRenderer({ sections }: Props) {
       <JourneySection />
       <IndustrySolutionsSection />
       <GallerySection />
-      {/* <TestimonialSection /> */}
-      {/* <ExperienceSection /> */}
-      {/* <VirtualTryOnSection /> */}
+      <TestimonialSection />
+      <ExperienceSection />
+      <VirtualTryOnSection />
       {/* <CTASection data={ctaData as CTASectionProps} /> */}
       
     </>

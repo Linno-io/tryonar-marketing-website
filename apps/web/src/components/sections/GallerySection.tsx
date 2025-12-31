@@ -28,7 +28,7 @@ const GallerySection = () => {
     ]
 
     return (
-        <section className="bg-[#F8F9FA] font-sans overflow-hidden">
+        <section className="bg-white font-sans overflow-hidden">
             <DotBackground
                 dotSize={2}
                 gap={20}
