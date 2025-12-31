@@ -123,6 +123,36 @@ h1 {
     top: 0;
 }
 
+.faq-section:before {
+    content: "";
+    border-radius: 688.232px;
+    background: #AA73E4;
+    width: 303.307px;
+    height: 318.232px;
+    transform: rotate(-13.504deg);
+    filter: blur(130px);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.faq-section:after {
+    content: "";
+    border-radius: 688.232px;
+    background: #FFA49B;
+    width: 363.307px;
+    height: 258.232px;
+    transform: rotate(-13.504deg);
+    filter: blur(100px);
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 108px;
+    z-index: 1;
+}
+
 @media (width <= 64rem /* 1024px */) {
   .arrow-border:before {
       content: "";

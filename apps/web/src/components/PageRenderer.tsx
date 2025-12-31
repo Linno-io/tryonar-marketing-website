@@ -17,6 +17,7 @@ import { Container, DotBackground } from '@/components/ui'
 import SolutionSection from './sections/SolutionSection'
 import TestimonialSection from './sections/TestimonialSection'
 import EcommerceChallenge from './sections/EcommerceChallenge'
+import FAQAccordion from './sections/FAQSection'
 
 interface Props {
     sections: (HeroSectionProps | RealitySectionProps | CTASectionProps | SuccessStoriesSectionProps | IndustrySolutionsSectionProps)[]
@@ -61,6 +62,7 @@ export default function PageRenderer({ sections }: Props) {
             <TestimonialSection />
             <ExperienceSection />
             <VirtualTryOnSection />
+            <FAQAccordion />
             <CTASection data={ctaData as CTASectionProps} />
         </>
     )
