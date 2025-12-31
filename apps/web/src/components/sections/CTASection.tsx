@@ -83,7 +83,7 @@ export default function CTASection({ data }: CTAProps) {
                     </div>
 
                     {/* TRUST BADGES - Now fully white with high contrast */}
-                    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-white font-medium border-t border-white/10 pt-10">
+                    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-white font-medium pt-10">
                         <div className="flex items-center gap-2.5 opacity-90">
                             <Headphones size={20} strokeWidth={2} className="text-white" />
                             <span className="text-sm md:text-base">24/7 support</span>
