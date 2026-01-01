@@ -29,13 +29,13 @@ const GallerySection = () => {
 
     return (
         <section className="bg-white font-sans overflow-hidden">
-            <DotBackground
+            {/* <DotBackground
                 dotSize={2}
                 gap={20}
                 color="bg-gray-300"
                 borderColor="border-[#eeedf2]"
                 className="h-32 w-full border-x border-b border-[#eeedf2]"
-            />
+            /> */}
 
             {/* 2. Stats Section */}
             <div className="max-w-6xl mx-auto mb-16 sm:mb-20 px-4 sm:px-6 pt-20 sm:pt-30">
@@ -94,7 +94,7 @@ const GallerySection = () => {
             </div>
 
             {/* 4. Masonry Gallery Grid */}
-            <div className="w-full px-4 sm:px-6 gallery-section relative">
+            <div className="w-full px-4 sm:px-6 gallery-section relative pb-5">
                 <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
                     {images.map((src, idx) => (
                         <div

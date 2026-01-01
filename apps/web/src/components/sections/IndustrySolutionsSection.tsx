@@ -56,18 +56,8 @@ export default function IndustryARSection() {
     const [activeTab, setActiveTab] = useState(industries[0]);
 
     return (
-        <section className="bg-[#F7F8F9] pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
-
-            {/* BOTTOM RIGHT GRADIENT GLOW */}
-            <div
-                className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none z-0"
-                style={{
-                    background: 'radial-gradient(circle at bottom right, rgba(232, 193, 255, 0.6) 0%, rgba(255, 186, 186, 0.4) 30%, transparent 70%)',
-                    filter: 'blur(80px)',
-                }}
-            />
-
-            <Container>
+        <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
+            <Container className='pt-40'>
                 <div className="text-center mb-16">
                     <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-4">Industry Solutions</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1A202C] leading-tight">

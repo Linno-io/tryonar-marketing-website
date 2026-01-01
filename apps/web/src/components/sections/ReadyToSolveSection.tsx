@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 
 export default function ReadyToSolveSection() {
     return (
-        <section className="bg-white">
+        <section className="relative bg-white z-10">
             <Container size="xl" padding={false} className="relative">
                 <DotBackground
                     dotSize={2}
@@ -15,8 +15,6 @@ export default function ReadyToSolveSection() {
                     className="h-32 w-full border-x"
                 />
             </Container>
-
-
 
             <Container withBorder={true} className='py-10 md:py-24 !px-[10px]'>
                 <div className="relative z-10 text-center mx-auto mb-16">

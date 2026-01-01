@@ -73,7 +73,7 @@ export default function TestimonialSection() {
 
       <Container size="xl" className="relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-[#1a1c20] mb-4">
             Join thousands of{" "}
             <span className="text-gray-400 font-medium">successful stores</span>
