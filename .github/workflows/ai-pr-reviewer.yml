@@ -28,10 +28,13 @@ jobs:
           role-session-name: gha-session
           aws-region: us-east-1
       - name: PR review
-        uses: tmokmss/bedrock-pr-reviewer@v1
+        uses: iamsadi22/bedrock-pr-reviewer@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          pinecone_api_key: ${{ secrets.PINECONE_API_KEY }}
+          pinecone_host: ${{ secrets.PINECONE_HOST }}
+          pinecone_index: ${{ secrets.PINECONE_INDEX }}
           debug: false
           review_simple_changes: false
           review_comment_lgtm: false
