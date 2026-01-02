@@ -24,7 +24,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::123456789012:role/YourOidcIamRole
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsServiceRole
           role-session-name: gha-session
           aws-region: us-east-1
       - name: PR review
