@@ -64,7 +64,7 @@ function PlaceholderCard({ className }: { className?: string }) {
 
 export default function TestimonialSection() {
   return (
-    <section className="relative py-24 bg-[#F8F8F9] overflow-hidden z-10">
+    <section className="relative pt-24 pb-24 md:pb-0 bg-[#F8F8F9] overflow-hidden z-10">
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[520px] h-[520px] bg-purple-100/30 rounded-full blur-[120px]" />
@@ -76,7 +76,7 @@ export default function TestimonialSection() {
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-[#1a1c20] mb-4">
             Join thousands of{" "}
-            <span className="text-gray-400 font-medium">successful stores</span>
+            <span className="text-[#838383] font-bold">successful</span> stores
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             See how leading e-commerce brands are transforming their customer experience with TryonAR
@@ -116,7 +116,7 @@ export default function TestimonialSection() {
               </div>
 
               {/* Quote */}
-              <p className="text-gray-700 text-[15px] leading-relaxed mb-6">&ldquo;{item.quote}&rdquo;</p>
+              <p className="text-[#0C0020] text-[15px] leading-relaxed mb-6">&ldquo;{item.quote}&rdquo;</p>
 
               {/* Author */}
               <div className="flex items-center gap-3">
@@ -129,8 +129,8 @@ export default function TestimonialSection() {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900">{item.name}</p>
-                  <p className="text-xs text-gray-400 font-medium">{item.handle}</p>
+                  <p className="text-sm font-bold text-[#1A202C]">{item.name}</p>
+                  <p className="text-xs text-[#838383] font-medium">{item.handle}</p>
                 </div>
               </div>
             </div>
