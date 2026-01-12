@@ -53,7 +53,7 @@ export default function JourneySection() {
             />
              <Container className='py-10 md:py-24 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-3.5">
                         Your Journey to <span className="text-[#838383]">AR Success</span>
                     </h2>
                     <p className="text-[#3E3E42] text-lg">

@@ -8,13 +8,13 @@ const VirtualTryOnSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
                 {/* Left Content Column */}
-                <div className="space-y-6">
+                <div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1A202C] leading-tight">
                         App-free web<br />
                         virtual <span className="text-[#838383] font-medium">Try-on</span>
                     </h2>
 
-                    <p className="text-base sm:text-lg text-[#3E3E42] max-w-md leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#3E3E42] max-w-md leading-relaxed mt-5 mb-7.5">
                         From fashion to jewelry, our AR solutions are customized to
                         meet the unique needs of your industry.
                     </p>

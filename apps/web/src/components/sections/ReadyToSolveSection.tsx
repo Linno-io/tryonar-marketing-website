@@ -18,7 +18,7 @@ export default function ReadyToSolveSection() {
 
             <Container withBorder={true} className='py-10 md:py-24 !px-[10px]'>
                 <div className="relative z-10 text-center mx-auto mb-16">
-                    <Heading level={2} className="text-[#1A202C] text-4xl lg:text-5xl font-bold mb-6">
+                    <Heading level={2} className="text-[#1A202C] text-4xl lg:text-5xl font-bold mb-3.5">
                         Ready to Solve These <span className="text-[#838383]">Challenges?</span>
                     </Heading>
                     <Text className="text-[#3E3E42] max-w-2xl mx-auto text-base lg:text-lg leading-relaxed">

@@ -59,11 +59,11 @@ export default function IndustryARSection() {
         <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
             <Container className='pt-40'>
                 <div className="text-center mb-16">
-                    <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-4">Industry Solutions</p>
+                    <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-5">Industry Solutions</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1A202C] leading-tight">
                         Tailored AR experiences for <span className="text-[#838383]">every industry</span>
                     </h2>
-                    <p className="text-[#3E3E42] mt-5 mx-auto text-lg leading-relaxed">
+                    <p className="text-[#3E3E42] mt-3.5 mx-auto text-lg leading-relaxed">
                         From fashion to jewelry, our AR solutions are customized to meet the unique needs of your industry
                     </p>
                 </div>
@@ -73,7 +73,7 @@ export default function IndustryARSection() {
                         <button
                             key={tab.id}
                             onClick={() => !tab.isComingSoon && setActiveTab(tab)}
-                            className={`px-8 py-2.5 text-[#1A202C] rounded-full border-2 text-sm font-semibold transition-all duration-300 ${activeTab.id === tab.id
+                            className={`p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${activeTab.id === tab.id
                                 ? 'border-[#FFA49B] border-solid challenge-active-tab'
                                 : 'border border-dashed border-[#C5BBCC]'
                                 } ${tab.isComingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}

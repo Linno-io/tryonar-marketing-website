@@ -55,7 +55,7 @@ export default function CTASection({ data }: CTAProps) {
             <Container className="relative z-30 pt-[100px]">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto px-4">
 
-                    <Heading level={2} className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+                    <Heading level={2} className="text-4xl md:text-6xl font-bold text-white mb-2.5 tracking-tight leading-tight">
                         {title}
                     </Heading>
 
@@ -74,11 +74,11 @@ export default function CTASection({ data }: CTAProps) {
                         </Button>
 
                         <Button
-                            className="w-full sm:w-auto h-[60px] !bg-white !text-black !border-none !rounded-xl !font-bold !text-lg hover:bg-gray-100 transition-all px-10 flex items-center gap-2 shadow-lg shadow-white/5"
+                            className="w-full sm:w-auto h-[60px] !bg-[#F0F1F0] !text-black !border-none !rounded-xl !font-bold !text-lg hover:bg-gray-100 transition-all px-10 flex items-center gap-2 shadow-lg shadow-white/5"
                             onClick={() => window.location.href = secondaryButton.link}
                         >
                             {secondaryButton.text}
-                            <Play size={18} fill="currentColor" />
+                            <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>
                         </Button>
                     </div>
 
