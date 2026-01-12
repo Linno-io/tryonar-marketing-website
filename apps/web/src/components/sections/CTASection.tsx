@@ -25,29 +25,11 @@ export default function CTASection({ data }: CTAProps) {
                 }}
             />
 
-            {/* 2. BACKGROUND GLOWS (Matching cta-section.jpg) */}
-            {/* Center Depth Vignette */}
-            <div
-                className="absolute inset-0 pointer-events-none z-0"
-                style={{
-                    background: 'radial-gradient(circle at center, rgba(30, 25, 45, 0.4) 0%, transparent 70%)',
-                }}
-            />
-
-            {/* The Vibrant Purple Bottom Glow */}
-            <div
-                className="absolute bottom-0 left-0 right-0 h-[450px] pointer-events-none z-10"
-                style={{
-                    background: 'linear-gradient(to top, rgba(159, 58, 237, 0.18) 0%, rgba(159, 58, 237, 0.05) 40%, transparent 100%)',
-                }}
-            />
-
-            {/* Soft Bottom-Center Blur */}
             <div
                 className="absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-full h-[300px] opacity-40 pointer-events-none z-10"
                 style={{
-                    background: 'radial-gradient(circle at center, #9F3AED 0%, transparent 75%)',
-                    filter: 'blur(110px)'
+                    background: 'radial-gradient(circle, rgb(240 134 117) 0%, transparent 100%)',
+                    filter: 'blur(160px)'
                 }}
             />
 

@@ -57,7 +57,7 @@ const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 export default function FAQAccordion() {
-    const [openId, setOpenId] = useState<number | null>(2); // Second item open by default
+    const [openId, setOpenId] = useState<number | null>(1); // Second item open by default
 
     const toggleAccordion = (id: number) => {
         setOpenId(openId === id ? null : id);
@@ -65,20 +65,20 @@ export default function FAQAccordion() {
 
     return (
         <section className="relative bg-[#F8F8F9] overflow-hidden faq-section">
-            <Container withBorder padding={true} className="py-10 md:py-24 !px-[10px]">
+            <Container withBorder padding={true} className="py-10 md:py-24 !px-2.5">
                 {/* Title */}
-                <h1 className="text-2xl relative z-10 sm:text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight leading-tight md:leading-[60px] text-[#1a202c] text-center mb-10 md:mb-[60px] font-['Circular Std',sans-serif]">
+                <h2 className="text-2xl relative z-10 sm:text-3xl md:text-4xl lg:text-[48px] font-bold leading-tight md:leading-15 text-[#1a202c] text-center mb-10 md:mb-15">
                     FAQs - Your Best Concerns Answered
-                </h1>
+                </h2>
 
                 {/* FAQ Items */}
-                <div className="space-y-4 max-w-[880px] mx-auto relative z-10">
+                <div className="space-y-4 max-w-220 mx-auto relative z-10">
                     {faqData.map((faq) => {
                         const isOpen = openId === faq.id;
                         return (
                             <div
                                 key={faq.id}
-                                className={`rounded-[14px] md:rounded-[16px] transition-all duration-300 border border-[#ededf0] ${isOpen
+                                className={`rounded-[14px] md:rounded-2xl transition-all duration-300 border border-[#ededf0] ${isOpen
                                         ? "bg-white shadow-lg"
                                         : "bg-[#f8f8f9] hover:bg-[#f3f3f6]"
                                     }`}
@@ -88,7 +88,7 @@ export default function FAQAccordion() {
                                     onClick={() => toggleAccordion(faq.id)}
                                     className="w-full flex cursor-pointer items-center justify-between p-5 text-left"
                                 >
-                                    <span className="font-['Circular Std',sans-serif] font-medium text-base md:text-[20px] leading-[26px] md:leading-[30px] tracking-tight md:tracking-[-1px] text-[#1a202c] pr-4">
+                                    <span className="font-medium text-base md:text-[20px] leading-[26px] md:leading-[30px] tracking-tight md:tracking-[-1px] text-[#1a202c] pr-4">
                                         {faq.question}
                                     </span>
                                     {/* Icon button */}
