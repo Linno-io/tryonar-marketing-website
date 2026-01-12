@@ -28,8 +28,8 @@ const Navigation = (props: NavigationProps) => {
 
     return (
         <>
-            <nav className="absolute top-6.5 left-0 right-0 z-50 flex justify-center px-4">
-                <div className="w-full max-w-[747px] h-[50px] lg:h-[70px] bg-[#1A1A1A] rounded-full flex items-center justify-between px-8 shadow-2xl border border-white/5">
+            <nav className="absolute top-8.25 left-0 right-0 z-50 flex justify-center px-4">
+                <div className="w-full max-w-[747px] h-[50px] lg:h-[70px] bg-[#1A1A1A] rounded-full flex items-center justify-between pr-3.75 pl-7.5 shadow-2xl border border-white/5">
                     <div className="flex items-center">
                         <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
                     </div>

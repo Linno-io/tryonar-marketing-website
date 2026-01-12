@@ -26,7 +26,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         : '/hand-holding-phone.png'
 
     return (
-        <section className="toa-hero-section relative bg-white overflow-hidden pt-30 pb-20 lg:pt-38 lg:pb-32 border-b border-[#eeedf2]">      
+        <section className="toa-hero-section relative bg-white overflow-hidden pt-30 pb-16 lg:pt-[253px] lg:pb-28 border-b border-[#eeedf2]">      
             <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'linear-gradient(180deg, #E3D5FF 0%, #FFF 43.22%, #FFF 100%)' }}>
                 <div
                     className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[120px]"
@@ -38,21 +38,21 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 />
             </div>
 
-            <Container className="relative z-10">
-                <div className="grid lg:grid-cols-10 gap-10 items-center">
-                    <div className="lg:col-span-6 flex flex-col text-left">
-                       <h1 className="text-[32px] sm:text-[40px] md:text-[64px] lg:text-[68px]">
+            <Container className="relative z-10" custom="max-w-full lg:max-w-[1280px] xl:max-w-[1390px]" size='custom'>
+                <div className="grid lg:grid-cols-13 gap-13 items-start">
+                    <div className="lg:col-span-7 flex flex-col text-left">
+                       <h1 className="text-[32px] sm:text-[40px] md:text-[64px] lg:text-[68px] leading-[1.09]">
                             {heading.split('\n').map((line, i) => (
                                 <span key={i} className="block">{line}</span>
                             ))}
                        </h1>
 
-                        <Text className="text-[#646464] text-[14px] md:text-[18px] lg:text-[24px] mt-4 lg:mt-7.5 leading-[1.6]">
+                        <Text className="text-[#646464] text-[14px] md:text-[18px] lg:text-[24px] mt-4 lg:mt-7 leading-[1.5]">
                             {subtext}
                         </Text>
 
                         {/* Trust Badges */}
-                        <div className="flex flex-wrap gap-3 my-6 lg:my-10">
+                        <div className="flex flex-wrap gap-3 my-6 lg:my-9">
                             {trustBadges.map((badge, index) => (
                                 <Badge key={index} text={badge.text} icon={<CheckIcon />}/>
                             ))}
@@ -75,12 +75,12 @@ export default function HeroSection({ data }: HeroSectionProps) {
                         </div>
                     </div>
 
-                    <div className="lg:col-span-4 relative flex justify-center lg:justify-end">
-                        <div className="relative w-full max-w-[480px]">
+                    <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+                        <div className="relative w-full max-w-[627px]">
                             <Image
                                 src={heroImageUrl}
                                 alt="AR Try-on Mockup"
-                                width={500}
+                                width={600}
                                 height={700}
                                 className="w-full h-auto object-contain drop-shadow-2xl"
                                 priority

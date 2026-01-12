@@ -2,9 +2,10 @@ import { HTMLAttributes, ReactNode } from 'react'
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode
-    size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+    size?: 'sm' | 'md' | 'lg' | 'xl' | 'full' | 'custom',
     padding?: boolean,
-    withBorder?: boolean
+    withBorder?: boolean,
+    custom?: string,
 }
 
 export default function Container(props: ContainerProps) {
@@ -14,6 +15,7 @@ export default function Container(props: ContainerProps) {
         padding = true,
         className = '',
         withBorder = false,
+        custom = '',
         ...rests
     } = props;
 
@@ -23,6 +25,7 @@ export default function Container(props: ContainerProps) {
         lg: 'max-w-screen-lg',
         xl: 'max-w-full lg:max-w-[1190px] xl:max-w-[1300px]',
         full: 'max-w-full',
+        custom: custom,
     }
 
     const paddingClass = padding ? 'px-2.5 sm:px-3' : ''
