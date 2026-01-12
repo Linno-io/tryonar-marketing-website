@@ -62,7 +62,7 @@ export default function JourneySection() {
                 </div>
 
                 {/* Steps */}
-                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 md:gap-12 lg:gap-3">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 md:gap-20 lg:gap-40 relative">
                     {steps.map((step, index) => (
                         <React.Fragment key={index}>
                             {/* Step Card */}
@@ -90,7 +90,7 @@ export default function JourneySection() {
 
                             {/* Triple Chevron Divider */}
                             {index < steps.length - 1 && (
-                                <div className="hidden lg:flex items-center pt-20 px-4 h-[230px]">
+                                <div className={`hidden lg:flex items-center pt-20 px-4 h-[230px] absolute ${index === 0 ? 'left-[26%]' : 'right-[30%]'}`}>
                                     <ArrowIcon />
                                 </div>
                             )}
