@@ -18,7 +18,7 @@ const industries = [
             { name: 'Social sharing integration', icon: <Share2 size={18} /> },
         ],
         stats: { conversion: '+127%', return: '-68%', engagement: '89+' },
-        image: '/sunglass-face.png'
+        image: '/sunglass-face-1.png'
     },
     {
         id: 'headwear',
@@ -58,7 +58,7 @@ export default function IndustryARSection() {
     return (
         <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
             <Container className='pt-40'>
-                <div className="text-center mb-16">
+                <div className="text-center mb-15">
                     <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-5">Industry Solutions</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1A202C] leading-tight">
                         Tailored AR experiences for <span className="text-[#838383]">every industry</span>
@@ -68,7 +68,7 @@ export default function IndustryARSection() {
                     </p>
                 </div>
 
-                <div className="flex items-center justify-center flex-wrap gap-3 mb-14">
+                <div className="flex items-center justify-center flex-wrap gap-3 mb-10">
                     {industries.map((tab) => (
                         <button
                             key={tab.id}
@@ -97,7 +97,7 @@ export default function IndustryARSection() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
                     {/* LEFT COLUMN */}
-                    <div className="bg-white rounded-3xl md:rounded-[48px] flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
+                    <div className="bg-white rounded-3xl md:rounded-[20px] flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeTab.id}
@@ -118,11 +118,11 @@ export default function IndustryARSection() {
                                 </div>
 
                                 {/* Stats */}
-                                <div className="bg-[#F8F8F9] mx-3 sm:mx-4 flex flex-col sm:flex-row px-5 sm:px-8 md:px-10 py-4 rounded-[10px] gap-4 sm:gap-0">
-                                    {Object.entries(activeTab.stats).map(([key, value]) => (
+                                <div className="bg-[#F8F8F9] mx-3 sm:mx-4 flex flex-col sm:flex-row px-5 sm:px-8 md:px-11.2 py-7 rounded-[10px] gap-4 sm:gap-0">
+                                    {Object.entries(activeTab.stats).map(([key, value], index) => (
                                         <div
                                             key={key}
-                                            className="flex-1 flex items-center justify-center text-center pb-4 sm:pb-0 px-0 sm:px-4 border-b sm:border-b-0 sm:border-r border-slate-200/50 last:border-none"
+                                            className={`flex-1 flex items-center justify-center text-center pb-4 sm:pb-0 px-0 sm:px-4  ${index === 0  ? '' : 'gradient-border'}`}
                                         >
                                             <div>
                                                 <div className="text-2xl sm:text-3xl font-medium text-[#838383] tracking-tight">
@@ -164,8 +164,8 @@ export default function IndustryARSection() {
                                         Start Free Trial <ArrowUpRight size={20} />
                                     </button>
 
-                                    <button className="w-full sm:w-auto bg-slate-50 text-slate-900 px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-100 transition-colors border border-slate-200/50">
-                                        Watch Demo <Play size={18} fill="currentColor" />
+                                    <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
+                                        Watch Demo <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>
                                     </button>
                                 </div>
                             </motion.div>
@@ -173,24 +173,22 @@ export default function IndustryARSection() {
                     </div>
 
                     {/* RIGHT COLUMN */}
-                    <div className="bg-white rounded-3xl md:rounded-[48px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col min-h-[360px] sm:min-h-[480px] lg:min-h-[620px]">
-                        <div className="flex-grow flex items-center justify-center p-6 sm:p-10 md:p-14">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeTab.id}
-                                    initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
-                                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                                    exit={{ opacity: 0, scale: 1.1, rotate: 1 }}
-                                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                >
-                                    <img
-                                        src={activeTab.image}
-                                        alt={activeTab.title}
-                                        className="max-h-[260px] sm:max-h-[380px] md:max-h-[500px] w-auto object-contain drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
-                                    />
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
+                    <div className="bg-white rounded-3xl md:rounded-[20px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex items-end min-h-[360px] sm:min-h-[480px] lg:min-h-[620px]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeTab.id}
+                                initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
+                                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                exit={{ opacity: 0, scale: 1.1, rotate: 1 }}
+                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <img
+                                    src={activeTab.image}
+                                    alt={activeTab.title}
+                                    className="w-auto object-contain drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
+                                />
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </div>
             </Container>
