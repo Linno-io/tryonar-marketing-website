@@ -39,33 +39,35 @@ const GallerySection = () => {
 
             {/* 2. Stats Section */}
             <div className="max-w-6xl mx-auto mb-16 sm:mb-20 px-4 sm:px-6 pt-20 sm:pt-30">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-0">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-10">
                     {stats.map((stat, idx) => (
                         <div
                             key={idx}
-                            className="relative flex flex-col items-center text-center px-3 sm:px-4"
+                            className="relative flex items-center justify-center  text-center px-3 sm:px-4"
                         >
                             {/* Vertical Divider (desktop only) */}
                             {idx !== stats.length - 1 && (
-                                <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-20 lg:h-24 w-[1px] bg-[#eeedf2]">
+                                <div className="hidden md:block absolute right-[-30px] top-1/2 -translate-y-1/2 h-20 lg:h-24 w-[1px] bg-[#eeedf2]">
                                     <div className="h-full w-full bg-gradient-to-b from-purple-500/40 via-orange-400/40 to-transparent" />
                                 </div>
                             )}
 
-                            {/* Icon */}
-                            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center mb-4 sm:mb-6">
-                                {stat.icon}
+                            <div className='flex flex-col items-start'>
+                                {/* Icon */}
+                                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center mb-4 sm:mb-6">
+                                    {stat.icon}
+                                </div>
+
+                                {/* Value */}
+                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A202C] mb-1 sm:mb-2 tracking-tight">
+                                    {stat.value}
+                                </h3>
+
+                                {/* Label */}
+                                <p className="text-sm sm:text-base text-gray-500 font-medium">
+                                    {stat.label}
+                                </p>
                             </div>
-
-                            {/* Value */}
-                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1A202C] mb-1 sm:mb-2 tracking-tight">
-                                {stat.value}
-                            </h3>
-
-                            {/* Label */}
-                            <p className="text-sm sm:text-base text-gray-500 font-medium">
-                                {stat.label}
-                            </p>
                         </div>
                     ))}
                 </div>
