@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui";
 import { SuccessStoriesSection } from "@/lib/types/section";
+import { Fragment } from "react/jsx-runtime";
 
 const testimonials = [
     {
@@ -78,19 +79,19 @@ export default function TestimonialSection({data}: {data: SuccessStoriesSection}
                 <div className="absolute bottom-1/4 right-1/4 w-[520px] h-[520px] bg-orange-100/30 rounded-full blur-[120px]" />
             </div>
 
-            <Container size="xl" className="relative z-10">
+            <Container size="xl" className="relative z-10" withBorder={true}>
                 {/* Header */}
                 <div className="text-center">
                     {
                         title && title.length > 0 && (
                             <h2 className="text-4xl md:text-5xl font-bold text-[#1a1c20] mb-4">
                                 {
-                                    title.map(block => {
+                                    title.map((block, index) => {
                                         if(block.type === 'normal') {
-                                            return block.text
+                                            return <Fragment key={index}>{block.text}</Fragment>
                                         }else {
                                             return (
-                                                <span className="text-[#838383] font-bold">{' ' + block.text + ' '}</span>
+                                                <span key={index} className="text-[#838383] font-bold">{' ' + block.text + ' '}</span>
                                             )
                                         }
                                     })

@@ -123,6 +123,18 @@ export interface SuccessStoriesSection extends Section {
   }[]
 }
 
+export interface MagicSection extends Section {
+  _type: 'magicSectionType'
+  _key: string,
+  title: SectionTitle[],
+  description: string,
+  statistics: {
+    title: string,
+    description: string,
+    value: string
+  }[]
+}
+
 export interface IndustrySolutionsSection extends Section {
   _type: 'industrySolutionsSectionType'
   _key: string

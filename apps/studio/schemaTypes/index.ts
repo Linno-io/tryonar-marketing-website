@@ -14,6 +14,7 @@ import { resourceSectionType } from './resourceSectionType'
 
 import { link } from './objects/link'
 import { richTextHighlight } from './objects/richTextHighlight'
+import { magicSectionType } from './magitcSectionType'
 
 export const schemaTypes = [
   link,
@@ -30,6 +31,7 @@ export const schemaTypes = [
   successStoriesSectionType,
   industrySolutionsSectionType,
   siteSettingsType,
-  resourceSectionType
+  resourceSectionType,
+  magicSectionType,
   // userType
 ]

@@ -1,6 +1,15 @@
 'use client'
 
-import { HeroSection as HeroSectionProps, RealitySection as RealitySectionProps, CTASection as CTASectionProps, SuccessStoriesSection as SuccessStoriesSectionProps, IndustrySolutionsSection as IndustrySolutionsSectionProps, ResourceSection as ResourceSectionProps } from '@/lib/types/section'
+import { 
+    HeroSection as HeroSectionProps, 
+    RealitySection as RealitySectionProps, 
+    CTASection as CTASectionProps, 
+    SuccessStoriesSection as SuccessStoriesSectionProps, 
+    IndustrySolutionsSection as IndustrySolutionsSectionProps, 
+    ResourceSection as ResourceSectionProps,
+    MagicSection as MagicSectionProps
+} from '@/lib/types/section';
+
 import HeroSection from './sections/HeroSection'
 import RealityCheckSection from './sections/RealityCheckSection'
 import CTASection from './sections/CTASection'
@@ -20,6 +29,7 @@ import EcommerceChallenge from './sections/EcommerceChallenge'
 import FAQAccordion from './sections/FAQSection'
 import { Page } from '@/lib/types/page'
 import ResourceSection from './sections/ResourceSection'
+import MagicSection from './sections/MagicSection'
 
 interface PageRenderedProps {
     page: Page
@@ -46,6 +56,8 @@ console.log(page)
                                 return <ResourceSection key={section._key} data={section as ResourceSectionProps} />;
                              case "successStoriesSectionType":
                                 return <TestimonialSection key={section._key} data={section as SuccessStoriesSectionProps} />;
+                            case "magicSectionType":
+                                return <MagicSection key={section._key} data={section as MagicSectionProps} />;
                             default:
                                 return null;
                         }

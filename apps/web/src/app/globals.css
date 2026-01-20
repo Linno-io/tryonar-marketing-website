@@ -220,6 +220,38 @@
     position: relative;
   }
 
+  .highlighted-border {
+    position: relative;
+  }
+
+  .highlighted-border:before {
+      content: "";
+      background: linear-gradient(90deg, #CABFC0 0%, #9A68FF 39.9%, #FFA755 56.25%, #C8BEBF 80%, #FFF 100%);
+      position: absolute;
+      width: 3px;
+      height: 70px;
+      border-radius: 50%;
+      left: -25px;
+      top: -10px;
+  }
+
+  .magic-section {
+    position: relative;
+  }
+
+  .magic-section:before {
+      content: "";
+      border-radius: 988.455px;
+      background: #FFA49B;
+      filter: blur(200px);
+      width: 988.455px;
+      height: 688.232px;
+      position: absolute;
+      top: -80%;
+      left: 50%;
+      transform: translateX(-50%) rotate(-13.504deg);
+  }
+
   .challenge-active-tab:after {
     content: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkZBNDlCIiBkPSJNOCAwQzMuNTg5IDAgMCAzLjU4OSAwIDhzMy41ODkgOCA4IDggOC0zLjU4OSA4LTgtMy41ODktOC04LTh6bS0uMDYgMTAuMjhhMS4zMzQgMS4zMzQgMCAwMS0xLjg4Mi0uMDAzTDQuMjAyIDguNDc4bC45MjgtLjk1OCAxLjg2MiAxLjgwNCAzLjg3My0zLjguOTM2Ljk1LTMuODYzIDMuODA0eiIvPjwvc3ZnPg==);
     display: block;
