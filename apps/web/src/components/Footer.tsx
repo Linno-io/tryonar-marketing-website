@@ -11,7 +11,7 @@ const XIcon = () => (
 
 export default function Footer({
     footerMenus = [],
-    copyrightText = '© 2025 TryonAR Marketing Hub. All rights reserved.',
+    copyrightText,
 }: any) {
     return (
         <footer className="bg-[#020408] text-white pt-24 pb-0 relative overflow-hidden">

@@ -27,10 +27,20 @@ export interface SocialLink {
   url: string
 }
 
+export interface SignInInfo {
+  enabled: boolean
+  label: string
+  externalLink?: string
+  internalSlug?: string
+}
+
 export interface SiteSettings {
+  siteTitle: string
+  siteDescription: string
   logo: SanityImage
   favicon?: SanityImage
   headerMenu: MenuItem[]
+  signinInfo: SignInInfo
   footerMenus: FooterMenu[]
   copyrightText: string
   socialLinks: SocialLink[]
