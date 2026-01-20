@@ -20,7 +20,7 @@ export interface FooterMenu {
   items: MenuItem[]
 }
 
-export type SocialPlatform = 'Facebook' | 'Instagram' | 'Twitter' | 'LinkedIn' | 'YouTube'
+export type SocialPlatform = 'X' | 'LinkedIn' | 'YouTube'
 
 export interface SocialLink {
   platform: SocialPlatform
@@ -29,6 +29,12 @@ export interface SocialLink {
 
 export interface SignInInfo {
   enabled: boolean
+  label: string
+  externalLink?: string
+  internalSlug?: string
+}
+
+export interface ContactInfo {
   label: string
   externalLink?: string
   internalSlug?: string
@@ -44,4 +50,6 @@ export interface SiteSettings {
   footerMenus: FooterMenu[]
   copyrightText: string
   socialLinks: SocialLink[]
+  footerLogo: SanityImage
+  contactInfo: ContactInfo
 }

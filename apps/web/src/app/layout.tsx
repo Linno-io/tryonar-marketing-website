@@ -50,10 +50,11 @@ export default async function RootLayout(props: RootLayoutProps) {
                 {children}
 
                 <Footer
-                    logo={siteSettings?.logo}
+                    logo={siteSettings?.footerLogo}
                     footerMenus={siteSettings?.footerMenus || []}
                     copyrightText={siteSettings?.copyrightText}
                     socialLinks={siteSettings?.socialLinks}
+                    contactInfo={siteSettings?.contactInfo}
                 />
             </body>
         </html>

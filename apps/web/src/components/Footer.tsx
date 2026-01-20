@@ -2,6 +2,10 @@
 import Container from '@/components/ui/Container'
 import { Linkedin, Youtube } from 'lucide-react'
 import { getMenuItemUrl } from '@/lib/utils/navigation'
+import Logo from './ui/Logo'
+import { ContactInfo, FooterMenu, SanityImage, SocialLink, SocialPlatform } from '@/lib/types/siteSettings'
+import Link from 'next/link'
+import { JSX } from 'react'
 
 const XIcon = () => (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -9,10 +13,29 @@ const XIcon = () => (
     </svg>
 )
 
-export default function Footer({
-    footerMenus = [],
-    copyrightText,
-}: any) {
+interface FooterProps {
+    logo?: SanityImage,
+    footerMenus?: FooterMenu[]
+    copyrightText?: string
+    socialLinks?: SocialLink[]
+    contactInfo?: ContactInfo
+}
+
+export default function Footer(props: FooterProps ) {
+    const {
+        logo,
+        footerMenus,
+        copyrightText,
+        socialLinks,
+        contactInfo
+    } = props;
+
+    const SocialIcons: { [key in SocialPlatform]: JSX.Element } = {
+        LinkedIn: <Linkedin />,
+        YouTube: <Youtube />,
+        X: <XIcon />
+    }
+
     return (
         <footer className="bg-[#020408] text-white pt-24 pb-0 relative overflow-hidden">
             <Container>
@@ -21,12 +44,7 @@ export default function Footer({
                     {/* Brand Section */}
                     <div className="lg:col-span-4">
                         <div className="flex items-center gap-3 mb-3">
-                            <div className="grid grid-cols-3 gap-1">
-                                {[...Array(9)].map((_, i) => (
-                                    <div key={i} className="w-1 h-1 bg-white rounded-full opacity-90" />
-                                ))}
-                            </div>
-                            <span className="text-2xl font-bold tracking-tight">TryOn AR</span>
+                            <Logo url={logo?.url || 'https://cdn.sanity.io/images/90a20xmm/production/c4df2bd10f9c84fe7088e40b7aa26be2fcd63baa-171x32.png'} alt={logo?.alt || 'Logo'} />
                         </div>
 
                         <p className="text-[#E7E5EAB2] text-[13px] leading-relaxed mb-8 max-w-[280px]">
@@ -34,27 +52,37 @@ export default function Footer({
                         </p>
 
                         <div className="flex items-center gap-3">
-                            <button className="bg-[#EEF2FF] text-[#020408] px-8 py-3 rounded-xl font-bold hover:bg-white transition-all text-sm">
-                                Contact
-                            </button>
+                            <Link href={contactInfo?.internalSlug || contactInfo?.externalLink || '#'} className="bg-[#EEF2FF] text-[#020408] px-8 py-3 rounded-xl font-bold hover:bg-white transition-all text-sm flex items-center justify-center">
+                                {contactInfo?.label || 'Contact Us'}
+                            </Link>
 
-                            <div className="flex gap-2">
-                                <a href="#" className="w-11 h-11 flex items-center justify-center rounded-xl border border-gray-800 bg-[#0A0C12] hover:border-gray-600 transition-all text-gray-400">
-                                    <Linkedin size={18} />
-                                </a>
-                                <a href="#" className="w-11 h-11 flex items-center justify-center rounded-xl border border-gray-800 bg-[#0A0C12] hover:border-gray-600 transition-all text-gray-400">
-                                    <XIcon />
-                                </a>
-                                <a href="#" className="w-11 h-11 flex items-center justify-center rounded-xl border border-gray-800 bg-[#0A0C12] hover:border-gray-600 transition-all text-gray-400">
-                                    <Youtube size={20} />
-                                </a>
-                            </div>
+                            {
+                                socialLinks && socialLinks.length > 0 && (
+                                    <div className="flex gap-2">
+                                        {socialLinks.map((socialLink, index) => {
+                                            const Icon = SocialIcons[socialLink.platform]
+                                            if (!Icon) return null
+
+                                            return (
+                                                <Link
+                                                    key={index}
+                                                    href={socialLink.url}
+                                                    target='_blank'
+                                                    className="w-11 h-11 flex items-center justify-center rounded-xl border border-gray-800 bg-[#0A0C12] hover:border-gray-600 transition-all text-gray-400"
+                                                >
+                                                    {Icon}
+                                                </Link>
+                                            )
+                                        })}
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
 
                     {/* Fixed Menu Titles - Reduced tracking and size to prevent overlap */}
                     <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        {footerMenus.map((menu: any, index: number) => (
+                        {footerMenus?.map((menu: any, index: number) => (
                             <div key={index}>
                                 <p className="text-[13px] font-bold uppercase tracking-widest text-white mb-8">
                                     {menu.title}
@@ -62,9 +90,9 @@ export default function Footer({
                                 <ul className="space-y-4">
                                     {menu.items.map((item: any, i: number) => (
                                         <li key={i}>
-                                            <a href={getMenuItemUrl(item)} className="text-[#E7E5EAB2] hover:text-white text-[14px] transition-colors">
+                                            <Link href={getMenuItemUrl(item)} className="text-[#E7E5EAB2] hover:text-white text-[14px] transition-colors">
                                                 {item.label}
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>

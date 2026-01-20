@@ -185,9 +185,55 @@ export default defineType({
             ],
         },
         {
+            name: 'footerLogo',
+            type: 'image',
+            title: 'Footer Logo',
+            description: 'Upload a logo for the footer',
+            validation: (rule) => rule.required(),
+            options: {
+                hotspot: false,
+            },
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alt text',
+                    description: 'Alternative text for the footer logo (optional)',
+                },
+            ],
+        },
+        {
             name: 'copyrightText',
             type: 'string',
             title: 'Copyright Text',
+        },
+        {
+            name: 'contactInfo',
+            type: 'object',
+            title: 'Contact Information',
+            fields: [
+                {
+                    name: 'label',
+                    type: 'string',
+                    title: 'Label',
+                },
+                {
+                
+                    name: 'internalLink',
+                    title: 'Internal Link',
+                    type: 'reference',
+                    to: [{ type: 'page' }],
+                },
+                {
+                    name: 'externalLink',
+                    title: 'External Link',
+                    type: 'url',
+                    validation: Rule =>
+                        Rule.uri({
+                            scheme: ['http', 'https'],
+                        }),
+                }
+            ]
         },
         {
             name: 'socialLinks',
@@ -205,9 +251,7 @@ export default defineType({
                             title: 'Platform',
                             options: {
                                 list: [
-                                    { title: 'Facebook', value: 'Facebook' },
-                                    { title: 'Instagram', value: 'Instagram' },
-                                    { title: 'Twitter', value: 'Twitter' },
+                                    { title: 'X', value: 'X' },
                                     { title: 'LinkedIn', value: 'LinkedIn' },
                                     { title: 'YouTube', value: 'YouTube' },
                                 ],

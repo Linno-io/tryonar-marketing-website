@@ -40,7 +40,16 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
         }
       }
     },
+    "footerLogo": {
+      "url": footerLogo.asset->url,
+      "alt": footerLogo.alt
+    },
     copyrightText,
+    contactInfo{
+      label,
+      externalLink,
+      "internalSlug": internalLink->slug.current,
+    },
     socialLinks[]{
       platform,
       url
