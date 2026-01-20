@@ -44,7 +44,7 @@ export default function Footer(props: FooterProps ) {
                     {/* Brand Section */}
                     <div className="lg:col-span-4">
                         <div className="flex items-center gap-3 mb-3">
-                            <Logo url={logo?.url || 'https://cdn.sanity.io/images/90a20xmm/production/c4df2bd10f9c84fe7088e40b7aa26be2fcd63baa-171x32.png'} alt={logo?.alt || 'Logo'} />
+                            <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
                         </div>
 
                         <p className="text-[#E7E5EAB2] text-[13px] leading-relaxed mb-8 max-w-[280px]">

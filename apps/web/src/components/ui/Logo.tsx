@@ -18,8 +18,9 @@ const Logo = (props: LogoProps) => {
                 <Image
                     src={url}
                     alt={alt || 'Logo'}
-                    width={32}
+                    width={171}
                     height={32}
+                    unoptimized
                     className="h-5 lg:h-8 w-auto brightness-200"
                 />
             </Link>
