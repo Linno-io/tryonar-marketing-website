@@ -46,5 +46,5 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function HomePage() {
   const page = await getPageBySlug('home')
 
-  return <PageRenderer page={page} />
+  return <PageRenderer page={page} home={true}/>
 }

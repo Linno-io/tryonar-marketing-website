@@ -33,17 +33,38 @@ import MagicSection from './sections/MagicSection'
 
 interface PageRenderedProps {
     page: Page
+    home?: boolean
 }
 
-export default function PageRenderer({page}: PageRenderedProps) {
+export default function PageRenderer({page, home}: PageRenderedProps) {
     const {
         sections = []
     } = page
 
+
+    if(home) {
+        console.log('Rendering home page with sections:', sections);
+        return (
+            <>
+                <HeroSection data={sections[0] as HeroSectionProps} />
+                <EcommerceChallenge />
+                <ReadyToSolveSection />
+                <ExperienceSection />
+                <IndustrySolutionsSection />
+                <JourneySection />
+                <GallerySection />
+                <TestimonialSection data={sections[2] as SuccessStoriesSectionProps} />
+                <VirtualTryOnSection />
+                <FAQAccordion />
+                <CTASection data={sections[4] as CTASectionProps} />
+            </>
+        )
+    }
+
     if(!sections || sections.length === 0) {
         return null;
     }
-console.log(page)
+
     return (
         <>
             <div className={`${page?.slug?.current}-page-container`}>

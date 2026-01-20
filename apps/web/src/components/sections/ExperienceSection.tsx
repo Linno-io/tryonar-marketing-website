@@ -41,7 +41,7 @@ const ExperienceSection = () => {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     {/* Header */}
-                    <h2 className="text-4xl md:text-6xl font-bold text-center mb-0 md:mb-16 tracking-tight">
+                    <h2 className="text-4xl md:text-6xl font-bold text-center text-white mb-0 md:mb-16 tracking-tight">
                         Experience the <span className="text-[#998188]">New Era</span> of Shopping
                     </h2>
 
