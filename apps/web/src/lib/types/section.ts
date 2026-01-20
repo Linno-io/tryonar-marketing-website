@@ -64,15 +64,20 @@ export interface CTASection extends Section {
   _key: string
   title: string
   description: string
-  variant: 'challenges' | 'transform'
-  stats?: string[]
+  highlightText?: string
+  stats?: {
+    label: string
+    type: 'support' | 'security' | 'trial'
+  }[]
   primaryButton: {
     text: string
-    link: string
+    internalLink?: string
+    externalLink?: string
   }
   secondaryButton: {
     text: string
-    link: string
+    internalLink?: string
+    externalLink?: string
   }
 }export interface SuccessStoriesSection extends Section {
   _type: 'successStoriesSectionType'

@@ -23,7 +23,23 @@ export async function getPageBySlug(slug: string) {
     const query = `*[_type == "page" && slug.current == $slug][0]{
     title,
     slug,
-    sections,
+    sections[]{
+        ...,
+         _type,
+        _key,
+        primaryButton{
+            ...,
+            "internalLink": internalLink->slug.current,
+        },
+        secondaryButton{
+            ...,
+            "internalLink": internalLink->slug.current
+        },
+        stats[]{
+            type,
+            label
+        },
+    },
     seo{
       metaTitle,
       metaDescription,

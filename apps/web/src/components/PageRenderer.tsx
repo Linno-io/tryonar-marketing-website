@@ -28,26 +28,27 @@ export default function PageRenderer({page}: PageRenderedProps) {
     const {
         sections = []
     } = page
-console.log(page);
+
     if(!sections || sections.length === 0) {
         return null;
     }
-
-    const ctaData = {
-        title: "Ready to scale your business?",
-        description: "Join thousands of companies using our platform to streamline their workflow and increase productivity.",
-        primaryButton: {
-            text: "Get Started",
-            link: "/signup"
-        },
-        secondaryButton: {
-            text: "Watch Demo",
-            link: "/demo"
-        }
-    }
+console.log(page)
     return (
         <>
-            {sections.map((section) => {
+            <div className={`${page?.slug?.current}-page-container`}>
+                {
+                    sections.map((section) => {
+                        switch(section._type) {
+                            case 'ctaSectionType':
+                                return <CTASection key={section._key} data={section as CTASectionProps} />;
+                            default:
+                                return null;
+                        }
+                    })
+                }
+            </div>
+
+            {/* {sections.map((section) => {
                 switch (section._type) {
                     case 'heroSectionType':
                         return <HeroSection key={section._key} data={section as HeroSectionProps} />
@@ -62,7 +63,7 @@ console.log(page);
                     default:
                         return null
                 }
-            })}
+            })} */}
             {/* <EcommerceChallenge />
             <ReadyToSolveSection />
             <ExperienceSection />

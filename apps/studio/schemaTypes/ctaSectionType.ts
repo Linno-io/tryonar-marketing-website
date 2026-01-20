@@ -1,101 +1,136 @@
 import { defineType, defineField } from 'sanity'
 
 export const ctaSectionType = defineType({
-  name: 'ctaSectionType',
-  title: 'CTA Section',
-  type: 'object',
-  fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'text',
-      rows: 2,
-      validation: (rule) => rule.required(),
-      description: 'Main headline for the CTA section'
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-      rows: 3,
-      validation: (rule) => rule.required(),
-      description: 'Supporting text below the title'
-    }),
-    defineField({
-      name: 'variant',
-      title: 'Variant',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Challenges', value: 'challenges' },
-          { title: 'Transform', value: 'transform' }
-        ],
-        layout: 'radio'
-      },
-      initialValue: 'challenges',
-      validation: (rule) => rule.required(),
-      description: 'Select variant style (Transform shows stats badges)'
-    }),
-    defineField({
-      name: 'stats',
-      title: 'Stats Badges',
-      type: 'array',
-      of: [{ type: 'string' }],
-      validation: (rule) => rule.max(6),
-      description: 'Stats displayed as badges (only shown when variant is "Transform", max 6)',
-      hidden: ({ parent }) => parent?.variant !== 'transform'
-    }),
-    defineField({
-      name: 'primaryButton',
-      title: 'Primary Button',
-      type: 'object',
-      fields: [
+    name: 'ctaSectionType',
+    title: 'CTA Section',
+    type: 'object',
+    fields: [
         {
-          name: 'text',
-          title: 'Button Text',
-          type: 'string',
-          validation: (rule) => rule.required()
+            name: 'title',
+            title: 'Title',
+            type: 'text',
+            rows: 2,
+            validation: (rule) => rule.required(),
+            description: 'Main headline for the CTA section'
         },
         {
-          name: 'link',
-          title: 'Button Link',
-          type: 'url',
-          validation: (rule) => rule.required()
-        }
-      ],
-      validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'secondaryButton',
-      title: 'Secondary Button',
-      type: 'object',
-      fields: [
-        {
-          name: 'text',
-          title: 'Button Text',
-          type: 'string',
-          validation: (rule) => rule.required()
+            name: 'highlightText',
+            title: 'Highlight Text',
+            type: 'text',
+            rows: 2,
+            validation: (rule) => rule.required(),
+            description: 'Highlighted part of heading (e.g. customer experience)'
         },
         {
-          name: 'link',
-          title: 'Button Link',
-          type: 'url',
-          validation: (rule) => rule.required()
+            name: 'description',
+            title: 'Description',
+            type: 'text',
+            rows: 3,
+            validation: (rule) => rule.required(),
+            description: 'Supporting text below the title'
+        },
+        {
+            name: 'stats',
+            type: 'array',
+            title: 'Stats Badges',
+            of: [
+                {
+                    type: 'object',
+                    name: 'badge',
+                    title: 'Badge',
+                    fields: [
+                        {
+                            name: 'type',
+                            type: 'string',
+                            title: 'Type',
+                            options: {
+                                list: [
+                                    { title: 'Support', value: 'support' },
+                                    { title: 'Security', value: 'security' },
+                                    { title: 'Trial', value: 'trial' },
+                                ],
+                            },
+                            validation: (rule) => rule.required(),
+                        },
+                        {
+                            name: 'label',
+                            type: 'string',
+                            title: 'Label',
+                            validation: (rule) => rule.required(),
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            name: 'primaryButton',
+            title: 'Primary Button',
+            type: 'object',
+            fields: [
+                {
+                    name: 'text',
+                    title: 'Button Text',
+                    type: 'string',
+                    validation: (rule) => rule.required()
+                },
+                {
+                
+                    name: 'internalLink',
+                    title: 'Internal Link',
+                    type: 'reference',
+                    to: [{ type: 'page' }],
+                },
+                {
+                    name: 'externalLink',
+                    title: 'External Link',
+                    type: 'url',
+                    validation: Rule =>
+                        Rule.uri({
+                            scheme: ['http', 'https'],
+                        }),
+                },
+            ],
+            validation: (rule) => rule.required()
+        },
+        {
+            name: 'secondaryButton',
+            title: 'Secondary Button',
+            type: 'object',
+            fields: [
+                {
+                    name: 'text',
+                    title: 'Button Text',
+                    type: 'string',
+                    validation: (rule) => rule.required()
+                },
+                {
+                
+                    name: 'internalLink',
+                    title: 'Internal Link',
+                    type: 'reference',
+                    to: [{ type: 'page' }],
+                },
+                {
+                    name: 'externalLink',
+                    title: 'External Link',
+                    type: 'url',
+                    validation: Rule =>
+                        Rule.uri({
+                            scheme: ['http', 'https'],
+                        }),
+                },
+            ],
+            validation: (rule) => rule.required()
+        },
+    ],
+    preview: {
+        select: {
+            title: 'title',
+        },
+        prepare({ title }) {
+            return {
+                title: title || 'CTA Section',
+            }
         }
-      ],
-      validation: (rule) => rule.required()
-    })
-  ],
-  preview: {
-    select: {
-      title: 'title',
-      variant: 'variant'
-    },
-    prepare({ title, variant }) {
-      return {
-        title: title || 'CTA Section',
-        subtitle: `Variant: ${variant || 'challenges'}`
-      }
     }
-  }
 })
