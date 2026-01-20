@@ -11,7 +11,6 @@ interface RootLayoutProps {
 
 export async function generateMetadata(): Promise<Metadata> {
     const siteSettings = await getSiteSettings();
-    console.log(siteSettings);
 
     return {
         title: siteSettings?.siteTitle ?? 'TryOnAR',
