@@ -35,6 +35,20 @@ export async function getPageBySlug(slug: string) {
             ...,
             "internalLink": internalLink->slug.current
         },
+        sectionImage{
+            "url": asset->url,
+            "alt": alt
+        },
+        resources[]{
+            ...,
+            "icon": {
+                "url": icon.asset->url,
+                "alt": icon.alt
+            },
+            "link": coalesce(link.internalLink->slug.current,
+                    link.externalLink
+                )
+        },
         stats[]{
             type,
             label

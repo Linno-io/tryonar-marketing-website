@@ -10,8 +10,13 @@ import {ctaSectionType} from './ctaSectionType'
 import {successStoriesSectionType} from './successStoriesSectionType'
 import {industrySolutionsSectionType} from './industrySolutionsSectionType'
 import siteSettingsType from './siteSettingsType'
+import { resourceSectionType } from './resourceSectionType'
+
+import { link } from './objects/link'
 
 export const schemaTypes = [
+  link,
+  
   pageType,
   postType,
   commentType,
@@ -22,6 +27,7 @@ export const schemaTypes = [
   ctaSectionType,
   successStoriesSectionType,
   industrySolutionsSectionType,
-  siteSettingsType
+  siteSettingsType,
+  resourceSectionType
   // userType
 ]

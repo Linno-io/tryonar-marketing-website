@@ -16,7 +16,8 @@ export const pageType = defineType({
         { type: 'realitySectionType' },
         { type: 'ctaSectionType' },
         { type: 'successStoriesSectionType' },
-        { type: 'industrySolutionsSectionType' }
+        { type: 'industrySolutionsSectionType' },
+        { type: 'resourceSectionType' }
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

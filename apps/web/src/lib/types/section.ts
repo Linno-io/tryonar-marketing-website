@@ -79,7 +79,31 @@ export interface CTASection extends Section {
     internalLink?: string
     externalLink?: string
   }
-}export interface SuccessStoriesSection extends Section {
+}
+
+export interface ResourceSection extends Section {
+  _type: 'resourceSectionType'
+  _key: string
+  divider: boolean
+  title: string
+  highlightText: string
+  resources: {
+    title: string
+    description: string
+    icon: {
+      url: string
+      alt?: string
+    }
+    link: string
+  }[],
+  description: string
+  sectionImage: {
+    url: string
+    alt?: string
+  }
+}
+
+export interface SuccessStoriesSection extends Section {
   _type: 'successStoriesSectionType'
   _key: string
   eyebrow: string
