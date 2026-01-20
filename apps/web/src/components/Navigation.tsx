@@ -2,7 +2,7 @@
 
 import { memo, useState } from 'react'
 import Image from 'next/image'
-import { MenuItem } from '@/lib/types/siteSettings'
+import { MenuItem, SignInInfo } from '@/lib/types/siteSettings'
 import { getMenuItemUrl } from '@/lib/utils/navigation'
 import Logo from './ui/Logo'
 import SignInButton from './ui/SignInButton'
@@ -15,13 +15,14 @@ interface NavigationProps {
     }
     menuItems?: MenuItem[]
     ctaLink?: string
+    signinInfo?: SignInInfo
 }
 
 const Navigation = (props: NavigationProps) => {
     const { 
         logo, 
         menuItems = [], 
-        ctaLink = '#start-trial' 
+        signinInfo
     } = props;
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -47,9 +48,13 @@ const Navigation = (props: NavigationProps) => {
                             ))}
                         </div>
 
-                        <div className="hidden md:flex items-center">
-                            <SignInButton />
-                        </div>
+                        {
+                            (signinInfo && signinInfo?.enabled) && (
+                                 <div className="hidden md:flex items-center">
+                                    <SignInButton data={signinInfo} />
+                                </div>
+                            )
+                        }
 
                         <button
                             type="button"
@@ -71,7 +76,14 @@ const Navigation = (props: NavigationProps) => {
                                     {item.label}
                                 </a>
                             ))}
-                            <SignInButton />
+
+                            {
+                            (signinInfo && signinInfo?.enabled) && (
+                                    <div className="hidden md:flex items-center">
+                                        <SignInButton data={signinInfo}/>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 )}

@@ -1,15 +1,25 @@
+import { SignInInfo } from '@/lib/types/siteSettings';
+import Link from 'next/link';
 import { memo } from 'react';
 
-const SignInButton = () => {
+interface SignInButtonProps {
+    data: SignInInfo
+}
+
+const SignInButton = (props: SignInButtonProps) => {
+    const {
+        data
+    } = props;
+
     const onSignIn = () => {
         console.warn('Sign In clicked');
     };
 
     return (
         <>
-            <button onClick={onSignIn} className="cursor-pointer bg-white text-[#00020B] h-11 px-6 rounded-full font-bold text-sm hover:bg-[#00020B] hover:text-white border border-white transition-all w-full md:w-auto">
-                Sign In
-            </button>
+            <Link href={data?.internalSlug ?? data.externalLink ?? ''} className="cursor-pointer bg-white text-[#00020B] h-11 px-6 rounded-full font-bold text-sm hover:bg-[#00020B] hover:text-white border border-white transition-all w-full md:w-auto flex items-center justify-center">
+                {data?.label || 'Sign In'}
+            </Link>
         </>
     );
 };
