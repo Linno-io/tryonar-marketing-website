@@ -53,6 +53,13 @@ export async function getPageBySlug(slug: string) {
             type,
             label
         },
+        stories[]{
+            ...,
+            "authorImage": {
+                "url": authorImage.asset->url,
+                "alt": authorImage.alt
+            }
+        }
     },
     seo{
       metaTitle,

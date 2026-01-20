@@ -1,3 +1,5 @@
+import { SanityImage } from "./siteSettings"
+
 export interface Section {
   _type: string
   [key: string]: any
@@ -103,33 +105,21 @@ export interface ResourceSection extends Section {
   }
 }
 
+interface SectionTitle {
+  text: string
+  type: 'highlight' | 'normal'
+}
 export interface SuccessStoriesSection extends Section {
   _type: 'successStoriesSectionType'
-  _key: string
-  eyebrow: string
-  heading: string
-  description: string
-  stats: {
-    label: string
-    sublabel: string
-    icon: 'store' | 'target' | 'trending-up' | 'refresh'
-  }[]
+  _key: string,
+  title: SectionTitle[],
+  description: string,
   stories: {
-    industry: string
-    quote: string
-    author: string
-    role: string
-    avatar: {
-      asset: {
-        _ref: string
-        url?: string
-      }
-    }
-    metrics: {
-      conversion: string
-      return: string
-      satisfaction: string
-    }
+    rating: number,
+    review: string,
+    authorPosition: string,
+    authorName: string,
+    authorImage: SanityImage
   }[]
 }
 

@@ -1,5 +1,6 @@
 import { defineType } from 'sanity'
 
+
 export const resourceSectionType = defineType({
     name: 'resourceSectionType',
     title: 'Resource Section',

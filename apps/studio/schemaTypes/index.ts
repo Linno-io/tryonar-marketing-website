@@ -13,9 +13,11 @@ import siteSettingsType from './siteSettingsType'
 import { resourceSectionType } from './resourceSectionType'
 
 import { link } from './objects/link'
+import { richTextHighlight } from './objects/richTextHighlight'
 
 export const schemaTypes = [
   link,
+  richTextHighlight,
   
   pageType,
   postType,

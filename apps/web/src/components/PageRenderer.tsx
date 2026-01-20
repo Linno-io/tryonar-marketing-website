@@ -44,6 +44,8 @@ console.log(page)
                                 return <CTASection key={section._key} data={section as CTASectionProps} />;
                             case "resourceSectionType":
                                 return <ResourceSection key={section._key} data={section as ResourceSectionProps} />;
+                             case "successStoriesSectionType":
+                                return <TestimonialSection key={section._key} data={section as SuccessStoriesSectionProps} />;
                             default:
                                 return null;
                         }
