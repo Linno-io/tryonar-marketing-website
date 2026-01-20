@@ -232,8 +232,21 @@
       height: 70px;
       border-radius: 50%;
       left: -25px;
-      top: -10px;
+      top: 0;
   }
+
+   @media (width <= 48rem /* 768px */) {
+      .highlighted-border:before {
+          left: -16px;
+          height: 50px;
+      }
+   }
+
+   @media (width <= 640px /* 768px */) {
+      .highlighted-border:before {
+          display: none;
+      }
+   }
 
   .magic-section {
     position: relative;
