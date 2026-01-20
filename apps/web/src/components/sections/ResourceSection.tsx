@@ -34,11 +34,11 @@ const ResourceSection = ({data}: {data: ResourceSectionProps}) => {
                     )
                 }
 
-                <Container withBorder={true} className='py-10 md:py-24 !px-[10px]'>
-                    <div className="relative z-10 text-center mx-auto mb-16">
+                <Container withBorder={true} className='py-10 md:py-16 lg:py-24 px-4 md:px-6 lg:px-8'>
+                    <div className="relative z-10 text-center mx-auto mb-12 md:mb-16 max-w-3xl">
                         {
                             title && (
-                                <Heading level={2} className="text-[#1A202C] text-4xl lg:text-5xl font-bold mb-3.5">
+                                <Heading level={2} className="text-[#1A202C] text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                                     {title} {highlightText && (<span className="text-[#838383]">{' ' + highlightText}</span>)}
                                 </Heading>
                             )
@@ -52,34 +52,36 @@ const ResourceSection = ({data}: {data: ResourceSectionProps}) => {
                         }
                     </div>
 
-                    <div className="flex items-center gap-12.5 p-15 justify-between rounded-[30px] border border-[#ECEDF1] bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)]">
-                        <Image 
-                            src={sectionImage?.url || '/placeholder-image.png'} 
-                            alt={sectionImage?.alt || 'Resource Section Image'} 
-                            width={600} 
-                            height={400} 
-                            className="w-auto object-contain flex-1"
-                        />
+                    <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-12 p-6 md:p-10 lg:p-12 justify-between rounded-2xl md:rounded-3xl border border-[#ECEDF1] bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)]">
+                        <div className="w-full lg:w-1/2 lg:flex-1">
+                            <Image 
+                                src={sectionImage?.url || '/placeholder-image.png'} 
+                                alt={sectionImage?.alt || 'Resource Section Image'} 
+                                width={600} 
+                                height={400} 
+                                className="w-full h-auto object-contain"
+                            />
+                        </div>
 
                         {resources && resources.length > 0 && (
-                            <div className="flex flex-col gap-4 flex-1">
+                            <div className="w-full lg:w-1/2 lg:flex-1 flex flex-col gap-4">
                                 {
                                     resources.map((resource, index) => (
-                                        <div key={index} className="border border-[#ECEDF1] rounded-2xl py-5 px-6 flex align-center justify-between gap-2.5">
-                                            <div className="flex items-center gap-2.5">
+                                        <div key={index} className="border border-[#ECEDF1] rounded-2xl py-4 md:py-5 px-4 md:px-6 flex items-center justify-between gap-3">
+                                            <div className="flex items-center gap-3 flex-1 min-w-0">
                                                 <Image 
                                                     src={resource.icon?.url || '/placeholder-icon.png'} 
                                                     alt={resource.icon?.alt || resource.title || 'Resource Icon'} 
                                                     width={16} 
                                                     height={16} 
-                                                    className="w-4 h-4 object-contain"
+                                                    className="w-4 h-4 flex-shrink-0 object-contain"
                                                 />
-                                                <h3 className="text-[#1A202C] text-[18px] leading-none font-semibold -tracking-tight">
+                                                <h3 className="text-[#1A202C] text-base md:text-lg leading-tight font-semibold -tracking-tight truncate">
                                                     {resource.title}
                                                 </h3>
                                             </div>
 
-                                            <Link href={resource.link}>
+                                            <Link href={resource.link} className="flex-shrink-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path d="M12.5 2.5H17.5V7.5" stroke="#838383" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                                                     <path d="M8.33203 11.6667L17.4987 2.5" stroke="#838383" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
@@ -92,8 +94,6 @@ const ResourceSection = ({data}: {data: ResourceSectionProps}) => {
                             </div>
                         )}
                     </div>
-
-                   
                 </Container>
             </section>
         </>
