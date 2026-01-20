@@ -24,33 +24,33 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params
-    const page = await getPageBySlug(slug)
+    const page = await getPageBySlug(slug ?? 'home')
 
-    if (!page || !page.seo) {
+    if (!page) {
         return {
-            title: 'TryOnAR',
-            description: 'Virtual try-on solutions for e-commerce',
+            title: 'TryOn AR - AR for Everyone, Not Just Tech Giants',
+            description: 'Transform your e-commerce store with 3-tap AR integration. Let customers try before they buy, reduce returns by 64%, and boost conversions by 94% with our no-code AR solution.',
         }
     }
 
     const { seo } = page
 
     return {
-        title: seo.metaTitle || page.title || 'TryOnAR',
-        description: seo.metaDescription || 'Virtual try-on solutions for e-commerce',
+        title: seo?.metaTitle || page.title || 'TryOn AR - AR for Everyone, Not Just Tech Giants',
+        description: seo?.metaDescription || 'Transform your e-commerce store with 3-tap AR integration. Let customers try before they buy, reduce returns by 64%, and boost conversions by 94% with our no-code AR solution.',
         alternates: {
-            canonical: seo.canonicalUrl,
+            canonical: seo?.canonicalUrl,
         },
         openGraph: {
-            title: seo.ogTitle || seo.metaTitle || page.title,
-            description: seo.ogDescription || seo.metaDescription,
-            images: seo.ogImage?.asset?.url ? [{ url: seo.ogImage.asset.url }] : [],
+            title: seo?.ogTitle || seo?.metaTitle || page.title,
+            description: seo?.ogDescription || seo?.metaDescription,
+            images: seo?.ogImage?.asset?.url ? [{ url: seo.ogImage.asset.url }] : [],
         },
         twitter: {
             card: 'summary_large_image',
-            title: seo.ogTitle || seo.metaTitle || page.title,
-            description: seo.ogDescription || seo.metaDescription,
-            images: seo.ogImage?.asset?.url ? [seo.ogImage.asset.url] : [],
+            title: seo?.ogTitle || seo?.metaTitle || page.title,
+            description: seo?.ogDescription || seo?.metaDescription,
+            images: seo?.ogImage?.asset?.url ? [seo.ogImage.asset.url] : [],
         },
     }
 }
