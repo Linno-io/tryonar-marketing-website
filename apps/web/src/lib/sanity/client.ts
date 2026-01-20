@@ -1,30 +1,41 @@
 import { createClient } from "next-sanity";
-import imageUrlBuilder from '@sanity/image-url'
+import { createImageUrlBuilder } from '@sanity/image-url'
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "90a20xmm",
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-01-01",
-  useCdn: false,
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "90a20xmm",
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-01-01",
+    useCdn: false,
 });
 
-const builder = imageUrlBuilder(client)
+const builder = createImageUrlBuilder(client)
 
 export function urlFor(source: any) {
-  return builder.image(source)
+    return builder.image(source)
 }
 
 export async function getAllPages() {
-  const query = `*[_type == "page"]{title, slug}`
-  return client.fetch(query, {}, { next: { revalidate: 60 } })
+    const query = `*[_type == "page"]{title, slug}`
+    return client.fetch(query, {}, { next: { revalidate: 60 } })
 }
 
 export async function getPageBySlug(slug: string) {
-  const query = `*[_type == "page" && slug.current == $slug][0]{
+    const query = `*[_type == "page" && slug.current == $slug][0]{
     title,
     slug,
     sections,
-    seo
+    seo{
+      metaTitle,
+      metaDescription,
+      canonicalUrl,
+      ogTitle,
+      ogDescription,
+      ogImage{
+        asset->{
+          url
+        }
+      }
+    }
   }`
-  return client.fetch(query, { slug }, { next: { revalidate: 60 } })
+    return client.fetch(query, { slug }, { next: { revalidate: 60 } })
 }

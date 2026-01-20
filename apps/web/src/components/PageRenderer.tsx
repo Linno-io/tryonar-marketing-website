@@ -18,12 +18,21 @@ import SolutionSection from './sections/SolutionSection'
 import TestimonialSection from './sections/TestimonialSection'
 import EcommerceChallenge from './sections/EcommerceChallenge'
 import FAQAccordion from './sections/FAQSection'
+import { Page } from '@/lib/types/page'
 
-interface Props {
-    sections: (HeroSectionProps | RealitySectionProps | CTASectionProps | SuccessStoriesSectionProps | IndustrySolutionsSectionProps)[]
+interface PageRenderedProps {
+    page: Page
 }
 
-export default function PageRenderer({ sections }: Props) {
+export default function PageRenderer({page}: PageRenderedProps) {
+    const {
+        sections = []
+    } = page
+console.log(page);
+    if(!sections || sections.length === 0) {
+        return null;
+    }
+
     const ctaData = {
         title: "Ready to scale your business?",
         description: "Join thousands of companies using our platform to streamline their workflow and increase productivity.",
@@ -54,7 +63,7 @@ export default function PageRenderer({ sections }: Props) {
                         return null
                 }
             })}
-            <EcommerceChallenge />
+            {/* <EcommerceChallenge />
             <ReadyToSolveSection />
             <ExperienceSection />
             <IndustrySolutionsSection />
@@ -63,7 +72,7 @@ export default function PageRenderer({ sections }: Props) {
             <TestimonialSection />
             <VirtualTryOnSection />
             <FAQAccordion />
-            <CTASection data={ctaData as CTASectionProps} />
+            <CTASection data={ctaData as CTASectionProps} /> */}
         </>
     )
 }

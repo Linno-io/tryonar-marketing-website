@@ -7,3 +7,9 @@ export interface Page {
   sections: Section[]
   seo: Seo
 }
+
+export  interface PageProps {
+    params: {
+        slug: string
+    }
+}
