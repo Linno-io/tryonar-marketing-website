@@ -13,12 +13,14 @@ import siteSettingsType from './siteSettingsType'
 import { resourceSectionType } from './resourceSectionType'
 
 import { link } from './objects/link'
+import { textSegment } from './objects/textSegment'
 import { richTextHighlight } from './objects/richTextHighlight'
 import { magicSectionType } from './magitcSectionType'
 import { faqSectionType } from './faqSectionType'
 
 export const schemaTypes = [
   link,
+  textSegment,
   richTextHighlight,
   
   pageType,
