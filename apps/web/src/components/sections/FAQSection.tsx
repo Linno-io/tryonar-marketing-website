@@ -1,45 +1,7 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Container } from "@/components/ui";
-
-interface FAQItem {
-    id: number;
-    question: string;
-    answer: string;
-}
-
-const faqData: FAQItem[] = [
-    {
-        id: 1,
-        question: "Is the setup complex?",
-        answer:
-            "First you connect the store to TryOn AR. Then, for each product, you can proceed to capturing the model. Once captured, if configured, it will instantly be available on the site, while you can proceed to the next one. You don't have to work all of them at once.",
-    },
-    {
-        id: 2,
-        question: "I have 100s of products. How does it work for me?",
-        answer:
-            "First you connect the store to TryOn AR. Then, for each product, you can proceed to capturing the model. Once captured, if configured, it will instantly be available on the site, while you can proceed to the next one. You don't have to work all of them at once.",
-    },
-    {
-        id: 3,
-        question: "Will I need to hire a camera man or studio?",
-        answer:
-            "First you connect the store to TryOn AR. Then, for each product, you can proceed to capturing the model. Once captured, if configured, it will instantly be available on the site, while you can proceed to the next one. You don't have to work all of them at once.",
-    },
-    {
-        id: 4,
-        question: "What happens if my stock runs out?",
-        answer:
-            "First you connect the store to TryOn AR. Then, for each product, you can proceed to capturing the model. Once captured, if configured, it will instantly be available on the site, while you can proceed to the next one. You don't have to work all of them at once.",
-    },
-    {
-        id: 5,
-        question: "I sell multiple product types. Can I use it?",
-        answer:
-            "First you connect the store to TryOn AR. Then, for each product, you can proceed to capturing the model. Once captured, if configured, it will instantly be available on the site, while you can proceed to the next one. You don't have to work all of them at once.",
-    },
-];
+import { FAQSection as FAQSectionProps } from '@/lib/types/section';
 
 const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
     <svg
@@ -56,28 +18,57 @@ const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
     </svg>
 );
 
-export default function FAQAccordion() {
-    const [openId, setOpenId] = useState<number | null>(1); // Second item open by default
+export default function FAQAccordion({data} : {data: FAQSectionProps }) {
+    const {
+        title,
+        description,
+        faq
+    } = data;
 
-    const toggleAccordion = (id: number) => {
+    const [openId, setOpenId] = useState<string | null>(faq.length > 0 ? faq[0]._key : null);
+
+
+    const toggleAccordion = (id: string) => {
         setOpenId(openId === id ? null : id);
     };
 
     return (
         <section className="relative bg-[#F8F8F9] overflow-hidden faq-section">
             <Container withBorder padding={true} className="py-10 md:py-24 !px-2.5">
-                {/* Title */}
-                <h2 className="text-2xl relative z-10 sm:text-3xl md:text-4xl lg:text-[48px] font-bold leading-tight md:leading-15 text-[#1a202c] text-center mb-10 md:mb-15">
-                    FAQs - Your Best Concerns Answered
-                </h2>
+                <div className="text-center mx-auto mb-12 md:mb-16">
+                    {
+                        title && title.length > 0 && (
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a202c] mb-4">
+                                {
+                                    title.map((block, index) => {
+                                        if(block.type === 'normal') {
+                                            return <Fragment key={index}>{block.text}</Fragment>
+                                        }else {
+                                            return (
+                                                <span key={index} className="text-[#838383] font-bold">{' ' + block.text + ' '}</span>
+                                            )
+                                        }
+                                    })
+                                }
+                            </h2>
+                        )
+                    }
+
+                    {
+                        description && (
+                            <p className="text-[#E7E5EABF] text-base md:text-lg mx-auto">{description}</p>
+                        )
+                    }
+                </div>
+                
 
                 {/* FAQ Items */}
                 <div className="space-y-4 max-w-220 mx-auto relative z-10">
-                    {faqData.map((faq) => {
-                        const isOpen = openId === faq.id;
+                    {faq.map((faq) => {
+                        const isOpen = openId === faq._key;
                         return (
                             <div
-                                key={faq.id}
+                                key={faq._key}
                                 className={`rounded-[14px] md:rounded-2xl transition-all duration-300 border border-[#ededf0] ${isOpen
                                         ? "bg-white shadow-lg"
                                         : "bg-[#f8f8f9] hover:bg-[#f3f3f6]"
@@ -85,7 +76,7 @@ export default function FAQAccordion() {
                             >
                                 {/* Question header - clickable */}
                                 <button
-                                    onClick={() => toggleAccordion(faq.id)}
+                                    onClick={() => toggleAccordion(faq._key)}
                                     className="w-full flex cursor-pointer items-center justify-between p-5 text-left"
                                 >
                                     <span className="font-medium text-base md:text-[20px] leading-[26px] md:leading-[30px] tracking-tight md:tracking-[-1px] text-[#1a202c] pr-4">

@@ -7,7 +7,8 @@ import {
     SuccessStoriesSection as SuccessStoriesSectionProps, 
     IndustrySolutionsSection as IndustrySolutionsSectionProps, 
     ResourceSection as ResourceSectionProps,
-    MagicSection as MagicSectionProps
+    MagicSection as MagicSectionProps,
+    FAQSection as FAQSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -79,6 +80,8 @@ console.log(page);
                                 return <TestimonialSection key={section._key} data={section as SuccessStoriesSectionProps} />;
                             case "magicSectionType":
                                 return <MagicSection key={section._key} data={section as MagicSectionProps} />;
+                            case "faqSectionType":
+                                return <FAQAccordion key={section._key} data={section as FAQSectionProps} />;
                             default:
                                 return null;
                         }

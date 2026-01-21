@@ -142,6 +142,18 @@ export interface MagicSection extends Section {
   }[]
 }
 
+export interface FAQSection extends Section {
+  _type: 'faqSectionType'
+  _key: string,
+  title: SectionTitle[],
+  description?: string,
+  faq: {
+    _key: string,
+    question: string,
+    answer: string,
+  }[]
+}
+
 export interface IndustrySolutionsSection extends Section {
   _type: 'industrySolutionsSectionType'
   _key: string
