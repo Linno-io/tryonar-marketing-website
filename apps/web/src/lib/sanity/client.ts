@@ -65,7 +65,32 @@ export async function getPageBySlug(slug: string) {
             "url": coalesce(url.internalLink->slug.current,
                     url.externalLink
                 )
-        }
+        },
+        tabs[]{
+            ...,
+            "tabContent": tabContent{
+                ...,
+                "image":{
+                    "url": image.asset->url,
+                    "alt": image.alt
+                },
+                features[]{
+                    ...,
+                    "icon":{
+                        "url": icon.asset->url,
+                        "alt": icon.alt
+                    }
+                },
+                primaryButton{
+                    ...,
+                    "internalLink": internalLink->slug.current,
+                },
+                secondaryButton{
+                    ...,
+                    "internalLink": internalLink->slug.current
+                },
+            }
+        },
     },
     seo{
       metaTitle,

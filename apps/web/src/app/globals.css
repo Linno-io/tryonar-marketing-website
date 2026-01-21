@@ -381,6 +381,7 @@
     width: 4px;
     height: 100%;
     position: absolute;
+    left: 0%;
   }
 
   @media (width <= 64rem /* 1024px */) {

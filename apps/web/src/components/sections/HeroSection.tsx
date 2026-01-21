@@ -35,8 +35,8 @@ export default function HeroSection({ data }: HeroSectionProps) {
             </div>
 
             <Container className="relative z-10" custom={customContainer ? "max-w-full lg:max-w-[1280px] xl:max-w-[1390px] kabir" : undefined} size={customContainer ? 'custom' : "xl"}>
-                <div className={`grid lg:grid-cols-${customContainer ? '13' : '12'} gap-13 items-start`}>
-                    <div className={`lg:col-span-${customContainer ? '7' : '6'} flex flex-col text-left`}>
+                <div className={`grid ${customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12'} gap-13 items-start`}>
+                    <div className={`${customContainer ? 'lg:col-span-7' : 'lg:col-span-6'} flex flex-col text-left`}>
                         {
                             title && title.length > 0 && (
                                 <h1 className="text-[32px] sm:text-[40px] md:text-[64px] lg:text-[68px] leading-[1.09]">

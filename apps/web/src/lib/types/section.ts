@@ -156,30 +156,50 @@ export interface FAQSection extends Section {
 export interface IndustrySolutionsSection extends Section {
   _type: 'industrySolutionsSectionType'
   _key: string
-  heading: string
-  subheading: string
-  industries: {
-    id: {
-      current: string
-    }
-    label: string
-    title: string
-    description: string
-    image: {
-      asset: {
-        _ref: string
-        url?: string
+  tagline: string
+  title: SectionTitle[]
+  description: string
+  tabs: {
+    _key: string
+    comingSoon: boolean
+    tabLabel: string
+    tabContent: {
+      image?: SanityImage
+      contentTitle?: string
+      contentDescription?: string
+      features?: {
+        featureTitle: string
+        icon: SanityImage
+      }[]
+      stats: {
+        label: string
+        value: string
+      }[]
+      primaryButton?: {
+        text: string
+        internalLink?: string
+        externalLink?: string
+        showIcon?: boolean
+      }
+      secondaryButton?: {
+        text: string
+        internalLink?: string
+        externalLink?: string
+        showIcon?: boolean
       }
     }
-    roi: string
-    features: {
-      label: string
-      icon: 'scan' | 'sparkles' | 'layoutPanel' | 'share'
-    }[]
-    stats: {
-      value: string
-      label: string
-    }[]
-    comingSoon?: boolean
   }[]
+  showStatsOnBottom: boolean
+  primaryButton?: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+  secondaryButton?: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
 }

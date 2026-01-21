@@ -1,91 +1,102 @@
 "use client";
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, ScanFace, Ruler, Share2, Play, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Container } from '../ui';
+import { 
+    IndustrySolutionsSection as IndustrySolutionsSectionProps, 
+} from '@/lib/types/section';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const industries = [
-    {
-        id: 'eyewear',
-        name: 'Eyewear',
-        isComingSoon: false,
-        title: 'Eyewear',
-        description: 'Try on glasses, sunglasses, and contact lenses virtually',
-        features: [
-            { name: 'Face shape analysis', icon: <ScanFace size={18} /> },
-            { name: 'Virtual fitting rooms', icon: <Ruler size={18} /> },
-            { name: 'Size recommendation AI', icon: <Sparkles size={18} /> },
-            { name: 'Social sharing integration', icon: <Share2 size={18} /> },
-        ],
-        stats: { conversion: '+127%', return: '-68%', engagement: '89+' },
-        image: '/sunglass-face-1.png'
-    },
-    {
-        id: 'headwear',
-        name: 'Headwear',
-        isComingSoon: false,
-        title: 'Headwear & Hats',
-        description: 'Ensure the perfect fit for hats, helmets, and beanies with 3D head mapping.',
-        features: ['Head size calibration', 'Hair occlusion technology', 'Style matching', 'Material texture preview'],
-        stats: { conversion: '+95%', return: '-42%', engagement: '74+' },
-        image: '/headwear-image-1.png'
-    },
-    {
-        id: 'jewelry',
-        name: 'Jewelry',
-        isComingSoon: true,
-        title: 'Jewelry',
-        description: 'Hyper-realistic gemstone and metal rendering for rings and necklaces.',
-        features: ['Hand tracking', 'Realistic shaders', 'Size sizer', 'Multi-stacking preview'],
-        stats: { conversion: '+110%', return: '-52%', engagement: '78+' },
-        image: '/jewelry-model.png'
-    },
-    {
-        id: 'footwear',
-        name: 'Footwear',
-        isComingSoon: true,
-        title: 'Footwear',
-        description: 'Step into the future with real-time foot tracking and virtual sneaker try-ons.',
-        features: ['Ankle occlusion', 'Surface detection', 'PBR textures', 'Direct-to-cart'],
-        stats: { conversion: '+142%', return: '-70%', engagement: '95+' },
-        image: '/footwear-model.png'
-    },
-];
+const StatsSection = (props:any) => {
+    if(!props.data || props.data.length === 0) return null;
 
-export default function IndustryARSection() {
-    const [activeTab, setActiveTab] = useState(industries[0]);
+    return (
+        <div className={`bg-[#F8F8F9] mx-3 sm:mx-4 flex flex-col sm:flex-row px-5 sm:px-8 md:px-11.2 py-7 rounded-[10px] gap-4 sm:gap-0`}>
+            {props.data?.map(({label, value} : {label: string, value: string}, index : number) => (
+                <div
+                    key={label}
+                    className={`flex-1 flex items-center justify-center text-center pb-4 sm:pb-0 px-0 sm:px-4 relative  ${index === 0  ? '' : 'gradient-border'}`}
+                >
+                    <div>
+                        <div className="text-2xl sm:text-3xl font-medium text-[#838383] tracking-tight">
+                            {value}
+                        </div>
+                        <div className="text-[10px] uppercase text-[#646464] tracking-[0.1em] mt-1.5">
+                            {label}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
+}
+
+export default function IndustryARSection({data} : {data: IndustrySolutionsSectionProps}) {
+    const {
+        tagline,
+        title,
+        description,
+        tabs,
+        showStatsOnBottom,
+        primaryButton,
+        secondaryButton
+    } = data;
+
+    const [activeTab, setActiveTab] = useState(tabs ? tabs[0] : null);
+
+    if(!tabs || tabs.length === 0 || !activeTab) return null;
 
     return (
         <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
             <Container className='pt-40'>
                 <div className="text-center mb-15">
-                    <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-5">Industry Solutions</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#1A202C] leading-tight">
-                        Tailored AR experiences for <span className="text-[#838383]">every industry</span>
-                    </h2>
-                    <p className="text-[#3E3E42] mt-3.5 mx-auto text-lg leading-relaxed">
-                        From fashion to jewelry, our AR solutions are customized to meet the unique needs of your industry
-                    </p>
+                    <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-5">{tagline}</p>
+
+                    {
+                        title && title.length > 0 && (
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a202c] mb-4">
+                                {
+                                    title.map((block, index) => {
+                                        if(block.type === 'normal') {
+                                            return <Fragment key={index}>{block.text}</Fragment>
+                                        }else {
+                                            return (
+                                                <span key={index} className="text-[#838383] font-bold">{' ' + block.text + ' '}</span>
+                                            )
+                                        }
+                                    })
+                                }
+                            </h2>
+                        )
+                    }
+
+                    {
+                        description && (
+                            <p className="text-[#3E3E42] mt-3.5 mx-auto text-lg leading-relaxed">{description}</p>
+                        )
+                    }
                 </div>
 
                 <div className="flex items-center justify-center flex-wrap gap-3 mb-10">
-                    {industries.map((tab) => (
+                    {tabs.map((tab) => (
                         <button
-                            key={tab.id}
-                            onClick={() => !tab.isComingSoon && setActiveTab(tab)}
-                            className={`p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${activeTab.id === tab.id
+                            key={tab._key}
+                            onClick={() => !tab.comingSoon && setActiveTab(tab)}
+                            className={`p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${activeTab._key === tab._key
                                 ? 'border-[#FFA49B] border-solid challenge-active-tab'
                                 : 'border border-dashed border-[#C5BBCC]'
-                                } ${tab.isComingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
+                                } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
                         >
                             <span className="flex items-center gap-2">
-                                {tab.name}
-                                {!tab.isComingSoon && activeTab.id === tab.id && (
+                                {tab.tabLabel}
+                                {!tab.comingSoon && activeTab._key === tab._key && (
                                     <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF8080] rounded-full border-2 border-white shadow-sm flex items-center justify-center">
                                         <div className="w-1 h-1 bg-white rounded-full opacity-60" />
                                     </span>
                                 )}
-                                {tab.isComingSoon && (
+                                {tab.comingSoon && (
                                     <div className="bg-slate-100 text-[8px] px-1.5 py-0.5 rounded text-slate-400 font-bold uppercase tracking-tighter">
                                         Soon
                                     </div>
@@ -100,7 +111,7 @@ export default function IndustryARSection() {
                     <div className="bg-white rounded-3xl md:rounded-[20px] flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
                         <AnimatePresence mode="wait">
                             <motion.div
-                                key={activeTab.id}
+                                key={activeTab._key}
                                 initial={{ opacity: 0, x: -15 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: 15 }}
@@ -110,87 +121,136 @@ export default function IndustryARSection() {
                                 {/* Header */}
                                 <div className="pt-6 md:pt-10 pb-4 md:pb-7 px-6 sm:px-8 md:px-14">
                                     <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-5">
-                                        {activeTab.title}
+                                        {activeTab?.tabContent?.contentTitle}
                                     </h3>
-                                    <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-md">
-                                        {activeTab.description}
-                                    </p>
+                                    {
+                                        activeTab?.tabContent?.contentDescription && (
+                                            <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-md">
+                                                {activeTab?.tabContent?.contentDescription}
+                                            </p>
+                                        )
+                                    }
                                 </div>
 
-                                {/* Stats */}
-                                <div className="bg-[#F8F8F9] mx-3 sm:mx-4 flex flex-col sm:flex-row px-5 sm:px-8 md:px-11.2 py-7 rounded-[10px] gap-4 sm:gap-0">
-                                    {Object.entries(activeTab.stats).map(([key, value], index) => (
-                                        <div
-                                            key={key}
-                                            className={`flex-1 flex items-center justify-center text-center pb-4 sm:pb-0 px-0 sm:px-4  ${index === 0  ? '' : 'gradient-border'}`}
-                                        >
-                                            <div>
-                                                <div className="text-2xl sm:text-3xl font-medium text-[#838383] tracking-tight">
-                                                    {value}
-                                                </div>
-                                                <div className="text-[10px] uppercase text-[#646464] tracking-[0.1em] mt-1.5">
-                                                    {key}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
+                                {
+                                    !showStatsOnBottom && (
+                                        <StatsSection data={activeTab?.tabContent?.stats} onBottom={showStatsOnBottom} />
+                                    )
+                                }
 
                                 {/* Features */}
-                                <div className="mb-8 md:mb-12 pt-6 md:pt-10 px-6 sm:px-8 md:px-14">
-                                    <h4 className="font-bold text-slate-900 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] mb-6 md:mb-8">
+                                <div className={`mb-8 md:mb-12 ${showStatsOnBottom ? '' : 'pt-6 md:pt-10'} px-6 sm:px-8 md:px-14 `}>
+                                    <h4 className="font-bold text-slate-900 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] mb-2 md:mb-3.5">
                                         Key Features
                                     </h4>
                                     <ul className="space-y-4 sm:space-y-6">
-                                        {activeTab.features.map((feature, idx) => (
+                                        {activeTab?.tabContent?.features?.map((feature, idx) => (
                                             <li
                                                 key={idx}
                                                 className="flex items-center gap-4 text-slate-600"
                                             >
                                                 <span className="text-slate-300">
-                                                    {typeof feature === "string" ? <Sparkles size={20} /> : feature.icon}
+                                                    <Image 
+                                                        src={feature.icon.url ?? ''}
+                                                        width={18}
+                                                        height={18}
+                                                        alt={feature.icon.alt ?? feature.featureTitle}
+                                                        unoptimized
+                                                    />
                                                 </span>
                                                 <span className="font-medium text-sm sm:text-[16px]">
-                                                    {typeof feature === "string" ? feature : feature.name}
+                                                    {feature.featureTitle}
                                                 </span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
+                                
+                                {
+                                    showStatsOnBottom && (
+                                        <StatsSection data={activeTab?.tabContent?.stats} onBottom={showStatsOnBottom}/>
+                                    )
+                                }
 
-                                {/* CTA Buttons */}
-                                <div className="flex flex-col sm:flex-row gap-4 mt-auto pb-6 md:pb-10 px-6 sm:px-8 md:px-14">
-                                    <button className="w-full sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
-                                        Start Free Trial <ArrowUpRight size={20} />
-                                    </button>
+                                {
+                                    (activeTab?.tabContent?.primaryButton?.text || activeTab?.tabContent?.secondaryButton?.text) && (
+                                         <div className="flex flex-col sm:flex-row gap-4 mt-auto pb-6 md:pb-10 px-6 sm:px-8 md:px-14">
+                                            {
+                                                activeTab?.tabContent?.primaryButton && (
+                                                    <Link href={activeTab?.tabContent?.primaryButton?.internalLink || activeTab?.tabContent?.primaryButton?.externalLink || '#'} target={activeTab?.tabContent?.primaryButton?.externalLink ? '_blank' : '_self'}>
+                                                        <button className="w-full sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                                                            {activeTab?.tabContent?.primaryButton?.text}
+                                                            {activeTab?.tabContent?.primaryButton?.showIcon !== false ? <ArrowUpRight size={20} /> : null}
+                                                        </button>
+                                                    </Link>
+                                                )
+                                            }
 
-                                    <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
-                                        Watch Demo <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>
-                                    </button>
-                                </div>
+                                            {
+                                                activeTab?.tabContent?.secondaryButton && (
+                                                    <Link href={activeTab?.tabContent?.secondaryButton?.internalLink || activeTab?.tabContent?.secondaryButton?.externalLink || '#'} target={activeTab?.tabContent?.secondaryButton?.externalLink ? '_blank' : '_self'}>
+                                                        <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
+                                                            {activeTab?.tabContent?.secondaryButton?.text}
+                                                            {activeTab?.tabContent?.secondaryButton?.showIcon !== false ? <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg> : null}
+                                                        </button>
+                                                    </Link>
+                                                )
+                                            }
+                                        </div>
+                                    )
+                                }
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
                     {/* RIGHT COLUMN */}
-                    <div className="bg-white rounded-3xl md:rounded-[20px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex items-end min-h-[360px] sm:min-h-[480px] lg:min-h-[620px]">
+                    <div className="bg-white rounded-3xl md:rounded-[20px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex items-end min-h-[360px] sm:min-h-[480px] lg:min-h-[585px]">
                         <AnimatePresence mode="wait">
                             <motion.div
-                                key={activeTab.id}
+                                key={activeTab._key}
                                 initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
                                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                                 exit={{ opacity: 0, scale: 1.1, rotate: 1 }}
                                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                style={{height: '100%'}}
                             >
                                 <img
-                                    src={activeTab.image}
-                                    alt={activeTab.title}
-                                    className="w-auto object-contain drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
+                                    src={activeTab?.tabContent?.image?.url ?? ''}
+                                    alt={activeTab?.tabContent?.image?.alt ?? 'Industry Solution Image'}
+                                    className="w-auto object-cover h-full drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
                                 />
                             </motion.div>
                         </AnimatePresence>
                     </div>
                 </div>
+
+                {
+                    (primaryButton?.text || secondaryButton?.text) && (
+                            <div className="flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-10 md:pt-15.2 pb-10 md:pb-40 justify-center">
+                            {
+                                primaryButton && (
+                                    <Link href={primaryButton?.internalLink || primaryButton?.externalLink || '#'} target={primaryButton?.externalLink ? '_blank' : '_self'}>
+                                        <button className="w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                                            {primaryButton?.text}
+                                            {primaryButton?.showIcon !== false ? <ArrowUpRight size={20} /> : null}
+                                        </button>
+                                    </Link>
+                                )
+                            }
+
+                            {
+                                secondaryButton && (
+                                    <Link href={secondaryButton?.internalLink || secondaryButton?.externalLink || '#'} target={secondaryButton?.externalLink ? '_blank' : '_self'}>
+                                        <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
+                                            {secondaryButton?.text}
+                                            {secondaryButton?.showIcon !== false ? <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg> : null}
+                                        </button>
+                                    </Link>
+                                )
+                            }
+                        </div>
+                    )
+                }
             </Container>
         </section>
     );

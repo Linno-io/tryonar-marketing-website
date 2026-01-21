@@ -84,6 +84,8 @@ console.log(page);
                                 return <FAQAccordion key={section._key} data={section as FAQSectionProps} />;
                             case 'heroSectionType':
                                 return <HeroSection key={section._key} data={section as HeroSectionProps} />
+                            case 'industrySolutionsSectionType':
+                               return <IndustrySolutionsSection key={section._key} data={section as IndustrySolutionsSectionProps} />
                             default:
                                 return null;
                         }
