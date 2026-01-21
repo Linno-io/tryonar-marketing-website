@@ -18,6 +18,7 @@ import { richTextHighlight } from './objects/richTextHighlight'
 import { magicSectionType } from './magitcSectionType'
 import { faqSectionType } from './faqSectionType'
 import { workFlowSectionType } from './workflowSectionType'
+import { cardsSectionType } from './cardsSectionType'
 
 export const schemaTypes = [
   link,
@@ -38,6 +39,7 @@ export const schemaTypes = [
   resourceSectionType,
   magicSectionType,
   faqSectionType,
-  workFlowSectionType
+  workFlowSectionType,
+  cardsSectionType,
   // userType
 ]

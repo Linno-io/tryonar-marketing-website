@@ -229,3 +229,30 @@ export interface WorkflowSection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface CardsSection extends Section {
+  _type: 'cardsSectionType'
+  _key: string
+  title: SectionTitle[]
+  showDivider: boolean
+  description: string
+  cards: {
+    _key: string
+    cardTitle: string
+    description: string
+    image: SanityImage
+    tags?: string[]
+  }[]
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+  secondaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}

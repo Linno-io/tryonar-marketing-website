@@ -9,7 +9,8 @@ import {
     ResourceSection as ResourceSectionProps,
     MagicSection as MagicSectionProps,
     FAQSection as FAQSectionProps,
-    WorkflowSection as WorkflowSectionProps
+    WorkflowSection as WorkflowSectionProps,
+    CardsSection as CardsSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -33,6 +34,7 @@ import { Page } from '@/lib/types/page'
 import ResourceSection from './sections/ResourceSection'
 import MagicSection from './sections/MagicSection'
 import WorkflowSection from './sections/WorkflowSection';
+import CardsSection from './sections/CardsSection';
 
 interface PageRenderedProps {
     page: Page
@@ -89,7 +91,9 @@ console.log(page);
                             case 'industrySolutionsSectionType':
                                return <IndustrySolutionsSection key={section._key} data={section as IndustrySolutionsSectionProps} />;
                             case 'workFlowSectionType':
-                               return <WorkflowSection key={section._key} data={section as WorkflowSectionProps} />
+                               return <WorkflowSection key={section._key} data={section as WorkflowSectionProps} />;
+                            case 'cardsSectionType':
+                               return <CardsSection key={section._key} data={section as CardsSectionProps} />;
                             default:
                                 return null;
                         }
