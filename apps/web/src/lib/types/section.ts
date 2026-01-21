@@ -7,23 +7,22 @@ export interface Section {
 
 export interface HeroSection extends Section {
   _type: 'heroSectionType'
-  heading: string
-  subtext: string
-  trustBadges?: { text: string }[]
-  primaryCta: {
+  title: SectionTitle[]
+  description: string
+  sectionImage: SanityImage
+  tags?: string[]
+  customContainer?: boolean
+  primaryButton: {
     text: string
-    link: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
   }
-  secondaryCta: {
+  secondaryButton: {
     text: string
-    link: string
-  }
-  heroImage?: {
-    asset: {
-      _ref: string
-      url?: string
-    }
-    alt?: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
   }
 }
 

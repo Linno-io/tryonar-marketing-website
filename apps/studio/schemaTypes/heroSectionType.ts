@@ -1,114 +1,145 @@
 import { defineType, defineField } from 'sanity'
 
 export const heroSectionType = defineType({
-  name: 'heroSectionType',
-  title: 'Hero Section',
-  type: 'object',
-  fields: [
-    defineField({
-      name: 'heading',
-      title: 'Main Heading',
-      type: 'text',
-      rows: 2,
-      validation: (rule) => rule.required(),
-      description: 'Main headline for the hero section (supports line breaks)'
-    }),
-    defineField({
-      name: 'subtext',
-      title: 'Subtext',
-      type: 'text',
-      rows: 4,
-      validation: (rule) => rule.required(),
-      description: 'Supporting text below the heading'
-    }),
-    defineField({
-      name: 'trustBadges',
-      title: 'Trust Badges',
-      type: 'array',
-      of: [
+    name: 'heroSectionType',
+    title: 'Hero Section',
+    type: 'object',
+    fields: [
         {
-          type: 'object',
-          fields: [
-            {
-              name: 'text',
-              title: 'Badge Text',
-              type: 'string',
-              validation: (rule) => rule.required()
-            }
-          ],
-          preview: {
-            select: {
-              title: 'text'
-            }
-          }
-        }
-      ],
-      validation: (rule) => rule.max(5),
-      description: 'Trust badges displayed below the subtext (max 5)'
-    }),
-    defineField({
-      name: 'primaryCta',
-      title: 'Primary CTA Button',
-      type: 'object',
-      fields: [
-        {
-          name: 'text',
-          title: 'Button Text',
-          type: 'string',
-          validation: (rule) => rule.required()
+            name: 'title',
+            title: 'Title',
+            type: 'richTextHighlight',
+            validation: (rule) => rule.required(),
+            description: 'Main heading for the success stories section',
         },
         {
-          name: 'link',
-          title: 'Button Link',
-          type: 'url',
-          validation: (rule) => rule.required()
-        }
-      ],
-      validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'secondaryCta',
-      title: 'Secondary CTA Button',
-      type: 'object',
-      fields: [
-        {
-          name: 'text',
-          title: 'Button Text',
-          type: 'string',
-          validation: (rule) => rule.required()
+            name: 'description',
+            title: 'Description',
+            type: 'text',
+            rows: 3,
+            validation: (rule) => rule.required(),
+            description: 'Supporting text below the title'
         },
         {
-          name: 'link',
-          title: 'Button Link',
-          type: 'url',
-          validation: (rule) => rule.required()
-        }
-      ],
-      validation: (rule) => rule.required()
-    }),
-    defineField({
-      name: 'heroImage',
-      title: 'Hero Image',
-      type: 'image',
-      options: {
-        hotspot: true
-      },
-      fields: [
+            name: 'sectionImage',
+            title: 'Section Image',
+            type: 'image',
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt Text',
+                    type: 'string',
+                    validation: (rule) => rule.required()
+                }
+            ],
+            validation: (rule) => rule.required(),
+            description: 'Main image for the hero section'
+        },
         {
-          name: 'alt',
-          title: 'Alt Text',
-          type: 'string',
-          validation: (rule) => rule.required()
-        }
-      ],
-      validation: (rule) => rule.required(),
-      description: 'Main hero image displayed below the CTAs'
-    })
-  ],
-  preview: {
-    select: {
-      title: 'heading',
-      media: 'heroImage'
-    }
-  }
+            name: 'tags',
+            title: 'Tags',
+            type: 'array',
+            of: [{ type: 'string' }],
+            description: 'Tags to display above the title (optional)'
+        },
+        {
+            name: 'primaryButton',
+            title: 'Primary Button',
+            type: 'object',
+            fields: [
+                {
+                    name: 'text',
+                    title: 'Button Text',
+                    type: 'string',
+                    validation: (rule) => rule.required()
+                },
+                {
+
+                    name: 'internalLink',
+                    title: 'Internal Link',
+                    type: 'reference',
+                    to: [{ type: 'page' }],
+                },
+                {
+                    name: 'externalLink',
+                    title: 'External Link',
+                    type: 'url',
+                    validation: Rule =>
+                        Rule.uri({
+                            scheme: ['http', 'https'],
+                        }),
+                },
+                {
+                    name: 'showIcon',
+                    title: 'Show Icon',
+                    type: 'boolean',
+                    initialValue: true,
+                },
+            ],
+            validation: (rule) => rule.required()
+        },
+        {
+            name: 'secondaryButton',
+            title: 'Secondary Button',
+            type: 'object',
+            fields: [
+                {
+                    name: 'text',
+                    title: 'Button Text',
+                    type: 'string',
+                    validation: (rule) => rule.required()
+                },
+                {
+
+                    name: 'internalLink',
+                    title: 'Internal Link',
+                    type: 'reference',
+                    to: [{ type: 'page' }],
+                },
+                {
+                    name: 'externalLink',
+                    title: 'External Link',
+                    type: 'url',
+                    validation: Rule =>
+                        Rule.uri({
+                            scheme: ['http', 'https'],
+                        }),
+                },
+                {
+                    name: 'showIcon',
+                    title: 'Show Icon',
+                    type: 'boolean',
+                    initialValue: true,
+                },
+            ],
+            validation: (rule) => rule.required()
+        },
+        {
+            name: 'customContainer',
+            title: 'Use Custom Container Width',
+            type: 'boolean',
+            initialValue: false,
+        },
+
+    ],
+    preview: {
+        select: {
+            title: 'title',
+            media: 'sectionImage',
+        },
+        prepare(selection: { title?: any[]; media?: any }) {
+            const { title, media } = selection
+
+            const plainTitle = Array.isArray(title)
+                ? title.map((t) => t?.text).join(' ')
+                : 'Hero Section'
+
+            return {
+                title: plainTitle || 'Hero Section',
+                subtitle: 'Hero Section',
+                media,
+            }
+        },
+    },
+
 })

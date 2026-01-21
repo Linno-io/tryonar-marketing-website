@@ -82,6 +82,8 @@ console.log(page);
                                 return <MagicSection key={section._key} data={section as MagicSectionProps} />;
                             case "faqSectionType":
                                 return <FAQAccordion key={section._key} data={section as FAQSectionProps} />;
+                            case 'heroSectionType':
+                                return <HeroSection key={section._key} data={section as HeroSectionProps} />
                             default:
                                 return null;
                         }
