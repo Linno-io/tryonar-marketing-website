@@ -17,6 +17,7 @@ import { textSegment } from './objects/textSegment'
 import { richTextHighlight } from './objects/richTextHighlight'
 import { magicSectionType } from './magitcSectionType'
 import { faqSectionType } from './faqSectionType'
+import { workFlowSectionType } from './workflowSectionType'
 
 export const schemaTypes = [
   link,
@@ -37,5 +38,6 @@ export const schemaTypes = [
   resourceSectionType,
   magicSectionType,
   faqSectionType,
+  workFlowSectionType
   // userType
 ]

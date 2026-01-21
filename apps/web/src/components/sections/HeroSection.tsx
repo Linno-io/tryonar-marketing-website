@@ -34,7 +34,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 />
             </div>
 
-            <Container className="relative z-10" custom={customContainer ? "max-w-full lg:max-w-[1280px] xl:max-w-[1390px] kabir" : undefined} size={customContainer ? 'custom' : "xl"}>
+            <Container className="relative z-10" custom={customContainer ? "max-w-full lg:max-w-[1280px] xl:max-w-[1390px]" : undefined} size={customContainer ? 'custom' : "xl"}>
                 <div className={`grid ${customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12'} gap-13 items-start`}>
                     <div className={`${customContainer ? 'lg:col-span-7' : 'lg:col-span-6'} flex flex-col text-left`}>
                         {

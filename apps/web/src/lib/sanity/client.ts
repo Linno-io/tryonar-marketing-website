@@ -49,6 +49,13 @@ export async function getPageBySlug(slug: string) {
                     link.externalLink
                 )
         },
+        steps[]{
+            ...,
+            "image":{
+                "url": image.asset->url,
+                "alt": image.alt
+            }
+        },
         stats[]{
             type,
             label

@@ -20,6 +20,7 @@ export const pageType = defineType({
         { type: 'resourceSectionType' },
         { type: 'magicSectionType' },
         { type: 'faqSectionType' },
+        { type: 'workFlowSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

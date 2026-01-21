@@ -203,3 +203,29 @@ export interface IndustrySolutionsSection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface WorkflowSection extends Section {
+  _type: 'workFlowSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  steps: {
+    _key: string
+    stepTitle: SectionTitle[]
+    stepDescription: string
+    image: SanityImage
+    tags?: string[]
+  }[]
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+  secondaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}

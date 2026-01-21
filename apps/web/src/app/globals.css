@@ -384,6 +384,17 @@
     left: 0%;
   }
 
+  .workflow-step-active {
+    background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 19px, transparent 19px) 0% 0%/20px 20px no-repeat,
+            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 19px, transparent 19px) 100% 0%/20px 20px no-repeat,
+            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 19px, transparent 19px) 0% 100%/20px 20px no-repeat,
+            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 19px, transparent 19px) 100% 100%/20px 20px no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 2px) calc(100% - 40px) no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 40px) calc(100% - 2px) no-repeat,
+            linear-gradient(90deg, #ffa49b 0%, #AA73E4 100%);
+    box-sizing: border-box;
+  }
+
   @media (width <= 64rem /* 1024px */) {
     .arrow-border:before {
       content: "";
