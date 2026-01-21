@@ -43,24 +43,24 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
     } = page
 
 console.log(page);
-    // if(home) {
-    //     console.log('Rendering home page with sections:', sections);
-    //     return (
-    //         <>
-    //             <HeroSection data={sections[0] as HeroSectionProps} />
-    //             <EcommerceChallenge />
-    //             <ReadyToSolveSection />
-    //             <ExperienceSection />
-    //             <IndustrySolutionsSection />
-    //             <JourneySection />
-    //             <GallerySection />
-    //             <TestimonialSection data={sections[2] as SuccessStoriesSectionProps} />
-    //             <VirtualTryOnSection />
-    //             <FAQAccordion />
-    //             <CTASection data={sections[4] as CTASectionProps} />
-    //         </>
-    //     )
-    // }
+    if(home) {
+        console.log('Rendering home page with sections:', sections);
+        return (
+            <>
+                <HeroSection data={sections[0] as HeroSectionProps} />
+                <EcommerceChallenge />
+                <ReadyToSolveSection />
+                <ExperienceSection />
+                <IndustrySolutionsSection data={sections[1]  as IndustrySolutionsSectionProps} />
+                <JourneySection />
+                <GallerySection />
+                <TestimonialSection data={sections[2] as SuccessStoriesSectionProps} />
+                <VirtualTryOnSection />
+                <FAQAccordion data={sections[3] as FAQSectionProps} />
+                <CTASection data={sections[4] as CTASectionProps} />
+            </>
+        )
+    }
 
     if(!sections || sections.length === 0) {
         return null;
