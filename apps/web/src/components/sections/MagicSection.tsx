@@ -1,11 +1,13 @@
 import { MagicSection as MagicSectionProps } from '@/lib/types/section';
 import { Fragment, memo } from 'react';
 import { Container } from '../ui';
+import Link from 'next/link';
 
 const MagicSection = ({data} : {data: MagicSectionProps}) => {
     const {
         title,
         description,
+        additionalLink,
         statistics,
     } = data;
 
@@ -35,6 +37,15 @@ const MagicSection = ({data} : {data: MagicSectionProps}) => {
                         {
                             description && (
                                 <p className="text-[#E7E5EABF] text-base md:text-lg mx-auto">{description}</p>
+                            )
+                        }
+
+                        {
+                            additionalLink?.hasAdditionalLink && additionalLink?.text && additionalLink?.url && (
+                                <Link href={additionalLink.url} className='flex items-center gap-2 text-[#FFA49B] text-base font-semibold text-center justify-center mt-6'>
+                                    {additionalLink.text}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M11 1L1 11" stroke="#FFA49B" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/><path d="M11 8.33572V1H3.66428" stroke="#FFA49B" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                                </Link>
                             )
                         }
                     </div>

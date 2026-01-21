@@ -59,6 +59,12 @@ export async function getPageBySlug(slug: string) {
                 "url": authorImage.asset->url,
                 "alt": authorImage.alt
             }
+        },
+        additionalLink{
+            ...,
+            "url": coalesce(url.internalLink->slug.current,
+                    url.externalLink
+                )
         }
     },
     seo{

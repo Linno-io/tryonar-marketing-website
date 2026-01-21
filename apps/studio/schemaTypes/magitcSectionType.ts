@@ -22,6 +22,32 @@ export const magicSectionType = defineType({
             description: 'Supporting text below the title'
         },
         {
+            name: 'additionalLink',
+            title: 'Additional Link',
+            type: 'object',
+            description: 'Link for more information about the magic section',
+            fields: [
+                {
+                    name: 'hasAdditionalLink',
+                    title: 'Has Additional Link',
+                    type: 'boolean',
+                    initialValue: false,
+                },
+                {
+                    name: 'text',
+                    title: 'Link Text',
+                    type: 'string',
+                    hidden: ({ parent }) => !parent?.hasAdditionalLink,
+                },
+                {
+                    name: 'url',
+                    title: 'Link URL',
+                    type: 'link',
+                    hidden: ({ parent }) => !parent?.hasAdditionalLink,
+                }
+            ]
+        },
+        {
             name: 'statistics',
             type: 'array',
             title: 'Statistics',

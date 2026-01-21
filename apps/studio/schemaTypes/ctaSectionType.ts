@@ -88,6 +88,12 @@ export const ctaSectionType = defineType({
                         Rule.uri({
                             scheme: ['http', 'https'],
                         }),
+                },  
+                {
+                    name: 'showIcon',
+                    title: 'Show Icon',
+                    type: 'boolean',
+                    initialValue: true,
                 },
             ],
             validation: (rule) => rule.required()
@@ -118,6 +124,12 @@ export const ctaSectionType = defineType({
                         Rule.uri({
                             scheme: ['http', 'https'],
                         }),
+                },
+                {
+                    name: 'showIcon',
+                    title: 'Show Icon',
+                    type: 'boolean',
+                    initialValue: true,
                 },
             ],
             validation: (rule) => rule.required()

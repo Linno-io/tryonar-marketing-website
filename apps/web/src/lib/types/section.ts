@@ -75,11 +75,13 @@ export interface CTASection extends Section {
     text: string
     internalLink?: string
     externalLink?: string
+    showIcon?: boolean
   }
   secondaryButton: {
     text: string
     internalLink?: string
     externalLink?: string
+    showIcon?: boolean
   }
 }
 
@@ -128,6 +130,11 @@ export interface MagicSection extends Section {
   _key: string,
   title: SectionTitle[],
   description: string,
+  additionalLink?: {
+    hasAdditionalLink: boolean,
+    text: string,
+    url: string
+  }
   statistics: {
     title: string,
     description: string,
