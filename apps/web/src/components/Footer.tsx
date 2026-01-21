@@ -6,6 +6,7 @@ import Logo from './ui/Logo'
 import { ContactInfo, FooterMenu, SanityImage, SocialLink, SocialPlatform } from '@/lib/types/siteSettings'
 import Link from 'next/link'
 import { JSX } from 'react'
+import { title } from 'process'
 
 const XIcon = () => (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -68,6 +69,9 @@ export default function Footer(props: FooterProps ) {
                                                     key={index}
                                                     href={socialLink.url}
                                                     target='_blank'
+                                                    rel="noopener noreferrer"
+                                                    aria-label={socialLink.platform}
+                                                    title={socialLink.platform}
                                                     className="w-11 h-11 flex items-center justify-center rounded-xl border border-gray-800 bg-[#0A0C12] hover:border-gray-600 transition-all text-gray-400"
                                                 >
                                                     {Icon}

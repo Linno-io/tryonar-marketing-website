@@ -154,7 +154,7 @@ export default function TestimonialSection({data}: {data: SuccessStoriesSection}
                                 </div>
                                 <div>
                                     <p className="text-sm font-bold text-[#1A202C]">{item.authorName}</p>
-                                    <p className="text-xs text-[#838383] font-medium">{item.authorPosition}</p>
+                                    <p className="text-xs text-[#646464] font-medium">{item.authorPosition}</p>
                                 </div>
                             </div>
                         </div>

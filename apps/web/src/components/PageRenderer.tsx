@@ -48,7 +48,7 @@ console.log(page);
     if(home) {
         console.log('Rendering home page with sections:', sections);
         return (
-            <>
+            <main className="home-page-container">
                 <HeroSection data={sections[0] as HeroSectionProps} />
                 <EcommerceChallenge />
                 <ReadyToSolveSection />
@@ -60,7 +60,7 @@ console.log(page);
                 <VirtualTryOnSection />
                 <FAQAccordion data={sections[3] as FAQSectionProps} />
                 <CTASection data={sections[4] as CTASectionProps} />
-            </>
+            </main>
         )
     }
 
@@ -70,7 +70,7 @@ console.log(page);
 
     return (
         <>
-            <div className={`${page?.slug?.current}-page-container`}>
+            <main className={`${page?.slug?.current}-page-container`}>
                 {
                     sections.map((section) => {
                         switch(section._type) {
@@ -95,7 +95,7 @@ console.log(page);
                         }
                     })
                 }
-            </div>
+            </main>
 
             {/* {sections.map((section) => {
                 switch (section._type) {

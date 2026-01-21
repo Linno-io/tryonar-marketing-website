@@ -81,7 +81,8 @@ const ResourceSection = ({data}: {data: ResourceSectionProps}) => {
                                                 </h3>
                                             </div>
 
-                                            <Link href={resource.link} className="flex-shrink-0">
+                                            <Link href={resource.link} className="flex-shrink-0" target="_blank" rel="noopener noreferrer" aria-label={resource.title}
+                                                    title={resource.title}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                     <path d="M12.5 2.5H17.5V7.5" stroke="#838383" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                                                     <path d="M8.33203 11.6667L17.4987 2.5" stroke="#838383" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>

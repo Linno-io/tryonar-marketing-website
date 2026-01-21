@@ -54,7 +54,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                             <div className="flex flex-col gap-0 w-[calc(100%-60px)]">
                                                 {
                                                     step.stepTitle && step.stepTitle.length > 0 && (
-                                                        <h4 className="text-[22px] font-bold text-[#1A202C] mb-4 leading-none">
+                                                        <h3 className="text-[22px] font-bold text-[#1A202C] mb-4 leading-none">
                                                             {
                                                                 step.stepTitle.map((block, index) => {
                                                                     if(block.type === 'normal') {
@@ -66,7 +66,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                                                     }
                                                                 })
                                                             }
-                                                        </h4>
+                                                        </h3>
                                                     )
                                                 }
                                                 <p className="text-[#6C6C73] text-base">
@@ -97,6 +97,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 alt={steps.find(step => step._key === activeStepKey)?.image?.alt || ''}
                                 width={500}
                                 height={500}
+                                fetchPriority="high"
                                 className="w-full h-ful object-cover rounded-2xl"
                             />
                         </div>
