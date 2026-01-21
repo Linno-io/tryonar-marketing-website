@@ -15,7 +15,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
         <>
             <section className="workflow-section relative bg-[#F8F8F9] overflow-hidden border-b border-[#eeedf2]">
                 <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[224px] lg:pb-28" withBorder={true} size="xl">
-                    <div className="text-center mx-auto px-4 pb-30 border-[#E5E3EA] border-b">
+                    <div className="text-center mx-auto px-4 pb-10 md:pb-30 border-[#E5E3EA] border-b">
                         {
                             title && title.length > 0 && (
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A202C]">
@@ -36,16 +36,16 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
     
                         {
                             description && (
-                                <p className="text-[#646464] w-full max-w-2xl text-base md:text-lg mx-auto">{description}</p>
+                                <p className="text-[#646464] w-full mt-4 max-w-2xl text-base md:text-lg mx-auto">{description}</p>
                             )
                         }
                     </div>
                     
-                    <div className="flex gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
-                        <div className="flex flex-col gap-5 flex-1 max-w-145">
+                    <div className="flex flex-col md:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
+                        <div className="flex flex-col gap-5 flex-1 max-w-full md:max-w-145">
                             {
                                 steps && steps.length > 0 && steps.map((step, index) => (
-                                    <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-all border border-[#E5E3EA] rounded-[20px] cursor-pointer p-7.5`} onClick={() => setActiveStepKey(step._key)}>
+                                    <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-[20px] cursor-pointer p-4 md:p-7.5`} onClick={() => setActiveStepKey(step._key)}>
                                         <div className="flex gap-4 items-start">
                                             <span className={`${step._key === activeStepKey ? 'text-white bg-[#202020] ' : 'text-[#838383] border border-[#ECEDF1] bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)]'} text-[24px] font-semibold flex items-center justify-center w-10 h-10 rounded-[10px]`}>
                                                 {index + 1}
@@ -76,7 +76,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                         </div>
 
 
-                                        <div className={`${step._key === activeStepKey ? 'opacity-100 visible mt-6' : 'opacity-0 invisible h-0 mt-0'} transition-all border-t border-[#E8E8E8] flex items-center justify-between gap-4 pt-5`}>
+                                        <div className={`${step._key === activeStepKey ? 'opacity-100 visible mt-6 pt-5' : 'opacity-0 invisible h-0 mt-0'} transition-all border-t border-[#E8E8E8] flex flex-wrap items-center justify-between gap-4`}>
                                             {
                                                 step.tags && step.tags.length > 0 && step.tags.map((tag, index) => (
                                                     <p className="flex items-center gap-2 text-[#3E3E42] text-[15px] leading-0 font-normal" key={index}>
