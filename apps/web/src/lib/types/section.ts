@@ -351,3 +351,22 @@ export interface ExperienceSection extends Section {
   }[]
   sectionImage: SanityImage
 }
+
+export interface JourneySection extends Section {
+  _type: 'journeySectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  steps: {
+    _key: string
+    title: string
+    description: string
+    subtext: string
+  }[]
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}

@@ -24,6 +24,7 @@ import { comparisonSectionType } from './comparisonSectionType'
 import { ecommerceChallengeType } from './ecommerceChallengeType'
 import { readyToSolveSectionType } from './readyToSolveSectionType'
 import { experienceSectionType } from './experienceSectionType'
+import { journeySectionType } from './journeySectionType'
 
 export const schemaTypes = [
   link,
@@ -51,5 +52,6 @@ export const schemaTypes = [
   ecommerceChallengeType,
   readyToSolveSectionType,
   experienceSectionType,
+  journeySectionType,
   // userType
 ]

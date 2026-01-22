@@ -2,6 +2,8 @@
 import React from 'react'
 import { Link2, CloudUpload, Rocket, ArrowUpRight, ChevronRight } from 'lucide-react'
 import { Container } from '../ui';
+import { JourneySection as JourneySectionProps } from '@/lib/types/section';
+import Link from 'next/link';
 
 const ConnectIcon = () => (
     <svg fill="none" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><g fill="#000" clipPath="url(#clip0_273_1372)"><path d="M17.429 16.395a.83.83 0 00-1.174 0l-1.868 1.868-2.65-2.65 1.868-1.867a.83.83 0 10-1.174-1.175l-1.868 1.868-1.493-1.493a.83.83 0 00-1.174 0l-3.303 3.302a6.305 6.305 0 00-.431 8.426.819.819 0 00-.078.068l-3.84 3.84a.83.83 0 001.173 1.175l3.841-3.84a.84.84 0 00.068-.079 6.28 6.28 0 003.974 1.41 6.276 6.276 0 004.452-1.841l3.302-3.303a.83.83 0 000-1.174l-1.493-1.493 1.868-1.868a.83.83 0 000-1.174zm-4.851 7.837a4.64 4.64 0 01-6.555 0l-.255-.255a4.64 4.64 0 010-6.555l2.715-2.715 6.81 6.81-2.715 2.715zM29.757 1.417A.83.83 0 0028.583.243l-3.841 3.84a.823.823 0 00-.068.079A6.248 6.248 0 0020.7 2.749a6.254 6.254 0 00-4.452 1.844l-3.302 3.303a.83.83 0 000 1.174l7.984 7.984a.83.83 0 001.174 0l3.303-3.302A6.254 6.254 0 0027.25 9.3a6.247 6.247 0 00-1.412-3.974.847.847 0 00.078-.068l3.84-3.84zm-5.525 11.16l-2.715 2.716-6.81-6.81 2.715-2.715A4.605 4.605 0 0120.7 4.41c1.238 0 2.402.482 3.277 1.358l.255.255A4.605 4.605 0 0125.59 9.3a4.605 4.605 0 01-1.358 3.278z" /><path d="M21.918 11.527l-3.445-3.445a.83.83 0 00-1.174 1.174l3.445 3.445a.828.828 0 001.174 0 .83.83 0 000-1.174zm-9.136 9.136l-3.445-3.445a.83.83 0 00-1.174 1.174l3.445 3.445a.828.828 0 001.174 0 .83.83 0 000-1.174z" /></g><defs><clipPath id="clip0_273_1372"><path fill="#fff" d="M0 0h30v30H0z" /></clipPath></defs></svg>
@@ -19,29 +21,24 @@ const ArrowIcon = () => (
     <svg fill="none" width="50" height="27" viewBox="0 0 50 27" xmlns="http://www.w3.org/2000/svg"><path fill="url(#paint0_linear_273_1391)" d="M32.742 25.818a1.465 1.465 0 01.23-2.06L46.19 13.185 32.971 2.609A1.465 1.465 0 1134.801.32l14.65 11.719a1.464 1.464 0 010 2.288L34.8 26.046a1.465 1.465 0 01-2.059-.228zm-2.53-13.778a1.465 1.465 0 010 2.288L15.564 26.046a1.465 1.465 0 01-2.38-1.143v-4.395H1.464A1.465 1.465 0 010 19.043V7.324C0 6.515.656 5.86 1.465 5.86h11.719V1.465a1.465 1.465 0 012.38-1.144L30.212 12.04zM16.113 7.324c0 .81-.656 1.465-1.465 1.465H2.93v8.79h11.718c.81 0 1.465.655 1.465 1.464v2.812l10.839-8.671-10.839-8.671v2.811zM39.69 12.04a1.465 1.465 0 010 2.288L25.04 26.046a1.465 1.465 0 11-1.83-2.287l13.22-10.575L23.21 2.609A1.465 1.465 0 0125.04.32l14.65 11.72z"/><defs><linearGradient id="paint0_linear_273_1391" x1="0" x2="50" y1="13.184" y2="13.184" gradientUnits="userSpaceOnUse"><stop stopColor="#9A68FF"/><stop offset="1" stopColor="#FFA49B"/></linearGradient></defs></svg>
 )
 
+export default function JourneySection({ data }: { data: JourneySectionProps }) {
+    const { title, description, steps: dynamicSteps, primaryButton } = data;
 
-const steps = [
-    {
-        title: 'Connect',
-        description: 'Link your e-commerce platform',
-        subtext: 'Three simple steps to transform your e-commerce experience',
-        icon: <ConnectIcon />,
-    },
-    {
-        title: 'Upload',
-        description: 'Add your product catalog',
-        subtext: 'Upload and configure your product catalog with AR-ready content',
-        icon: <UploadIcon />,
-    },
-    {
-        title: 'Launch',
-        description: 'Go live with AR experiences',
-        subtext: 'Launch your enhanced AR shopping experience to customers worldwide',
-        icon: <RocketIcon />,
-    }
-]
+    // Static icons mapping (not dynamic)
+    const icons = [
+        <ConnectIcon />,
+        <UploadIcon />,
+        <RocketIcon />,
+    ];
 
-export default function JourneySection() {
+    // Combine dynamic data with static icons
+    const steps = dynamicSteps.map((step, index) => ({
+        title: step.title,
+        description: step.description,
+        subtext: step.subtext,
+        icon: icons[index] || <ConnectIcon />,
+    }));
+
     return (
         <section className="bg-[#E5E7EB]/30 font-sans relative overflow-hidden">
             <div
@@ -54,10 +51,20 @@ export default function JourneySection() {
              <Container className='py-10 md:py-24 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-3.5">
-                        Your Journey to <span className="text-[#838383]">AR Success</span>
+                        {title && title.map((block, index) => {
+                            if (block.type === 'normal') {
+                                return <span key={index}>{block.text}</span>;
+                            } else {
+                                return (
+                                    <span key={index} className="text-[#838383]">
+                                        {block.text}
+                                    </span>
+                                );
+                            }
+                        })}
                     </h2>
                     <p className="text-[#3E3E42] text-lg">
-                        Three simple steps to transform your e-commerce experience
+                        {description}
                     </p>
                 </div>
 
@@ -100,10 +107,14 @@ export default function JourneySection() {
 
                 {/* CTA Button */}
                 <div className="flex justify-center mt-8 md:mt-16">
-                    <button className="bg-[#18181b] text-white px-6 md:px-8 py-4 rounded-2xl cursor-pointer font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
-                        Start Free Trial
-                        <ArrowUpRight size={20} />
-                    </button>
+                    {primaryButton && (
+                        <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
+                            <button className="bg-[#18181b] text-white px-6 md:px-8 py-4 rounded-2xl cursor-pointer font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
+                                {primaryButton.text}
+                                {primaryButton.showIcon && <ArrowUpRight size={20} />}
+                            </button>
+                        </Link>
+                    )}
                 </div>
             </Container>
         </section>

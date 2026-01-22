@@ -27,6 +27,7 @@ export const pageType = defineType({
         { type: 'ecommerceChallengeType' },
         { type: 'readyToSolveSectionType' },
         { type: 'experienceSectionType' },
+        { type: 'journeySectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

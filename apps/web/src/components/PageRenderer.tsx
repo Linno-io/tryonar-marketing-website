@@ -16,6 +16,7 @@ import {
     EcommerceChallengeSection as EcommerceChallengeSectionProps,
     ReadyToSolveSection as ReadyToSolveSectionProps,
     ExperienceSection as ExperienceSectionProps,
+    JourneySection as JourneySectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -92,6 +93,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <ReadyToSolveSection key={section._key} data={section as ReadyToSolveSectionProps} />;
                             case 'experienceSectionType':
                                return <ExperienceSection key={section._key} data={section as ExperienceSectionProps} />;
+                            case 'journeySectionType':
+                               return <JourneySection key={section._key} data={section as JourneySectionProps} />;
                             default:
                                 return null;
                         }
