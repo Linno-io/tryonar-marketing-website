@@ -17,19 +17,14 @@ jobs:
         with:
           node-version: 20
 
-      # Install pnpm
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
-      # Install dependencies (at root for monorepo)
+      # Install dependencies
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
+        working-directory: apps/web
 
       # Build the Next.js app
       - name: Build
-        run: pnpm build
+        run: npm run build
         working-directory: apps/web
 
       # Deploy to Netlify
