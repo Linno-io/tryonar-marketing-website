@@ -64,6 +64,7 @@ export async function getPageBySlug(slug: string) {
             },
         },
         stats[]{
+            ...,
             type,
             label
         },
@@ -79,6 +80,10 @@ export async function getPageBySlug(slug: string) {
             "url": coalesce(url.internalLink->slug.current,
                     url.externalLink
                 )
+        },
+        images[]{
+            "url": asset->url,
+            "alt": alt
         },
         tabs[]{
             ...,

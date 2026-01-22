@@ -26,6 +26,7 @@ import { readyToSolveSectionType } from './readyToSolveSectionType'
 import { experienceSectionType } from './experienceSectionType'
 import { journeySectionType } from './journeySectionType'
 import { virtualTryonSectionType } from './virtualTryonSectionType'
+import { gallerySectionType } from './gallerySectionType'
 
 export const schemaTypes = [
   link,
@@ -55,5 +56,6 @@ export const schemaTypes = [
   experienceSectionType,
   journeySectionType,
   virtualTryonSectionType,
+  gallerySectionType,
   // userType
 ]

@@ -1,34 +1,28 @@
 'use client'
 import React from 'react';
 import { Container, DotBackground } from '@/components/ui';
-// Icons from lucide-react to match your design
 import { Store, Box, BarChart3, RefreshCcw } from 'lucide-react';
+import { GallerySection as GallerySectionProps } from '@/lib/types/section';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const GallerySection = () => {
-    const stats = [
-        { label: 'Active Stores', value: '10,000+', icon: <Store size={22} className="text-gray-700" /> },
-        { label: 'AR Interactions', value: '50M+', icon: <Box size={22} className="text-gray-700" /> },
-        { label: 'Avg Conversion Lift', value: '94%', icon: <BarChart3 size={22} className="text-gray-700" /> },
-        { label: 'Return Reduction', value: '64%', icon: <RefreshCcw size={22} className="text-gray-700" /> },
+const GallerySection = ({ data }: { data: GallerySectionProps }) => {
+    const { stats: dynamicStats, primaryButton, images: dynamicImages } = data;
+
+    // Static icons mapping (not dynamic)
+    const icons = [
+        <Store size={22} className="text-gray-700" />,
+        <Box size={22} className="text-gray-700" />,
+        <BarChart3 size={22} className="text-gray-700" />,
+        <RefreshCcw size={22} className="text-gray-700" />,
     ];
 
-    const images = [
-        '/gallery-5.png',
-        '/gallery-1.png',
-        '/gallery-2.png',
-        '/gallery-12.png',
-        '/gallery-12.png',
-        '/gallery-3.png',
-        '/gallery-5.png',
-        '/gallery-5.png',
-        '/gallery-4.png',
-        '/gallery-6.png',
-        '/gallery-7.png',
-        '/gallery-8.png',
-        '/gallery-9.png',
-        '/gallery-10.png',
-        '/gallery-11.png',
-    ]
+    // Combine dynamic data with static icons
+    const stats = dynamicStats.map((stat, index) => ({
+        label: stat.label,
+        value: stat.value,
+        icon: icons[index] || <Store size={22} className="text-gray-700" />,
+    }));
 
     return (
         <section className="bg-white font-sans overflow-hidden">
@@ -78,40 +72,50 @@ const GallerySection = () => {
 
             {/* 3. CTA Button */}
             <div className="flex justify-center mb-20 sm:mb-24 px-4">
-                <button className="w-full sm:w-auto bg-[#1A202C] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 hover:bg-black transition-all shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.25)] group">
-                    Start Free Trial
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 15 15"
-                        fill="none"
-                        className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    >
-                        <path
-                            d="M3.64645 11.3536L11 4M11 4H5.5M11 4V9.5"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
-                </button>
+                {primaryButton && (
+                    <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
+                        <button className="w-full sm:w-auto bg-[#1A202C] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 hover:bg-black transition-all shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.25)] group">
+                            {primaryButton.text}
+                            {primaryButton.showIcon && (
+                                <svg
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 15 15"
+                                    fill="none"
+                                    className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                                >
+                                    <path
+                                        d="M3.64645 11.3536L11 4M11 4H5.5M11 4V9.5"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            )}
+                        </button>
+                    </Link>
+                )}
             </div>
 
             {/* 4. Masonry Gallery Grid */}
             <div className="w-full px-4 sm:px-6 gallery-section relative pb-5">
                 <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
-                    {images.map((src, idx) => (
+                    {dynamicImages.map((image, idx) => (
                         <div
                             key={idx}
                             className="break-inside-avoid rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 bg-white"
                         >
-                            <img
-                                src={src}
-                                alt={`Gallery image ${idx + 1}`}
-                                className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
-                                loading="lazy"
-                            />
+                            {image.url && (
+                                <Image
+                                    src={image.url}
+                                    alt={image.alt || `Gallery image ${idx + 1}`}
+                                    width={400}
+                                    height={300}
+                                    className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+                                    loading="lazy"
+                                />
+                            )}
                         </div>
                     ))}
                 </div>

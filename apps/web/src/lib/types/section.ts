@@ -384,3 +384,20 @@ export interface VirtualTryonSection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface GallerySection extends Section {
+  _type: 'gallerySectionType'
+  _key: string
+  stats: {
+    _key: string
+    label: string
+    value: string
+  }[]
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+  images: SanityImage[]
+}

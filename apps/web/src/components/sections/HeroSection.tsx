@@ -104,7 +104,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                 width={600}
                                 height={700}
                                 className="w-full h-auto object-contain drop-shadow-2xl"
-                                priority
+                                fetchPriority="high"
                             />
                         </div>
                     </div>
