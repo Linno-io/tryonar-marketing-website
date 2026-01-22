@@ -22,6 +22,8 @@ import { cardsSectionType } from './cardsSectionType'
 import { trustCardSectionType } from './trusCardsScetionType'
 import { comparisonSectionType } from './comparisonSectionType'
 import { ecommerceChallengeType } from './ecommerceChallengeType'
+import { readyToSolveSectionType } from './readyToSolveSectionType'
+import { experienceSectionType } from './experienceSectionType'
 
 export const schemaTypes = [
   link,
@@ -47,5 +49,7 @@ export const schemaTypes = [
   trustCardSectionType,
   comparisonSectionType,
   ecommerceChallengeType,
+  readyToSolveSectionType,
+  experienceSectionType,
   // userType
 ]

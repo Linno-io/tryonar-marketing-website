@@ -319,3 +319,35 @@ export interface EcommerceChallengeSection extends Section {
     image?: SanityImage
   }[]
 }
+
+export interface ReadyToSolveSection extends Section {
+  _type: 'readyToSolveSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  sectionImage: SanityImage
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+  secondaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}
+
+export interface ExperienceSection extends Section {
+  _type: 'experienceSectionType'
+  _key: string
+  title: SectionTitle[]
+  features: {
+    _key: string
+    title: string
+    description: string
+  }[]
+  sectionImage: SanityImage
+}

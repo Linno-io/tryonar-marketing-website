@@ -25,6 +25,8 @@ export const pageType = defineType({
         { type: 'trustCardSectionType' },
         { type: 'comparisonSectionType' },
         { type: 'ecommerceChallengeType' },
+        { type: 'readyToSolveSectionType' },
+        { type: 'experienceSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

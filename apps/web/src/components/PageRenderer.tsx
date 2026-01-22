@@ -14,6 +14,8 @@ import {
     TrustCardSection as TrustCardSectionProps,
     ComparisonSection as ComparisonSectionProps,
     EcommerceChallengeSection as EcommerceChallengeSectionProps,
+    ReadyToSolveSection as ReadyToSolveSectionProps,
+    ExperienceSection as ExperienceSectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -86,6 +88,10 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <ComparisonSection key={section._key} data={section as ComparisonSectionProps} />;
                             case 'ecommerceChallengeType':
                                return <EcommerceChallenge key={section._key} data={section as EcommerceChallengeSectionProps} />;
+                            case 'readyToSolveSectionType':
+                               return <ReadyToSolveSection key={section._key} data={section as ReadyToSolveSectionProps} />;
+                            case 'experienceSectionType':
+                               return <ExperienceSection key={section._key} data={section as ExperienceSectionProps} />;
                             default:
                                 return null;
                         }
