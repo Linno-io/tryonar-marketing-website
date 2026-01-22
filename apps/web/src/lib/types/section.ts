@@ -276,3 +276,28 @@ export interface TrustCardSection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface ComparisonSection extends Section {
+  _type: 'comparisonSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  traditionalAR: {
+    title: string
+    features: string[]
+  }
+  tryOnAR: {
+    title: string
+    features: string[]
+  }
+  basicWebAR: {
+    title: string
+    features: string[]
+  }
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}

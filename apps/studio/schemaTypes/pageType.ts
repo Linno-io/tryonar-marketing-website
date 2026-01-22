@@ -23,6 +23,7 @@ export const pageType = defineType({
         { type: 'workFlowSectionType' },
         { type: 'cardsSectionType' },
         { type: 'trustCardSectionType' },
+        { type: 'comparisonSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

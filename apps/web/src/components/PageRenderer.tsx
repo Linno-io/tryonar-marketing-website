@@ -12,6 +12,7 @@ import {
     WorkflowSection as WorkflowSectionProps,
     CardsSection as CardsSectionProps,
     TrustCardSection as TrustCardSectionProps,
+    ComparisonSection as ComparisonSectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -37,6 +38,7 @@ import MagicSection from './sections/MagicSection'
 import WorkflowSection from './sections/WorkflowSection';
 import CardsSection from './sections/CardsSection';
 import TrustCardSection from './sections/TrustCardSection';
+import ComparisonSection from './sections/ComparisonSection';
 
 interface PageRenderedProps {
     page: Page
@@ -98,6 +100,8 @@ console.log(page);
                                return <CardsSection key={section._key} data={section as CardsSectionProps} />;
                             case 'trustCardSectionType':
                                return <TrustCardSection key={section._key} data={section as TrustCardSectionProps} />;
+                            case 'comparisonSectionType':
+                               return <ComparisonSection key={section._key} data={section as ComparisonSectionProps} />;
                             default:
                                 return null;
                         }
