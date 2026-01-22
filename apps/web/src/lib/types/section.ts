@@ -370,3 +370,17 @@ export interface JourneySection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface VirtualTryonSection extends Section {
+  _type: 'virtualTryonSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  sectionImage: SanityImage
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}

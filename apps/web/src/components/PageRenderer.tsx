@@ -17,6 +17,7 @@ import {
     ReadyToSolveSection as ReadyToSolveSectionProps,
     ExperienceSection as ExperienceSectionProps,
     JourneySection as JourneySectionProps,
+    VirtualTryonSection as VirtualTryonSectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -95,6 +96,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <ExperienceSection key={section._key} data={section as ExperienceSectionProps} />;
                             case 'journeySectionType':
                                return <JourneySection key={section._key} data={section as JourneySectionProps} />;
+                            case 'virtualTryonSectionType':
+                               return <VirtualTryOnSection key={section._key} data={section as VirtualTryonSectionProps} />;
                             default:
                                 return null;
                         }

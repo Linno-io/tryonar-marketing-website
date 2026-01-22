@@ -28,6 +28,7 @@ export const pageType = defineType({
         { type: 'readyToSolveSectionType' },
         { type: 'experienceSectionType' },
         { type: 'journeySectionType' },
+        { type: 'virtualTryonSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),
