@@ -53,7 +53,7 @@ export const trustCardSectionType = defineType({
                         },
                         {
                             name: 'image',
-                            title: 'Image',
+                            title: 'Icon',
                             type: 'image',
                             fields: [
                                 {

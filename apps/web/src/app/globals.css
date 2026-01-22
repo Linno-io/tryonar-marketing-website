@@ -397,6 +397,22 @@
     box-sizing: border-box;
   }
 
+  .trust-card {
+    position: relative;
+  }
+
+  .trust-card::before {
+    content: "";
+    background: url('/dot.png');
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    left: 0;
+    z-index: 1;
+  }
+
   @media (width <= 64rem /* 1024px */) {
     .arrow-border:before {
       content: "";

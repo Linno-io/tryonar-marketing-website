@@ -63,15 +63,17 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
                     <div className="cards-wrapper flex flex-col lg:flex-row items-stretch justify-between gap-4 sm:gap-5 md:gap-6 lg:gap-2 mt-8 sm:mt-12 md:mt-14 lg:mt-17.5">
                         {
                             cards && cards.length > 0 && cards.map((card: Card, index: number) => (
-                                <div key={index} className='flex flex-col gap-8 sm:gap-10 md:gap-12 lg:gap-[50px] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] border border-white bg-[linear-gradient(-90deg,#ffffff_0%,#ffeae7_100%)] p-6 sm:p-8 md:p-9 lg:p-10 flex-1'>
-                                    <div>
-                                        <Image 
-                                            src={card.image?.url || '/placeholder-image.png'} 
-                                            alt={card.image?.alt || card.cardTitle || 'Card Image'} 
-                                            width={60}
-                                            height={60}
-                                            className="h-12 w-12 sm:h-14 sm:w-14 lg:h-15 lg:w-15 object-contain"
-                                        />
+                                <div key={index} className='trust-card flex flex-col gap-8 sm:gap-10 md:gap-12 lg:gap-[50px] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] border border-white bg-[linear-gradient(-90deg,#ffffff_0%,#ffeae7_100%)] p-6 sm:p-8 md:p-9 lg:p-10 flex-1'>
+                                    <div className='relative z-1'>
+                                        <span className='bg-white h-15 w-15 flex items-center justify-center rounded-2xl'>
+                                            <Image 
+                                                src={card.image?.url || '/placeholder-image.png'} 
+                                                alt={card.image?.alt || card.cardTitle || 'Card Image'} 
+                                                width={26}
+                                                height={26}
+                                                className="h-6.5 w-6.5 object-contain"
+                                            />
+                                        </span>
                                         <h3 className='text-[#1A202C] text-2xl sm:text-[26px] md:text-[28px] lg:text-[30px] font-bold leading-none mt-5 sm:mt-6 lg:mt-7'>
                                             {card.cardTitle}
                                         </h3>
