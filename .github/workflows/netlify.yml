@@ -2,7 +2,7 @@ name: Deploy Next.js to Netlify
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   deploy:
@@ -11,25 +11,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Setup Node 20
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
 
+      # Install pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 9   # or the version your project uses
 
+      # Install dependencies
       - name: Install dependencies
         run: pnpm install
         working-directory: apps/web
 
+      # Build the Next.js app
       - name: Build
         run: pnpm build
         working-directory: apps/web
 
+      # Deploy to Netlify
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         with:
@@ -37,4 +41,3 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
