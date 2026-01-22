@@ -88,13 +88,15 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                         {row.map((card, index) => (
                                             <div className={`card flex-1 flex flex-col justify-between ${index === 0 ? 'md:border-r border-[#E5E3EA]' : ''} ${index === 0 && row.length > 1 ? 'border-b md:border-b-0 border-[#E5E3EA]' : ''}`} key={index}>
                                                 <div className="card-info p-6 sm:p-10 md:p-12 lg:p-15 pb-4 sm:pb-6 md:pb-7.5">
-                                                    <Image 
-                                                        src={card.image?.url || '/placeholder-image.png'}
-                                                        alt={card.image?.alt || card.cardTitle}
-                                                        width={530}
-                                                        height={340}
-                                                        className='w-full h-auto object-contain'
-                                                    />
+                                                    <div className='overflow-hidden'>
+                                                        <Image 
+                                                            src={card.image?.url || '/placeholder-image.png'}
+                                                            alt={card.image?.alt || card.cardTitle}
+                                                            width={530}
+                                                            height={340}
+                                                            className='w-full h-[calc(100%+1px)] mb-[-1px] object-contain rounded-[20px]'
+                                                        />
+                                                    </div>
                                                     <h3 className='mt-4 sm:mt-5 md:mt-6 mb-2 text-xl sm:text-2xl md:text-[26px] lg:text-[30px] leading-tight md:leading-none text-[#1A202C]'>
                                                         {card.cardTitle}
                                                     </h3>

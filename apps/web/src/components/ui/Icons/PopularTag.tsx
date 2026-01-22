@@ -24,7 +24,7 @@ export default function PopularTag() {
 <path style={{mixBlendMode : 'color-dodge'}} d="M99.343 18.4701C101.279 15.8398 102.774 13.6524 102.681 13.5847C102.588 13.5158 100.944 15.593 99.0079 18.2234C97.0718 20.8538 95.5776 23.0411 95.6694 23.1089C95.7624 23.1766 97.4069 21.1005 99.343 18.4701Z" fill="url(#paint14_radial_2_5152)"/>
 <path style={{mixBlendMode : 'color-dodge'}} d="M96.6072 11.5424C99.7242 12.5167 102.279 13.2179 102.313 13.1077C102.348 12.9976 99.8481 12.1185 96.7311 11.1441C93.6142 10.1698 91.0596 9.4686 91.0251 9.57878C90.9907 9.68895 93.4902 10.568 96.6072 11.5424Z" fill="url(#paint15_radial_2_5152)"/>
 <defs>
-<filter id="filter0_d_2_5152" x="0" y="8" width="113.056" height="38" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_2_5152" x="0" y="8" width="113.056" height="38" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
