@@ -256,3 +256,23 @@ export interface CardsSection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface TrustCardSection extends Section {
+  _type: 'trustCardSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  cards: {
+    _key: string
+    cardTitle: string
+    description: string
+    image: SanityImage
+    tags?: string[]
+  }[]
+  primaryButton: {
+    text: string
+    internalLink?: string
+    externalLink?: string
+    showIcon?: boolean
+  }
+}

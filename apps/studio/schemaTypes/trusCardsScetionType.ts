@@ -1,17 +1,11 @@
 import { defineType } from 'sanity'
 
 
-export const cardsSectionType = defineType({
-    name: 'cardsSectionType',
-    title: 'Cards Section',
+export const trustCardSectionType = defineType({
+    name: 'trustCardSectionType',
+    title: 'Trust Card Section',
     type: 'object',
     fields: [
-        {
-            name: 'showDivider',
-            title: 'Show Divider',
-            type: 'boolean',
-            initialValue: true,
-        },
         {
             name: 'title',
             title: 'Title',
@@ -82,7 +76,6 @@ export const cardsSectionType = defineType({
 
                             return {
                                 title: title || 'Card',
-                                subtitle: tags && tags.length ? tags.join(' • ') : 'No tags',
                                 media,
                             };
                         },
@@ -126,40 +119,6 @@ export const cardsSectionType = defineType({
                 },
             ],
         },
-        {
-            name: 'secondaryButton',
-            title: 'Secondary Button',
-            type: 'object',
-            fields: [
-                {
-                    name: 'text',
-                    title: 'Button Text',
-                    type: 'string',
-                },
-                {
-
-                    name: 'internalLink',
-                    title: 'Internal Link',
-                    type: 'reference',
-                    to: [{ type: 'page' }],
-                },
-                {
-                    name: 'externalLink',
-                    title: 'External Link',
-                    type: 'url',
-                    validation: Rule =>
-                        Rule.uri({
-                            scheme: ['http', 'https'],
-                        }),
-                },
-                {
-                    name: 'showIcon',
-                    title: 'Show Icon',
-                    type: 'boolean',
-                    initialValue: true,
-                },
-            ],
-        },
     ],
     preview: {
         select: {
@@ -171,11 +130,11 @@ export const cardsSectionType = defineType({
 
             const plainTitle = Array.isArray(title)
                 ? title.map((t) => t?.text).join(' ')
-                : 'Industry Section'
+                : 'Trust Card Section'
 
             return {
-                title: plainTitle || 'Industry Solutions Section',
-                subtitle: 'Industry Solutions Section',
+                title: plainTitle || 'Trust Card Section',
+                subtitle: 'Trust Card Section',
                 media: media,
             }
         },

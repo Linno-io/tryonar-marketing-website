@@ -19,6 +19,7 @@ import { magicSectionType } from './magitcSectionType'
 import { faqSectionType } from './faqSectionType'
 import { workFlowSectionType } from './workflowSectionType'
 import { cardsSectionType } from './cardsSectionType'
+import { trustCardSectionType } from './trusCardsScetionType'
 
 export const schemaTypes = [
   link,
@@ -41,5 +42,6 @@ export const schemaTypes = [
   faqSectionType,
   workFlowSectionType,
   cardsSectionType,
+  trustCardSectionType,
   // userType
 ]
