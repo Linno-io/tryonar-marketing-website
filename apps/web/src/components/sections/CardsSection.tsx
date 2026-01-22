@@ -51,11 +51,11 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                     )
                 }
                 <div className={`${showDivider ? 'border-[#EEEDF2] border-t' : ''}`}>
-                    <Container withBorder={true} className='py-17.5 border-b border-[#E5E3EA]'>
+                    <Container withBorder={true} className='py-8 sm:py-12 md:py-14 lg:py-17.5 border-b border-[#E5E3EA]'>
                         <div className="text-center max-w-3xl mx-auto">
                             {
                                 title && title.length > 0 && (
-                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#221A4F] mb-4">
+                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#221A4F] mb-3 md:mb-4">
                                         {
                                             title.map((block, index) => {
                                                 if(block.type === 'normal') {
@@ -73,7 +73,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
         
                             {
                                 description && (
-                                    <p className="text-[#3E3E42] text-base md:text-lg mx-auto">{description}</p>
+                                    <p className="text-[#3E3E42] text-sm sm:text-base md:text-lg mx-auto">{description}</p>
                                 )
                             }
                         </div>
@@ -86,28 +86,28 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                 <Fragment key={rowIndex}>
                                     <div className="card-row flex flex-col md:flex-row gap-0 justify-between items-stretch">
                                         {row.map((card, index) => (
-                                            <div className={`card flex-1 flex flex-col justify-between ${index === 0 ? 'border-r border-[#E5E3EA]' : ''}`} key={index}>
-                                                <div className="card-info p-15 pb-7.5">
+                                            <div className={`card flex-1 flex flex-col justify-between ${index === 0 ? 'md:border-r border-[#E5E3EA]' : ''} ${index === 0 && row.length > 1 ? 'border-b md:border-b-0 border-[#E5E3EA]' : ''}`} key={index}>
+                                                <div className="card-info p-6 sm:p-10 md:p-12 lg:p-15 pb-4 sm:pb-6 md:pb-7.5">
                                                     <Image 
                                                         src={card.image?.url || '/placeholder-image.png'}
                                                         alt={card.image?.alt || card.cardTitle}
                                                         width={530}
                                                         height={340}
-                                                        className='w-auto h-auto object-contain'
+                                                        className='w-full h-auto object-contain'
                                                     />
-                                                    <h3 className='mt-6 mb-2 text-[30px] leading-none text-[#1A202C]'>
+                                                    <h3 className='mt-4 sm:mt-5 md:mt-6 mb-2 text-xl sm:text-2xl md:text-[26px] lg:text-[30px] leading-tight md:leading-none text-[#1A202C]'>
                                                         {card.cardTitle}
                                                     </h3>
-                                                    <p className='text-[#3E3E42] text-base leading-normal'>
+                                                    <p className='text-[#3E3E42] text-sm sm:text-base leading-normal'>
                                                         {card.description}
                                                     </p>
                                                 </div>
 
                                                 {
                                                     card.tags && card.tags.length > 0 && (
-                                                        <div className="card-tags bg-[#F8F8F9] px-12 py-5 flex flex-wrap gap-2.5 items-center mt-auto">
+                                                        <div className="card-tags bg-[linear-gradient(90deg,#ffffff_0%,#F8F8F9_50%,#ffffff_100%)] px-4 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-5 flex flex-wrap gap-2 sm:gap-2.5 items-center mt-auto">
                                                             {card.tags.map((tag, tagIndex) => (
-                                                                <span key={tagIndex} className="card-tag rounded-[100px] border border-[#C5BBCC] border-dashed px-3.5 py-2 flex items-center justify-center text-[#1A202C] text-[15px] font-medium leading-none">{tag}</span>
+                                                                <span key={tagIndex} className="card-tag rounded-[100px] border border-[#C5BBCC] border-dashed px-3 sm:px-3.5 py-1.5 sm:py-2 flex items-center justify-center text-[#1A202C] text-sm sm:text-[15px] font-medium leading-none">{tag}</span>
                                                             ))}
                                                         </div>
                                                     )
@@ -123,7 +123,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                             ))
                         }
                     </Container>
-                    <Container className='flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-17.5 justify-center'>
+                    <Container className='flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-8 sm:pt-12 md:pt-14 lg:pt-17.5 justify-center'>
                         {
                             primaryButton && (
                                 <Link href={primaryButton?.internalLink || primaryButton?.externalLink || '#'} target={primaryButton?.externalLink ? '_blank' : '_self'}>
