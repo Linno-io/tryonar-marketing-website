@@ -11,27 +11,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Setup Node 20
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Install dependencies
       - name: Install dependencies
         run: npm install
         working-directory: apps/web
 
-      # Build the Next.js app
-      - name: Build
-        run: npm run build
+      - name: Build with Netlify
+        run: npx netlify build
         working-directory: apps/web
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      # Deploy to Netlify
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --prod --dir=apps/web/.next
+        run: npx netlify deploy --prod --build --cwd apps/web
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
