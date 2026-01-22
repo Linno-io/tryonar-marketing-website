@@ -301,3 +301,21 @@ export interface ComparisonSection extends Section {
     showIcon?: boolean
   }
 }
+
+export interface EcommerceChallengeSection extends Section {
+  _type: 'ecommerceChallengeType'
+  _key: string
+  tagline: string
+  title: SectionTitle[]
+  description: string
+  tabs: {
+    _key: string
+    tabId: string
+    tabLabel: string
+    title: string
+    value: string
+    contentDescription?: string
+    features: string[]
+    image?: SanityImage
+  }[]
+}

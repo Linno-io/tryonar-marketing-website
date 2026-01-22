@@ -82,6 +82,10 @@ export async function getPageBySlug(slug: string) {
         },
         tabs[]{
             ...,
+            "image":{
+                "url": image.asset->url,
+                "alt": image.alt
+            },
             "tabContent": tabContent{
                 ...,
                 "image":{

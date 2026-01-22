@@ -13,6 +13,7 @@ import {
     CardsSection as CardsSectionProps,
     TrustCardSection as TrustCardSectionProps,
     ComparisonSection as ComparisonSectionProps,
+    EcommerceChallengeSection as EcommerceChallengeSectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -50,29 +51,10 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
         sections = []
     } = page
 
-console.log(page);
-    if(home) {
-        console.log('Rendering home page with sections:', sections);
-        return (
-            <main className="home-page-container">
-                <HeroSection data={sections[0] as HeroSectionProps} />
-                <EcommerceChallenge />
-                <ReadyToSolveSection />
-                <ExperienceSection />
-                <IndustrySolutionsSection data={sections[1]  as IndustrySolutionsSectionProps} />
-                <JourneySection />
-                <GallerySection />
-                <TestimonialSection data={sections[2] as SuccessStoriesSectionProps} />
-                <VirtualTryOnSection />
-                <FAQAccordion data={sections[3] as FAQSectionProps} />
-                <CTASection data={sections[4] as CTASectionProps} />
-            </main>
-        )
-    }
-
     if(!sections || sections.length === 0) {
         return null;
     }
+    console.log(sections)
 
     return (
         <>
@@ -102,39 +84,14 @@ console.log(page);
                                return <TrustCardSection key={section._key} data={section as TrustCardSectionProps} />;
                             case 'comparisonSectionType':
                                return <ComparisonSection key={section._key} data={section as ComparisonSectionProps} />;
+                            case 'ecommerceChallengeType':
+                               return <EcommerceChallenge key={section._key} data={section as EcommerceChallengeSectionProps} />;
                             default:
                                 return null;
                         }
                     })
                 }
             </main>
-
-            {/* {sections.map((section) => {
-                switch (section._type) {
-                    case 'heroSectionType':
-                        return <HeroSection key={section._key} data={section as HeroSectionProps} />
-                    // case 'realitySectionType':
-                    //   return <RealityCheckSection key={section._key} data={section as RealitySectionProps} />
-                    // case 'ctaSectionType':
-                    //   return <CTASection key={section._key} data={section as CTASectionProps} />
-                    // case 'successStoriesSectionType':
-                    //   return <SuccessStoriesSection key={section._key} data={section as SuccessStoriesSectionProps} />
-                    // case 'industrySolutionsSectionType':
-                    //   return <IndustrySolutionsSection key={section._key} data={section as IndustrySolutionsSectionProps} />
-                    default:
-                        return null
-                }
-            })} */}
-            {/* <EcommerceChallenge />
-            <ReadyToSolveSection />
-            <ExperienceSection />
-            <IndustrySolutionsSection />
-            <JourneySection />
-            <GallerySection />
-            <TestimonialSection />
-            <VirtualTryOnSection />
-            <FAQAccordion />
-            <CTASection data={ctaData as CTASectionProps} /> */}
         </>
     )
 }

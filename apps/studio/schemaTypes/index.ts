@@ -21,6 +21,7 @@ import { workFlowSectionType } from './workflowSectionType'
 import { cardsSectionType } from './cardsSectionType'
 import { trustCardSectionType } from './trusCardsScetionType'
 import { comparisonSectionType } from './comparisonSectionType'
+import { ecommerceChallengeType } from './ecommerceChallengeType'
 
 export const schemaTypes = [
   link,
@@ -45,5 +46,6 @@ export const schemaTypes = [
   cardsSectionType,
   trustCardSectionType,
   comparisonSectionType,
+  ecommerceChallengeType,
   // userType
 ]
