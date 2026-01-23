@@ -31,6 +31,7 @@ export const pageType = defineType({
         { type: 'journeySectionType' },
         { type: 'virtualTryonSectionType' },
         { type: 'gallerySectionType' },
+        { type: 'pricingTableSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

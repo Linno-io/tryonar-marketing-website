@@ -28,6 +28,7 @@ import { journeySectionType } from './journeySectionType'
 import { virtualTryonSectionType } from './virtualTryonSectionType'
 import { gallerySectionType } from './gallerySectionType'
 import { textHeroSectionType } from './textHeroSectionType'
+import { pricingTableSectionType } from './pricingTableSectionType'
 
 export const schemaTypes = [
   link,
@@ -59,5 +60,6 @@ export const schemaTypes = [
   virtualTryonSectionType,
   gallerySectionType,
   textHeroSectionType,
+  pricingTableSectionType,
   // userType
 ]

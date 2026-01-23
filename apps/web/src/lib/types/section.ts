@@ -5,6 +5,13 @@ export interface Section {
   [key: string]: any
 }
 
+export interface Button {
+  text: string
+  internalLink?: string
+  externalLink?: string
+  showIcon?: boolean
+}
+
 export interface HeroSection extends Section {
   _type: 'heroSectionType'
   title: SectionTitle[]
@@ -12,18 +19,8 @@ export interface HeroSection extends Section {
   sectionImage: SanityImage
   tags?: string[]
   customContainer?: boolean
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
-  secondaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
+  secondaryButton: Button
 }
 
 export interface FeaturesSection extends Section {
@@ -70,18 +67,8 @@ export interface CTASection extends Section {
     label: string
     type: 'support' | 'security' | 'trial'
   }[]
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
-  secondaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
+  secondaryButton:Button
 }
 
 export interface ResourceSection extends Section {
@@ -175,33 +162,13 @@ export interface IndustrySolutionsSection extends Section {
         label: string
         value: string
       }[]
-      primaryButton?: {
-        text: string
-        internalLink?: string
-        externalLink?: string
-        showIcon?: boolean
-      }
-      secondaryButton?: {
-        text: string
-        internalLink?: string
-        externalLink?: string
-        showIcon?: boolean
-      }
+      primaryButton?: Button
+      secondaryButton?: Button
     }
   }[]
   showStatsOnBottom: boolean
-  primaryButton?: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
-  secondaryButton?: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton?: Button
+  secondaryButton?: Button
 }
 
 export interface WorkflowSection extends Section {
@@ -216,18 +183,8 @@ export interface WorkflowSection extends Section {
     image: SanityImage
     tags?: string[]
   }[]
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
-  secondaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
+  secondaryButton: Button
 }
 
 export interface CardsSection extends Section {
@@ -243,18 +200,8 @@ export interface CardsSection extends Section {
     image: SanityImage
     tags?: string[]
   }[]
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
-  secondaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
+  secondaryButton: Button
 }
 
 export interface TrustCardSection extends Section {
@@ -269,12 +216,7 @@ export interface TrustCardSection extends Section {
     image: SanityImage
     tags?: string[]
   }[]
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
 }
 
 export interface ComparisonSection extends Section {
@@ -294,12 +236,7 @@ export interface ComparisonSection extends Section {
     title: string
     features: string[]
   }
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
 }
 
 export interface EcommerceChallengeSection extends Section {
@@ -326,18 +263,8 @@ export interface ReadyToSolveSection extends Section {
   title: SectionTitle[]
   description: string
   sectionImage: SanityImage
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
-  secondaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
+  secondaryButton: Button
 }
 
 export interface ExperienceSection extends Section {
@@ -363,12 +290,7 @@ export interface JourneySection extends Section {
     description: string
     subtext: string
   }[]
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
 }
 
 export interface TextHeroSection extends Section {
@@ -384,12 +306,7 @@ export interface VirtualTryonSection extends Section {
   title: SectionTitle[]
   description: string
   sectionImage: SanityImage
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
 }
 
 export interface GallerySection extends Section {
@@ -400,11 +317,37 @@ export interface GallerySection extends Section {
     label: string
     value: string
   }[]
-  primaryButton: {
-    text: string
-    internalLink?: string
-    externalLink?: string
-    showIcon?: boolean
-  }
+  primaryButton: Button
   images: SanityImage[]
+}
+
+export interface PricingCard {
+  _key: string
+  isPopular: boolean
+  heading: string
+  description: string
+  price?: number
+  duration?: string
+  inCludedFeatures: string[]
+  usageLimits?: string[]
+  customPricingText?: string
+  primaryButton: Button,
+  usageLimitsSectionTitle?: string
+  featuresSectionTitle?: string
+}
+
+export interface PricingTableSection extends Section {
+  _type: 'pricingTableSectionType'
+  _key: string
+  vatInfo: string
+  stats: {
+    _key: string
+    label: string
+    value: string
+  }[]
+  tabs: {
+    _key: string
+    tabLabel: string
+    cards: PricingCard[]
+  }[]
 }

@@ -20,7 +20,8 @@ import {
     JourneySection as JourneySectionProps,
     VirtualTryonSection as VirtualTryonSectionProps,
     GallerySection as GallerySectionProps,
-    TextHeroSection as TextHeroSectionProps
+    TextHeroSection as TextHeroSectionProps,
+    PricingTableSection as PricingTableSectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -41,6 +42,7 @@ import CardsSection from './sections/CardsSection';
 import TrustCardSection from './sections/TrustCardSection';
 import ComparisonSection from './sections/ComparisonSection';
 import TextHeroSection from './sections/TextHeroSection';
+import PricingTableSection from './sections/PricingTableSection';
 
 interface PageRenderedProps {
     page: Page
@@ -55,7 +57,7 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
     if(!sections || sections.length === 0) {
         return null;
     }
-
+console.log(sections);
     return (
         <>
             <main className={`${page?.slug?.current}-page-container`}>
@@ -98,6 +100,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <GallerySection key={section._key} data={section as GallerySectionProps} />;
                             case 'textHeroSectionType':
                                return <TextHeroSection key={section._key} data={section as TextHeroSectionProps} />;
+                            case 'pricingTableSectionType':
+                               return <PricingTableSection key={section._key} data={section as PricingTableSectionProps} />;
                             default:
                                 return null;
                         }

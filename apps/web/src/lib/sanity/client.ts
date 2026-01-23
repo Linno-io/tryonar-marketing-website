@@ -112,6 +112,14 @@ export async function getPageBySlug(slug: string) {
                     ...,
                     "internalLink": internalLink->slug.current
                 },
+            },
+            cards[]{
+                ...,
+                primaryButton{
+                    ...,
+                    "internalLink": internalLink->slug.current,
+                },
+
             }
         },
     },
