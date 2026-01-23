@@ -367,6 +367,7 @@ export interface SingleReviewSection extends Section {
 export interface PricingTable {
   heading: string
   plans: {
+    _key: string
     primaryButton: Button
     price?: string
     isPrimary?: boolean
@@ -374,6 +375,7 @@ export interface PricingTable {
     title: string
   }[]
   features: {
+    _key: string
     label: string
     values: {
       _key: string
