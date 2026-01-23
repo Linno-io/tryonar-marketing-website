@@ -60,6 +60,8 @@ const Navigation = (props: NavigationProps) => {
                             type="button"
                             className="md:hidden p-2 text-white cursor-pointer"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label='Toggle Menu'
+                            title={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
                         >
                             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"} />
