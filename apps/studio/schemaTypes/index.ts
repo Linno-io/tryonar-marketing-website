@@ -29,6 +29,7 @@ import { virtualTryonSectionType } from './virtualTryonSectionType'
 import { gallerySectionType } from './gallerySectionType'
 import { textHeroSectionType } from './textHeroSectionType'
 import { pricingTableSectionType } from './pricingTableSectionType'
+import { singleReviewSectionType } from './singleReviewSectionType'
 
 export const schemaTypes = [
   link,
@@ -61,5 +62,6 @@ export const schemaTypes = [
   gallerySectionType,
   textHeroSectionType,
   pricingTableSectionType,
+  singleReviewSectionType,
   // userType
 ]

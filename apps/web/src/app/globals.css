@@ -426,6 +426,17 @@
     z-index: 1;
   }
 
+  .single-review-container:before {
+    content: "";
+    border-radius: 818.258px;
+    background: rgba(255, 164, 155, 0.10);
+    filter: blur(200px);
+    width: 818.258px;
+    height: 569.729px;
+    transform: rotate(-13.504deg);
+    position: absolute;
+  }
+
   @media (width <= 64rem /* 1024px */) {
     .arrow-border:before {
       content: "";

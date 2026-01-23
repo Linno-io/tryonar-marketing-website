@@ -27,6 +27,13 @@ export async function getPageBySlug(slug: string) {
         ...,
          _type,
         _key,
+        author{
+            ...,
+            "image": {
+                "url": image.asset->url,
+                "alt": image.alt
+            }
+        },
         primaryButton{
             ...,
             "internalLink": internalLink->slug.current,

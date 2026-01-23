@@ -351,3 +351,15 @@ export interface PricingTableSection extends Section {
     cards: PricingCard[]
   }[]
 }
+
+export interface SingleReviewSection extends Section {
+  _type: 'singleReviewSectionType'
+  _key: string
+  rating: number
+  review: SectionTitle[]
+  author: {
+    name: string
+    position: string
+    image: SanityImage
+  }
+}
