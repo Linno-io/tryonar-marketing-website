@@ -13,6 +13,7 @@ export const pageType = defineType({
       type: 'array',
       of: [
         { type: 'heroSectionType' },
+        { type: 'textHeroSectionType' },
         { type: 'realitySectionType' },
         { type: 'ctaSectionType' },
         { type: 'successStoriesSectionType' },

@@ -27,6 +27,7 @@ import { experienceSectionType } from './experienceSectionType'
 import { journeySectionType } from './journeySectionType'
 import { virtualTryonSectionType } from './virtualTryonSectionType'
 import { gallerySectionType } from './gallerySectionType'
+import { textHeroSectionType } from './textHeroSectionType'
 
 export const schemaTypes = [
   link,
@@ -57,5 +58,6 @@ export const schemaTypes = [
   journeySectionType,
   virtualTryonSectionType,
   gallerySectionType,
+  textHeroSectionType,
   // userType
 ]

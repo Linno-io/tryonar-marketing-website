@@ -267,6 +267,19 @@
       transform: translateX(-50%) rotate(-13.504deg);
   }
 
+  .text-hero-section:before {
+      content: "";
+      border-radius: 988.455px;
+      background: #FFA49B;
+      filter: blur(150px);
+      position: absolute;
+      top: -140%;
+      left: -500px;
+      transform: rotate(13.504deg);
+      width: 1123.262px;
+      height: 688.232px;
+  }
+
   .challenge-active-tab:after {
     content: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkZBNDlCIiBkPSJNOCAwQzMuNTg5IDAgMCAzLjU4OSAwIDhzMy41ODkgOCA4IDggOC0zLjU4OSA4LTgtMy41ODktOC04LTh6bS0uMDYgMTAuMjhhMS4zMzQgMS4zMzQgMCAwMS0xLjg4Mi0uMDAzTDQuMjAyIDguNDc4bC45MjgtLjk1OCAxLjg2MiAxLjgwNCAzLjg3My0zLjguOTM2Ljk1LTMuODYzIDMuODA0eiIvPjwvc3ZnPg==);
     display: block;
@@ -417,6 +430,13 @@
     .arrow-border:before {
       content: "";
       display: none;
+    }
+
+    .text-hero-section:before {
+      top: -90%;
+      left: -100px;
+      width: 500px;
+      height: 300px;
     }
   }
 

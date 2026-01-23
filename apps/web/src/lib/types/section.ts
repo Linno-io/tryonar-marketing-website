@@ -371,6 +371,13 @@ export interface JourneySection extends Section {
   }
 }
 
+export interface TextHeroSection extends Section {
+  _type: 'textHeroSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+}
+
 export interface VirtualTryonSection extends Section {
   _type: 'virtualTryonSectionType'
   _key: string

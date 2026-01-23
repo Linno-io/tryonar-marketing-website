@@ -1,5 +1,6 @@
 'use client'
 
+import { Page } from '@/lib/types/page'
 import { 
     HeroSection as HeroSectionProps, 
     RealitySection as RealitySectionProps, 
@@ -19,32 +20,27 @@ import {
     JourneySection as JourneySectionProps,
     VirtualTryonSection as VirtualTryonSectionProps,
     GallerySection as GallerySectionProps,
+    TextHeroSection as TextHeroSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
-import RealityCheckSection from './sections/RealityCheckSection'
 import CTASection from './sections/CTASection'
-import SuccessStoriesSection from './sections/SuccessStoriesSection'
 import IndustrySolutionsSection from './sections/IndustrySolutionsSection'
-import Navigation from './Navigation'
-import Footer from './Footer'
 import ReadyToSolveSection from './sections/ReadyToSolveSection'
 import JourneySection from './sections/JourneySection'
 import ExperienceSection from './sections/ExperienceSection'
 import VirtualTryOnSection from './sections/VirtualTryonSection'
 import GallerySection from './sections/GallerySection'
-import { Container, DotBackground } from '@/components/ui'
-import SolutionSection from './sections/SolutionSection'
 import TestimonialSection from './sections/TestimonialSection'
 import EcommerceChallenge from './sections/EcommerceChallenge'
 import FAQAccordion from './sections/FAQSection'
-import { Page } from '@/lib/types/page'
 import ResourceSection from './sections/ResourceSection'
 import MagicSection from './sections/MagicSection'
 import WorkflowSection from './sections/WorkflowSection';
 import CardsSection from './sections/CardsSection';
 import TrustCardSection from './sections/TrustCardSection';
 import ComparisonSection from './sections/ComparisonSection';
+import TextHeroSection from './sections/TextHeroSection';
 
 interface PageRenderedProps {
     page: Page
@@ -100,6 +96,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <VirtualTryOnSection key={section._key} data={section as VirtualTryonSectionProps} />;
                             case 'gallerySectionType':
                                return <GallerySection key={section._key} data={section as GallerySectionProps} />;
+                            case 'textHeroSectionType':
+                               return <TextHeroSection key={section._key} data={section as TextHeroSectionProps} />;
                             default:
                                 return null;
                         }
