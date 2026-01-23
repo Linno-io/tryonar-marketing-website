@@ -343,7 +343,7 @@ export interface PricingTableSection extends Section {
   stats: {
     _key: string
     label: string
-    value: string
+    type: string
   }[]
   tabs: {
     _key: string

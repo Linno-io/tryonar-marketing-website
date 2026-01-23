@@ -21,8 +21,8 @@ const PricingTableSection = ({data} : {data: PricingTableSectionProps}) => {
     return (
         <>
             <section className='pricing-table-section bg-[#F8F8F9]'>
-                <Container withBorder={true} padding={false} className='pt-12.5'>
-                    <div className='flex items-center justify-center mb-8'>
+                <Container withBorder={true} padding={false} className='pt-8 md:pt-10 lg:pt-12'>
+                    <div className='flex items-center justify-center mb-6 md:mb-7 lg:mb-8 px-4 md:px-6'>
                         <TabList
                             onChange={handleTabChange}
                             tabs={tabs}

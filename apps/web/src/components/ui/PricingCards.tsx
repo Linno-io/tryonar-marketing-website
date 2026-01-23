@@ -28,24 +28,24 @@ const PricingCards = (props: PricingCardsProps) => {
 
     return (
         <>
-            <div className={`pricing-cards-wrapper bg-[#F0F0F2] px-2.5 py-2.5 pb-27.5 rounded-t-[30px] border-[#E1E1EA] border-b`}>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 items-stretch">
+            <div className={`pricing-cards-wrapper bg-[#F0F0F2] px-2 md:px-2.5 py-2 md:py-2.5 pb-16 md:pb-20 lg:pb-24 rounded-t-2xl md:rounded-t-3xl border-[#E1E1EA] border-b`}>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-2.5 items-stretch">
                     {cards.map((card) => (
                         <SinglePricingCard key={card._key} card={card} />
                     ))}
                 </div>
                 {
                     vatInfo && (
-                        <p className='text-sm text-normal text-[#838383] italic mt-7.5 text-center'>
+                        <p className='text-xs md:text-sm text-normal text-[#838383] italic mt-6 md:mt-7 lg:mt-8 text-center px-4'>
                             {vatInfo}
                         </p>
                     )
                 }
                 {
                     stats.length > 0 && (
-                        <div className="flex items-center justify-center flex-wrap gap-6 mt-10">
+                        <div className="flex items-center justify-center flex-wrap gap-4 md:gap-5 lg:gap-6 mt-8 md:mt-9 lg:mt-10 px-4">
                             {stats.map((stat, index) => (
-                                <p key={index} className='flex items-center gap-2 text-[#202020] text-base font-medium'>
+                                <p key={index} className='flex items-center gap-2 text-[#202020] text-sm md:text-base font-medium'>
                                     {statIcons[stat.type as keyof typeof statIcons]}
                                     {stat.label}
                                 </p>
