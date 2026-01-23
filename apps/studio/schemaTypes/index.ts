@@ -30,6 +30,7 @@ import { gallerySectionType } from './gallerySectionType'
 import { textHeroSectionType } from './textHeroSectionType'
 import { pricingTableSectionType } from './pricingTableSectionType'
 import { singleReviewSectionType } from './singleReviewSectionType'
+import { compareSectionType } from './compareSectionType'
 
 export const schemaTypes = [
   link,
@@ -63,5 +64,6 @@ export const schemaTypes = [
   textHeroSectionType,
   pricingTableSectionType,
   singleReviewSectionType,
+  compareSectionType,
   // userType
 ]

@@ -33,6 +33,7 @@ export const pageType = defineType({
         { type: 'gallerySectionType' },
         { type: 'pricingTableSectionType' },
         { type: 'singleReviewSectionType' },
+        { type: 'compareSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

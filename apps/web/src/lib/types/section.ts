@@ -363,3 +363,29 @@ export interface SingleReviewSection extends Section {
     image: SanityImage
   }
 }
+
+export interface PricingTable {
+  heading: string
+  plans: {
+    primaryButton: Button
+    price?: string
+    isPrimary?: boolean
+    badge?: string
+    title: string
+  }[]
+  features: {
+    label: string
+    values: {
+      _key: string
+      type: 'check' | 'cross' | 'text'
+      text?: string
+    }[]
+  }[]
+}
+export interface CompareSection extends Section {
+  _type: 'compareSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  pricingTable: PricingTable
+}

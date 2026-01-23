@@ -34,6 +34,16 @@ export async function getPageBySlug(slug: string) {
                 "alt": image.alt
             }
         },
+        pricingTable{
+            ...,
+            plans[]{
+                ...,
+                primaryButton{
+                    ...,
+                    "internalLink": internalLink->slug.current,
+                }
+            }
+        },
         primaryButton{
             ...,
             "internalLink": internalLink->slug.current,
