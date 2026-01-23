@@ -15,7 +15,12 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
         <>
             <div className={`rounded-2xl md:rounded-[20px] p-6 md:p-7 lg:p-9 ${card.isPopular ? 'bg-[#202020]' : 'bg-white'}`}>
                 <div className="card-info flex flex-col items-start justify-between min-h-[200px] md:min-h-[220px] lg:min-h-[235px]">
-                    <div className='flex flex-col h-full'>
+                    <div className='flex flex-col h-full relative'>
+                        {card.isPopular && (
+                            <span className='text-base text-[#2A2730] rounded-[10px] bg-white shadow-[0_4px_4px_rgba(107,101,101,0.11)] w-[87px] h-[30px] font-medium text-center flex justify-center items-center absolute right-0 -top-3'>
+                                Popular
+                            </span>
+                        )}
                         <h3 className={`text-xl md:text-2xl lg:text-[26px] font-bold leading-tight mb-2 md:mb-2.5 ${card.isPopular ? 'text-[#FFFFFFE5]' : 'text-[#2A2730E5]'}`}>
                             {card.heading}
                         </h3>
