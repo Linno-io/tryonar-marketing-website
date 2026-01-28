@@ -23,6 +23,20 @@ export interface HeroSection extends Section {
   secondaryButton: Button
 }
 
+export interface LandingHeroSection extends Section {
+  _type: 'landingHeroSectionType'
+  title: SectionTitle[]
+  description: SectionTitle[]
+  sectionImage: SanityImage & {
+    imageTitle?: string
+    imageDescription?: string
+  }
+  tag?: string
+  primaryButton: Button & {
+    trustText?: string
+  }
+}
+
 export interface FeaturesSection extends Section {
   _type: 'featuresSection'
   title: string

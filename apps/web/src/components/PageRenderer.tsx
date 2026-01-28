@@ -24,6 +24,7 @@ import {
     PricingTableSection as PricingTableSectionProps,
     SingleReviewSection as SingleReviewSectionProps,
     CompareSection as CompareSectionProps,
+    LandingHeroSection as LandingHeroSectionProps,
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -47,6 +48,7 @@ import TextHeroSection from './sections/TextHeroSection';
 import PricingTableSection from './sections/PricingTableSection';
 import SingleReviewSection from './sections/SingleReviewSection';
 import CompareSection from './sections/CompareSection';
+import LandingHeroSection from './sections/LandingHeroSection';
 
 interface PageRenderedProps {
     page: Page
@@ -110,6 +112,8 @@ console.log(sections);
                                return <SingleReviewSection key={section._key} data={section as SingleReviewSectionProps} />;
                             case 'compareSectionType':
                                return <CompareSection key={section._key} data={section as CompareSectionProps} />;
+                            case 'landingHeroSectionType':
+                               return <LandingHeroSection key={section._key} data={section as LandingHeroSectionProps} />;
                             default:
                                 return null;
                         }

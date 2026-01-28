@@ -34,6 +34,7 @@ export const pageType = defineType({
         { type: 'pricingTableSectionType' },
         { type: 'singleReviewSectionType' },
         { type: 'compareSectionType' },
+        { type: 'landingHeroSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

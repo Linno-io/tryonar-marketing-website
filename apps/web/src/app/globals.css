@@ -437,6 +437,20 @@
     position: absolute;
   }
 
+  .landing-hero-section:before {
+    content: "";
+    width: 357.866px;
+    height: 143.904px;
+    transform: rotate(38deg);
+    border-radius: 843.904px;
+    background: #FFA49B;
+    filter: blur(100px);
+    position: absolute;
+    bottom: 0;
+    right: -70px;
+    z-index: 0;
+}
+
   @media (width <= 64rem /* 1024px */) {
     .arrow-border:before {
       content: "";

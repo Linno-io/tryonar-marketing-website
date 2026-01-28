@@ -53,6 +53,7 @@ export async function getPageBySlug(slug: string) {
             "internalLink": internalLink->slug.current
         },
         sectionImage{
+            ...,
             "url": asset->url,
             "alt": alt
         },
