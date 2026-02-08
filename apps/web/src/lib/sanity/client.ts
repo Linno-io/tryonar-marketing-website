@@ -74,6 +74,11 @@ export async function getPageBySlug(slug: string) {
                 "alt": image.alt
             }
         },
+        avatars[]{
+            ...,
+            "url": asset->url,
+            "alt": alt
+        },
         items[]{
             ...,
             "sectionImage":{

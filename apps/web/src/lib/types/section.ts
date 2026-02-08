@@ -441,3 +441,17 @@ export interface FeaturedCardsSection extends Section {
   }[]
 }
 
+export interface TrustStatsSection extends Section {
+  _type: 'trustStatsSectionType'
+  _key: string
+  title: SectionTitle[]
+  avatars?: SanityImage[]
+  stats: {
+    _key: string
+    value: string
+    title: string
+    description: string
+  }[]
+}
+
+

@@ -8,7 +8,7 @@ const FeaturedCardsSection = ({data}: {data: FeaturedCardsSectionType}) => {
     const {
         items
     } = data;
-console.log(items);
+
     return (
         <>
              <section className="featured-cards-section border-[#EEEDF2] border-t relative bg-[#F8F8F9]">

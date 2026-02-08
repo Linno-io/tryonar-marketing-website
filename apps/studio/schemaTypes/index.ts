@@ -34,6 +34,7 @@ import { compareSectionType } from './compareSectionType'
 import { landingHeroSectionType } from './landingHeroSectionType'
 import { caseStudiesSectionType } from './caseStudiesSectionType'
 import { featuredCardsSectionType } from './featuredCardsSectionType'
+import { trustStatsSectionType } from './trustStatsSectionType'
 
 export const schemaTypes = [
   link,
@@ -71,6 +72,7 @@ export const schemaTypes = [
   landingHeroSectionType,
   caseStudiesSectionType,
   featuredCardsSectionType,
+  trustStatsSectionType,
 
   // userType
 ]
