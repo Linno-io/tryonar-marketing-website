@@ -405,3 +405,25 @@ export interface CompareSection extends Section {
   description: string
   pricingTable: PricingTable
 }
+
+
+export interface CaseStudiesSection extends Section {
+  _type: 'caseStudiesSectionType'
+  _key: string
+  showDivider: boolean
+  title?: SectionTitle[]
+  description?: string
+  caseStudies: {
+    _key: string
+    companyName: string
+    summary: string
+    metrics: {
+      _key: string
+      value: string
+      label: string
+    }[]
+  }[]
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
