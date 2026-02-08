@@ -69,7 +69,7 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
     if(!sections || sections.length === 0) {
         return null;
     }
-console.log(sections);
+
     return (
         <>
             <main className={`${page?.slug?.current}-page-container`}>

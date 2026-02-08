@@ -491,4 +491,10 @@
     right: -30%;
     bottom: -70%;
   }
+
+  @media (width <= 64rem /* 1024px */) {
+    .user-stories-page-container .text-hero-section:after {
+      display: none;
+    }
+  }
 }
