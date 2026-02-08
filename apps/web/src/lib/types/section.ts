@@ -427,3 +427,17 @@ export interface CaseStudiesSection extends Section {
   secondaryButton?: Button
 }
 
+
+export interface FeaturedCardsSection extends Section {
+  _type: 'featuredCardsSectionType'
+  _key: string
+  items: {
+    _key: string
+    companyName: string
+    highlightValue: string
+    description: string
+    sectionImage: SanityImage
+    primaryButton: Button
+  }[]
+}
+

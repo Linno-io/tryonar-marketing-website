@@ -74,6 +74,13 @@ export async function getPageBySlug(slug: string) {
                 "alt": image.alt
             }
         },
+        items[]{
+            ...,
+            "sectionImage":{
+                "url": sectionImage.asset->url,
+                "alt": sectionImage.alt
+            }
+        },
         cards[]{
             ...,
             "image":{

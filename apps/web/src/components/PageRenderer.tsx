@@ -26,6 +26,7 @@ import {
     CompareSection as CompareSectionProps,
     LandingHeroSection as LandingHeroSectionProps,
     CaseStudiesSection as CaseStudiesSectionType,
+    FeaturedCardsSection as FeaturedCardsSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -51,6 +52,7 @@ import SingleReviewSection from './sections/SingleReviewSection';
 import CompareSection from './sections/CompareSection';
 import LandingHeroSection from './sections/LandingHeroSection';
 import CaseStudiesSection from './sections/CaseStudiesSection';
+import FeaturedCardsSection from './sections/FeaturedCardsSection';
 
 interface PageRenderedProps {
     page: Page
@@ -116,9 +118,10 @@ console.log(sections);
                                return <CompareSection key={section._key} data={section as CompareSectionProps} />;
                             case 'landingHeroSectionType':
                                return <LandingHeroSection key={section._key} data={section as LandingHeroSectionProps} />;
-
                             case 'caseStudiesSectionType':
                                return <CaseStudiesSection key={section._key} data={section as CaseStudiesSectionType} />;
+                            case 'featuredCardsSectionType':
+                               return <FeaturedCardsSection key={section._key} data={section as FeaturedCardsSectionProps} />;
                             default:
                                 return null;
                         }
