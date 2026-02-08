@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 
 interface CaseStudyCardProps {
     _key: string
@@ -23,6 +23,22 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
         length,
     } = props;
 
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [showReadMore, setShowReadMore] = useState(false);
+    const textRef = useRef<HTMLParagraphElement>(null);
+
+    useEffect(() => {
+        if (textRef.current) {
+            const lineHeight = 24; // 1.5rem = 24px (leading-6)
+            const maxLines = 2.5;
+            const maxHeight = lineHeight * maxLines;
+            
+            if (textRef.current.scrollHeight > maxHeight) {
+                setShowReadMore(true);
+            }
+        }
+    }, [summary]);
+
     return (
         <div 
             className={`p-6 sm:p-8 md:p-12 lg:p-14 ${
@@ -37,9 +53,24 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
                 {companyName}
             </h3>
 
-            <p className='text-[#0C0020] text-base leading-6'>
-                {summary}
-            </p>
+            <div>
+                <p 
+                    ref={textRef}
+                    className={`text-[#0C0020] text-base leading-6 transition-all duration-300 ease-in-out overflow-hidden ${
+                        !isExpanded && showReadMore ? 'line-clamp-2' : ''
+                    }`}
+                >
+                    {summary}
+                </p>
+                {showReadMore && (
+                    <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="text-[#AA73E4] cursor-pointer font-semibold text-base mt-1 hover:underline focus:outline-none transition-opacity duration-200"
+                    >
+                        {isExpanded ? 'Read Less' : 'Read More'}
+                    </button>
+                )}
+            </div>
 
             <div className="flex items-stretch gap-2.5 mt-8">
                 {
