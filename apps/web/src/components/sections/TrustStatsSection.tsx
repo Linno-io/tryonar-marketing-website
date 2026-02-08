@@ -11,8 +11,8 @@ const TrustStatsSection = ({data} : {data: TrustStatsSectionProps}) => {
     } = data;
 
     return (
-        <>
-            <section className='text-hero-section bg-[#F8F8F9]'>
+        <div className='overflow-hidden'>
+            <section className='text-hero-section bg-[#F8F8F9] overflow-hidden'>
                 <Container withBorder={true} padding={false} className='pt-30 pb-16 lg:pt-[253px] lg:pb-28'>
                     {
                         title && title.length > 0 && (
@@ -36,7 +36,7 @@ const TrustStatsSection = ({data} : {data: TrustStatsSectionProps}) => {
                                         alt="Avatar"
                                         width={70}
                                         height={70}
-                                        className="inline-block ml-4"
+                                        className="inline-block mr-4"
                                     />
                                     <span>
                                         {title[1].text}
@@ -68,7 +68,7 @@ const TrustStatsSection = ({data} : {data: TrustStatsSectionProps}) => {
                     </div>
                 </Container>
             </section>
-        </>
+        </div>
     );
 };
 

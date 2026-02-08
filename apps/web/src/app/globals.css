@@ -52,6 +52,7 @@
     font-family: var(--font-body);
     font-weight: var(--fw-regular);
     color: var(--color-text-body-web);
+    overflow-x: hidden;
   }
 
   /* Typography Setting START */
@@ -471,5 +472,23 @@
       height: 2px;
       top: -15px;
     }
+  }
+
+  .user-stories-page-container .text-hero-section:before{
+    top: -70%;
+  }
+
+  .user-stories-page-container .text-hero-section:after {
+    content: "";
+    border-radius: 798.945px;
+    background: #AA73E4;
+    filter: blur(150px);
+    width: 683.307px;
+    height: 798.945px;
+    transform: rotate(-13.504deg);
+    display: block;
+    position: absolute;
+    right: -30%;
+    bottom: -70%;
   }
 }
