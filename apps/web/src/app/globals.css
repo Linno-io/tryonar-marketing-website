@@ -6,7 +6,7 @@
 
 /* Circular Std font import */
 @font-face {
-  font-family: 'Circular Std';
+  font-family: 'Circular Std Bold';
   src: url('/fonts/circular-std.woff2') format('woff2');
   font-display: swap;
 }
@@ -29,7 +29,7 @@
   --color-text-body-mobile: #292D34;
   
   /* Fonts */
-  --font-heading: 'Circular Std', sans-serif;
+  --font-heading: 'Circular Std Bold', sans-serif;
   --font-body: 'Inter', sans-serif;
 
   /* Font weights */
