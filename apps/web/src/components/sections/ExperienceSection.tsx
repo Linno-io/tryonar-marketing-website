@@ -30,7 +30,7 @@ const ExperienceSection = ({ data }: { data: ExperienceSectionProps }) => {
     }));
 
     return (
-        <section className="relative min-h-screen bg-black text-white px-6 py-15 lg:py-32 overflow-hidden md:overflow-visible section-experience ">
+        <section className="relative min-h-screen bg-black text-white px-6 py-15 lg:py-32 overflow-hidden section-experience ">
             <Container padding={false}>
                 {/* Background Gradient Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-purple-900/30 to-transparent blur-[120px] pointer-events-none" />
@@ -74,7 +74,7 @@ const ExperienceSection = ({ data }: { data: ExperienceSectionProps }) => {
                             ))}
                         </div>
                         {/* Center Phone Image */}
-                        <div className="order-1 lg:order-2 flex justify-center relative mb-0 z-20 lg:-mb-[55%] scale-100 lg:scale-150">
+                        <div className="order-1 lg:order-2 flex justify-center relative ">
                             <div className="relative w-[280px] h-[580px] md:w-[320px] md:h-[650px]">
                                 {sectionImage && sectionImage.url && (
                                     <Image
@@ -82,7 +82,7 @@ const ExperienceSection = ({ data }: { data: ExperienceSectionProps }) => {
                                         alt={sectionImage.alt || 'App Interface'}
                                         width={480}
                                         height={975}
-                                        className="w-full h-full object-contain drop-shadow-2xl transform hover:rotate-[5deg] transition-transform duration-700"
+                                        className="w-full h-full object-contain "
                                     />
                                 )}
                             </div>

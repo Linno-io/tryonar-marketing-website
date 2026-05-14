@@ -67,7 +67,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                             tags && tags.length > 0 && (
                                 <div className="flex flex-wrap gap-3 mb-6 lg:mb-9">
                                     {tags.map((badge, index) => (
-                                        <Badge key={index} text={badge} icon={<CheckIcon />}/>
+                                        <Badge key={index} text={badge} icon={<CheckIcon />} showDash={false}/>
                                     ))}
                                 </div>
                             )
