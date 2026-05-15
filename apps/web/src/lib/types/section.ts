@@ -337,7 +337,13 @@ export interface GallerySection extends Section {
     value: string
   }[]
   primaryButton: Button
-  images: SanityImage[]
+  images: {
+      url: string
+      alt?: string
+      width?: number
+      height?: number,
+      video?: string
+   }[]
 }
 
 export interface PricingCard {

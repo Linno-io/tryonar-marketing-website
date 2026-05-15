@@ -126,7 +126,8 @@ export async function getPageBySlug(slug: string) {
         },
         images[]{
             "url": asset->url,
-            "alt": alt
+            "alt": alt,
+            "video": video.asset->url
         },
         tabs[]{
             ...,

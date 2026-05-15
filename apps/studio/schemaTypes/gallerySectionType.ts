@@ -90,7 +90,16 @@ export const gallerySectionType = defineType({
             name: 'alt',
             type: 'string',
             title: 'Alternative text'
-          }
+          },
+          {
+              name: 'video',
+              title: 'Video',
+              type: 'file',
+              options: {
+                  accept: 'video/*',
+              },
+              description: 'Optional video for the gallery image (e.g., a 3D product demo)'
+          },
         ]
       }],
       validation: Rule => Rule.required().min(1),
