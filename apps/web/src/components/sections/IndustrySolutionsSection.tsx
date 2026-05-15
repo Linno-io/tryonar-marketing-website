@@ -50,7 +50,7 @@ export default function IndustryARSection({data} : {data: IndustrySolutionsSecti
 
     return (
         <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
-            <Container className='pt-40'>
+            <Container className='py-40'>
                 <div className="text-center mb-15">
                     <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-5">{tagline}</p>
 
@@ -79,30 +79,26 @@ export default function IndustryARSection({data} : {data: IndustrySolutionsSecti
                     }
                 </div>
 
-                <div className="flex items-center justify-center flex-wrap gap-3 mb-10">
+                <div className="flex items-center justify-center flex-wrap gap-3 mb-10 pt-6">
                     {tabs.map((tab) => (
-                        <button
-                            key={tab._key}
-                            onClick={() => !tab.comingSoon && setActiveTab(tab)}
-                            className={`p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${activeTab._key === tab._key
-                                ? 'border-[#FFA49B] border-solid challenge-active-tab'
-                                : 'border border-dashed border-[#C5BBCC]'
-                                } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
-                        >
-                            <span className="flex items-center gap-2">
-                                {tab.tabLabel}
-                                {!tab.comingSoon && activeTab._key === tab._key && (
-                                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF8080] rounded-full border-2 border-white shadow-sm flex items-center justify-center">
-                                        <div className="w-1 h-1 bg-white rounded-full opacity-60" />
-                                    </span>
-                                )}
-                                {tab.comingSoon && (
-                                    <div className="bg-slate-100 text-[8px] px-1.5 py-0.5 rounded text-slate-400 font-bold uppercase tracking-tighter">
-                                        Soon
-                                    </div>
-                                )}
-                            </span>
-                        </button>
+                        <div key={tab._key} className="relative">
+                            {tab.comingSoon && (
+                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
+                                    Coming Soon
+                                </span>
+                            )}
+                            <button
+                                onClick={() => !tab.comingSoon && setActiveTab(tab)}
+                                className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${activeTab._key === tab._key
+                                    ? 'border-[#FFA49B] border-solid challenge-active-tab'
+                                    : 'border border-[#C5BBCC]'
+                                    } ${tab.comingSoon ? 'opacity-50 bg-white cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
+                            >
+                                <span className="flex items-center gap-2">
+                                    {tab.tabLabel}
+                                </span>
+                            </button>
+                        </div>
                     ))}
                 </div>
 
@@ -152,10 +148,11 @@ export default function IndustryARSection({data} : {data: IndustrySolutionsSecti
                                                 <span className="text-slate-300">
                                                     <Image 
                                                         src={feature.icon.url ?? ''}
-                                                        width={18}
-                                                        height={18}
+                                                        width={11}
+                                                        height={8}
                                                         alt={feature.icon.alt ?? feature.featureTitle}
                                                         unoptimized
+                                                        className="aspect-16/11"
                                                     />
                                                 </span>
                                                 <span className="font-medium text-sm sm:text-[16px]">
@@ -212,12 +209,12 @@ export default function IndustryARSection({data} : {data: IndustrySolutionsSecti
                                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                                 exit={{ opacity: 0, scale: 1.1, rotate: 1 }}
                                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                style={{height: '100%'}}
+                                style={{height: '100%', width: '100%'}}
                             >
                                 <img
                                     src={activeTab?.tabContent?.image?.url ?? ''}
                                     alt={activeTab?.tabContent?.image?.alt ?? 'Industry Solution Image'}
-                                    className="w-auto object-cover h-full drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
+                                    className="w-full object-cover h-full drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
                                 />
                             </motion.div>
                         </AnimatePresence>
