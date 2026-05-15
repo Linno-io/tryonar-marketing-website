@@ -55,7 +55,20 @@ export async function getPageBySlug(slug: string) {
         sectionImage{
             ...,
             "url": asset->url,
-            "alt": alt
+            "alt": alt,
+            "width": asset->metadata.dimensions.width,
+            "height": asset->metadata.dimensions.height
+        },
+        posterImage{
+            ...,
+            "url": asset->url,
+            "alt": alt,
+            "width": asset->metadata.dimensions.width,
+            "height": asset->metadata.dimensions.height
+        },
+        sectionVideo{
+            ...,
+            "url": asset->url,
         },
         resources[]{
             ...,

@@ -1,4 +1,4 @@
-import { SanityImage } from "./siteSettings"
+import { SanityImage, SanityVideo } from "./siteSettings"
 
 export interface Section {
   _type: string
@@ -17,6 +17,8 @@ export interface HeroSection extends Section {
   title: SectionTitle[]
   description: string
   sectionImage: SanityImage
+  posterImage?: SanityImage
+  sectionVideo?: SanityVideo
   tags?: string[]
   customContainer?: boolean
   primaryButton: Button

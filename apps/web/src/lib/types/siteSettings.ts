@@ -1,6 +1,12 @@
 export interface SanityImage {
   url: string
   alt?: string
+  width?: number
+  height?: number
+}
+
+export interface SanityVideo {
+  url: string
 }
 
 export interface SanityReference {

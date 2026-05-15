@@ -36,6 +36,29 @@ export const heroSectionType = defineType({
             description: 'Main image for the hero section'
         },
         {
+            name: 'sectionVideo',
+            title: 'Section Video',
+            type: 'file',
+            options: {
+                accept: 'video/*',
+            },
+            description: 'Main video for the hero section'
+        },
+        {
+            name: 'posterImage',
+            title: 'Video Poster',
+            type: 'image',
+            fields: [
+                {
+                    name: 'alt',
+                    title: 'Alt Text',
+                    type: 'string',
+                    validation: (rule) => rule.required()
+                }
+            ],
+            description: 'Poster image for the video (required if a video is provided)'
+        },
+        {
             name: 'tags',
             title: 'Tags',
             type: 'array',
