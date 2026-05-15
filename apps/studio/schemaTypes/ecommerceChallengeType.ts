@@ -64,6 +64,11 @@ export const ecommerceChallengeType = defineType({
             type: 'text',
           }),
           defineField({
+            name: 'featureTitle',
+            title: 'Feature Title',
+            type: 'string',
+          }),
+          defineField({
             name: 'features',
             title: 'Features',
             type: 'array',
