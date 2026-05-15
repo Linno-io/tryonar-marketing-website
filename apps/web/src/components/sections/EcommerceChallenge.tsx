@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Container } from '@/components/ui';
+import { Container, DotBackground } from '@/components/ui';
 import Image from 'next/image';
 import { EcommerceChallengeSection as EcommerceChallengeSectionProps } from '@/lib/types/section';
 
@@ -19,7 +19,7 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
     if (!current) return null;
 
     return (
-        <section className="bg-[#ffffff]font-sans text-[#1f2937]">
+        <section className="bg-[#ffffff]font-sans text-[#1f2937] border-b border-[#EEEDF2]">
             <Container size="xl" withBorder={true} className='py-8 max-[575px]:py-6 md:py-24 !px-[10px]'>
                 <div className="text-center mb-6 lg:mb-10">
                     <span className="text-[#FFA49B] text-xs font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2 mb-5 max-[575px]:mb-3">
@@ -113,6 +113,16 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                         </motion.div>
                     </AnimatePresence>
                 </div>
+            </Container>
+
+            <Container size="xl" padding={false} className="relative">
+                <DotBackground
+                    dotSize={2}
+                    gap={20}
+                    color="bg-gray-300"
+                    borderColor="border-[#eeedf2]"
+                    className="h-32 w-full border-x"
+                />
             </Container>
         </section>
     );

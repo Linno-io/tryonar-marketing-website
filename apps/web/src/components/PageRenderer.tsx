@@ -69,7 +69,11 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
     if(!sections || sections.length === 0) {
         return null;
     }
+// const count = sections.filter(
+//   (item) => item._type === 'ecommerceChallengeType'
+// ).length;
 
+// console.log(count);
     return (
         <>
             <main className={`${page?.slug?.current}-page-container`}>

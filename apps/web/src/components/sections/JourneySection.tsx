@@ -40,14 +40,7 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
     }));
 
     return (
-        <section className="bg-[#E5E7EB]/30 font-sans relative overflow-hidden">
-            <div
-                className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none z-0"
-                style={{
-                    background: 'radial-gradient(circle at bottom right, rgba(154, 20, 231, 0.8) 0%, rgba(239, 138, 138, 0.2) 30%, transparent 70%)',
-                    filter: 'blur(80px)',
-                }}
-            />
+        <section className="font-sans relative overflow-hidden">
              <Container className='py-10 md:py-24 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-3.5">
