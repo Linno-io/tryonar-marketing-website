@@ -40,7 +40,7 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
     }));
 
     return (
-        <section className="font-sans relative overflow-hidden">
+        <section className="font-sans relative overflow-hidden bg-white z-10">
              <Container className='py-10 md:py-24 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1e1b4b] mb-3.5">

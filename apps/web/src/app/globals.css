@@ -310,7 +310,7 @@
   .section-experience:before {
     content: "";
     border-radius: 988.455px;
-    background: #FFA49B;
+    background: rgba(255, 164, 155, 0.40);
     filter: blur(200px);
     display: block;
     width: 50%;
@@ -322,20 +322,6 @@
     transform: translateX(-50%) rotate(-13.504deg);
   }
 
-  .section-experience:after {
-    content: "";
-    border-radius: 988.455px;
-    background: #AA73E4;
-    filter: blur(200px);
-    display: block;
-    width: 50%;
-    height: 578.232px;
-    position: absolute;
-    top: -560px;
-    z-index: 0;
-    left: 40%;
-    transform: translateX(-50%) rotate(-13.504deg);
-  }
 
   .gallery-section::before {
     content: "";
