@@ -308,6 +308,8 @@ export interface JourneySection extends Section {
     subtext: string
   }[]
   primaryButton: Button
+  ctaTitle: SectionTitle[]
+  ctaDescription: string
 }
 
 export interface TextHeroSection extends Section {

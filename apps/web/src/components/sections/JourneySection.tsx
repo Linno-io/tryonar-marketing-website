@@ -22,7 +22,7 @@ const ArrowIcon = () => (
 )
 
 export default function JourneySection({ data }: { data: JourneySectionProps }) {
-    const { title, description, steps: dynamicSteps, primaryButton } = data;
+    const { title, description, steps: dynamicSteps, primaryButton, ctaTitle, ctaDescription } = data;
 
     // Static icons mapping (not dynamic)
     const icons = [
@@ -98,16 +98,38 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
                     ))}
                 </div>
 
-                {/* CTA Button */}
-                <div className="flex justify-center mt-8 md:mt-16">
-                    {primaryButton && (
-                        <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
-                            <button className="bg-[#18181b] text-white px-6 md:px-8 py-4 rounded-2xl cursor-pointer font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
-                                {primaryButton.text}
-                                {primaryButton.showIcon && <ArrowUpRight size={20} />}
-                            </button>
-                        </Link>
-                    )}
+                {/* CTA Card */}
+                <div
+                    className="mt-12 md:mt-20 overflow-hidden bg-gradient-to-r from-[#f0ecff] via-[#faf9ff] to-[#f0ecff] md:bg-[url('/journey_cta_bg.webp')] md:bg-cover md:bg-center md:bg-no-repeat border border-[#ECEDF1]"
+                    style={{
+                        borderRadius: '30px',
+                        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
+                    }}
+                >
+                    <div className="flex flex-col items-center justify-center text-center py-16 px-6 md:py-20 md:px-12">
+                        {ctaTitle && (
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e1b4b] mb-4">
+                                {ctaTitle.map((block, index) => (
+                                    block.type === 'normal'
+                                        ? <span key={index}>{block.text}</span>
+                                        : <span key={index} className="text-[#838383]">{block.text}</span>
+                                ))}
+                            </h2>
+                        )}
+                        {ctaDescription && (
+                            <p className="text-[#3E3E42] text-base md:text-lg mb-8">
+                                {ctaDescription}
+                            </p>
+                        )}
+                        {primaryButton && (
+                            <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
+                                <button className="bg-[#18181b] text-white px-6 md:px-8 py-4 rounded-2xl cursor-pointer font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
+                                    {primaryButton.text}
+                                    {primaryButton.showIcon && <ArrowUpRight size={20} />}
+                                </button>
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </Container>
         </section>

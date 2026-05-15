@@ -74,41 +74,53 @@ export const journeySectionType = defineType({
       ]
     }),
     {
-            name: 'primaryButton',
-            title: 'Primary Button',
-            type: 'object',
-            fields: [
-                {
-                    name: 'text',
-                    title: 'Button Text',
-                    type: 'string',
-                    validation: (rule) => rule.required()
-                },
-                {
+        name: 'primaryButton',
+        title: 'Primary Button',
+        type: 'object',
+        fields: [
+            {
+                name: 'text',
+                title: 'Button Text',
+                type: 'string',
+                validation: (rule) => rule.required()
+            },
+            {
 
-                    name: 'internalLink',
-                    title: 'Internal Link',
-                    type: 'reference',
-                    to: [{ type: 'page' }],
-                },
-                {
-                    name: 'externalLink',
-                    title: 'External Link',
-                    type: 'url',
-                    validation: Rule =>
-                        Rule.uri({
-                            scheme: ['http', 'https'],
-                        }),
-                },
-                {
-                    name: 'showIcon',
-                    title: 'Show Icon',
-                    type: 'boolean',
-                    initialValue: true,
-                },
-            ],
-            validation: (rule) => rule.required()
-        },
+                name: 'internalLink',
+                title: 'Internal Link',
+                type: 'reference',
+                to: [{ type: 'page' }],
+            },
+            {
+                name: 'externalLink',
+                title: 'External Link',
+                type: 'url',
+                validation: Rule =>
+                    Rule.uri({
+                        scheme: ['http', 'https'],
+                    }),
+            },
+            {
+                name: 'showIcon',
+                title: 'Show Icon',
+                type: 'boolean',
+                initialValue: true,
+            },
+        ],
+        validation: (rule) => rule.required()
+    },
+    defineField({
+      name: 'ctaTitle',
+      title: 'CTA Title',
+      type: 'richTextHighlight',
+      description: 'Call to action title encouraging users to start their AR journey',
+    }),
+    defineField({
+      name: 'ctaDescription',
+      title: 'CTA Description',
+      type: 'text',
+      initialValue: 'TryonAR transforms these pain points into competitive advantages with our no-code AR solution.',
+    }),
   ],
   preview: {
     select: {
