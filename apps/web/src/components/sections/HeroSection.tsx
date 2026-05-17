@@ -29,7 +29,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {sectionVideo?.url && (
             <link rel="preload" as="video" href={sectionVideo.url} type="video/mp4" />
         )}
-        <section className="toa-hero-section relative bg-white pt-30 pb-16 lg:pt-63.25 lg:pb-28 border-b border-[#eeedf2]">
+        <section className="toa-hero-section relative bg-white pt-30 pb-16 lg:pt-58.25 lg:pb-28 border-b border-[#eeedf2]">
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-70 z-0" style={{ background: 'linear-gradient(180deg, #E3D5FF 5%, #FFF 20%, #FFF 100%)' }}>
                 <div
                     className="absolute top-[60%] right-[-10%] w-[700px] h-[800px] rounded-full blur-[130px]"
@@ -39,7 +39,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
             <Container className="relative z-10" custom={customContainer ? "max-w-full lg:max-w-[1280px] xl:max-w-[1390px]" : undefined} size={customContainer ? 'custom' : "xl"}>
                 <div className={`grid ${customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12'} gap-13 items-start`}>
-                    <div className={`${customContainer ? 'lg:col-span-7' : 'lg:col-span-6'} flex flex-col text-left`}>
+                    <div className={`${customContainer ? 'lg:col-span-7' : 'lg:col-span-6'} flex flex-col text-left pt-0 lg:pt-10`}>
                         {
                             title && title.length > 0 && (
                                 <h1 className="text-[32px] sm:text-[40px] md:text-[64px] lg:text-[68px] leading-[1.09]">
