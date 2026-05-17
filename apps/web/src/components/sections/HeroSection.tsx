@@ -23,25 +23,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
         posterImage
     } = data;
 
-    // Pixel offsets of the device screen area within the frame image,
-    // calibrated at the container's max rendered width (max-w-156.75 = 627px).
-    // Adjust these if the frame image changes.
-    const SCREEN_LEFT_PX = 22
-    const SCREEN_TOP_PX = 23
-    const SCREEN_H_PAD_PX = 40   // total left+right pixel padding
-    const SCREEN_B_PAD_PX = 100  // pixels from bottom (bezel + product bar)
-
-    const imgW = sectionImage.width || 600
-    const imgH = sectionImage.height || 700
-    const refW = Math.min(imgW, 627)
-    const refH = refW * (imgH / imgW)
-
-    const videoPos = {
-        left:   `${(SCREEN_LEFT_PX / refW * 100).toFixed(2)}%`,
-        top:    `${(SCREEN_TOP_PX / refH * 100).toFixed(2)}%`,
-        width:  `${((refW - SCREEN_H_PAD_PX) / refW * 100).toFixed(2)}%`,
-        height: `${((refH - SCREEN_B_PAD_PX) / refH * 100).toFixed(2)}%`,
-    }
 
     return (
         <>
@@ -120,16 +101,18 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
                     <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
                         <div className="relative w-full max-w-156.75">
-
-                            <Image
-                                src={sectionImage.url}
-                                alt={sectionImage.alt || 'Hero Section Image'}
-                                width={imgW}
-                                height={imgH}
-                                className="w-full h-auto object-contain drop-shadow-2xl relative z-10"
-                                fetchPriority="high"
-                            />
-
+                            {
+                                sectionImage.url && (
+                                    <Image
+                                        src={sectionImage.url}
+                                        alt={sectionImage.alt || 'Hero Section Image'}
+                                        className="w-full h-auto object-contain drop-shadow-2xl relative z-10"
+                                        fetchPriority="high"
+                                        width={sectionImage.width}
+                                        height={sectionImage.height}
+                                    />
+                                )
+                            }
                             {sectionVideo?.url && (
                                 <video
                                     autoPlay
@@ -138,8 +121,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                     playsInline
                                     preload="metadata"
                                     poster={posterImage?.url}
-                                    className="absolute object-cover rounded-lg z-0"
-                                    style={videoPos}
+                                    className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[525px] w-full object-cover rounded-t-[32px] sm:rounded-t-[48px] lg:rounded-t-[64px] rounded-b-[16px] sm:rounded-b-[20px] lg:rounded-b-[24px]"
                                 >
                                     <source src={sectionVideo.url} type="video/mp4" />
                                 </video>
