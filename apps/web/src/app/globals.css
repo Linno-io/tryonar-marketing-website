@@ -474,3 +474,19 @@
     }
   }
 }
+
+
+.bfg-extra-img-1,
+.bfg-extra-img-3,
+.bfg-extra-img-5 {
+    position: absolute;
+    bottom: 5px;
+    width: 90%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bfg-extra-img-5 {
+  bottom: 35px;
+}

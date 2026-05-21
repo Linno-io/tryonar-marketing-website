@@ -40,6 +40,7 @@ export const pageType = defineType({
         { type: 'trustStatsSectionType' },
         { type: 'businessResultsSectionType' },
         { type: 'featureShowcaseSectionType' },
+        { type: 'beautyFeatureGridSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

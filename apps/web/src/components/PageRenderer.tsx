@@ -29,7 +29,8 @@ import {
     FeaturedCardsSection as FeaturedCardsSectionProps,
     TrustStatsSection as TrustStatsSectionProps,
     BusinessResultsSection as BusinessResultsSectionProps,
-    FeatureShowcaseSection as FeatureShowcaseSectionProps
+    FeatureShowcaseSection as FeatureShowcaseSectionProps,
+    BeautyFeatureGridSection as BeautyFeatureGridSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -59,6 +60,7 @@ import FeaturedCardsSection from './sections/FeaturedCardsSection';
 import TrustStatsSection from './sections/TrustStatsSection';
 import BusinessResultsSection from './sections/BusinessResultsSection';
 import FeatureShowcaseSection from './sections/FeatureShowcaseSection';
+import BeautyFeatureGridSection from './sections/BeautyFeatureGridSection';
 
 interface PageRenderedProps {
     page: Page
@@ -139,6 +141,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <BusinessResultsSection key={section._key} data={section as BusinessResultsSectionProps} />;
                             case 'featureShowcaseSectionType':
                                return <FeatureShowcaseSection key={section._key} data={section as FeatureShowcaseSectionProps} />;
+                            case 'beautyFeatureGridSectionType':
+                               return <BeautyFeatureGridSection key={section._key} data={section as BeautyFeatureGridSectionProps} />;
                             default:
                                 return null;
                         }

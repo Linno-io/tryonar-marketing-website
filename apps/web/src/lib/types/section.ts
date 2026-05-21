@@ -490,4 +490,21 @@ export interface BusinessResultsSection extends Section {
   }[]
 }
 
+export interface BeautyFeatureGridSection extends Section {
+  _type: 'beautyFeatureGridSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  cards: {
+    _key: string
+    cardTitle: string
+    description: string
+    image: SanityImage
+    video?: SanityVideo
+    extraImage?: SanityImage
+  }[]
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
 
