@@ -105,6 +105,10 @@ export async function getPageBySlug(slug: string) {
                 "url": image.asset->url,
                 "alt": image.alt
             },
+            "icon":{
+                "url": icon.asset->url,
+                "alt": icon.alt
+            },
         },
         stats[]{
             ...,

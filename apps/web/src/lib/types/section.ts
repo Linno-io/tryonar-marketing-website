@@ -465,4 +465,17 @@ export interface TrustStatsSection extends Section {
   }[]
 }
 
+export interface BusinessResultsSection extends Section {
+  _type: 'businessResultsSectionType'
+  _key: string
+  enableBottomPadding?: boolean
+  title: SectionTitle[]
+  cards: {
+    _key: string
+    icon: { url: string; alt?: string }
+    cardTitle: string
+    description: string
+  }[]
+}
+
 

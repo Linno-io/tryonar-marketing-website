@@ -38,6 +38,7 @@ export const pageType = defineType({
         { type: 'caseStudiesSectionType' },
         { type: 'featuredCardsSectionType' },
         { type: 'trustStatsSectionType' },
+        { type: 'businessResultsSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),
