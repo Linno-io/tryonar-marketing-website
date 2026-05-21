@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { HeroSection as HeroSectionType } from '@/lib/types/section'
 import CheckIcon from '../ui/Icons/CheckIcon'
 import { Fragment } from 'react/jsx-runtime'
+import HeroPhoneDemo from './HeroPhoneDemo'
 
 interface HeroSectionProps {
     data: HeroSectionType
@@ -100,8 +101,13 @@ export default function HeroSection({ data }: HeroSectionProps) {
                     </div>
 
                     <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
-                        <div className="relative w-full max-w-156.75">
-                            {
+                        <div className="relative w-full max-w-105 lg:max-w-120">
+                            {sectionVideo?.url ? (
+                                <HeroPhoneDemo
+                                    beforeImage={posterImage ?? sectionImage}
+                                    afterVideo={sectionVideo}
+                                />
+                            ) : (
                                 sectionImage.url && (
                                     <Image
                                         src={sectionImage.url}
@@ -112,19 +118,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
                                         height={sectionImage.height}
                                     />
                                 )
-                            }
-                            {sectionVideo?.url && (
-                                <video
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    preload="metadata"
-                                    poster={posterImage?.url}
-                                    className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[525px] w-full object-cover rounded-t-[32px] sm:rounded-t-[48px] lg:rounded-t-[64px] rounded-b-[16px] sm:rounded-b-[20px] lg:rounded-b-[24px]"
-                                >
-                                    <source src={sectionVideo.url} type="video/mp4" />
-                                </video>
                             )}
                         </div>
                     </div>
