@@ -67,8 +67,8 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
             <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="w-full h-full object-contain max-h-130"
-                style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative', inset: videoSrc ? 0 : undefined, padding: videoSrc ? '2rem' : undefined }}
+                className="max-h-130 w-auto object-contain"
+                style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
             {videoSrc && (
                 <video
@@ -80,7 +80,7 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
                     loop
                     playsInline
                     onCanPlay={handleVideoCanPlay}
-                    className="w-full h-full object-contain max-h-130"
+                    className="max-h-130 w-auto rounded-3xl"
                     style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 1 : 0 }}
                 />
             )}
