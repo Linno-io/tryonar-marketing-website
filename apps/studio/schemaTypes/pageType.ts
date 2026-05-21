@@ -39,6 +39,7 @@ export const pageType = defineType({
         { type: 'featuredCardsSectionType' },
         { type: 'trustStatsSectionType' },
         { type: 'businessResultsSectionType' },
+        { type: 'featureShowcaseSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

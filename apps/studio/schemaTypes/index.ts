@@ -36,6 +36,7 @@ import { caseStudiesSectionType } from './caseStudiesSectionType'
 import { featuredCardsSectionType } from './featuredCardsSectionType'
 import { trustStatsSectionType } from './trustStatsSectionType'
 import { businessResultsSectionType } from './businessResultsSectionType'
+import { featureShowcaseSectionType } from './featureShowcaseSectionType'
 
 export const schemaTypes = [
   link,
@@ -75,6 +76,7 @@ export const schemaTypes = [
   featuredCardsSectionType,
   trustStatsSectionType,
   businessResultsSectionType,
+  featureShowcaseSectionType,
 
   // userType
 ]

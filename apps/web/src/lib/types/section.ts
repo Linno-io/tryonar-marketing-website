@@ -465,6 +465,18 @@ export interface TrustStatsSection extends Section {
   }[]
 }
 
+export interface FeatureShowcaseSection extends Section {
+  _type: 'featureShowcaseSectionType'
+  _key: string
+  tagline?: string
+  title: SectionTitle[]
+  description: string
+  sectionImage: SanityImage
+  sectionVideo?: SanityVideo
+  showFrame?: boolean
+  frameImage?: SanityImage
+}
+
 export interface BusinessResultsSection extends Section {
   _type: 'businessResultsSectionType'
   _key: string

@@ -66,6 +66,12 @@ export async function getPageBySlug(slug: string) {
             "width": asset->metadata.dimensions.width,
             "height": asset->metadata.dimensions.height
         },
+        frameImage{
+            "url": asset->url,
+            "alt": alt,
+            "width": asset->metadata.dimensions.width,
+            "height": asset->metadata.dimensions.height
+        },
         sectionVideo{
             ...,
             "url": asset->url,
