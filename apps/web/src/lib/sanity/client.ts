@@ -158,6 +158,7 @@ export async function getPageBySlug(slug: string) {
                     "url": image.asset->url,
                     "alt": image.alt
                 },
+                "video": { "url": video.asset->url },
                 features[]{
                     ...,
                     "icon":{

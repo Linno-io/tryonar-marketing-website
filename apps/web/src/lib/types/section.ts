@@ -168,6 +168,7 @@ export interface IndustrySolutionsSection extends Section {
     tabLabel: string
     tabContent: {
       image?: SanityImage
+      video?: { url: string }
       contentTitle?: string
       contentDescription?: string
       features?: {
@@ -183,6 +184,7 @@ export interface IndustrySolutionsSection extends Section {
     }
   }[]
   showStatsOnBottom: boolean
+  paddingBottom?: boolean
   primaryButton?: Button
   secondaryButton?: Button
 }

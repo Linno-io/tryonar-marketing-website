@@ -66,7 +66,7 @@ export const industrySolutionsSectionType = defineType({
                             fields: [
                                 {
                                     name: 'image',
-                                    title: 'Image',
+                                    title: 'Image / Poster',
                                     type: 'image',
                                     fields: [
                                         {
@@ -75,7 +75,14 @@ export const industrySolutionsSectionType = defineType({
                                             type: 'string',
                                         }
                                     ],
-                                    description: 'Image representing the industry solution'
+                                    description: 'Image representing the industry solution. Used as poster when video is present.'
+                                },
+                                {
+                                    name: 'video',
+                                    title: 'Video',
+                                    type: 'file',
+                                    options: { accept: 'video/*' },
+                                    description: 'Optional video. Image above will be used as poster. Lazy-loads when section enters viewport.'
                                 },
                                 {
                                     name: 'contentTitle',
@@ -231,6 +238,13 @@ export const industrySolutionsSectionType = defineType({
             title: 'Show Statistics on Bottom',
             type: 'boolean',
             initialValue: false,
+        },
+        {
+            name: 'paddingBottom',
+            title: 'Padding Bottom',
+            type: 'boolean',
+            initialValue: true,
+            description: 'Enable bottom padding on this section. Default: enabled.',
         },
         {
             name: 'primaryButton',
