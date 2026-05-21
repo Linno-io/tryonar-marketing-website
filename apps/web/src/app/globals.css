@@ -414,6 +414,49 @@
     position: absolute;
   }
 
+  .instant-tryon-container {
+    position: relative;
+  }
+
+  .instant-tryon-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, #89787D 15%, #89787D 80%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .instant-tryon-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, #89787D 15%, #89787D 80%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .instant-tryon-stat-divider {
+    position: relative;
+  }
+
+  .instant-tryon-stat-divider::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 1px;
+    height: calc(100% + 15px);
+    background: linear-gradient(180deg, #89787D 0%, #89787D 75%, transparent 100%);
+    pointer-events: none;
+  }
+
   .landing-hero-section:before {
     content: "";
     width: 357.866px;

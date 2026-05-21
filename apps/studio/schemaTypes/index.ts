@@ -38,6 +38,7 @@ import { trustStatsSectionType } from './trustStatsSectionType'
 import { businessResultsSectionType } from './businessResultsSectionType'
 import { featureShowcaseSectionType } from './featureShowcaseSectionType'
 import { beautyFeatureGridSectionType } from './beautyFeatureGridSectionType'
+import { instantTryOnSectionType } from './instantTryOnSectionType'
 
 export const schemaTypes = [
   link,
@@ -79,6 +80,7 @@ export const schemaTypes = [
   businessResultsSectionType,
   featureShowcaseSectionType,
   beautyFeatureGridSectionType,
+  instantTryOnSectionType,
 
   // userType
 ]

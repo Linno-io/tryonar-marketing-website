@@ -41,6 +41,7 @@ export const pageType = defineType({
         { type: 'businessResultsSectionType' },
         { type: 'featureShowcaseSectionType' },
         { type: 'beautyFeatureGridSectionType' },
+        { type: 'instantTryOnSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

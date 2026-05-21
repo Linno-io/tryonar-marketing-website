@@ -492,6 +492,24 @@ export interface BusinessResultsSection extends Section {
   }[]
 }
 
+export interface InstantTryOnSection extends Section {
+  _type: 'instantTryOnSectionType'
+  _key: string
+  title: SectionTitle[]
+  description: string
+  stats: {
+    _key: string
+    value: string
+    label: string
+  }[]
+  contentTitle: SectionTitle[]
+  contentDescription: string
+  sectionImage: SanityImage
+  sectionVideo?: SanityVideo
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
 export interface BeautyFeatureGridSection extends Section {
   _type: 'beautyFeatureGridSectionType'
   _key: string
