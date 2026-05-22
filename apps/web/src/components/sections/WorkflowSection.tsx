@@ -41,7 +41,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                         }
                     </div>
                     
-                    <div className="flex flex-col md:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
+                    <div className="flex flex-col max-[991px]:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
                         <div className="flex flex-col gap-5 flex-1 max-w-full md:max-w-145">
                             {
                                 steps && steps.length > 0 && steps.map((step, index) => (
@@ -94,14 +94,14 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 ))
                             }
                         </div>
-                        <div className="flex-1">
+                        <div className="rounded-[30px] bg-white flex-1 overflow-hidden" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
                             <Image 
                                 src={steps.find(step => step._key === activeStepKey)?.image?.url || ''}
                                 alt={steps.find(step => step._key === activeStepKey)?.image?.alt || ''}
                                 width={500}
                                 height={500}
                                 fetchPriority="high"
-                                className="w-full h-ful object-cover rounded-2xl"
+                                className={`w-full h-[100%] object-cover rounded-2xl ${activeStepKey}`}
                             />
                         </div>
                     </div>

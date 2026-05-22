@@ -537,3 +537,11 @@
 .home-page-container .toa-hero-section {
   padding-bottom: 40px !important;
 }
+
+.bac2aafb3939 {
+    height: calc(100% + 30px);
+    margin-top: -10px;
+    max-width: none;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+}
