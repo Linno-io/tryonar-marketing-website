@@ -8,10 +8,11 @@ import { Fragment } from 'react/jsx-runtime'
 import HeroPhoneDemo from './HeroPhoneDemo'
 
 interface HeroSectionProps {
-    data: HeroSectionType
+    data: HeroSectionType,
+    page: string
 }
 
-export default function HeroSection({ data }: HeroSectionProps) {
+export default function HeroSection({ data, page }: HeroSectionProps) {
     const {
         title,
         description,
@@ -25,18 +26,19 @@ export default function HeroSection({ data }: HeroSectionProps) {
     } = data;
 
 
+
     return (
         <>
         {sectionVideo?.url && (
             <link rel="preload" as="video" href={sectionVideo.url} type="video/mp4" />
         )}
-        {sectionVideo?.url && (
+        {sectionVideo?.url && 'home' === page && (
             <link rel="preload" as="video" href="/bottom-video.mp4" type="video/mp4" />
         )}
-        {sectionVideo?.url && (
+        {sectionVideo?.url && 'home' === page && (
             <link rel="preload" as="video" href="/after-video.mp4" type="video/mp4" />
         )}
-        <section className="toa-hero-section relative bg-white pt-30 pb-16 lg:pt-58.25 lg:pb-28 border-b border-[#eeedf2]">
+        <section className="toa-hero-section relative bg-white pt-30 lg:pt-58.25 border-b border-[#eeedf2]">
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-70 z-0" style={{ background: 'linear-gradient(180deg, #E3D5FF 5%, #FFF 20%, #FFF 100%)' }}>
                 <div
                     className="absolute top-[60%] right-[-10%] w-[700px] h-[800px] rounded-full blur-[130px]"
@@ -108,7 +110,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
                     <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
                         <div className="relative w-full max-w-105 lg:max-w-120">
-                            {sectionVideo?.url ? (
+                            {sectionVideo?.url && 'home' === page ? (
                                 <HeroPhoneDemo
                                     beforeImage={posterImage ?? sectionImage}
                                     afterVideo={sectionVideo}

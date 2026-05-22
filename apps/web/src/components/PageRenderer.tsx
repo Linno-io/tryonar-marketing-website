@@ -99,7 +99,7 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                             case "faqSectionType":
                                 return <FAQAccordion key={section._key} data={section as FAQSectionProps} />;
                             case 'heroSectionType':
-                                return <HeroSection key={section._key} data={section as HeroSectionProps} />;
+                                return <HeroSection page={page?.slug?.current} key={section._key} data={section as HeroSectionProps} />;
                             case 'industrySolutionsSectionType':
                                return <IndustrySolutionsSection key={section._key} data={section as IndustrySolutionsSectionProps} />;
                             case 'workFlowSectionType':

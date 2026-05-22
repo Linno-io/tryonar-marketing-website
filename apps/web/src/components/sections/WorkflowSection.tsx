@@ -75,18 +75,21 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                             </div>
                                         </div>
 
-
-                                        <div className={`${step._key === activeStepKey ? 'opacity-100 visible mt-6 pt-5' : 'opacity-0 invisible h-0 mt-0'} transition-all border-t border-[#E8E8E8] flex flex-wrap items-center justify-between gap-4`}>
-                                            {
-                                                step.tags && step.tags.length > 0 && step.tags.map((tag, index) => (
-                                                    <p className="flex items-center gap-2 text-[#3E3E42] text-[15px] leading-0 font-normal" key={index}>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M11.7212 1.9613C11.3499 1.58952 10.747 1.58976 10.3752 1.9613L4.31744 8.0193L1.62503 5.32691C1.25325 4.95513 0.650609 4.95513 0.278832 5.32691C-0.0929441 5.69868 -0.0929441 6.30133 0.278832 6.6731L3.6442 10.0385C3.82998 10.2242 4.07357 10.3174 4.31719 10.3174C4.5608 10.3174 4.80463 10.2245 4.9904 10.0385L11.7212 3.30747C12.0929 2.93595 12.0929 2.33305 11.7212 1.9613Z" fill="#838383"/></svg>
-                                                        
-                                                        {tag}
-                                                    </p>
-                                                ))
-                                            }
-                                        </div>
+                                        {
+                                            step?.tags?.length && (
+                                                <div className={`${step._key === activeStepKey ? 'opacity-100 visible mt-6 pt-5' : 'opacity-0 invisible h-0 mt-0'} transition-all border-t border-[#E8E8E8] flex flex-wrap items-center justify-between gap-4`}>
+                                                    {
+                                                        step.tags && step.tags.length > 0 && step.tags.map((tag, index) => (
+                                                            <p className="flex items-center gap-2 text-[#3E3E42] text-[15px] leading-0 font-normal" key={index}>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M11.7212 1.9613C11.3499 1.58952 10.747 1.58976 10.3752 1.9613L4.31744 8.0193L1.62503 5.32691C1.25325 4.95513 0.650609 4.95513 0.278832 5.32691C-0.0929441 5.69868 -0.0929441 6.30133 0.278832 6.6731L3.6442 10.0385C3.82998 10.2242 4.07357 10.3174 4.31719 10.3174C4.5608 10.3174 4.80463 10.2245 4.9904 10.0385L11.7212 3.30747C12.0929 2.93595 12.0929 2.33305 11.7212 1.9613Z" fill="#838383"/></svg>
+                                                                
+                                                                {tag}
+                                                            </p>
+                                                        ))
+                                                    }
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 ))
                             }
