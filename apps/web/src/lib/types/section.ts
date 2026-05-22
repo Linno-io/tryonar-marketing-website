@@ -156,6 +156,39 @@ export interface FAQSection extends Section {
   }[]
 }
 
+export interface ProductsDetailsTabSection extends Section {
+  _type: 'productsDetailsTabType'
+  _key: string
+  tagline: string
+  title: SectionTitle[]
+  description: string
+  tabs: {
+    _key: string
+    comingSoon: boolean
+    tabLabel: string
+    tabContent: {
+      image?: SanityImage
+      video?: { url: string }
+      contentTitle?: string
+      contentDescription?: string
+      features?: {
+        featureTitle: string
+        icon: SanityImage
+      }[]
+      stats: {
+        label: string
+        value: string
+      }[]
+      primaryButton?: Button
+      secondaryButton?: Button
+    }
+  }[]
+  showStatsOnBottom: boolean
+  paddingBottom?: boolean
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
 export interface IndustrySolutionsSection extends Section {
   _type: 'industrySolutionsSectionType'
   _key: string

@@ -31,7 +31,8 @@ import {
     BusinessResultsSection as BusinessResultsSectionProps,
     FeatureShowcaseSection as FeatureShowcaseSectionProps,
     BeautyFeatureGridSection as BeautyFeatureGridSectionProps,
-    InstantTryOnSection as InstantTryOnSectionProps
+    InstantTryOnSection as InstantTryOnSectionProps,
+    ProductsDetailsTabSection as ProductsDetailsTabSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -63,6 +64,7 @@ import BusinessResultsSection from './sections/BusinessResultsSection';
 import FeatureShowcaseSection from './sections/FeatureShowcaseSection';
 import BeautyFeatureGridSection from './sections/BeautyFeatureGridSection';
 import InstantTryOnSection from './sections/InstantTryOnSection';
+import ProductsDetailsTab from './sections/ProductsDetailsTab';
 
 interface PageRenderedProps {
     page: Page
@@ -147,6 +149,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <BeautyFeatureGridSection key={section._key} data={section as BeautyFeatureGridSectionProps} />;
                             case 'instantTryOnSectionType':
                                return <InstantTryOnSection key={section._key} data={section as InstantTryOnSectionProps} />;
+                            case 'productsDetailsTabType':
+                               return <ProductsDetailsTab key={section._key} data={section as ProductsDetailsTabSectionProps} />;
                             default:
                                 return null;
                         }
