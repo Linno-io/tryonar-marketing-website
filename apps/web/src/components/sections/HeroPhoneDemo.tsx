@@ -252,12 +252,17 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 </div>
             </div>
 
-            {/* Iframe Overlay */}
+            {/* Iframe Overlay - positioned inside the screen area */}
             {showIframe && (
                 <div
-                    className="absolute inset-0 bg-black z-50 rounded-4xl sm:rounded-[60px] overflow-hidden"
+                    className="absolute inset-0 bg-black z-50 overflow-hidden"
                     style={{
                         animation: 'fadeIn 0.3s ease-in-out',
+                        borderRadius: 'inherit',
+                        width: 'calc(100% - 10px)',
+                        left: '5px',
+                        height: 'calc(100% - 10px)',
+                        top: '5px',
                     }}
                 >
                     {/* Close Button */}
@@ -305,10 +310,10 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                     {/* Iframe */}
                     <iframe
                         src="https://trystaging.tryonar.net/"
+                        className="w-full h-full"
                         style={{
-                            width: '100%',
-                            height: '100%',
                             border: 'none',
+                            borderRadius: 'inherit',
                         }}
                         allow="camera"
                         onLoad={handleIframeLoad}
