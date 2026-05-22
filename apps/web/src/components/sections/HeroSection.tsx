@@ -118,7 +118,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         </div>
                     </div>
 
-                    <div className="lg:col-span-6 relative flex justify-center lg:justify-end">
+                    <div className="lg:col-span-6 relative flex justify-center">
                         <div className="relative w-full max-w-105 lg:max-w-120">
                             {sectionVideo?.url && 'home' === page ? (
                                 <HeroPhoneDemo

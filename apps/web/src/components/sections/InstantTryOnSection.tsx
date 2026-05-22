@@ -148,7 +148,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                                 >
                                     {stat.value}
                                 </span>
-                                <span className="mt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs text-[#89787D] uppercase tracking-[0.05em] sm:tracking-widest md:tracking-[0.18em] leading-tight text-center">
+                                <span className="mt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-base text-[#e7e5ea] uppercase tracking-[0.05em] sm:tracking-widest md:tracking-[0.18em] leading-tight text-center">
                                     {stat.label}
                                 </span>
                             </div>

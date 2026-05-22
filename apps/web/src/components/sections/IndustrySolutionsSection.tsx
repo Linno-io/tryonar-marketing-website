@@ -80,7 +80,7 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
                     loop
                     playsInline
                     onCanPlay={handleVideoCanPlay}
-                    className="max-h-130 w-auto rounded-3xl border-4 border-black"
+                    className="max-h-130 w-auto rounded-[30px] border-4 border-black"
                     style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 1 : 0, boxShadow: '0 30px 30px 0 rgba(0, 0, 0, 0.20)' }}
                 />
             )}
