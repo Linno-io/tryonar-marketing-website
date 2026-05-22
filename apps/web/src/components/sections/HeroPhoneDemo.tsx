@@ -175,8 +175,18 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 {/* "Try on yourself" pill */}
                 <button
                     type="button"
-                    className="absolute bg-[#1A1A1A] text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md active:scale-95 transition-transform"
-                    style={{ top: '3.5%', right: '5%', zIndex: 6 }}
+                    className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95"
+                    style={{
+                        top: '10px',
+                        right: '25%',
+                        zIndex: 6,
+                        padding: '18px 60px',
+                        fontFamily: 'Inter',
+                        fontSize: '16px',
+                        fontStyle: 'normal',
+                        fontWeight: 600,
+                        lineHeight: '16px',
+                    }}
                 >
                     Try on yourself
                 </button>
