@@ -6,6 +6,7 @@ import { HeroSection as HeroSectionType } from '@/lib/types/section'
 import CheckIcon from '../ui/Icons/CheckIcon'
 import { Fragment } from 'react/jsx-runtime'
 import HeroPhoneDemo from './HeroPhoneDemo'
+import HeroVideoWithFrame from './HeroVideoWithFrame'
 
 interface HeroSectionProps {
     data: HeroSectionType,
@@ -114,6 +115,10 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                                 <HeroPhoneDemo
                                     beforeImage={posterImage ?? sectionImage}
                                     afterVideo={sectionVideo}
+                                />
+                            ) : sectionVideo?.url ? (
+                                <HeroVideoWithFrame 
+                                    data={data}
                                 />
                             ) : (
                                 sectionImage.url && (
