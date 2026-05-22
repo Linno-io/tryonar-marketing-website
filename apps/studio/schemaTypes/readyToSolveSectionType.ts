@@ -81,7 +81,6 @@ export const readyToSolveSectionType = defineType({
                     name: 'text',
                     title: 'Button Text',
                     type: 'string',
-                    validation: (rule) => rule.required()
                 },
                 {
 
@@ -106,7 +105,6 @@ export const readyToSolveSectionType = defineType({
                     initialValue: true,
                 },
             ],
-            validation: (rule) => rule.required()
         },
     ],
     preview: {

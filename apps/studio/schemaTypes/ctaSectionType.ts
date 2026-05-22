@@ -107,7 +107,6 @@ export const ctaSectionType = defineType({
                     name: 'text',
                     title: 'Button Text',
                     type: 'string',
-                    validation: (rule) => rule.required()
                 },
                 {
                 
@@ -132,7 +131,6 @@ export const ctaSectionType = defineType({
                     initialValue: true,
                 },
             ],
-            validation: (rule) => rule.required()
         },
     ],
     preview: {

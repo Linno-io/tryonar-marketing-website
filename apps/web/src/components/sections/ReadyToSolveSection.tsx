@@ -66,7 +66,7 @@ export default function ReadyToSolveSection({ data }: { data: ReadyToSolveSectio
                             </Button>
                         </Link>
                     )}
-                    {secondaryButton && (
+                    {secondaryButton?.text && (
                         <Link href={secondaryButton.internalLink || secondaryButton.externalLink || '#'} target={secondaryButton.externalLink ? '_blank' : '_self'}>
                             <Button
                                 variant="outline"

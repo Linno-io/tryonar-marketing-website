@@ -138,7 +138,6 @@ export const workFlowSectionType = defineType({
                     name: 'text',
                     title: 'Button Text',
                     type: 'string',
-                    validation: (rule) => rule.required()
                 },
                 {
 
@@ -163,7 +162,6 @@ export const workFlowSectionType = defineType({
                     initialValue: true,
                 },
             ],
-            validation: (rule) => rule.required()
         },
     ],
     preview: {

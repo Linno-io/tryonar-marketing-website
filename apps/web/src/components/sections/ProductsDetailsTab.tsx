@@ -182,7 +182,7 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                                             }
 
                                             {
-                                                activeTab?.tabContent?.secondaryButton && (
+                                                activeTab?.tabContent?.secondaryButton?.text && (
                                                     <Link href={activeTab?.tabContent?.secondaryButton?.internalLink || activeTab?.tabContent?.secondaryButton?.externalLink || '#'} target={activeTab?.tabContent?.secondaryButton?.externalLink ? '_blank' : '_self'}>
                                                         <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
                                                             {activeTab?.tabContent?.secondaryButton?.text}
@@ -234,7 +234,7 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                             }
 
                             {
-                                secondaryButton && (
+                                secondaryButton?.text && (
                                     <Link href={secondaryButton?.internalLink || secondaryButton?.externalLink || '#'} target={secondaryButton?.externalLink ? '_blank' : '_self'}>
                                         <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
                                             {secondaryButton?.text}

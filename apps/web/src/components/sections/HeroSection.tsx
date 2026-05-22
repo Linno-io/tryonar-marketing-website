@@ -1,6 +1,7 @@
 'use client'
 import { Badge, Button, Container, Text } from '@/components/ui'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { HeroSection as HeroSectionType } from '@/lib/types/section'
 import CheckIcon from '../ui/Icons/CheckIcon'
@@ -88,24 +89,32 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
 
                         {/* Buttons */}
                         <div className="flex items-center gap-4 flex-wrap">
-                            <Button
-                                variant="primary"
-                                className="h-13 lg:h-15 px-5 lg:px-10 bg-[#1A202C]! text-white! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2 shadow-2xl shadow-black/10"
-                            >
-                                {primaryButton.text}
-                                {
-                                    primaryButton.showIcon !== false ? <ArrowUpRight size={22} /> : null
-                                }
-                            </Button>
-                            <Button
-                                variant="outline"
-                                className="h-13 lg:h-15 px-5 lg:px-10 bg-[#F3F4F6]! border-transparent! text-[#1A202C]! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2"
-                            >
-                                {secondaryButton.text} 
-                                {
-                                    secondaryButton.showIcon !== false ? <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg> : null
-                                }
-                            </Button>
+                            {primaryButton?.text && (
+                                <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
+                                    <Button
+                                        variant="primary"
+                                        className="h-13 lg:h-15 px-5 lg:px-10 bg-[#1A202C]! text-white! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2 shadow-2xl shadow-black/10"
+                                    >
+                                        {primaryButton.text}
+                                        {
+                                            primaryButton.showIcon !== false ? <ArrowUpRight size={22} /> : null
+                                        }
+                                    </Button>
+                                </Link>
+                            )}
+                            {secondaryButton?.text && (
+                                <Link href={secondaryButton.internalLink || secondaryButton.externalLink || '#'} target={secondaryButton.externalLink ? '_blank' : '_self'}>
+                                    <Button
+                                        variant="outline"
+                                        className="h-13 lg:h-15 px-5 lg:px-10 bg-[#F3F4F6]! border-transparent! text-[#1A202C]! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2"
+                                    >
+                                        {secondaryButton.text}
+                                        {
+                                            secondaryButton.showIcon !== false ? <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg> : null
+                                        }
+                                    </Button>
+                                </Link>
+                            )}
                         </div>
                     </div>
 
