@@ -33,6 +33,9 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {sectionVideo?.url && (
             <link rel="preload" as="video" href="/bottom-video.mp4" type="video/mp4" />
         )}
+        {sectionVideo?.url && (
+            <link rel="preload" as="video" href="/after-video.mp4" type="video/mp4" />
+        )}
         <section className="toa-hero-section relative bg-white pt-30 pb-16 lg:pt-58.25 lg:pb-28 border-b border-[#eeedf2]">
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-70 z-0" style={{ background: 'linear-gradient(180deg, #E3D5FF 5%, #FFF 20%, #FFF 100%)' }}>
                 <div

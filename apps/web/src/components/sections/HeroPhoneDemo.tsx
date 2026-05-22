@@ -165,6 +165,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                     <img
                         src={STATIC_BEFORE_IMAGE}
                         alt="Before"
+                        fetchPriority='high'
                         style={{
                             position: 'absolute',
                             width: '100%',
