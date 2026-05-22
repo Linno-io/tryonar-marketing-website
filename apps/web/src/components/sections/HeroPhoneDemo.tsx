@@ -119,7 +119,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
         <div
             className="relative select-none w-full bg-[#0A0A0A] shadow-2xl"
             style={{
-                aspectRatio: '9 / 17',
+                aspectRatio: '7 / 11',
                 borderRadius: '14% / 7.4%',
                 padding: '1.5%',
             }}
@@ -127,7 +127,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
             {/* Screen */}
             <div
                 ref={screenRef}
-                className="relative w-full h-full overflow-hidden bg-black cursor-ew-resize rounded-4xl sm:rounded-[60px]"
+                className="relative w-full h-full overflow-hidden bg-black cursor-ew-resize rounded-4xl sm:rounded-[58px]"
                 onMouseDown={(e) => { isDragging.current = true; updatePos(e.clientX) }}
                 onTouchStart={(e) => { isDragging.current = true; updatePos(e.touches[0].clientX) }}
             >
@@ -206,7 +206,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 {/* Bottom video panel — wrapper crops out baked-in rounded corners */}
                 <div
                     className="absolute left-0 right-0 overflow-hidden pointer-events-none -bottom-12.5 max-[574px]:-bottom-5"
-                    style={{ zIndex: 4, height: '41%', width: '110%' }}
+                    style={{ zIndex: 4, height: '36%', width: '110%' }}
                 >
                     <video
                         ref={bottomRef}
@@ -233,7 +233,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                     className="absolute cursor-ew-resize"
                     style={{
                         left: `${dividerPos}%`,
-                        bottom: '41%',
+                        bottom: '38%',
                         transform: 'translate(-50%, 50%)',
                         zIndex: 5,
                     }}

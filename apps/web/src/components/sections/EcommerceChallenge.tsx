@@ -114,16 +114,6 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                     </AnimatePresence>
                 </div>
             </Container>
-
-            <Container size="xl" padding={false} className="relative">
-                <DotBackground
-                    dotSize={2}
-                    gap={20}
-                    color="bg-gray-300"
-                    borderColor="border-[#eeedf2]"
-                    className="h-32 w-full border-x"
-                />
-            </Container>
         </section>
     );
 }
