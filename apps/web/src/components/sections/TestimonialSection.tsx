@@ -109,7 +109,7 @@ export default function TestimonialSection({data}: {data: SuccessStoriesSection}
 
                 {/* Grid */}
                 <div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-h-[880px] overflow-hidden"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[880px] overflow-hidden"
                     style={{
                         maskImage: "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
                         WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
