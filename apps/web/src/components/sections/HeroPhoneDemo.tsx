@@ -15,6 +15,8 @@ const STATIC_BOTTOM_VIDEO = '/bottom-video.mp4'
 
 export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
     const [dividerPos, setDividerPos] = useState(50)
+    const [showIframe, setShowIframe] = useState(false)
+    const [iframeLoading, setIframeLoading] = useState(true)
     const isDragging = useRef(false)
     const screenRef = useRef<HTMLDivElement>(null)
     const afterRef = useRef<HTMLVideoElement>(null)
@@ -99,6 +101,20 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
         }
     }, [])
 
+    const handleTryOnClick = () => {
+        setShowIframe(true)
+        setIframeLoading(true)
+    }
+
+    const handleCloseIframe = () => {
+        setShowIframe(false)
+        setIframeLoading(true)
+    }
+
+    const handleIframeLoad = () => {
+        setIframeLoading(false)
+    }
+
     return (
         <div
             className="relative select-none w-full bg-[#0A0A0A] shadow-2xl"
@@ -174,6 +190,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 {/* "Try on yourself" pill */}
                 <button
                     type="button"
+                    onClick={handleTryOnClick}
                     className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[10px] right-[25%] px-[60px] py-[18px] text-[16px] leading-[16px] max-[574px]:top-[6px] max-[574px]:right-[18%] max-[574px]:px-6 max-[574px]:py-2.5 max-[574px]:text-[12px] max-[574px]:leading-[12px]"
                     style={{
                         zIndex: 6,
@@ -233,6 +250,91 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                     </div>
                 </div>
             </div>
+
+            {/* Iframe Overlay */}
+            {showIframe && (
+                <div
+                    className="absolute inset-0 bg-black z-50 rounded-4xl sm:rounded-[60px] overflow-hidden"
+                    style={{
+                        animation: 'fadeIn 0.3s ease-in-out',
+                    }}
+                >
+                    {/* Close Button */}
+                    <button
+                        type="button"
+                        onClick={handleCloseIframe}
+                        className="absolute top-2.5 cursor-pointer left-4 z-[60] w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-200 active:scale-95"
+                        aria-label="Close"
+                    >
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M15 5L5 15M5 5L15 15"
+                                stroke="white"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </button>
+
+                    {/* Loading Animation */}
+                    {iframeLoading && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black z-[55]">
+                            <div className="flex flex-col items-center gap-4">
+                                <div className="relative w-16 h-16">
+                                    <div className="absolute inset-0 border-4 border-white/20 rounded-full"></div>
+                                    <div
+                                        className="absolute inset-0 border-4 border-white border-t-transparent rounded-full"
+                                        style={{
+                                            animation: 'spin 1s linear infinite',
+                                        }}
+                                    ></div>
+                                </div>
+                                <p className="text-white text-sm font-medium">Loading...</p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Iframe */}
+                    <iframe
+                        src="https://trystaging.tryonar.net/"
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            border: 'none',
+                        }}
+                        allow="camera"
+                        onLoad={handleIframeLoad}
+                        title="Try On Yourself"
+                    />
+                </div>
+            )}
+
+            {/* Animations */}
+            <style jsx>{`
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                @keyframes spin {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+            `}</style>
         </div>
     )
 }
