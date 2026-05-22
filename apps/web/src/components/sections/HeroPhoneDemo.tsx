@@ -111,8 +111,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
             {/* Screen */}
             <div
                 ref={screenRef}
-                className="relative w-full h-full overflow-hidden bg-black cursor-ew-resize"
-                style={{ borderRadius: '60px' }}
+                className="relative w-full h-full overflow-hidden bg-black cursor-ew-resize rounded-4xl sm:rounded-[60px]"
                 onMouseDown={(e) => { isDragging.current = true; updatePos(e.clientX) }}
                 onTouchStart={(e) => { isDragging.current = true; updatePos(e.touches[0].clientX) }}
             >
@@ -175,17 +174,12 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 {/* "Try on yourself" pill */}
                 <button
                     type="button"
-                    className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95"
+                    className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[10px] right-[25%] px-[60px] py-[18px] text-[16px] leading-[16px] max-[574px]:top-[6px] max-[574px]:right-[18%] max-[574px]:px-6 max-[574px]:py-2.5 max-[574px]:text-[12px] max-[574px]:leading-[12px]"
                     style={{
-                        top: '10px',
-                        right: '25%',
                         zIndex: 6,
-                        padding: '18px 60px',
                         fontFamily: 'Inter',
-                        fontSize: '16px',
                         fontStyle: 'normal',
                         fontWeight: 600,
-                        lineHeight: '16px',
                     }}
                 >
                     Try on yourself
@@ -193,8 +187,8 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
 
                 {/* Bottom video panel — wrapper crops out baked-in rounded corners */}
                 <div
-                    className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none"
-                    style={{ zIndex: 4, height: '41%', width: '110%', bottom: '-50px' }}
+                    className="absolute left-0 right-0 overflow-hidden pointer-events-none -bottom-12.5 max-[574px]:-bottom-5"
+                    style={{ zIndex: 4, height: '41%', width: '110%' }}
                 >
                     <video
                         ref={bottomRef}
@@ -228,14 +222,14 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                     onMouseDown={(e) => { e.stopPropagation(); isDragging.current = true }}
                     onTouchStart={(e) => { e.stopPropagation(); isDragging.current = true }}
                 >
-                    <div className="flex items-center gap-2.5 mr-2">
-                        <span className="text-white text-[12px] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">Before</span>
-                        <svg width="44" height="44" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md">
+                    <div className="flex items-center gap-2.5 max-[574px]:gap-1.5 mr-2">
+                        <span className="text-white text-[12px] max-[574px]:text-[10px] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">Before</span>
+                        <svg width="44" height="44" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-md max-[574px]:w-8 max-[574px]:h-8">
                             <circle cx="27.1957" cy="27.1957" r="27.1957" fill="white" fillOpacity="0.41" />
                             <path d="M19.7835 21.4745V33.9694C19.7835 34.5372 19.4571 35.0548 18.9444 35.3001C18.7419 35.3955 18.5246 35.4442 18.3088 35.4442C17.9785 35.4442 17.6501 35.3321 17.3832 35.1173L9.6393 28.8698C9.29225 28.5901 9.0907 28.1678 9.0907 27.722C9.0907 27.2761 9.29225 26.8538 9.6393 26.5741L17.3836 20.3266C17.8256 19.9697 18.4332 19.8999 18.9459 20.1438C19.4571 20.3891 19.7835 20.9062 19.7835 21.4745Z" fill="white" />
                             <path d="M34.6076 21.4745V33.9694C34.6076 34.5372 34.934 35.0548 35.4467 35.3001C35.6492 35.3955 35.8665 35.4442 36.0823 35.4442C36.4127 35.4442 36.741 35.3321 37.008 35.1173L44.7518 28.8698C45.0989 28.5901 45.3004 28.1678 45.3004 27.722C45.3004 27.2761 45.0989 26.8538 44.7518 26.5741L37.0075 20.3266C36.5655 19.9697 35.9579 19.8999 35.4452 20.1438C34.934 20.3891 34.6076 20.9062 34.6076 21.4745Z" fill="white" />
                         </svg>
-                        <span className="text-white text-[12px] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">After</span>
+                        <span className="text-white text-[12px] max-[574px]:text-[10px] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">After</span>
                     </div>
                 </div>
             </div>

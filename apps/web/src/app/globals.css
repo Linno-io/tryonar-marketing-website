@@ -533,3 +533,7 @@
 .bfg-extra-img-5 {
   bottom: 35px;
 }
+
+.home-page-container .toa-hero-section {
+  padding-bottom: 0 !important;
+}
