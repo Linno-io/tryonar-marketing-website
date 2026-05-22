@@ -159,7 +159,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
             </Container>
 
             {/* ── NO BORDER ZONE: content + image ── */}
-            <Container className="relative z-10 mt-10 sm:mt-16 md:mt-20 lg:mt-20" padding={false}>
+            <Container className="relative z-10 mt-0 sm:mt-4 md:mt-8 lg:mt-8" padding={false}>
                 <div className="flex flex-col md:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-20 px-5">
 
                     {/* Left text */}
