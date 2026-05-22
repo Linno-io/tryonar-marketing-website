@@ -10,8 +10,8 @@ interface HeroPhoneDemoProps {
 }
 
 const STATIC_BEFORE_IMAGE = '/before-image.webp'
-const STATIC_AFTER_VIDEO = '/after-video.mp4'
-const STATIC_BOTTOM_VIDEO = '/bottom-video.mp4'
+const STATIC_AFTER_VIDEO = '/after-h.mp4'
+const STATIC_BOTTOM_VIDEO = '/bottom-h.mp4'
 
 export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
     const [dividerPos, setDividerPos] = useState(50)
@@ -142,8 +142,8 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                         preload="auto"
                         style={{
                             position: 'absolute',
-                            width: '131%',
-                            height: '129%',
+                            width: '100%',
+                            height: '100%',
                             left: '0',
                             top: '-8%',
                             objectFit: 'cover',
@@ -169,9 +169,9 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                         style={{
                             position: 'absolute',
                             width: '100%',
-                            height: '98%',
+                            height: '119%',
                             left: '0%',
-                            top: '-1.8%',
+                            top: '-17%',
                             objectFit: 'cover',
                             objectPosition: 'center top',
                         }}
@@ -192,7 +192,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 <button
                     type="button"
                     onClick={handleTryOnClick}
-                    className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[10px] right-[25%] px-[60px] py-[18px] text-[16px] leading-[16px] max-[574px]:top-[6px] max-[574px]:right-[18%] max-[574px]:px-6 max-[574px]:py-2.5 max-[574px]:text-[12px] max-[574px]:leading-[12px]"
+                    className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[10px] right-[5%] px-[15px] py-[10px] text-[12px] max-[574px]:top-1.5 max-[574px]:px-2.5 max-[574px]:py-1.5 max-[574px]:text-[10px]"
                     style={{
                         zIndex: 6,
                         fontFamily: 'Inter',
@@ -205,8 +205,8 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
 
                 {/* Bottom video panel — wrapper crops out baked-in rounded corners */}
                 <div
-                    className="absolute left-0 right-0 overflow-hidden pointer-events-none -bottom-12.5 max-[574px]:-bottom-5"
-                    style={{ zIndex: 4, height: '36%', width: '110%' }}
+                    className="absolute left-0 right-0 overflow-hidden pointer-events-none -bottom-[7.5%] max-[574px]:-bottom-[7%]"
+                    style={{ zIndex: 4, height: '36%', width: '104%' }}
                 >
                     <video
                         ref={bottomRef}
@@ -218,9 +218,9 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                         style={{
                             position: 'absolute',
                             width: '100%',
-                            height: '102%',
-                            left: '-4%',
-                            bottom: 0,
+                            height: '90%',
+                            left: '0',
+                            bottom: '15.5%',
                             objectFit: 'cover',
                         }}
                     >
