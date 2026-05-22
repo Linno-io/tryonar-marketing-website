@@ -41,8 +41,8 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                         }
                     </div>
                     
-                    <div className="flex flex-col max-[991px]:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
-                        <div className="flex flex-col gap-5 flex-1 max-w-full md:max-w-145">
+                    <div className="flex flex-col min-[991px]:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
+                        <div className="flex flex-col gap-5 flex-1 max-w-full  min-[991px]:max-w-145">
                             {
                                 steps && steps.length > 0 && steps.map((step, index) => (
                                     <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-[20px] cursor-pointer p-4 md:p-7.5`} onClick={() => setActiveStepKey(step._key)}>
