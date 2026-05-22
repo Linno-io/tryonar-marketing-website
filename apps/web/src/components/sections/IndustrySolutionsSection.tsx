@@ -12,7 +12,7 @@ const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) =
     if (!data || data.length === 0) return null;
 
     return (
-        <div className="bg-[#F8F8F9] flex flex-col sm:flex-row px-6 py-5 rounded-xl gap-4 sm:gap-0">
+        <div className="bg-[#F8F8F9] flex flex-col sm:flex-row px-4 py-5 rounded-xl gap-4 sm:gap-0">
             {data.map(({ label, value }, index) => (
                 <div
                     key={label}
