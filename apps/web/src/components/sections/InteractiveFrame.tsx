@@ -75,7 +75,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                 className="if-frame-img relative z-10 pointer-events-none"
                 fetchPriority={priority ? 'high' : 'auto'}
                 priority={priority}
-                width={450}
+                width={395}
                 height={600}
             />
 
@@ -84,6 +84,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                 afterSrc={activeImage}
                 priority={priority}
                 className="toa-compare-element z-20 absolute"
+                afterOnly={true}
                 style={{
                     top: '4%',
                     left: '5.9%',

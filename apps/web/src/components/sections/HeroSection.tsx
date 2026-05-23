@@ -85,7 +85,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                             tags && tags.length > 0 && (
                                 <div className="flex flex-wrap gap-3 mb-6 lg:mb-9">
                                     {tags.map((badge, index) => (
-                                        <Badge key={index} text={badge} icon={<CheckIcon />} showDash={false}/>
+                                        <Badge key={index} text={badge} icon={<CheckIcon />} showDash={false} className='h-10'/>
                                     ))}
                                 </div>
                             )
@@ -97,7 +97,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                                 <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
                                     <Button
                                         variant="primary"
-                                        className="h-13 lg:h-15 px-5 lg:px-10 bg-[#1A202C]! text-white! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2 shadow-2xl shadow-black/10"
+                                        className="h-13 lg:h-15 px-5 lg:px-10 bg-[#1A202C]! text-white! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2 shadow-[20px_20px_60px_0_rgba(59,26,115,0.20)]!"
                                     >
                                         {primaryButton.text}
                                         {
@@ -110,7 +110,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                                 <Link href={secondaryButton.internalLink || secondaryButton.externalLink || '#'} target={secondaryButton.externalLink ? '_blank' : '_self'}>
                                     <Button
                                         variant="outline"
-                                        className="h-13 lg:h-15 px-5 lg:px-10 bg-[#F3F4F6]! border-transparent! text-[#1A202C]! rounded-xl! font-bold! text-base lg:text-lg flex items-center gap-2"
+                                        className="h-13 lg:h-15 px-5 lg:px-10 bg-[#F3F4F6]! border-transparent! text-[#1A202C]! rounded-2xl! font-bold! text-base lg:text-lg flex items-center gap-2"
                                     >
                                         {secondaryButton.text}
                                         {

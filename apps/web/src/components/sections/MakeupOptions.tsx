@@ -120,7 +120,7 @@ const MakeupOptions = ({
 
             <div className="border-t border-white/15" />
 
-            <div className="px-3 sm:px-4 py-2 sm:py-2.5 min-h-[64px] sm:min-h-[100px]">
+            <div className="hidden px-3 sm:px-4 py-2 sm:py-2.5 min-h-[64px] sm:min-h-[100px]">
                 {activeCategory.sectionTitle && activeCategory.options ? (
                     <>
                         <h3 className="text-[11px] sm:text-[13px] md:text-[15px] font-semibold text-white leading-none mb-2 sm:mb-3">{activeCategory.sectionTitle}</h3>

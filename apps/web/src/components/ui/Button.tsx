@@ -19,7 +19,7 @@ export default function Button({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer'
 
   const variants = {
-    primary: 'bg-[#9F3AED] text-white hover:bg-[#8B2FD9] shadow-md hover:shadow-lg focus-visible:ring-[#9F3AED]',
+    primary: 'bg-[#9F3AED] text-white hover:bg-[#8B2FD9] shadow-md hover:shadow-lg focus-visible:ring-[#9F3AED] shadow-[20px_20px_60px_0_rgba(59,26,115,0.20)]',
     secondary: 'bg-[#0AA44C] text-white hover:bg-[#089038] shadow-md hover:shadow-lg focus-visible:ring-[#0AA44C]',
     outline: 'border-2 border-gray-900 bg-transparent text-gray-900 hover:bg-gray-50 focus-visible:ring-gray-900',
     ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-600',
@@ -27,7 +27,7 @@ export default function Button({
 
   const sizes = {
     sm: 'text-sm px-4 py-2 rounded-lg',
-    md: 'text-base px-4 lg:px-6 py-1 lg:py-2.5 rounded-lg',
+    md: 'text-base px-4 lg:px-6 py-1 lg:py-2.5 rounded-2xl',
     lg: 'text-base px-8 py-3.5 rounded-xl font-semibold',
   }
   
