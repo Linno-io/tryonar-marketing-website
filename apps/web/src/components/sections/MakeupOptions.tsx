@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 
 interface MakeupCategory {
@@ -27,14 +27,42 @@ const MAKEUP_CATEGORIES: MakeupCategory[] = [
 
 interface MakeupOptionsProps {
     onClose?: () => void
+    activeCategoryId?: string
+    onCategoryChange?: (id: string) => void
+    availableCategoryIds?: string[]
+    availableOptions?: Record<string, string[]>
 }
 
-const MakeupOptions = ({ onClose }: MakeupOptionsProps) => {
-    const [activeCategoryId, setActiveCategoryId] = useState<string>(MAKEUP_CATEGORIES[0].id)
+const MakeupOptions = ({
+    onClose,
+    activeCategoryId: controlledId,
+    onCategoryChange,
+    availableCategoryIds,
+    availableOptions,
+}: MakeupOptionsProps) => {
+    const [internalId, setInternalId] = useState<string>(MAKEUP_CATEGORIES[0].id)
+    const activeCategoryId = controlledId ?? internalId
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string[]>>({})
+    const scrollRef = useRef<HTMLDivElement>(null)
+    const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
 
     const activeCategory = MAKEUP_CATEGORIES.find(c => c.id === activeCategoryId) ?? MAKEUP_CATEGORIES[0]
     const activeSelected = selectedOptions[activeCategoryId] ?? []
+
+    const setActive = (id: string) => {
+        if (onCategoryChange) onCategoryChange(id)
+        else setInternalId(id)
+    }
+
+    useEffect(() => {
+        const btn = buttonRefs.current[activeCategoryId]
+        const container = scrollRef.current
+        if (!btn || !container) return
+        const btnRect = btn.getBoundingClientRect()
+        const ctRect = container.getBoundingClientRect()
+        const offset = (btnRect.left + btnRect.right) / 2 - (ctRect.left + ctRect.right) / 2
+        container.scrollBy({ left: offset, behavior: 'smooth' })
+    }, [activeCategoryId])
 
     const toggleOption = (option: string) => {
         setSelectedOptions(prev => {
@@ -51,7 +79,7 @@ const MakeupOptions = ({ onClose }: MakeupOptionsProps) => {
             </div>
 
             <div className="flex items-center justify-between px-4 py-2">
-                <h2 className="text-[20px] font-semibold text-white tracking-[-0.2px] leading-none m-0">Beauty features</h2>
+                <h2 className="text-[20px] font-medium text-white tracking-[-0.2px] leading-none m-0">Beauty features</h2>
                 <button
                     type="button"
                     onClick={onClose}
@@ -63,16 +91,24 @@ const MakeupOptions = ({ onClose }: MakeupOptionsProps) => {
             </div>
 
             <div className="px-5 pb-4">
-                <div className="flex gap-2 overflow-x-auto no-scrollbar -mx-5 px-5">
+                <div ref={scrollRef} className="flex gap-2 overflow-x-auto no-scrollbar -mx-5 px-5">
                     {MAKEUP_CATEGORIES.map(cat => {
                         const isActive = cat.id === activeCategoryId
+                        const isDisabled = availableCategoryIds ? !availableCategoryIds.includes(cat.id) : false
                         return (
                             <button
                                 key={cat.id}
                                 type="button"
-                                onClick={() => setActiveCategoryId(cat.id)}
+                                ref={(el) => { buttonRefs.current[cat.id] = el }}
+                                onClick={() => !isDisabled && setActive(cat.id)}
+                                disabled={isDisabled}
+                                aria-disabled={isDisabled}
                                 className={`shrink-0 rounded-full px-5 py-2.5 text-[14px] font-medium transition-colors ${
-                                    isActive ? 'bg-black text-white' : 'bg-white text-[#1A1A1A] hover:bg-white/90'
+                                    isDisabled
+                                        ? 'bg-white/30 text-[#1A1A1A]/40 cursor-not-allowed'
+                                        : isActive
+                                            ? 'bg-black text-white'
+                                            : 'bg-white text-[#1A1A1A] hover:bg-white/90'
                                 }`}
                             >
                                 {cat.label}
@@ -91,15 +127,21 @@ const MakeupOptions = ({ onClose }: MakeupOptionsProps) => {
                         <div className="flex flex-wrap gap-2">
                             {activeCategory.options.map(option => {
                                 const isSelected = activeSelected.includes(option)
+                                const allowed = availableOptions?.[activeCategoryId]
+                                const isDisabled = allowed ? !allowed.includes(option) : true
                                 return (
                                     <button
                                         key={option}
                                         type="button"
-                                        onClick={() => toggleOption(option)}
+                                        onClick={() => !isDisabled && toggleOption(option)}
+                                        disabled={isDisabled}
+                                        aria-disabled={isDisabled}
                                         className={`rounded-full px-4 py-2 text-[14px] font-medium border transition-colors ${
-                                            isSelected
-                                                ? 'bg-white text-[#1A1A1A] border-white'
-                                                : 'bg-transparent text-white border-white/40 hover:bg-white/10'
+                                            isDisabled
+                                                ? 'bg-transparent text-white/30 border-white/15 cursor-not-allowed'
+                                                : isSelected
+                                                    ? 'bg-white text-[#1A1A1A] border-white'
+                                                    : 'bg-transparent text-white border-white/40 hover:bg-white/10'
                                         }`}
                                     >
                                         {option}

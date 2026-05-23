@@ -1,18 +1,56 @@
+'use client'
+
 import Image from 'next/image';
-import { memo } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import CompareSlider from './CompareSlider';
 import MakeupOptions from './MakeupOptions';
 
 const STATIC_BEFORE_IMAGE = '/hero-section/before-image.webp'
 const Frame = '/hero-section/frame.webp'
-const afterImages = ['1-lipstick.webp', '2-lipliner.webp', '3-foundation.webp', '4-Concealer.webp', '5-blush.webp'];
-const STATIC_AFTER_IMAGE = `/hero-section/${afterImages[0]}`;
+
+const CYCLE_CATEGORIES: { id: string; image: string }[] = [
+    { id: 'lipstick', image: '/hero-section/1-lipstick.webp' },
+    { id: 'lipliner', image: '/hero-section/2-lipliner.webp' },
+    { id: 'foundation', image: '/hero-section/3-foundation.webp' },
+    { id: 'concealer', image: '/hero-section/4-Concealer.webp' },
+    { id: 'blush', image: '/hero-section/5-blush.webp' },
+]
+
+const CYCLE_INTERVAL_MS = 2500
 
 interface InteractiveFrameProps {
     priority?: boolean;
 }
 
 const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
+    const [activeCategoryId, setActiveCategoryId] = useState<string>(CYCLE_CATEGORIES[0].id)
+    const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+    const startTimer = useCallback(() => {
+        if (timerRef.current) clearInterval(timerRef.current)
+        timerRef.current = setInterval(() => {
+            setActiveCategoryId(prev => {
+                const idx = CYCLE_CATEGORIES.findIndex(c => c.id === prev)
+                const nextIdx = (idx + 1) % CYCLE_CATEGORIES.length
+                return CYCLE_CATEGORIES[nextIdx].id
+            })
+        }, CYCLE_INTERVAL_MS)
+    }, [])
+
+    useEffect(() => {
+        startTimer()
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current)
+        }
+    }, [startTimer])
+
+    const handleCategoryChange = useCallback((id: string) => {
+        setActiveCategoryId(id)
+        startTimer()
+    }, [startTimer])
+
+    const activeImage = CYCLE_CATEGORIES.find(c => c.id === activeCategoryId)?.image ?? CYCLE_CATEGORIES[0].image
+
     return (
         <div className="toa-interactive-frame relative inline-block">
             <Image
@@ -27,7 +65,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
 
             <CompareSlider
                 beforeSrc={STATIC_BEFORE_IMAGE}
-                afterSrc={STATIC_AFTER_IMAGE}
+                afterSrc={activeImage}
                 priority={priority}
                 className="toa-compare-element z-20 absolute"
                 style={{
@@ -42,7 +80,11 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
             />
 
             <div className='z-30 absolute top-[calc(100%-226px)] left-11.25'>
-                <MakeupOptions />
+                <MakeupOptions
+                    activeCategoryId={activeCategoryId}
+                    onCategoryChange={handleCategoryChange}
+                    availableCategoryIds={CYCLE_CATEGORIES.map(c => c.id)}
+                />
             </div>
         </div>
     );
