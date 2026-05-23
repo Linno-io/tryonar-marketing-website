@@ -73,7 +73,7 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                             className="flex flex-col lg:flex-row gap-0 items-center"
                         >
                             {/* Left Content */}
-                            <div className="px-6 max-[575px]:px-4 py-10 max-[575px]:py-6 lg:py-16 min-w-full lg:min-w-125 max-w-full">
+                            <div className="px-14 max-[575px]:px-4 py-10 max-[575px]:py-6 lg:py-8 min-w-full lg:min-w-125 max-w-full">
                                 <div className="flex items-center gap-4">
                                     <h3 className="text-4xl max-[575px]:text-2xl font-bold text-gray-900 mb-2">
                                         {current.title}
@@ -107,7 +107,7 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                                     alt={current.image.alt || current.title}
                                     width={596}
                                     height={417}
-                                    className="w-full object-cover h-full rounded-[30px] max-w-full lg:max-w-[calc(100%-500px)]"
+                                    className="w-full object-cover h-full rounded-[30px] max-w-full lg:max-w-[calc(100%-560px)]"
                                 />
                             )}
                         </motion.div>
