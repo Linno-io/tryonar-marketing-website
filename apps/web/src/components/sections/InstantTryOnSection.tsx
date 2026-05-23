@@ -143,7 +143,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                                 className={`flex-1 min-w-0 overflow-hidden bg-[#00020B] flex flex-col items-center justify-center text-center py-9 md:py-12 px-3 relative instant-tryon-stat-divider ${i === 0 ? 'rounded-tr-3xl' : i === 1 ? 'rounded-t-3xl' : 'rounded-tl-3xl'}`}
                             >
                                 <span
-                                    className="font-bold text-white text-2xl sm:text-4xl md:text-5xl lg:text-[64px] leading-none tracking-tight whitespace-nowrap"
+                                    className="font-medium text-white text-2xl sm:text-4xl md:text-5xl lg:text-[64px] leading-none tracking-tight whitespace-nowrap"
                                     style={{ fontFamily: 'var(--font-heading)' }}
                                 >
                                     {stat.value}
