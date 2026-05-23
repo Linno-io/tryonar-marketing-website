@@ -345,10 +345,12 @@
     top: 0;
     left: 0;
     z-index: 1;
+    opacity: 0.4;
   }
 
   .faq-section:after {
     content: "";
+    opacity: 0.4;
     border-radius: 688.232px;
     background: #FFA49B;
     width: 363.307px;

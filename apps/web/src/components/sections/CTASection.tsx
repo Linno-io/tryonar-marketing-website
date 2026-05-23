@@ -63,7 +63,8 @@ export default function CTASection({ data }: CTAProps) {
                 className="absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-full h-[300px] opacity-40 pointer-events-none z-10"
                 style={{
                     background: 'radial-gradient(circle, rgb(240 134 117) 0%, transparent 100%)',
-                    filter: 'blur(160px)'
+                    filter: 'blur(160px)',
+                    opacity: '0.3'
                 }}
             />
 
