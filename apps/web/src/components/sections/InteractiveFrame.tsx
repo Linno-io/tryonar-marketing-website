@@ -95,7 +95,8 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                 }}
             />
 
-            <div className='z-30 absolute top-[calc(100%-226px)] left-11.25'>
+
+            <div className='z-30 absolute bottom-[0%] left-[8%] right-[5.9%] flex justify-center'>
                 <MakeupOptions
                     activeCategoryId={activeCategoryId}
                     onCategoryChange={handleCategoryChange}

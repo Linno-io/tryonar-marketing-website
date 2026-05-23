@@ -73,25 +73,25 @@ const MakeupOptions = ({
     }
 
     return (
-        <div className="w-full max-w-[370px] rounded-t-3xl text-white shadow-2xl overflow-hidden border border-white/15 bg-white/[0.07] backdrop-blur-[32px] backdrop-saturate-[1.8] font-[Inter,sans-serif]">
-            <div className="flex justify-center pt-2.5 pb-1">
-                <div className="h-1 w-10 rounded-full bg-white/40" />
+        <div className="w-full rounded-t-2xl sm:rounded-t-3xl text-white shadow-2xl overflow-hidden border border-white/15 bg-white/[0.07] backdrop-blur-[32px] backdrop-saturate-[1.8] font-[Inter,sans-serif]">
+            <div className="flex justify-center pt-1.5 sm:pt-2.5 pb-0.5 sm:pb-1">
+                <div className="h-0.5 sm:h-1 w-8 sm:w-10 rounded-full bg-white/40" />
             </div>
 
-            <div className="flex items-center justify-between px-4 py-2">
-                <h2 className="text-[20px] font-medium text-white tracking-[-0.2px] leading-none m-0">Beauty features</h2>
+            <div className="flex items-center justify-between px-2.5 sm:px-4 py-1 sm:py-2">
+                <h2 className="text-[13px] sm:text-[16px] md:text-[20px] font-medium text-white tracking-[-0.2px] leading-none m-0">Beauty features</h2>
                 <button
                     type="button"
                     onClick={onClose}
                     aria-label="Close beauty features"
-                    className="h-8 w-8 rounded-full bg-black/30 hover:bg-black/40 transition-colors flex items-center justify-center"
+                    className="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-black/30 hover:bg-black/40 transition-colors flex items-center justify-center"
                 >
-                    <X size={16} className="text-white" />
+                    <X size={14} className="text-white" />
                 </button>
             </div>
 
-            <div className="px-5 pb-4">
-                <div ref={scrollRef} className="flex gap-2 overflow-x-auto no-scrollbar -mx-5 px-5">
+            <div className="px-3 sm:px-5 pb-2 sm:pb-4">
+                <div ref={scrollRef} className="flex gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar -mx-3 sm:-mx-5 px-3 sm:px-5">
                     {MAKEUP_CATEGORIES.map(cat => {
                         const isActive = cat.id === activeCategoryId
                         const isDisabled = availableCategoryIds ? !availableCategoryIds.includes(cat.id) : false
@@ -103,7 +103,7 @@ const MakeupOptions = ({
                                 onClick={() => !isDisabled && setActive(cat.id)}
                                 disabled={isDisabled}
                                 aria-disabled={isDisabled}
-                                className={`shrink-0 rounded-full px-5 py-2.5 text-[14px] font-medium transition-colors ${
+                                className={`shrink-0 rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-[10px] sm:text-[12px] md:text-[14px] font-medium transition-colors ${
                                     isDisabled
                                         ? 'bg-white/30 text-[#1A1A1A]/40 cursor-not-allowed'
                                         : isActive
@@ -120,11 +120,11 @@ const MakeupOptions = ({
 
             <div className="border-t border-white/15" />
 
-            <div className="px-4 py-2.5 min-h-[100px]">
+            <div className="px-3 sm:px-4 py-2 sm:py-2.5 min-h-[64px] sm:min-h-[100px]">
                 {activeCategory.sectionTitle && activeCategory.options ? (
                     <>
-                        <h3 className="text-[15px] font-semibold text-white leading-none mb-3">{activeCategory.sectionTitle}</h3>
-                        <div className="flex flex-wrap gap-2">
+                        <h3 className="text-[11px] sm:text-[13px] md:text-[15px] font-semibold text-white leading-none mb-2 sm:mb-3">{activeCategory.sectionTitle}</h3>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {activeCategory.options.map(option => {
                                 const isSelected = activeSelected.includes(option)
                                 const allowed = availableOptions?.[activeCategoryId]
@@ -136,7 +136,7 @@ const MakeupOptions = ({
                                         onClick={() => !isDisabled && toggleOption(option)}
                                         disabled={isDisabled}
                                         aria-disabled={isDisabled}
-                                        className={`rounded-full px-4 py-2 text-[14px] font-medium border transition-colors ${
+                                        className={`rounded-full px-2.5 py-1 sm:px-4 sm:py-2 text-[10px] sm:text-[12px] md:text-[14px] font-medium border transition-colors ${
                                             isDisabled
                                                 ? 'bg-transparent text-white/30 border-white/15 cursor-not-allowed'
                                                 : isSelected
@@ -151,7 +151,7 @@ const MakeupOptions = ({
                         </div>
                     </>
                 ) : (
-                    <p className="text-[14px] text-white/70">No additional options for {activeCategory.label}.</p>
+                    <p className="text-[11px] sm:text-[13px] md:text-[14px] text-white/70">No additional options for {activeCategory.label}.</p>
                 )}
             </div>
         </div>

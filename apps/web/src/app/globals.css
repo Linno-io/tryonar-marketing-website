@@ -534,6 +534,9 @@
   bottom: 35px;
 }
 
+.toa-interactive-frame {
+  margin-bottom: -6px;
+}
 
 .bac2aafb3939 {
     height: calc(100% + 30px);

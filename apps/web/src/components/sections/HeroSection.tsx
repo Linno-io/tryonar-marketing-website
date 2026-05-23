@@ -36,12 +36,6 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
         {sectionVideo?.url && (
             <link rel="preload" as="video" href={sectionVideo.url} type="video/mp4" />
         )}
-        {sectionVideo?.url && 'home' === page && (
-            <link rel="preload" as="video" href="/bottom-h.mp4" type="video/mp4" />
-        )}
-        {sectionVideo?.url && 'home' === page && (
-            <link rel="preload" as="video" href="/after-h.mp4" type="video/mp4" />
-        )}
         <section className="toa-hero-section relative bg-white pt-30 lg:pt-50 border-b border-[#eeedf2]">
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-70 z-0" style={{ background: 'linear-gradient(180deg, #E3D5FF 5%, #FFF 20%, #FFF 100%)' }}>
                 <div
@@ -51,8 +45,16 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
             </div>
 
             <Container className="relative z-10" custom={customContainer ? "max-w-full lg:max-w-[1280px] xl:max-w-[1390px]" : undefined} size={customContainer ? 'custom' : "xl"}>
-                <div className={`grid ${customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12'} gap-13 items-start`}>
-                    <div className={`${customContainer ? 'lg:col-span-7' : 'lg:col-span-6'} flex flex-col text-left pt-0 lg:pt-10`}>
+                <div className={clsx(
+                    'grid gap-13',
+                    customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12',
+                    'home' === page ? 'items-start max-[1100px]:items-end' : 'items-start'
+                )}>
+                    <div className={clsx(
+                        `flex flex-col text-left pt-0 lg:pt-10`,
+                        customContainer ? 'lg:col-span-7' : 'lg:col-span-6',
+                        'home' === page ? 'md:pb-8' : ''
+                    )}>
                         {
                             title && title.length > 0 && (
                                 <h1 className="text-[32px] sm:text-[40px] md:text-[64px] lg:text-[68px] leading-[1.09]">
