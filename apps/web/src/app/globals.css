@@ -542,3 +542,11 @@
     width: calc(100% + 20px);
     margin-left: -10px;
 }
+
+.no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

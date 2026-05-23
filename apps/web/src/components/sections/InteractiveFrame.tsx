@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { memo } from 'react';
 import CompareSlider from './CompareSlider';
+import MakeupOptions from './MakeupOptions';
 
 const STATIC_BEFORE_IMAGE = '/hero-section/before-image.webp'
 const Frame = '/hero-section/frame.webp'
@@ -39,6 +40,10 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                     borderRadius: '40px 40px 0 0',
                 }}
             />
+
+            <div className='z-30 absolute top-[calc(100%-226px)] left-11.25'>
+                <MakeupOptions />
+            </div>
         </div>
     );
 };
