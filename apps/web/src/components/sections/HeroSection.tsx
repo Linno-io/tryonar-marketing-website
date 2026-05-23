@@ -8,6 +8,8 @@ import CheckIcon from '../ui/Icons/CheckIcon'
 import { Fragment } from 'react/jsx-runtime'
 import HeroPhoneDemo from './HeroPhoneDemo'
 import HeroVideoWithFrame from './HeroVideoWithFrame'
+import InteractiveFrame from './InteractiveFrame'
+import clsx from 'clsx'
 
 interface HeroSectionProps {
     data: HeroSectionType,
@@ -118,13 +120,13 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         </div>
                     </div>
 
-                    <div className="lg:col-span-6 relative flex justify-center">
+                    <div className={clsx(
+                        `lg:col-span-6 relative flex`,
+                        'home' === page ? 'justify-center lg:justify-end' : 'justify-center'
+                    )}>
                         <div className="relative w-full max-w-105 lg:max-w-120">
                             {sectionVideo?.url && 'home' === page ? (
-                                <HeroPhoneDemo
-                                    beforeImage={posterImage ?? sectionImage}
-                                    afterVideo={sectionVideo}
-                                />
+                                <InteractiveFrame priority={true} />
                             ) : sectionVideo?.url ? (
                                 <HeroVideoWithFrame 
                                     data={data}
