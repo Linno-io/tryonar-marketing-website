@@ -2,6 +2,7 @@
 
 import { memo, useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
+import { clsx } from 'clsx'
 
 interface MakeupCategory {
     id: string
@@ -27,7 +28,7 @@ const MAKEUP_CATEGORIES: MakeupCategory[] = [
 
 interface MakeupOptionsProps {
     onClose?: () => void
-    activeCategoryId?: string
+    activeCategoryId?: string | null
     onCategoryChange?: (id: string) => void
     availableCategoryIds?: string[]
     availableOptions?: Record<string, string[]>
@@ -40,14 +41,15 @@ const MakeupOptions = ({
     availableCategoryIds,
     availableOptions,
 }: MakeupOptionsProps) => {
+    const isControlled = controlledId !== undefined
     const [internalId, setInternalId] = useState<string>(MAKEUP_CATEGORIES[0].id)
-    const activeCategoryId = controlledId ?? internalId
+    const activeCategoryId = isControlled ? controlledId : internalId
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string[]>>({})
     const scrollRef = useRef<HTMLDivElement>(null)
     const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
 
     const activeCategory = MAKEUP_CATEGORIES.find(c => c.id === activeCategoryId) ?? MAKEUP_CATEGORIES[0]
-    const activeSelected = selectedOptions[activeCategoryId] ?? []
+    const activeSelected = activeCategoryId ? (selectedOptions[activeCategoryId] ?? []) : []
 
     const setActive = (id: string) => {
         if (onCategoryChange) onCategoryChange(id)
@@ -55,9 +57,14 @@ const MakeupOptions = ({
     }
 
     useEffect(() => {
-        const btn = buttonRefs.current[activeCategoryId]
         const container = scrollRef.current
-        if (!btn || !container) return
+        if (!container) return
+        if (!activeCategoryId) {
+            container.scrollTo({ left: 0, behavior: 'smooth' })
+            return
+        }
+        const btn = buttonRefs.current[activeCategoryId]
+        if (!btn) return
         const btnRect = btn.getBoundingClientRect()
         const ctRect = container.getBoundingClientRect()
         const offset = (btnRect.left + btnRect.right) / 2 - (ctRect.left + ctRect.right) / 2
@@ -65,6 +72,7 @@ const MakeupOptions = ({
     }, [activeCategoryId])
 
     const toggleOption = (option: string) => {
+        if (!activeCategoryId) return
         setSelectedOptions(prev => {
             const current = prev[activeCategoryId] ?? []
             const next = current.includes(option) ? current.filter(o => o !== option) : [...current, option]
@@ -103,13 +111,12 @@ const MakeupOptions = ({
                                 onClick={() => !isDisabled && setActive(cat.id)}
                                 disabled={isDisabled}
                                 aria-disabled={isDisabled}
-                                className={`shrink-0 rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-[10px] sm:text-[12px] md:text-[14px] font-medium transition-colors ${
-                                    isDisabled
-                                        ? 'bg-white/30 text-[#1A1A1A]/40 cursor-not-allowed'
-                                        : isActive
-                                            ? 'bg-black text-white'
-                                            : 'bg-white text-[#1A1A1A] hover:bg-white/90'
-                                }`}
+                                className={clsx(
+                                    'shrink-0 rounded-full px-3 py-1.5 sm:px-5 sm:py-2.5 text-[10px] sm:text-[12px] md:text-[14px] font-medium transition-colors',
+                                    isDisabled && 'bg-white text-[#1A1A1A] cursor-not-allowed',
+                                    !isDisabled && isActive && 'bg-black text-white',
+                                    !isDisabled && !isActive && 'bg-white text-[#1A1A1A] hover:bg-white/90',
+                                )}
                             >
                                 {cat.label}
                             </button>
@@ -127,7 +134,7 @@ const MakeupOptions = ({
                         <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {activeCategory.options.map(option => {
                                 const isSelected = activeSelected.includes(option)
-                                const allowed = availableOptions?.[activeCategoryId]
+                                const allowed = activeCategoryId ? availableOptions?.[activeCategoryId] : undefined
                                 const isDisabled = allowed ? !allowed.includes(option) : true
                                 return (
                                     <button

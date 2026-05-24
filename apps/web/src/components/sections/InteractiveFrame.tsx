@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
-import CompareSlider from './CompareSlider';
 import MakeupOptions from './MakeupOptions';
 
 const STATIC_BEFORE_IMAGE = '/hero-section/before-image.webp'
@@ -23,7 +22,7 @@ interface InteractiveFrameProps {
 }
 
 const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
-    const [activeCategoryId, setActiveCategoryId] = useState<string>(CYCLE_CATEGORIES[0].id)
+    const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
     const [showIframe, setShowIframe] = useState(false)
     const [iframeLoading, setIframeLoading] = useState(true)
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -32,9 +31,10 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
         if (timerRef.current) clearInterval(timerRef.current)
         timerRef.current = setInterval(() => {
             setActiveCategoryId(prev => {
+                if (prev === null) return CYCLE_CATEGORIES[0].id
                 const idx = CYCLE_CATEGORIES.findIndex(c => c.id === prev)
-                const nextIdx = (idx + 1) % CYCLE_CATEGORIES.length
-                return CYCLE_CATEGORIES[nextIdx].id
+                if (idx === CYCLE_CATEGORIES.length - 1) return null
+                return CYCLE_CATEGORIES[idx + 1].id
             })
         }, CYCLE_INTERVAL_MS)
     }, [])
@@ -65,8 +65,6 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
         setIframeLoading(false)
     }
 
-    const activeImage = CYCLE_CATEGORIES.find(c => c.id === activeCategoryId)?.image ?? CYCLE_CATEGORIES[0].image
-
     return (
         <div className="toa-interactive-frame relative inline-block">
             <Image
@@ -79,12 +77,8 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                 height={600}
             />
 
-            <CompareSlider
-                beforeSrc={STATIC_BEFORE_IMAGE}
-                afterSrc={activeImage}
-                priority={priority}
-                className="toa-compare-element z-20 absolute"
-                afterOnly={true}
+            <div
+                className="toa-compare-element z-20 absolute overflow-hidden"
                 style={{
                     top: '4%',
                     left: '5.9%',
@@ -94,7 +88,31 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                     height: '96%',
                     borderRadius: '40px 40px 0 0',
                 }}
-            />
+            >
+                <Image
+                    src={STATIC_BEFORE_IMAGE}
+                    alt="Before"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 450px"
+                    priority={priority}
+                    style={{ objectFit: 'cover' }}
+                />
+                {CYCLE_CATEGORIES.map(cat => (
+                    <Image
+                        key={cat.id}
+                        src={cat.image}
+                        alt={cat.id}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 450px"
+                        priority={priority}
+                        style={{
+                            objectFit: 'cover',
+                            opacity: activeCategoryId === cat.id ? 1 : 0,
+                            transition: activeCategoryId === null ? 'opacity 600ms ease-in-out' : 'none',
+                        }}
+                    />
+                ))}
+            </div>
 
 
             <div className='z-30 absolute bottom-[0%] left-[8%] right-[5.9%] flex justify-center'>
