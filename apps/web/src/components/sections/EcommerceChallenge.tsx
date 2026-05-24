@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
 import { Container, DotBackground } from '@/components/ui';
 import Image from 'next/image';
 import { EcommerceChallengeSection as EcommerceChallengeSectionProps } from '@/lib/types/section';
@@ -10,8 +9,35 @@ type TabId = string;
 
 export default function EcommerceChallenge({ data }: { data: EcommerceChallengeSectionProps }) {
     const { tagline, title, description, tabs } = data;
-    
+
     const [activeTab, setActiveTab] = useState<TabId>(tabs && tabs.length > 0 ? tabs[0].tabId : '');
+
+    useEffect(() => {
+        if (!tabs || tabs.length === 0) return;
+
+        const prefetch = () => {
+            tabs.forEach((tab) => {
+                if (tab.tabId === activeTab) return;
+                const url = tab.image?.url;
+                if (!url) return;
+                const img = new window.Image();
+                img.src = url;
+            });
+        };
+
+        const w = window as Window & { requestIdleCallback?: (cb: () => void) => number };
+        if (document.readyState === 'complete') {
+            if (w.requestIdleCallback) w.requestIdleCallback(prefetch);
+            else setTimeout(prefetch, 200);
+        } else {
+            const onLoad = () => {
+                if (w.requestIdleCallback) w.requestIdleCallback(prefetch);
+                else setTimeout(prefetch, 200);
+            };
+            window.addEventListener('load', onLoad, { once: true });
+            return () => window.removeEventListener('load', onLoad);
+        }
+    }, [tabs, activeTab]);
 
     if (!tabs || tabs.length === 0) return null;
 
@@ -63,15 +89,10 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
 
                 {/* Card Content */}
                 <div className="bg-[#f8f8f9] rounded-2xl md:rounded-[3rem] p-2.5 relative">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeTab}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.3 }}
-                            className="flex flex-col lg:flex-row gap-0 items-center"
-                        >
+                    <div
+                        key={activeTab}
+                        className="flex flex-col lg:flex-row gap-0 items-center"
+                    >
                             {/* Left Content */}
                             <div className="px-14 max-[575px]:px-4 py-10 max-[575px]:py-6 lg:py-8 min-w-full lg:min-w-125 max-w-full">
                                 <div className="flex items-center gap-4">
@@ -110,8 +131,7 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                                     className="w-full object-cover h-full rounded-[30px] max-w-full lg:max-w-[calc(100%-560px)]"
                                 />
                             )}
-                        </motion.div>
-                    </AnimatePresence>
+                    </div>
                 </div>
             </Container>
         </section>
