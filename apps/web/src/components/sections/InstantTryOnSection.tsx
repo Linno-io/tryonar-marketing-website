@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { Container } from '../ui';
 import { InstantTryOnSection as InstantTryOnSectionProps } from '@/lib/types/section';
+import Image from 'next/image';
 
 function SectionMedia({
     imageUrl,
@@ -42,7 +43,7 @@ function SectionMedia({
     };
 
     return (
-        <div ref={containerRef} className="relative w-full flex items-center justify-center">
+        <div ref={containerRef} className="relative w-full flex items-center justify-center min-[1199px]:justify-end">
             <img
                 src={imageUrl}
                 alt={imageAlt}
@@ -55,18 +56,37 @@ function SectionMedia({
                 }}
             />
             {videoSrc && (
-                <video
-                    ref={videoRef}
-                    src={videoSrc}
-                    poster={imageUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onCanPlay={handleVideoCanPlay}
-                    className="w-full h-auto object-contain max-h-[580px]"
-                    style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 1 : 0 }}
-                />
+                <div className='relative'>
+                    <Image
+                        src="/makeup.webp"
+                        width={300}
+                        height={100}
+                        alt='Makeup image'
+                        loading="lazy"
+                        className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-50 xl:-left-68.25 w-50 xl:w-75 h-auto pointer-events-none z-10"
+                    />
+                    <video
+                        ref={videoRef}
+                        src={videoSrc}
+                        poster={imageUrl}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        onCanPlay={handleVideoCanPlay}
+                        className="w-full h-auto max-w-full sm:max-w-100 md:max-w-112.5 lg:w-123.25 lg:h-115.25 object-cover rounded-[20px] sm:rounded-[30px]"
+                        style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 1 : 0 }}
+                    />
+
+                    <Image
+                        src="/bottom-image.webp"
+                        width={300}
+                        height={100}
+                        alt='Bottom image'
+                        loading="lazy"
+                        className="hidden md:block absolute -bottom-2.5 -right-7.5 lg:-right-12.5 w-45 lg:w-75 h-auto pointer-events-none z-10"
+                    />
+                </div>
             )}
         </div>
     );
@@ -160,7 +180,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
 
             {/* ── NO BORDER ZONE: content + image ── */}
             <Container className="relative z-10 mt-0 sm:mt-4 md:mt-8 lg:mt-8" padding={false}>
-                <div className="flex flex-col md:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-20 px-5">
+                <div className="flex flex-col min-[1199px]:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-20 px-5">
 
                     {/* Left text */}
                     <div className="flex-1 lg:max-w-[500px]">
@@ -214,12 +234,12 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                     </div>
 
                     {/* Right image */}
-                    <div className="flex-1 flex items-center justify-center lg:justify-end w-full">
+                    <div className="flex-1 flex items-center justify-center min-[1199px]:justify-end w-full">
                         {sectionImage?.url && (
                             <SectionMedia
                                 imageUrl={sectionImage.url}
                                 imageAlt={sectionImage.alt ?? 'Try-On AR'}
-                                videoUrl={sectionVideo?.url}
+                                videoUrl={'https://cdn.sanity.io/files/90a20xmm/production/e5b884178f5f3f89ec40ce5e1422193bbc7f6ba3.mp4'}
                             />
                         )}
                     </div>
