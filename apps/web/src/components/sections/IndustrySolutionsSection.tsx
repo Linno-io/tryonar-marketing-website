@@ -7,6 +7,7 @@ import {
 } from '@/lib/types/section';
 import Image from 'next/image';
 import Link from 'next/link';
+import InteractiveFrame from './InteractiveFrame';
 
 const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) => {
     if (!data || data.length === 0) return null;
@@ -63,7 +64,7 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
     };
 
     return (
-        <div ref={containerRef} className="relative w-full h-full flex items-center justify-center p-8">
+        <div ref={containerRef} className="relative w-full h-full flex items-center justify-center p-8 pb-0">
             <img
                 src={imageUrl}
                 alt={imageAlt}
@@ -71,18 +72,9 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
                 style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
             {videoSrc && (
-                <video
-                    ref={videoRef}
-                    src={videoSrc}
-                    poster={imageUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onCanPlay={handleVideoCanPlay}
-                    className="max-h-130 w-auto rounded-[30px] border-4 border-black"
-                    style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 1 : 0, boxShadow: '0 30px 30px 0 rgba(0, 0, 0, 0.20)' }}
-                />
+                <>
+                    <InteractiveFrame />
+                </>
             )}
         </div>
     );

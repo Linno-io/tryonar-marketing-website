@@ -13,7 +13,7 @@ const VirtualTryOnSection = ({ data }: { data: VirtualTryonSectionProps }) => {
 
                 {/* Left Content Column */}
                 <div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1A202C] leading-tight">
+                    <h2 className="text-3xl md:text-4xl lg:text-[54px] font-bold text-[#1A202C] leading-tight w-full md:w-[450px]">
                         {title && title.map((block, index) => {
                             if (block.type === 'normal') {
                                 return <span key={index}>{block.text}</span>;
