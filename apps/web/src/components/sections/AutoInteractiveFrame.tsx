@@ -108,7 +108,6 @@ const AutoInteractiveFrame = ({ priority = false }: AutoInteractiveFrameProps) =
                             objectFit: 'cover',
                             objectPosition: 'center 18%',
                             opacity: i === step ? 1 : 0,
-                            transition: 'opacity 600ms ease-in-out',
                         }}
                     />
                 ))}
@@ -207,7 +206,7 @@ const AutoInteractiveFrame = ({ priority = false }: AutoInteractiveFrameProps) =
                     <button
                         type="button"
                         onClick={handleCloseIframe}
-                        className="absolute top-2.5 cursor-pointer left-4 z-60 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-200 active:scale-95"
+                        className="absolute top-2.5 cursor-pointer right-4 z-60 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-200 active:scale-95"
                         aria-label="Close"
                     >
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -12,7 +12,7 @@ const Badge = (props: BadgeProps) => {
     return (
         <>
             <span className={clsx(
-                'rounded-[100px] border border-[#C5BBCC] bg-white p-[5px_9px] lg:p-[9px_14px] flex items-center justify-center gap-2.5 text-[#1A202C] text-[14px] lg:text-[18px] font-medium',
+                'rounded-[100px] border border-[#E5E3EA] bg-white p-[5px_9px] lg:p-[9px_14px] flex items-center justify-center gap-2.5 text-[#1A202C] text-[14px] lg:text-[18px] font-medium',
                 showDash ? 'border-dashed' : '',
                 className ? className : ''
             )}>

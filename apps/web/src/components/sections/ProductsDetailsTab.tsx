@@ -92,7 +92,7 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                                 className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
                                     activeTab._key === tab._key
                                         ? 'border-[#FFA49B] border-solid challenge-active-tab'
-                                        : 'border border-[#C5BBCC]'
+                                        : 'border border-[#E5E3EA]'
                                 } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
                             >
                                 {tab.tabLabel}

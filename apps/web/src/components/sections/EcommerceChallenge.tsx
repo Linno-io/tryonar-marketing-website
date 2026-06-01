@@ -79,7 +79,7 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                             onClick={() => setActiveTab(tab.tabId)}
                             className={`p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] cursor-pointer rounded-full border text-sm font-semibold transition-all duration-300 ${activeTab === tab.tabId
                                     ? 'border-[#FFA49B] border-solid challenge-active-tab'
-                                    : 'border border-[#C5BBCC]'
+                                    : 'border border-[#E5E3EA]'
                                 }`}
                         >
                             {tab.tabLabel}
