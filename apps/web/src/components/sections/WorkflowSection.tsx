@@ -101,7 +101,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 width={500}
                                 height={500}
                                 fetchPriority="high"
-                                className={`w-full h-[100%] rounded-2xl ${activeStepKey}`}
+                                className={`w-full h-[100%] object-contain rounded-2xl ${activeStepKey}`}
                             />
                         </div>
                     </div>
