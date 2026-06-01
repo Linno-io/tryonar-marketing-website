@@ -151,11 +151,11 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     ))}
                 </div>
 
-                {/* Single card */}
-                <div className="bg-white rounded-3xl shadow-[0_8px_40px_rgb(0,0,0,0.07)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row">
+                {/* Two cards */}
+                <div className="flex flex-col lg:flex-row gap-5 md:gap-6">
 
                     {/* Left — content */}
-                    <div key={activeTab._key} className="flex flex-col lg:w-[45%] p-8 md:p-12">
+                    <div key={activeTab._key} className="flex flex-col lg:w-[45%] p-8 md:p-12 bg-white rounded-3xl shadow-[0_8px_40px_rgb(0,0,0,0.07)] border border-slate-100">
                         <h3 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-3">
                             {content?.contentTitle}
                         </h3>
@@ -229,7 +229,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     </div>
 
                     {/* Right — media */}
-                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center min-h-80 sm:min-h-105">
+                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center min-h-80 sm:min-h-105 bg-white rounded-3xl shadow-[0_8px_40px_rgb(0,0,0,0.07)] border border-slate-100 overflow-hidden">
                         <TabMedia
                             imageUrl={content?.image?.url ?? ''}
                             imageAlt={content?.image?.alt ?? 'Industry Solution Image'}
