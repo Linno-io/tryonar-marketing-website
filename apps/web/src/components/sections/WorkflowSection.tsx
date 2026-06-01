@@ -77,7 +77,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
 
                                         {
                                             step?.tags?.length && (
-                                                <div className={`${step._key === activeStepKey ? 'opacity-100 visible mt-6 pt-5' : 'opacity-0 invisible h-0 mt-0'} transition-all border-t border-[#E8E8E8] flex flex-wrap items-center justify-between gap-4`}>
+                                                <div className={`${true ? 'opacity-100 visible mt-6 pt-5' : 'opacity-0 invisible h-0 mt-0'} transition-all border-t border-[#E8E8E8] flex flex-wrap items-center justify-between gap-4`}>
                                                     {
                                                         step.tags && step.tags.length > 0 && step.tags.map((tag, index) => (
                                                             <p className="flex items-center gap-2 text-[#3E3E42] text-[15px] leading-0 font-normal" key={index}>
@@ -101,7 +101,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 width={500}
                                 height={500}
                                 fetchPriority="high"
-                                className={`w-full h-[100%] object-cover rounded-2xl ${activeStepKey}`}
+                                className={`w-full h-[100%] rounded-2xl ${activeStepKey}`}
                             />
                         </div>
                     </div>
