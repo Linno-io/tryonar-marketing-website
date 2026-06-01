@@ -59,11 +59,11 @@ function SectionMedia({
                 <div className='relative'>
                     <Image
                         src="/makeup.webp"
-                        width={300}
-                        height={100}
+                        width={187}
+                        height={227}
                         alt='Makeup image'
                         loading="lazy"
-                        className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-50 xl:-left-68.25 w-50 xl:w-75 h-auto pointer-events-none z-10"
+                        className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-36.75 xl:-left-42.5 w-40 xl:w-46.75 h-auto pointer-events-none z-10"
                     />
                     <video
                         ref={videoRef}
