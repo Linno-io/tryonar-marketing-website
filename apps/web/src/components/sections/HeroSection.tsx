@@ -10,6 +10,7 @@ import HeroPhoneDemo from './HeroPhoneDemo'
 import HeroVideoWithFrame from './HeroVideoWithFrame'
 import InteractiveFrame from './InteractiveFrame'
 import clsx from 'clsx'
+import AutoInteractiveFrame from './AutoInteractiveFrame'
 
 interface HeroSectionProps {
     data: HeroSectionType,
@@ -128,7 +129,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                     )}>
                         <div className="relative w-full max-w-105 lg:max-w-120">
                             {sectionVideo?.url && 'home' === page ? (
-                                <InteractiveFrame priority={true} />
+                                <AutoInteractiveFrame />
                             ) : sectionVideo?.url ? (
                                 <HeroVideoWithFrame 
                                     data={data}
