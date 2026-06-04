@@ -84,31 +84,33 @@ export default function CTASection({ data }: CTAProps) {
                     </p>
 
                     {/* BUTTON GROUP */}
-                    <div className="flex flex-col sm:flex-row items-center gap-4">
-                        <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
-                            <Button
-                                className="group w-full sm:w-auto h-[60px] !bg-[#FFA395] !text-black !rounded-xl !font-bold !text-lg gap-2 hover:brightness-110 transition-all px-10 shadow-lg shadow-[#FFA395]/10"
-                            >
-                                {primaryButton.text}
-                                {
-                                    primaryButton.showIcon !== false ? <ArrowUpRight size={20} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /> : null
-                                }
-                            </Button>
-                        </Link>
-
-                        {secondaryButton?.text && (
-                            <Link href={secondaryButton.internalLink || secondaryButton.externalLink || '#'} target={secondaryButton.externalLink ? '_blank' : '_self'}>
+                    {(primaryButton?.text || secondaryButton?.text) && (
+                        <div className="tryon-cta-buttons flex items-center justify-center gap-3.5 flex-wrap">
+                            {primaryButton?.text && (
                                 <Button
-                                    className="w-full sm:w-auto h-[60px] !bg-[#F0F1F0] !text-black !border-none !rounded-xl !font-bold !text-lg hover:bg-gray-100 transition-all px-10 flex items-center gap-2 shadow-lg shadow-white/5"
+                                    variant="primary"
+                                    href={primaryButton.internalLink || primaryButton.externalLink || '#'}
+                                    target={primaryButton.externalLink ? '_blank' : '_self'}
+                                    showIcon={primaryButton.showIcon !== false}
+                                    className='tryon-primary-btn !bg-[#FFA395] !text-black'
+                                >
+                                    {primaryButton.text}
+                                </Button>
+                            )}
+
+                            {secondaryButton?.text && (
+                                <Button
+                                    variant="secondary"
+                                    href={secondaryButton.internalLink || secondaryButton.externalLink || '#'}
+                                    target={secondaryButton.externalLink ? '_blank' : '_self'}
+                                    icon={<svg fill="none" width="14" height="15" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3.5 xl:w-3.5 xl:h-4"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>}
+                                    showIcon={secondaryButton.showIcon !== false}
                                 >
                                     {secondaryButton.text}
-                                    {
-                                        secondaryButton.showIcon !== false ? <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg> : null
-                                    }
                                 </Button>
-                            </Link>
-                        )}
-                    </div>
+                            )}
+                        </div>
+                    )}
 
                     {
                         stats && stats.length > 0 && (
