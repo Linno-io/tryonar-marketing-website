@@ -120,7 +120,7 @@ const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
 function CtaButtons({ product }: { product: ProductDetail }) {
     if (!product.primaryButton?.text && !product.secondaryButton?.text) return null;
     return (
-        <div className="flex flex-col sm:flex-row gap-3 mt-8 lg:mt-10">
+        <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-7 sm:pt-8">
             {product.primaryButton?.text && (
                 <Link
                     href={product.primaryButton.internalLink || product.primaryButton.externalLink || '#'}
@@ -329,7 +329,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                                             )}
 
                                             {product.stats && product.stats.length > 0 && (
-                                                <div className="-mx-8 lg:-mx-15 mt-6 lg:mt-8">
+                                                <div className="-mx-8 lg:-mx-15">
                                                     <StatsRow data={product.stats} />
                                                 </div>
                                             )}
