@@ -120,7 +120,7 @@ const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
 function CtaButtons({ product }: { product: ProductDetail }) {
     if (!product.primaryButton?.text && !product.secondaryButton?.text) return null;
     return (
-        <div className="flex flex-col sm:flex-row gap-3 mt-8 lg:mt-10">
+        <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-7 sm:pt-8">
             {product.primaryButton?.text && (
                 <Link
                     href={product.primaryButton.internalLink || product.primaryButton.externalLink || '#'}
@@ -292,7 +292,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                             <div className={`-mx-2.5 sm:-mx-3 border-t border-b border-[#EEEDF2] flex flex-col lg:flex-row overflow-hidden ${isPinned ? 'flex-1 min-h-0' : ''}`}>
 
                                 {/* LEFT — container stable for layout; content cross-fades */}
-                                <div className="flex flex-col lg:w-[46%] min-h-0 border-b lg:border-b-0 lg:border-r border-[#EEEDF2] overflow-hidden px-8 py-8 lg:px-15 lg:py-15">
+                                <div className="flex flex-col lg:w-[46%] min-h-0 border-b lg:border-b-0 lg:border-r border-[#EEEDF2] overflow-hidden px-8 py-8 lg:px-15 lg:py-10">
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={`${activeTab._key}-${safeIndex}-text`}
@@ -329,7 +329,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                                             )}
 
                                             {product.stats && product.stats.length > 0 && (
-                                                <div className="-mx-8 lg:-mx-15 mt-6 lg:mt-8">
+                                                <div className="-mx-8 lg:-mx-15">
                                                     <StatsRow data={product.stats} />
                                                 </div>
                                             )}
