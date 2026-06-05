@@ -175,6 +175,29 @@ export async function getPageBySlug(slug: string) {
                     "internalLink": internalLink->slug.current
                 },
             },
+            products[]{
+                ...,
+                "image":{
+                    "url": image.asset->url,
+                    "alt": image.alt
+                },
+                "video": { "url": video.asset->url },
+                features[]{
+                    ...,
+                    "icon":{
+                        "url": icon.asset->url,
+                        "alt": icon.alt
+                    }
+                },
+                primaryButton{
+                    ...,
+                    "internalLink": internalLink->slug.current,
+                },
+                secondaryButton{
+                    ...,
+                    "internalLink": internalLink->slug.current
+                },
+            },
             cards[]{
                 ...,
                 primaryButton{
