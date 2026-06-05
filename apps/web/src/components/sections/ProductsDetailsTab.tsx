@@ -1,15 +1,15 @@
 "use client";
-import React, { Fragment, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Container } from '../ui';
 import {
     ProductsDetailsTabSection as ProductsDetailsTabSectionProps,
 } from '@/lib/types/section';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import ProductTryOnFrame from './ProductTryOnFrame';
 
-const StatsSection = (props:any) => {
+const StatsSection = (props: { data?: { label: string; value: string }[] }) => {
     if(!props.data || props.data.length === 0) return null;
 
     return (
@@ -44,14 +44,55 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
         secondaryButton
     } = data;
 
-    const [activeTab, setActiveTab] = useState(tabs ? tabs[0] : null);
+    // Scroll-pinned switching: the section pins while scrolling and the active
+    // product advances with scroll progress. Manual tab clicks also work and
+    // scroll to the matching position. Disabled below the lg breakpoint, where
+    // the section behaves as plain manual tabs.
+    const wrapRef = useRef<HTMLDivElement>(null);
+    const [index, setIndex] = useState(0);
+    const count = tabs?.length ?? 0;
 
-    if(!tabs || tabs.length === 0 || !activeTab) return null;
+    const isDesktop = useCallback(() => typeof window !== 'undefined' && window.innerWidth >= 1024, []);
+
+    useEffect(() => {
+        if (count === 0) return;
+        const onScroll = () => {
+            const el = wrapRef.current;
+            if (!el || !isDesktop()) return;
+            const total = el.offsetHeight - window.innerHeight;
+            const scrolled = Math.min(Math.max(-el.getBoundingClientRect().top, 0), Math.max(total, 0));
+            const progress = total > 0 ? scrolled / total : 0;
+            const next = Math.min(count - 1, Math.floor(progress * count));
+            setIndex(prev => (prev === next ? prev : next));
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [count, isDesktop]);
+
+    const goTo = useCallback((i: number) => {
+        setIndex(i);
+        const el = wrapRef.current;
+        if (!el || !isDesktop()) return;
+        const total = el.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        const target = el.offsetTop + ((i + 0.5) / count) * total;
+        window.scrollTo({ top: target, behavior: 'smooth' });
+    }, [count, isDesktop]);
+
+    if(!tabs || tabs.length === 0) return null;
+
+    const activeTab = tabs[Math.min(index, tabs.length - 1)];
 
     return (
-        <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
-            <Container className='pt-40'>
-                <div className="text-center mb-15">
+        <section
+            ref={wrapRef}
+            className="bg-[#F7F8F9] relative overflow-hidden lg:[height:var(--pin-h)]"
+            style={{ ['--pin-h' as string]: `${count * 100}vh` }}
+        >
+            <div className="lg:sticky lg:top-0 lg:h-screen flex items-center px-6">
+            <Container className='pt-28 lg:pt-32 pb-16'>
+                <div className="text-center mb-12">
                     <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-5">{tagline}</p>
 
                     {
@@ -80,7 +121,7 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                 </div>
 
                 <div className="flex items-center justify-center flex-wrap gap-3 mb-10">
-                    {tabs.map((tab) => (
+                    {tabs.map((tab, i) => (
                         <div key={tab._key} className="relative">
                             {tab.comingSoon && (
                                 <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
@@ -88,12 +129,12 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                                 </span>
                             )}
                             <button
-                                onClick={() => !tab.comingSoon && setActiveTab(tab)}
-                                className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
-                                    activeTab._key === tab._key
+                                onClick={() => goTo(i)}
+                                className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                                    i === index
                                         ? 'border-[#FFA49B] border-solid challenge-active-tab'
                                         : 'border border-[#E5E3EA]'
-                                } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
+                                } ${tab.comingSoon ? 'opacity-50' : ''}`}
                             >
                                 {tab.tabLabel}
                             </button>
@@ -104,66 +145,71 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-stretch">
                     {/* LEFT COLUMN */}
                     <div className="bg-white rounded-3xl md:rounded-[20px] flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
-                        <AnimatePresence mode="wait">
-                            <motion.div
+                            <div
                                 key={activeTab._key}
-                                initial={{ opacity: 0, x: -15 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 15 }}
-                                transition={{ duration: 0.35, ease: "easeOut" }}
-                                className="flex-grow flex flex-col"
+                                className="flex-grow flex flex-col toa-tab-fade"
                             >
                                 {/* Header */}
                                 <div className="pt-6 md:pt-10 pb-4 md:pb-7 px-6 sm:px-8 md:px-14">
                                     <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-5">
-                                        {activeTab?.tabContent?.contentTitle}
+                                        {activeTab?.comingSoon && !activeTab?.tabContent?.contentTitle
+                                            ? `${activeTab?.tabLabel} try-on`
+                                            : activeTab?.tabContent?.contentTitle}
                                     </h3>
                                     {
-                                        activeTab?.tabContent?.contentDescription && (
+                                        activeTab?.tabContent?.contentDescription ? (
                                             <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-md">
                                                 {activeTab?.tabContent?.contentDescription}
                                             </p>
-                                        )
+                                        ) : activeTab?.comingSoon ? (
+                                            <p className="text-slate-500 text-base sm:text-lg leading-relaxed max-w-md">
+                                                {`AR try-on for ${activeTab?.tabLabel?.toLowerCase()} is coming soon.`}
+                                            </p>
+                                        ) : null
                                     }
                                 </div>
 
                                 {
                                     !showStatsOnBottom && (
-                                        <StatsSection data={activeTab?.tabContent?.stats} onBottom={showStatsOnBottom} />
+                                        <StatsSection data={activeTab?.tabContent?.stats} />
                                     )
                                 }
 
                                 {/* Features */}
-                                <div className={`mb-8 md:mb-12 ${showStatsOnBottom ? '' : 'pt-6 md:pt-10'} px-6 sm:px-8 md:px-14 `}>
-                                    <h4 className="font-bold text-slate-900 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] mb-2 md:mb-3.5">
-                                        Key Features
-                                    </h4>
-                                    <ul className="space-y-4 sm:space-y-6">
-                                        {activeTab?.tabContent?.features?.map((feature, idx) => (
-                                            <li
-                                                key={idx}
-                                                className="flex items-center gap-4 text-slate-600"
-                                            >
-                                                <span className="text-slate-300">
-                                                    <Image 
-                                                        src={feature.icon.url ?? ''}
-                                                        width={18}
-                                                        height={18}
-                                                        alt={feature.icon.alt ?? feature.featureTitle}
-                                                        unoptimized
-                                                    />
-                                                </span>
-                                                <span className="font-medium text-sm sm:text-[16px]">
-                                                    {feature.featureTitle}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                
+                                {
+                                    activeTab?.tabContent?.features && activeTab.tabContent.features.length > 0 && (
+                                        <div className={`mb-8 md:mb-12 ${showStatsOnBottom ? '' : 'pt-6 md:pt-10'} px-6 sm:px-8 md:px-14 `}>
+                                            <h4 className="font-bold text-slate-900 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] mb-2 md:mb-3.5">
+                                                Key Features
+                                            </h4>
+                                            <ul className="space-y-4 sm:space-y-6">
+                                                {activeTab?.tabContent?.features?.map((feature, idx) => (
+                                                    <li
+                                                        key={idx}
+                                                        className="flex items-center gap-4 text-slate-600"
+                                                    >
+                                                        <span className="text-slate-300">
+                                                            <Image
+                                                                src={feature.icon.url ?? ''}
+                                                                width={18}
+                                                                height={18}
+                                                                alt={feature.icon.alt ?? feature.featureTitle}
+                                                                unoptimized
+                                                            />
+                                                        </span>
+                                                        <span className="font-medium text-sm sm:text-[16px]">
+                                                            {feature.featureTitle}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )
+                                }
+
                                 {
                                     showStatsOnBottom && (
-                                        <StatsSection data={activeTab?.tabContent?.stats} onBottom={showStatsOnBottom}/>
+                                        <StatsSection data={activeTab?.tabContent?.stats}/>
                                     )
                                 }
 
@@ -194,34 +240,32 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                                         </div>
                                     )
                                 }
-                            </motion.div>
-                        </AnimatePresence>
+                            </div>
                     </div>
 
-                    {/* RIGHT COLUMN */}
-                    <div className="bg-white rounded-3xl md:rounded-[20px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex items-end min-h-[360px] sm:min-h-[480px] lg:min-h-[585px]">
-                        <AnimatePresence mode="wait">
-                            <motion.div
+                    {/* RIGHT COLUMN — interactive try-on frame per product */}
+                    <div className="bg-white rounded-3xl md:rounded-[20px] relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex items-center justify-center min-h-[420px] sm:min-h-[520px] lg:min-h-[600px] p-6">
+                            <div
                                 key={activeTab._key}
-                                initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
-                                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                                exit={{ opacity: 0, scale: 1.1, rotate: 1 }}
-                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                style={{height: '100%'}}
+                                className="w-full flex items-center justify-center toa-tab-fade"
                             >
-                                <img
-                                    src={activeTab?.tabContent?.image?.url ?? ''}
-                                    alt={activeTab?.tabContent?.image?.alt ?? 'Industry Solution Image'}
-                                    className="w-auto object-cover h-full drop-shadow-[0_45px_45px_rgba(0,0,0,0.1)]"
-                                />
-                            </motion.div>
-                        </AnimatePresence>
+                                {activeTab?.comingSoon ? (
+                                    <div className="flex flex-col items-center justify-center gap-4 text-center px-6">
+                                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#F0EEF7] text-2xl">🔒</div>
+                                        <p className="text-xl font-bold text-slate-900">{activeTab?.tabLabel} try-on</p>
+                                        <p className="text-sm text-slate-500 max-w-xs">We&apos;re building AR try-on for {activeTab?.tabLabel?.toLowerCase()}. Stay tuned.</p>
+                                        <span className="rounded-full bg-[#3E3E42] text-white text-[11px] px-3 py-1 font-medium">Coming Soon</span>
+                                    </div>
+                                ) : (
+                                    <ProductTryOnFrame autoPlay />
+                                )}
+                            </div>
                     </div>
                 </div>
 
                 {
                     (primaryButton?.text || secondaryButton?.text) && (
-                            <div className="flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-10 md:pt-15.2 pb-10 md:pb-40 justify-center">
+                            <div className="flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-10 md:pt-12 justify-center">
                             {
                                 primaryButton && (
                                     <Link href={primaryButton?.internalLink || primaryButton?.externalLink || '#'} target={primaryButton?.externalLink ? '_blank' : '_self'}>
@@ -247,6 +291,22 @@ export default function ProductsDetailsTab({data} : {data: ProductsDetailsTabSec
                     )
                 }
             </Container>
+            </div>
+            <style jsx>{`
+                .toa-tab-fade {
+                    animation: toaTabFade 0.4s ease-out;
+                }
+                @keyframes toaTabFade {
+                    from {
+                        opacity: 0;
+                        transform: translateY(8px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `}</style>
         </section>
     );
 }

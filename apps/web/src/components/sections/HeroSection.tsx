@@ -11,6 +11,7 @@ import HeroVideoWithFrame from './HeroVideoWithFrame'
 import InteractiveFrame from './InteractiveFrame'
 import clsx from 'clsx'
 import AutoInteractiveFrame from './AutoInteractiveFrame'
+import ProductTryOnFrame from './ProductTryOnFrame'
 
 interface HeroSectionProps {
     data: HeroSectionType,
@@ -128,7 +129,9 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         'home' === page ? 'justify-center lg:justify-end' : 'justify-center'
                     )}>
                         <div className="relative w-full max-w-105 lg:max-w-120">
-                            {sectionVideo?.url && 'home' === page ? (
+                            {'product-demo' === page ? (
+                                <ProductTryOnFrame priority />
+                            ) : sectionVideo?.url && 'home' === page ? (
                                 <AutoInteractiveFrame />
                             ) : sectionVideo?.url ? (
                                 <HeroVideoWithFrame 
