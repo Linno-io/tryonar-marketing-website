@@ -48,7 +48,7 @@ export default function CTASection({ data }: CTAProps) {
     }
 
     return (
-        <section className="relative overflow-hidden bg-[#050308] pb-24 md:pb-32">
+        <section className="relative overflow-hidden bg-[#050308] xl:pb-27 lg:pb-20 md:pb-15 pb-13">
 
             {/* 1. DOTTED HEADER & LINE (Z-index 20) */}
             <div
@@ -69,17 +69,17 @@ export default function CTASection({ data }: CTAProps) {
             />
 
             {/* 3. CONTENT AREA */}
-            <Container className="relative z-30 pt-[100px]">
+            <Container className="tryon-container relative z-30 pt-13 md:pt-25">
                 <div className="flex flex-col items-center text-center mx-auto px-4">
 
-                    <Heading level={2} className="text-4xl md:text-6xl font-bold text-white mb-2.5 tracking-tight leading-tight">
+                    <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight">
                         {title} 
                         {highlightText && (
                             <span className='text-[#998188]'>{' ' + highlightText}</span>
                         )}
                     </Heading>
 
-                    <p className="text-gray-400 text-lg md:text-xl mb-12 font-normal leading-relaxed">
+                    <p className="text-gray-400 text-[15px] md:text-[18px] xl:text-[19px] mb-8 md:mb-12 font-normal leading-relaxed max-w-[867px] mx-auto">
                         {description}
                     </p>
 
