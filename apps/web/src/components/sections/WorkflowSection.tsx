@@ -41,11 +41,11 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                         }
                     </div>
                     
-                    <div className="flex flex-col min-[991px]:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 pt-7.5 pb-5">
+                    <div className="flex flex-col min-[991px]:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 py-7.5">
                         <div className="flex flex-col gap-5 flex-1 max-w-full  min-[991px]:max-w-145">
                             {
                                 steps && steps.length > 0 && steps.map((step, index) => (
-                                    <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-[20px] cursor-pointer p-4 md:p-7.5`} onClick={() => setActiveStepKey(step._key)}>
+                                    <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-[20px] cursor-pointer p-4 md:p-6.5`} onClick={() => setActiveStepKey(step._key)}>
                                         <div className="flex gap-4 items-start">
                                             <span className={`${step._key === activeStepKey ? 'text-white bg-[#202020] ' : 'text-[#838383] border border-[#ECEDF1] bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)]'} text-[24px] font-semibold flex items-center justify-center w-10 h-10 rounded-[10px]`}>
                                                 {index + 1}
@@ -54,7 +54,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                             <div className="flex flex-col gap-0 w-[calc(100%-60px)]">
                                                 {
                                                     step.stepTitle && step.stepTitle.length > 0 && (
-                                                        <h3 className="text-[22px] font-bold text-[#1A202C] mb-4 leading-none">
+                                                        <h3 className="text-[22px] font-bold text-[#1A202C] mb-2 leading-none">
                                                             {
                                                                 step.stepTitle.map((block, index) => {
                                                                     if(block.type === 'normal') {

@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import { VirtualTryonSection as VirtualTryonSectionProps } from '@/lib/types/section';
 import Link from 'next/link';
+import { Button } from '../ui';
 
 const VirtualTryOnSection = ({ data }: { data: VirtualTryonSectionProps }) => {
     const { title, description, sectionImage, primaryButton } = data;
@@ -32,12 +33,19 @@ const VirtualTryOnSection = ({ data }: { data: VirtualTryonSectionProps }) => {
                     </p>
 
                     {primaryButton && (
-                        <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
-                            <button className="group flex items-center gap-2 bg-[#1a1a1a] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all hover:bg-black active:scale-95">
-                                {primaryButton.text}
-                                {primaryButton.showIcon && <ArrowUpRight size={20} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />}
-                            </button>
-                        </Link>
+                        <div className="tryon-cta-buttons flex gap-3.5">
+                            {primaryButton?.text && (
+                                <Button
+                                    variant="primary"
+                                    href={primaryButton.internalLink || primaryButton.externalLink || '#'}
+                                    target={primaryButton.externalLink ? '_blank' : '_self'}
+                                    showIcon={primaryButton.showIcon !== false}
+                                    className='tryon-primary-btn'
+                                >
+                                    {primaryButton.text}
+                                </Button>
+                            )}
+                        </div>
                     )}
                 </div>
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { Fragment, useState, useRef, useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { Container } from '../ui';
+import { Button, Container } from '../ui';
 import {
     IndustrySolutionsSection as IndustrySolutionsSectionProps,
 } from '@/lib/types/section';
@@ -17,13 +17,13 @@ const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) =
             {data.map(({ label, value }, index) => (
                 <div
                     key={label}
-                    className={`flex-1 flex items-center justify-center text-center pb-4 sm:pb-0 px-0 sm:px-4 relative ${index === 0 ? '' : 'gradient-border'}`}
+                    className={`flex items-center pb-4 sm:pb-0 px-0 sm:px-8 relative ${index === 0 ? '' : 'gradient-border'} last:pr-0 first:pl-0`}
                 >
                     <div>
-                        <div className="text-2xl sm:text-3xl font-medium text-[#838383] tracking-tight">
+                        <div className="text-2xl sm:text-[28px] font-medium text-[#838383] tracking-tight">
                             {value}
                         </div>
-                        <div className="text-[10px] uppercase text-[#646464] tracking-[0.1em] mt-1">
+                        <div className="text-[16px] text-[#646464]">
                             {label}
                         </div>
                     </div>
@@ -100,14 +100,14 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
     const content = activeTab.tabContent;
 
     return (
-        <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative overflow-hidden">
+        <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative">
             <Container className={`pt-20 md:pt-32 ${hasPaddingBottom ? 'pb-20 md:pb-32' : 'pb-0'}`}>
 
                 {/* Header */}
                 <div className="text-center mb-10 md:mb-14">
                     <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-4">{tagline}</p>
                     {title && title.length > 0 && (
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a202c] mb-3">
+                        <h2 className="section-title">
                             {title.map((block, index) => (
                                 block.type === 'normal'
                                     ? <Fragment key={index}>{block.text}</Fragment>
@@ -144,11 +144,11 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                 </div>
 
                 {/* Two cards */}
-                <div className="flex flex-col lg:flex-row gap-5 md:gap-6">
+                <div className="flex flex-col lg:flex-row gap-5">
 
                     {/* Left — content */}
-                    <div key={activeTab._key} className="flex flex-col lg:w-[45%] p-8 md:p-12 bg-white rounded-3xl shadow-[0_8px_40px_rgb(0,0,0,0.07)] border border-slate-100">
-                        <h3 className="text-4xl md:text-5xl font-bold text-[#0F172A] mb-3">
+                    <div key={activeTab._key} className="flex flex-col lg:w-[45%] p-8 pr-5 md:p-12 md:pr-5 bg-white rounded-3xl border border-slate-100">
+                        <h3 className="text-3xl md:text-[40px] font-bold text-[#1A202C] mb-3">
                             {content?.contentTitle}
                         </h3>
                         {content?.contentDescription && (
@@ -161,12 +161,12 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
 
                         {content?.features && content.features.length > 0 && (
                             <div className={showStatsOnBottom ? 'mt-0' : 'mt-6'}>
-                                <h4 className="font-bold text-[#0F172A] text-[11px] uppercase tracking-[0.2em] mb-4">
+                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4 font-[Sora] leading-none">
                                     Key Features
                                 </h4>
                                 <ul className="space-y-3">
                                     {content.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-center gap-3 text-[#334155]">
+                                        <li key={idx} className="flex items-center gap-3 text-[#4E4955]">
                                             <Image
                                                 src={feature.icon.url ?? ''}
                                                 width={11}
@@ -189,39 +189,36 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                         )}
 
                         {(content?.primaryButton?.text || content?.secondaryButton?.text) && (
-                            <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-8">
+                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap mt-auto pt-8">
                                 {content?.primaryButton?.text && (
-                                    <Link
+                                    <Button
+                                        variant="primary"
                                         href={content.primaryButton.internalLink || content.primaryButton.externalLink || '#'}
                                         target={content.primaryButton.externalLink ? '_blank' : '_self'}
+                                        showIcon={content.primaryButton.showIcon !== false}
+                                        className='tryon-primary-btn'
                                     >
-                                        <button className="w-full sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
-                                            {content.primaryButton.text}
-                                            {content.primaryButton.showIcon !== false && <ArrowUpRight size={17} />}
-                                        </button>
-                                    </Link>
+                                        {content.primaryButton.text}
+                                    </Button>
                                 )}
+
                                 {content?.secondaryButton?.text && (
-                                    <Link
+                                    <Button
+                                        variant="secondary"
                                         href={content.secondaryButton.internalLink || content.secondaryButton.externalLink || '#'}
                                         target={content.secondaryButton.externalLink ? '_blank' : '_self'}
+                                        icon={<svg fill="none" width="14" height="15" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3.5 xl:w-3.5 xl:h-4"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>}
+                                        showIcon={content.secondaryButton.showIcon !== false}
                                     >
-                                        <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
-                                            {content.secondaryButton.text}
-                                            {content.secondaryButton.showIcon !== false && (
-                                                <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/>
-                                                </svg>
-                                            )}
-                                        </button>
-                                    </Link>
+                                        {content.secondaryButton.text}
+                                    </Button>
                                 )}
                             </div>
                         )}
                     </div>
 
                     {/* Right — media */}
-                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center min-h-80 sm:min-h-105 bg-white rounded-3xl shadow-[0_8px_40px_rgb(0,0,0,0.07)] border border-slate-100 overflow-hidden">
+                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center min-h-80 sm:min-h-105 bg-white rounded-3xl border border-slate-100 overflow-hidden">
                         <TabMedia
                             imageUrl={content?.image?.url ?? ''}
                             imageAlt={content?.image?.alt ?? 'Industry Solution Image'}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { Container } from '@/components/ui'
+import { Button, Container } from '@/components/ui'
 import { BeautyFeatureGridSection as BeautyFeatureGridSectionProps } from '@/lib/types/section'
 import { SanityImage, SanityVideo } from '@/lib/types/siteSettings'
 
@@ -139,32 +139,29 @@ const BeautyFeatureGridSection = ({ data }: { data: BeautyFeatureGridSectionProp
                 </div>
 
                 {(primaryButton || secondaryButton) && (
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-10 md:mt-12">
+                    <div className="tryon-cta-buttons flex gap-3.5 justify-center mt-10 md:mt-12">
                         {primaryButton?.text && (
-                            <Link
+                            <Button
+                                variant="primary"
                                 href={primaryButton.internalLink || primaryButton.externalLink || '#'}
                                 target={primaryButton.externalLink ? '_blank' : '_self'}
+                                showIcon={primaryButton.showIcon !== false}
+                                className='tryon-primary-btn'
                             >
-                                <button className="w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-[14px] sm:text-[15px] flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-md shadow-black/10">
-                                    {primaryButton.text}
-                                    {primaryButton.showIcon !== false && <ArrowUpRight size={18} />}
-                                </button>
-                            </Link>
+                                {primaryButton.text}
+                            </Button>
                         )}
+
                         {secondaryButton?.text && (
-                            <Link
+                            <Button
+                                variant="secondary"
                                 href={secondaryButton.internalLink || secondaryButton.externalLink || '#'}
                                 target={secondaryButton.externalLink ? '_blank' : '_self'}
+                                icon={<svg fill="none" width="14" height="15" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3.5 xl:w-3.5 xl:h-4"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>}
+                                showIcon={secondaryButton.showIcon !== false}
                             >
-                                <button className="w-full cursor-pointer sm:w-auto bg-white text-[#2A2730] px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-[14px] sm:text-[15px] flex items-center justify-center gap-2 border border-[#EEEDF2] hover:bg-[#F0F0F3] transition-colors">
-                                    {secondaryButton.text}
-                                    {secondaryButton.showIcon !== false && (
-                                        <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z" />
-                                        </svg>
-                                    )}
-                                </button>
-                            </Link>
+                                {secondaryButton.text}
+                            </Button>
                         )}
                     </div>
                 )}
