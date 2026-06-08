@@ -125,7 +125,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         `lg:col-span-6 relative flex`,
                         'home' === page ? 'justify-center lg:justify-end' : 'justify-center'
                     )}>
-                        <div className="relative w-full max-w-105 lg:max-w-120">
+                        <div className={clsx('relative w-full', 'product-demo' !== page && 'max-w-105 lg:max-w-120')}>
                             {sectionVideo?.url && 'home' === page ? (
                                 <AutoInteractiveFrame />
                             ) : 'product-demo' === page ? (

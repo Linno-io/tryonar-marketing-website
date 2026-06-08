@@ -48,10 +48,14 @@ const CATEGORIES: ProductCategory[] = [
         ],
     },
     {
-        id: 'eyeshadow',
-        label: 'Eyeshadow',
-        thumbnail: '/interactive-demo/eyeshadow.webp',
-        colors: [],
+        id: 'foundation',
+        label: 'Foundation',
+        thumbnail: '/interactive-demo/foundation.webp',
+        colors: [
+            { name: 'Honey', hex: '#C8813A', image: '/product-demo-hero-section/foundation-honey.webp' },
+            { name: 'Caramel', hex: '#A0622A', image: '/product-demo-hero-section/foundation-caramel.webp' },
+            { name: 'Espresso', hex: '#6B3A1F', image: '/product-demo-hero-section/foundation-espresso.webp' },
+        ],
     },
     {
         id: 'eyeliner',
@@ -60,9 +64,9 @@ const CATEGORIES: ProductCategory[] = [
         colors: [],
     },
     {
-        id: 'foundation',
-        label: 'Foundation',
-        thumbnail: '/interactive-demo/foundation.webp',
+        id: 'eyeshadow',
+        label: 'Eyeshadow',
+        thumbnail: '/interactive-demo/eyeshadow.webp',
         colors: [],
     },
 ]
@@ -74,13 +78,21 @@ const CYCLE_SEQUENCE: { categoryId: string; colorIndex: number }[] = CATEGORIES.
 
 const FINISHES: Finish[] = ['Satin', 'Matte', 'Glossy']
 
+const IFRAME_URLS: Record<string, string> = {
+    lipstick: 'https://trystaging.tryonar.net/',
+    eyeshadow: 'https://trystaging.tryonar.net/?type=eyeshadow',
+    eyeliner: 'https://trystaging.tryonar.net/?type=eyeliner',
+    blush: 'https://trystaging.tryonar.net/?type=blush',
+    foundation: 'https://trystaging.tryonar.net/?type=foundation',
+}
+
 interface Props {
     priority?: boolean
 }
 
 const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
     const [cycleIdx, setCycleIdx] = useState(0)
-    const [activeFinish, setActiveFinish] = useState<Finish>('Matte')
+    const [activeFinish] = useState<Finish>('Matte')
     const [dividerPos, setDividerPos] = useState(50)
     const [showIframe, setShowIframe] = useState(false)
     const [iframeLoading, setIframeLoading] = useState(true)
@@ -116,6 +128,15 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
         if (resumeRef.current) clearTimeout(resumeRef.current)
         resumeRef.current = setTimeout(startCycle, RESUME_DELAY_MS)
     }, [startCycle])
+
+    useEffect(() => {
+        if (showIframe) {
+            if (timerRef.current) clearInterval(timerRef.current)
+            if (resumeRef.current) clearTimeout(resumeRef.current)
+        } else {
+            startCycle()
+        }
+    }, [showIframe, startCycle])
 
     const handleCategorySelect = useCallback((id: string) => {
         const idx = CYCLE_SEQUENCE.findIndex(s => s.categoryId === id)
@@ -166,31 +187,58 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
         }
     }, [onMouseMove, onUp, onTouchMove])
 
-    return (
-        <div className="flex items-center justify-center gap-4 select-none">
-            {/* Phone */}
-            <div className="relative" style={{ width: 295 }}>
-                <Image
-                    src={FRAME}
-                    alt="Phone frame"
-                    width={295}
-                    height={600}
-                    priority={priority}
-                    className="relative z-10 pointer-events-none w-full"
-                />
+    const sidebarItems = CATEGORIES.map((cat) => {
+        const isActive = activeCategoryId === cat.id
+        return (
+            <button
+                key={cat.id}
+                type="button"
+                onClick={() => handleCategorySelect(cat.id)}
+                className="relative flex items-center justify-center transition-all duration-200 cursor-pointer bg-white shrink-0"
+                style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: 12,
+                    border: isActive ? '2px solid #9F3AED' : '2px solid transparent',
+                    boxShadow: isActive ? 'none' : '0 2px 8px rgba(0,0,0,0.10)',
+                    opacity: cat.colors.length === 0 ? 0.45 : 1,
+                    padding: 4,
+                    overflow: 'hidden',
+                }}
+            >
+                <div className="relative w-full h-full rounded-lg overflow-hidden">
+                    <Image src={cat.thumbnail} alt={cat.label} fill sizes="48px" style={{ objectFit: 'cover' }} />
+                </div>
+            </button>
+        )
+    })
 
-                {/* Screen */}
-                <div
-                    ref={screenRef}
-                    className="absolute overflow-hidden cursor-ew-resize"
-                    style={{
-                        top: '3%',
-                        left: '5.9%',
-                        right: '5.9%',
-                        bottom: '3%',
-                        borderRadius: '40px',
-                        zIndex: 5,
-                    }}
+    return (
+        <div className="w-full select-none flex flex-col items-center gap-2" style={{ maxWidth: 643 }}>
+            {/* Phone frame + screen overlay + desktop sidebar */}
+            <div className="relative w-full">
+            <Image
+                src={FRAME}
+                alt="Phone frame"
+                width={1286}
+                height={1320}
+                priority={priority}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+                className="relative z-10 pointer-events-none"
+            />
+
+            {/* Screen */}
+            <div
+                ref={screenRef}
+                className="absolute overflow-hidden cursor-ew-resize rounded-tl-[20px] rounded-tr-[20px] sm:rounded-tl-[40px] sm:rounded-tr-[40px]"
+                style={{
+                    top: '3%',
+                    left: '14.9%',
+                    right: '5.9%',
+                    bottom: 0,
+                    zIndex: 5,
+                    width: '61%',
+                }}
                     onMouseDown={(e) => { isDragging.current = true; updatePos(e.clientX) }}
                     onTouchStart={(e) => { isDragging.current = true; updatePos(e.touches[0].clientX) }}
                 >
@@ -205,7 +253,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                 src={color.image}
                                 alt={color.name}
                                 fill
-                                sizes="295px"
+                                sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                                 priority={priority && i === 0}
                                 style={{
                                     objectFit: 'cover',
@@ -223,7 +271,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             src={BEFORE_IMAGE}
                             alt="Before"
                             fill
-                            sizes="295px"
+                            sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                             priority={priority}
                             style={{ objectFit: 'cover', zIndex: 1 }}
                         />
@@ -238,7 +286,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             src={BEFORE_IMAGE}
                             alt="Before"
                             fill
-                            sizes="295px"
+                            sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                             priority={priority}
                             style={{ objectFit: 'cover' }}
                         />
@@ -246,8 +294,14 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
 
                     {/* Divider line */}
                     <div
-                        className="absolute top-0 bottom-0 w-px bg-white pointer-events-none"
-                        style={{ left: `${dividerPos}%`, transform: 'translateX(-50%)', zIndex: 3 }}
+                        className="absolute top-0 bottom-0 pointer-events-none"
+                        style={{
+                            left: `${dividerPos}%`,
+                            transform: 'translateX(-50%)',
+                            zIndex: 3,
+                            width: 1.5,
+                            background: 'linear-gradient(to bottom, white 0%, white 70%, rgba(115,115,115,0) 79%, rgba(115,115,115,0) 100%)',
+                        }}
                     />
 
                     {/* Drag handle */}
@@ -271,31 +325,84 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                         </div>
                     </div>
 
-                    {/* Try on yourself */}
-                    <button
-                        type="button"
-                        onClick={() => { setShowIframe(true); setIframeLoading(true) }}
-                        className="absolute top-3 right-3 bg-[#202020]/90 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full cursor-pointer z-6 hover:bg-[#202020] transition-colors"
-                        style={{ fontFamily: 'Inter' }}
+                    {/* Right-side action buttons */}
+                    <div
+                        className="absolute flex flex-col gap-2"
+                        style={{ right: '2.55%', top: '47%', transform: 'translateY(-50%)', zIndex: 7 }}
                         onMouseDown={(e) => e.stopPropagation()}
                         onTouchStart={(e) => e.stopPropagation()}
                     >
-                        Try on yourself
-                    </button>
+                        {/* Compare toggle */}
+                        <button
+                            type="button"
+                            className="flex items-center justify-center rounded-full cursor-pointer transition-colors"
+                            style={{
+                                width: 40,
+                                height: 40,
+                                background: 'rgba(28,28,28,0.58)',
+                                backdropFilter: 'blur(2px)',
+                                border: '1px solid rgba(255,255,255,0.14)',
+                            }}
+                        >
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path d="M4.5 7L9 2.5 13.5 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M4.5 11L9 15.5 13.5 11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </button>
+                        {/* Undo */}
+                        <button
+                            type="button"
+                            className="flex items-center justify-center rounded-full cursor-pointer transition-colors"
+                            style={{
+                                width: 40,
+                                height: 40,
+                                background: 'rgba(28,28,28,0.58)',
+                                backdropFilter: 'blur(2px)',
+                                border: '1px solid rgba(255,255,255,0.14)',
+                            }}
+                        >
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path d="M2.25 9a6.75 6.75 0 1 0 1.98-4.77" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M2.25 4.5v4.5h4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </button>
+                        {/* Camera / Try on yourself */}
+                        <button
+                            type="button"
+                            onClick={() => { setShowIframe(true); setIframeLoading(true) }}
+                            className="flex items-center justify-center rounded-full cursor-pointer transition-colors"
+                            style={{
+                                width: 40,
+                                height: 40,
+                                background: 'rgba(28,28,28,0.58)',
+                                backdropFilter: 'blur(2px)',
+                                border: '1px solid rgba(255,255,255,0.14)',
+                            }}
+                        >
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path d="M16.5 13.5a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 13.5V6.75A1.5 1.5 0 0 1 3 5.25h2.25L6.75 3h4.5l1.5 2.25H15A1.5 1.5 0 0 1 16.5 6.75z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                <circle cx="9" cy="9.75" r="2.25" stroke="white" strokeWidth="1.5"/>
+                            </svg>
+                        </button>
+                    </div>
 
                     {/* Bottom overlay: colors + finish */}
                     <div
-                        className="absolute bottom-0 left-0 right-0 px-3 pb-4 pt-12"
+                        className="absolute bottom-0 left-0 right-0 px-2 pb-4 pt-12"
                         style={{
                             zIndex: 6,
                             background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
                             pointerEvents: 'none',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            gap: 10,
                         }}
                     >
                         {/* Color swatches */}
                         {activeCategory.colors.length > 0 && (
                             <div
-                                className="flex items-end justify-center gap-3 mb-3"
+                                className="flex items-end justify-center gap-2"
                                 style={{ pointerEvents: 'auto' }}
                                 onMouseDown={(e) => e.stopPropagation()}
                                 onTouchStart={(e) => e.stopPropagation()}
@@ -331,19 +438,12 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             </div>
                         )}
 
-                        {/* Finish pills */}
-                        <div
-                            className="flex items-center justify-center gap-2"
-                            style={{ pointerEvents: 'auto' }}
-                            onMouseDown={(e) => e.stopPropagation()}
-                            onTouchStart={(e) => e.stopPropagation()}
-                        >
+                        {/* Finish pills — display only */}
+                        <div className="flex items-center justify-center gap-1.5">
                             {FINISHES.map((finish) => (
-                                <button
+                                <span
                                     key={finish}
-                                    type="button"
-                                    onClick={(e) => { e.stopPropagation(); setActiveFinish(finish) }}
-                                    className="text-[11px] font-medium px-3.5 py-1 rounded-full cursor-pointer transition-all duration-200"
+                                    className="text-[10px] sm:text-[11px] font-medium px-2 sm:px-3.5 py-1 rounded-full"
                                     style={{
                                         background: activeFinish === finish ? 'white' : 'rgba(255,255,255,0.18)',
                                         color: activeFinish === finish ? '#111' : 'white',
@@ -352,7 +452,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                     }}
                                 >
                                     {finish}
-                                </button>
+                                </span>
                             ))}
                         </div>
                     </div>
@@ -363,7 +463,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             <button
                                 type="button"
                                 onClick={() => { setShowIframe(false); setIframeLoading(true) }}
-                                className="absolute top-2.5 left-3 z-30 w-9 h-9 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all cursor-pointer"
+                                className="absolute top-4 left-4 z-30 w-9 h-9 flex items-center justify-center bg-black hover:bg-black/20 backdrop-blur-sm rounded-full transition-all cursor-pointer"
                             >
                                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
                                     <path d="M15 5L5 15M5 5L15 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -380,7 +480,8 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             )}
 
                             <iframe
-                                src="https://trystaging.tryonar.net/"
+                                key={activeCategoryId}
+                                src={IFRAME_URLS[activeCategoryId] ?? 'https://trystaging.tryonar.net/'}
                                 className="w-full h-full"
                                 style={{ border: 'none' }}
                                 allow="camera"
@@ -389,36 +490,37 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             />
                         </div>
                     )}
-                </div>
             </div>
 
-            {/* Product category sidebar */}
-            <div className="flex flex-col gap-2.5">
-                {CATEGORIES.map((cat) => {
-                    const isActive = activeCategoryId === cat.id
-                    return (
-                        <button
-                            key={cat.id}
-                            type="button"
-                            onClick={() => handleCategorySelect(cat.id)}
-                            className="relative rounded-xl overflow-hidden transition-all duration-200 cursor-pointer"
-                            style={{
-                                width: 54,
-                                height: 54,
-                                boxShadow: isActive ? '0 0 0 2.5px #9F3AED' : '0 1px 4px rgba(0,0,0,0.12)',
-                                opacity: cat.colors.length === 0 ? 0.45 : isActive ? 1 : 0.75,
-                            }}
-                        >
-                            <Image
-                                src={cat.thumbnail}
-                                alt={cat.label}
-                                fill
-                                sizes="54px"
-                                style={{ objectFit: 'cover' }}
-                            />
-                        </button>
-                    )
-                })}
+            {/* Desktop sidebar — absolute overlay, sm+ only */}
+            <div
+                className="hidden sm:flex flex-col gap-1.5 sm:gap-2 p-1.5 sm:p-2"
+                style={{
+                    position: 'absolute',
+                    zIndex: 55,
+                    right: '3%',
+                    bottom: '6.06%',
+                    borderRadius: 16,
+                    border: '1px solid #E6E4EA',
+                    background: '#FFF',
+                    boxShadow: '0 30px 30px 0 rgba(0,0,0,0.08)',
+                }}
+            >
+                {sidebarItems}
+            </div>
+            </div>{/* end phone wrapper */}
+
+            {/* Mobile sidebar — horizontal row below phone, mobile only */}
+            <div
+                className="flex sm:hidden flex-row gap-2 overflow-x-auto w-full justify-center py-1 px-2"
+                style={{
+                    borderRadius: 16,
+                    border: '1px solid #E6E4EA',
+                    background: '#FFF',
+                    boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)',
+                }}
+            >
+                {sidebarItems}
             </div>
 
             <style jsx>{`
