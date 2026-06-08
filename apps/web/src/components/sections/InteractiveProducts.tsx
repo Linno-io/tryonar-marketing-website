@@ -66,7 +66,6 @@ const CATEGORIES: ProductCategory[] = [
             { name: 'Bronze',    hex: '#8B6914', image: '/landing-hero-section/eyeshadow-bronze.webp' },
             { name: 'Champagne', hex: '#F0D5A0', image: '/landing-hero-section/eyeshadow-champagne.webp' },
             { name: 'Mauve',     hex: '#B07898', image: '/landing-hero-section/eyeshadow-mauve.webp' },
-            { name: 'Rose Gold', hex: '#C4886E', image: '/landing-hero-section/eyeshadow-rose-gold.webp' },
             { name: 'Sapphire',  hex: '#2048A0', image: '/landing-hero-section/eyeshadow-sapphire.webp' },
             { name: 'Smoky',     hex: '#404040', image: '/landing-hero-section/eyeshadow-smoky.webp' },
         ],
@@ -359,7 +358,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
 
                     {/* Bottom overlay */}
                     <div
-                        className="absolute bottom-0 left-0 right-0 px-2 pb-4 pt-12"
+                        className="absolute bottom-0 left-0 right-0 px-6 pb-8 pt-12"
                         style={{
                             zIndex: 6,
                             background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
@@ -372,7 +371,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                     >
                         {activeCategory.colors.length > 0 && (
                             <div
-                                className="flex items-end justify-start gap-2 w-full"
+                                className="flex items-end justify-start gap-3 w-full"
                                 style={{ pointerEvents: 'auto' }}
                                 onMouseDown={(e) => e.stopPropagation()}
                                 onTouchStart={(e) => e.stopPropagation()}
@@ -405,7 +404,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                             </div>
                         )}
 
-                        <div className="flex items-center justify-start gap-1.5 w-full">
+                        <div className="flex items-center justify-start gap-3 w-full">
                             {FINISHES.map((finish) => (
                                 <span
                                     key={finish}

@@ -388,7 +388,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
 
                     {/* Bottom overlay: colors + finish */}
                     <div
-                        className="absolute bottom-0 left-0 right-0 px-2 pb-4 pt-12"
+                        className="absolute bottom-0 left-0 right-0 px-6 pb-8 pt-12"
                         style={{
                             zIndex: 6,
                             background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
@@ -402,7 +402,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                         {/* Color swatches */}
                         {activeCategory.colors.length > 0 && (
                             <div
-                                className="flex items-end justify-start gap-2 w-full"
+                                className="flex items-end justify-start gap-4 w-full"
                                 style={{ pointerEvents: 'auto' }}
                                 onMouseDown={(e) => e.stopPropagation()}
                                 onTouchStart={(e) => e.stopPropagation()}
@@ -439,7 +439,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                         )}
 
                         {/* Finish pills — display only */}
-                        <div className="flex items-center justify-start gap-1.5 w-full">
+                        <div className="flex items-center justify-start gap-3 w-full">
                             {FINISHES.map((finish) => (
                                 <span
                                     key={finish}
