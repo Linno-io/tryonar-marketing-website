@@ -13,10 +13,10 @@ const DotBackground: React.FC<DotBackgroundProps> = ({
   gap = 20,
   color = 'bg-slate-300',
   borderColor = 'border-slate-300',
-  className = 'h-32', 
+  className = '', 
 }) => {
   return (
-    <div className={`relative w-full overflow-hidden border ${borderColor} ${className}`}>
+    <div className={`relative h-17 md:h-32 w-full overflow-hidden border ${borderColor} ${className}`}>
       <div
         className={`absolute inset-0 h-full w-full ${color}`}
         style={{

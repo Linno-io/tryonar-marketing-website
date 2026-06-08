@@ -45,7 +45,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                 gap={20}
                                 color="bg-gray-300"
                                 borderColor="border-[#eeedf2]"
-                                className="h-32 w-full border-x"
+                                className="w-full border-x"
                             />
                         </Container>
                     )
@@ -119,7 +119,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                     </div>
 
                                     {rowIndex !== rows.length - 1 && (
-                                        <hr className="divider border-y border-[#E5E3EA] w-full h-25 bg-[#F8F8F9]" />
+                                        <hr className="divider border-y border-[#E5E3EA] w-full h-10 md:h-25 bg-[#F8F8F9]" />
                                     )}
                                 </Fragment>
                             ))

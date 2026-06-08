@@ -28,7 +28,7 @@ const ResourceSection = ({data}: {data: ResourceSectionProps}) => {
                                 gap={20}
                                 color="bg-gray-300"
                                 borderColor="border-[#eeedf2]"
-                                className="h-32 w-full border-x"
+                                className="w-full border-x"
                             />
                         </Container>
                     )

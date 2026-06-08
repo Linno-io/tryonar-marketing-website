@@ -49,12 +49,12 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                 <div className={clsx(
                     'grid gap-13',
                     customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12',
-                    'home' === page ? 'items-start max-[1100px]:items-end' : 'items-start'
+                    'home' === page ? 'items-start max-[1100px]:items-end' : 'items-start max-[1280px]:items-end'
                 )}>
                     <div className={clsx(
                         `flex flex-col text-left pt-0 lg:pt-10`,
                         customContainer ? 'lg:col-span-7' : 'lg:col-span-6',
-                        'home' === page ? 'md:pb-8' : ''
+                        'home' === page ? 'md:pb-8' : 'md:pb-8'
                     )}>
                         {
                             title && title.length > 0 && (
