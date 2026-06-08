@@ -214,7 +214,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
     })
 
     return (
-        <div className="w-full select-none flex flex-col items-center gap-2" style={{ maxWidth: 643 }}>
+        <div className="pb-7.5 sm:pb-0 w-full select-none flex flex-col items-center gap-2" style={{ maxWidth: 643 }}>
             {/* Phone frame + screen overlay + desktop sidebar */}
             <div className="relative w-full">
             <Image
@@ -512,9 +512,8 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
 
             {/* Mobile sidebar — horizontal row below phone, mobile only */}
             <div
-                className="flex sm:hidden flex-row gap-2 overflow-x-auto w-full justify-center py-1 px-2"
+                className="flex sm:hidden flex-row gap-2 overflow-x-auto w-full justify-center py-1 px-2 rounded-xl sm:rounded-2xl"
                 style={{
-                    borderRadius: 16,
                     border: '1px solid #E6E4EA',
                     background: '#FFF',
                     boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)',

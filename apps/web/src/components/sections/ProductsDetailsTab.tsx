@@ -126,7 +126,7 @@ function CtaButtons({ product }: { product: ProductDetail }) {
                     href={product.primaryButton.internalLink || product.primaryButton.externalLink || '#'}
                     target={product.primaryButton.externalLink ? '_blank' : '_self'}
                 >
-                    <button className="cursor-pointer bg-[#121212] text-white px-8 py-4 rounded-[14px] font-bold flex items-center gap-2 hover:scale-[1.02] transition-transform shadow-[0_8px_24px_rgba(0,0,0,0.18)] text-[15px]">
+                    <button className="cursor-pointer bg-[#121212] text-white px-5 py-3 sm:px-8 sm:py-4 rounded-[14px] font-bold flex items-center gap-2 hover:scale-[1.02] transition-transform shadow-[0_8px_24px_rgba(0,0,0,0.18)] text-sm sm:text-[15px]">
                         {product.primaryButton.text}
                         {product.primaryButton.showIcon !== false && <ArrowUpRight size={18} />}
                     </button>

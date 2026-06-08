@@ -36,7 +36,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
 
     return (
         <>
-            <section className="cards-section relative pb-16 md:pb-20 lg:pb-24 bg-white overflow-hidden z-10">
+            <section className="cards-section relative pb-10 sm:pb-16 md:pb-20 lg:pb-24 bg-white overflow-hidden z-10">
                 {
                     showDivider && (
                         <Container size="xl" padding={false} className="relative">
@@ -129,7 +129,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                         {
                             primaryButton && (
                                 <Link href={primaryButton?.internalLink || primaryButton?.externalLink || '#'} target={primaryButton?.externalLink ? '_blank' : '_self'}>
-                                    <button className="w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                                    <button className="mx-auto sm:mx-none sm:w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-5 sm:px-9 py-3 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5 text-sm sm:text-base">
                                         {primaryButton?.text}
                                         {primaryButton?.showIcon !== false ? <ArrowUpRight size={20} /> : null}
                                     </button>

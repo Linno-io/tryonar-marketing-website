@@ -232,7 +232,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-10 md:pt-14">
                         {primaryButton?.text && (
                             <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
-                                <button className="w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                                <button className="mx-auto sm:mx-none sm:w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-5 sm:px-9 py-3 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5 text-sm sm:text-base">
                                     {primaryButton.text}
                                     {primaryButton.showIcon !== false && <ArrowUpRight size={20} />}
                                 </button>

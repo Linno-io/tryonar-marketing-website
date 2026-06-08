@@ -214,7 +214,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
     })
 
     return (
-        <div className="select-none flex flex-col sm:flex-row items-center sm:items-end gap-3 w-full justify-center" style={{ maxWidth: 480 }}>
+        <div className="pb-7.5 sm:pb-0 select-none flex flex-col sm:flex-row items-center sm:items-end gap-3 w-full justify-center " style={{ maxWidth: 480 }}>
             {/* Phone */}
             <div className="relative w-full" style={{ maxWidth: 370 }}>
                 <Image
@@ -459,9 +459,8 @@ const InteractiveProducts = ({ priority = false }: Props) => {
 
             {/* Sidebar */}
             <div
-                className="flex sm:flex-col flex-row gap-1.5 sm:gap-2 p-1.5 sm:p-2 overflow-x-auto sm:overflow-visible w-full sm:w-auto justify-center sm:justify-start mb-2"
+                className="flex sm:flex-col flex-row gap-1.5 sm:gap-2 p-1.5 sm:p-2 overflow-x-auto sm:overflow-visible w-full sm:w-auto justify-center sm:justify-start mb-2 rounded-xl  sm:rounded-2xl"
                 style={{
-                    borderRadius: 16,
                     border: '1px solid #E6E4EA',
                     background: '#FFF',
                     boxShadow: '0 30px 30px 0 rgba(0,0,0,0.08)',

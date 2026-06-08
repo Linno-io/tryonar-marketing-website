@@ -107,7 +107,7 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
                         {
                             primaryButton && (
                                 <Link href={primaryButton?.internalLink || primaryButton?.externalLink || '#'} target={primaryButton?.externalLink ? '_blank' : '_self'}>
-                                    <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#1A202C] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                                    <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#1A202C] px-5 sm:px-9 py-3 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5 text-sm sm:text-base">
                                         {primaryButton?.text}
                                         {primaryButton?.showIcon !== false ? <ArrowUpRight size={20} /> : null}
                                     </button>
