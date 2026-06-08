@@ -238,6 +238,51 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
             {/* Pink glow — no overflow-hidden on section (would kill sticky) */}
             <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-[40vw] max-w-[500px] aspect-square rounded-full bg-[radial-gradient(circle,rgba(255,160,150,0.18),transparent_65%)] blur-3xl z-0" />
 
+            {/* ── Header + Tabs — scroll normally, not part of sticky track ── */}
+            <div className="relative z-10">
+                <Container withBorder className="w-full">
+                    <div className="text-center pt-16 md:pt-24 pb-5 lg:pb-7 shrink-0">
+                        <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-3 lg:mb-4">{tagline}</p>
+                        {title && title.length > 0 && (
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a202c] mb-2 lg:mb-3">
+                                {title.map((block, i) =>
+                                    block.type === 'normal' ? (
+                                        <Fragment key={i}>{block.text}</Fragment>
+                                    ) : (
+                                        <span key={i} className="text-[#838383] font-bold">{' ' + block.text + ' '}</span>
+                                    )
+                                )}
+                            </h2>
+                        )}
+                        {description && <p className="text-[#3E3E42] mx-auto text-base lg:text-lg leading-relaxed">{description}</p>}
+                    </div>
+
+                    {/* ── Tabs ── */}
+                    <div className="flex items-center justify-center flex-wrap gap-3 mb-5 lg:mb-7">
+                        {tabs.map((tab) => (
+                            <div key={tab._key} className="relative">
+                                {tab.comingSoon && (
+                                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
+                                        Soon
+                                    </span>
+                                )}
+                                <button
+                                    onClick={() => selectTab(tab)}
+                                    className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
+                                        activeTab._key === tab._key
+                                            ? 'border-[#FFA49B] challenge-active-tab'
+                                            : 'border-[#E5E3EA]'
+                                    } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
+                                >
+                                    {tab.tabLabel}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </div>
+
+            {/* ── Scroll track: products row + pagination only ── */}
             <div
                 ref={trackRef}
                 className="relative z-10"
@@ -246,47 +291,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                 <div className={isPinned ? 'sticky top-0 h-screen overflow-visible' : ''}>
                     {/* withBorder adds the visible left/right container borders */}
                     <Container withBorder className={`w-full ${isPinned ? 'h-full overflow-auto' : ''}`}>
-                        <div className={`flex flex-col ${isPinned ? 'h-full py-7 lg:py-9' : 'py-16 md:py-24'}`}>
-
-                            {/* ── Header ── */}
-                            <div className="text-center shrink-0 mb-5 lg:mb-7">
-                                <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-3 lg:mb-4">{tagline}</p>
-                                {title && title.length > 0 && (
-                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a202c] mb-2 lg:mb-3">
-                                        {title.map((block, i) =>
-                                            block.type === 'normal' ? (
-                                                <Fragment key={i}>{block.text}</Fragment>
-                                            ) : (
-                                                <span key={i} className="text-[#838383] font-bold">{' ' + block.text + ' '}</span>
-                                            )
-                                        )}
-                                    </h2>
-                                )}
-                                {description && <p className="text-[#3E3E42] mx-auto text-base lg:text-lg leading-relaxed">{description}</p>}
-                            </div>
-
-                            {/* ── Tabs ── */}
-                            <div className="flex items-center justify-center flex-wrap gap-3 shrink-0 mb-5 lg:mb-7">
-                                {tabs.map((tab) => (
-                                    <div key={tab._key} className="relative">
-                                        {tab.comingSoon && (
-                                            <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
-                                                Soon
-                                            </span>
-                                        )}
-                                        <button
-                                            onClick={() => selectTab(tab)}
-                                            className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
-                                                activeTab._key === tab._key
-                                                    ? 'border-[#FFA49B] challenge-active-tab'
-                                                    : 'border-[#E5E3EA]'
-                                            } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
-                                        >
-                                            {tab.tabLabel}
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
+                        <div className={`flex flex-col ${isPinned ? 'h-full pt-7 lg:pt-9' : 'pb-16 md:pb-24'}`}>
 
                             {/* ── Products row: border top+bottom, no horizontal padding, no gap ── */}
                             <div className={`-mx-2.5 sm:-mx-3 border-t border-b border-[#EEEDF2] flex flex-col lg:flex-row overflow-visible ${isPinned ? 'flex-1 min-h-auto' : ''}`}>
@@ -376,7 +381,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                             </div>
 
                             {/* ── Pagination bar ── */}
-                            <div className="flex items-center gap-3 sm:gap-5 shrink-0 mt-4 lg:mt-6 pb-4">
+                            <div className="flex items-center gap-3 sm:gap-5 shrink-0 mt-4 lg:mt-6 pb-4 lg:pb-6">
                                 <span className="text-xs sm:text-[13px] text-[#9A9A9A] whitespace-nowrap tracking-wide">
                                     {pad(safeIndex + 1)}
                                     <span className="mx-1.5 text-[#C9C9C9]">•</span>
