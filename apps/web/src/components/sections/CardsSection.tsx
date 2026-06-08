@@ -87,7 +87,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                     <div className="card-row flex flex-col md:flex-row gap-0 justify-between items-stretch">
                                         {row.map((card, index) => (
                                             <div className={`card flex-1 flex flex-col justify-between ${index === 0 ? 'md:border-r border-[#E5E3EA]' : ''} ${index === 0 && row.length > 1 ? 'border-b md:border-b-0 border-[#E5E3EA]' : ''}`} key={index}>
-                                                <div className="card-info p-6 sm:p-10 md:p-12 lg:p-15 pb-4 sm:pb-6 md:pb-7.5">
+                                                <div className="card-info p-6 sm:p-10 md:p-12 lg:p-8.75 pb-4 sm:pb-5 md:pb-6">
                                                     <div className='overflow-hidden'>
                                                         <Image 
                                                             src={card.image?.url || '/placeholder-image.png'}
@@ -107,7 +107,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
 
                                                 {
                                                     card.tags && card.tags.length > 0 && (
-                                                        <div className="card-tags bg-[linear-gradient(90deg,#ffffff_0%,#F8F8F9_50%,#ffffff_100%)] px-4 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-5 flex flex-wrap gap-2 sm:gap-2.5 items-center mt-auto">
+                                                        <div className="card-tags bg-[linear-gradient(90deg,#ffffff_0%,#F8F8F9_50%,#ffffff_100%)] px-4 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-5 flex flex-wrap gap-2 sm:gap-2.5 items-center">
                                                             {card.tags.map((tag, tagIndex) => (
                                                                 <span key={tagIndex} className="card-tag rounded-[100px] border border-[#E5E3EA] border-dashed px-3 sm:px-3.5 py-1.5 sm:py-2 flex items-center justify-center text-[#1A202C] text-sm sm:text-[15px] font-medium leading-none">{tag}</span>
                                                             ))}
