@@ -385,10 +385,10 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                                         className="flex flex-col items-center gap-1 cursor-pointer"
                                     >
                                         <div
-                                            className="rounded-full transition-all duration-200 shrink-0"
+                                            className="rounded-full shrink-0"
                                             style={{
-                                                width:  activeColorIndex === i ? 22 : 18,
-                                                height: activeColorIndex === i ? 22 : 18,
+                                                width: 32,
+                                                height: 32,
                                                 backgroundColor: color.hex,
                                                 outline: activeColorIndex === i ? '2px solid white' : 'none',
                                                 outlineOffset: '2px',

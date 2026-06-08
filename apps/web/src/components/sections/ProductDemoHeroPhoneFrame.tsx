@@ -396,13 +396,13 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'flex-start',
-                            gap: 10,
+                            gap: '20px',
                         }}
                     >
                         {/* Color swatches */}
                         {activeCategory.colors.length > 0 && (
                             <div
-                                className="flex items-end justify-center gap-2"
+                                className="flex items-end justify-start gap-2 w-full"
                                 style={{ pointerEvents: 'auto' }}
                                 onMouseDown={(e) => e.stopPropagation()}
                                 onTouchStart={(e) => e.stopPropagation()}
@@ -415,10 +415,10 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                         className="flex flex-col items-center gap-1 cursor-pointer"
                                     >
                                         <div
-                                            className="rounded-full transition-all duration-200 shrink-0"
+                                            className="rounded-full shrink-0"
                                             style={{
-                                                width: activeColorIndex === i ? 22 : 18,
-                                                height: activeColorIndex === i ? 22 : 18,
+                                                width: 32,
+                                                height: 32,
                                                 backgroundColor: color.hex,
                                                 outline: activeColorIndex === i ? '2px solid white' : 'none',
                                                 outlineOffset: '2px',
@@ -439,7 +439,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                         )}
 
                         {/* Finish pills — display only */}
-                        <div className="flex items-center justify-center gap-1.5">
+                        <div className="flex items-center justify-start gap-1.5 w-full">
                             {FINISHES.map((finish) => (
                                 <span
                                     key={finish}
