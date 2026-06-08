@@ -9,6 +9,7 @@ import HeroVideoWithFrame from './HeroVideoWithFrame'
 import InteractiveFrame from './InteractiveFrame'
 import clsx from 'clsx'
 import AutoInteractiveFrame from './AutoInteractiveFrame'
+import ProductDemoHeroPhoneFrame from './ProductDemoHeroPhoneFrame'
 
 interface HeroSectionProps {
     data: HeroSectionType,
@@ -124,9 +125,13 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         `lg:col-span-6 relative flex`,
                         'home' === page ? 'justify-center lg:justify-end' : 'justify-center'
                     )}>
-                        <div className="relative w-full max-w-105 lg:max-w-120">
+                        <div className={clsx('relative w-full', 'product-demo' !== page && 'max-w-105 lg:max-w-120')}>
                             {sectionVideo?.url && 'home' === page ? (
                                 <AutoInteractiveFrame />
+                            ) : 'product-demo' === page ? (
+                                <>
+                                    <ProductDemoHeroPhoneFrame />
+                                </>
                             ) : sectionVideo?.url ? (
                                 <HeroVideoWithFrame 
                                     data={data}
