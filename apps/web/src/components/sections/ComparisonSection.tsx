@@ -63,7 +63,7 @@ const ComparisonSection = ({data} : {data : ComparisonSectionProps}) => {
 
     return (
         <>
-            <section className="trust-cards-section relative p-[50px_0_60px] lg:p-[70px_0_80px] xl:p-[100px_0_110px] bg-[#F8F8F9] overflow-hidden z-10">
+            <section className="tryon-comparison relative p-[50px_0_60px] lg:p-[70px_0_80px] xl:p-[100px_0_110px] bg-[#F8F8F9] overflow-hidden z-10">
                 <Container>
                     <div className="section-title-wrapper text-center mb-9 xl:mb-12">
                         {
