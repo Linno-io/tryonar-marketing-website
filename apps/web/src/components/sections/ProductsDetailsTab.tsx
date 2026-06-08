@@ -243,9 +243,9 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                 className="relative z-10"
                 style={isPinned ? { height: `${total * 50}vh` } : undefined}
             >
-                <div className={isPinned ? 'sticky top-0 h-screen' : ''}>
+                <div className={isPinned ? 'sticky top-0 h-screen overflow-visible' : ''}>
                     {/* withBorder adds the visible left/right container borders */}
-                    <Container withBorder className={`w-full ${isPinned ? 'h-full' : ''}`}>
+                    <Container withBorder className={`w-full ${isPinned ? 'h-full overflow-auto' : ''}`}>
                         <div className={`flex flex-col ${isPinned ? 'h-full py-7 lg:py-9' : 'py-16 md:py-24'}`}>
 
                             {/* ── Header ── */}
@@ -289,7 +289,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                             </div>
 
                             {/* ── Products row: border top+bottom, no horizontal padding, no gap ── */}
-                            <div className={`-mx-2.5 sm:-mx-3 border-t border-b border-[#EEEDF2] flex flex-col lg:flex-row overflow-hidden ${isPinned ? 'flex-1 min-h-0' : ''}`}>
+                            <div className={`-mx-2.5 sm:-mx-3 border-t border-b border-[#EEEDF2] flex flex-col lg:flex-row overflow-visible ${isPinned ? 'flex-1 min-h-auto' : ''}`}>
 
                                 {/* LEFT — container stable for layout; content cross-fades */}
                                 <div className="flex flex-col lg:w-[46%] min-h-0 border-b lg:border-b-0 lg:border-r border-[#EEEDF2] overflow-hidden px-8 py-8 lg:px-15 lg:py-10">
@@ -376,7 +376,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                             </div>
 
                             {/* ── Pagination bar ── */}
-                            <div className="flex items-center gap-3 sm:gap-5 shrink-0 mt-4 lg:mt-6">
+                            <div className="flex items-center gap-3 sm:gap-5 shrink-0 mt-4 lg:mt-6 pb-2">
                                 <span className="text-xs sm:text-[13px] text-[#9A9A9A] whitespace-nowrap tracking-wide">
                                     {pad(safeIndex + 1)}
                                     <span className="mx-1.5 text-[#C9C9C9]">•</span>
