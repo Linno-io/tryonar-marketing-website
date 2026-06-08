@@ -156,6 +156,25 @@ export interface FAQSection extends Section {
   }[]
 }
 
+export interface ProductDetail {
+  _key?: string
+  productName?: string
+  image?: SanityImage
+  video?: { url: string }
+  contentTitle?: string
+  contentDescription?: string
+  features?: {
+    featureTitle: string
+    icon: SanityImage
+  }[]
+  stats?: {
+    label: string
+    value: string
+  }[]
+  primaryButton?: Button
+  secondaryButton?: Button
+}
+
 export interface ProductsDetailsTabSection extends Section {
   _type: 'productsDetailsTabType'
   _key: string
@@ -166,22 +185,8 @@ export interface ProductsDetailsTabSection extends Section {
     _key: string
     comingSoon: boolean
     tabLabel: string
-    tabContent: {
-      image?: SanityImage
-      video?: { url: string }
-      contentTitle?: string
-      contentDescription?: string
-      features?: {
-        featureTitle: string
-        icon: SanityImage
-      }[]
-      stats: {
-        label: string
-        value: string
-      }[]
-      primaryButton?: Button
-      secondaryButton?: Button
-    }
+    tabContent?: ProductDetail
+    products?: ProductDetail[]
   }[]
   showStatsOnBottom: boolean
   paddingBottom?: boolean

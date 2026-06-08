@@ -492,14 +492,6 @@
     }
   }
 
-  @media (width < 40rem /* 640px */) {
-    .gradient-border:before {
-      width: 100%;
-      height: 2px;
-      top: -15px;
-    }
-  }
-
   .user-stories-page-container .text-hero-section:before{
     top: -70%;
   }
