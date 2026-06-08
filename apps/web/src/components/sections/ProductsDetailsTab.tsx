@@ -262,8 +262,8 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                         {tabs.map((tab) => (
                             <div key={tab._key} className="relative">
                                 {tab.comingSoon && (
-                                    <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
-                                        Soon
+                                    <span className="absolute -top-2.5 left-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
+                                        Coming Soon
                                     </span>
                                 )}
                                 <button
