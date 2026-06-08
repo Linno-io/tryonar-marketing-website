@@ -88,7 +88,7 @@ const DEMO_SLIDES: ProductDetail[] = DEMO_PRODUCTS.map((p) => ({
     image: { url: p.img, alt: p.name },
     features: p.features.map((f) => ({ featureTitle: f, icon: { url: '', alt: '' } })),
     stats: DEMO_STATS,
-    primaryButton: { text: 'Try Demo', externalLink: p.demoUrl, showIcon: true },
+    primaryButton: { text: 'Try It Yourself', externalLink: p.demoUrl, showIcon: true },
 }));
 
 function getSlides(tab: ProductsDetailsTabSectionProps['tabs'][number]): ProductDetail[] {
@@ -376,7 +376,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                             </div>
 
                             {/* ── Pagination bar ── */}
-                            <div className="flex items-center gap-3 sm:gap-5 shrink-0 mt-4 lg:mt-6 pb-2">
+                            <div className="flex items-center gap-3 sm:gap-5 shrink-0 mt-4 lg:mt-6 pb-4">
                                 <span className="text-xs sm:text-[13px] text-[#9A9A9A] whitespace-nowrap tracking-wide">
                                     {pad(safeIndex + 1)}
                                     <span className="mx-1.5 text-[#C9C9C9]">•</span>

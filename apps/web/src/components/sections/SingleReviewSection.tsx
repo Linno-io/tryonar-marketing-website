@@ -47,7 +47,7 @@ const SingleReviewSection = ({data} : {data : SingleReviewSectionProps}) => {
                                 height={40}
                                 className='w-9 h-9 md:w-10 md:h-10 object-cover rounded-full'
                             />
-                            <p className='text-[#221A4F] text-sm md:text-base font-semibold mt-3 md:mt-3.5'>{data.author.name}</p>
+                            <p className='text-[#1A202C] text-sm md:text-base font-semibold mt-3 md:mt-3.5'>{data.author.name}</p>
                             <p className='text-[#646464] text-xs md:text-sm'>{data.author.position}</p>
                         </div>
 

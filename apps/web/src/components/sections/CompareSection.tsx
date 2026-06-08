@@ -27,7 +27,7 @@ const CompareSection = ({data} : {data: CompareSectionProps}) => {
                         <div className="text-center max-w-3xl mx-auto">
                             {
                                 title && title.length > 0 && (
-                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#221A4F] mb-3 md:mb-4">
+                                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A202C] mb-3 md:mb-4">
                                         {
                                             title.map((block, index) => {
                                                 if(block.type === 'normal') {
