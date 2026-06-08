@@ -242,18 +242,36 @@ Components are organized by purpose:
 
 TypeScript types for content are defined in `apps/web/src/lib/types/`. Update these when modifying schemas to maintain type safety.
 
+## 🌿 Branch Strategy & CI/CD
+
+| Branch | Environment | URL |
+|--------|-------------|-----|
+| `develop` | Staging | [https://tryonar-staging.netlify.app](https://tryonar-staging.netlify.app) |
+| `master` | Production | [https://tryonar.net](https://tryonar.net) |
+
+**All development work must be done on the `develop` branch** (or feature branches that merge into `develop`). Both branches have automated CI/CD via Netlify — pushes deploy automatically.
+
+### Workflow
+
+```
+feature/your-feature  →  develop  →  master
+                           ↓              ↓
+                        Staging       Production
+```
+
+1. Branch off `develop`: `git checkout -b feature/your-feature develop`
+2. Work, commit, push
+3. Open PR → `develop` (deploys to staging on merge)
+4. Verify on [staging](https://tryonar-staging.netlify.app)
+5. Open PR → `master` when ready for production
+
 ## 🚢 Deployment
 
 ### Deploying to Netlify
 
-The project is configured for deployment on Netlify. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+CI/CD is configured on both branches. No manual deploy steps needed — push to the branch and Netlify handles the rest.
 
-**Quick Deploy Steps:**
-
-1. Push your code to GitHub/GitLab/Bitbucket
-2. Connect your repository to Netlify
-3. Configure environment variables in Netlify dashboard
-4. Deploy!
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for environment variable setup and advanced configuration.
 
 ### Deploying Sanity Studio
 

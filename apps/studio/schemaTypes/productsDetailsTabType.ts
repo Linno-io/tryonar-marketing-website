@@ -227,6 +227,146 @@ export const productsDetailsTabType = defineType({
                                 },
                             ]
                         },
+                        {
+                            name: 'products',
+                            title: 'Products (Slider)',
+                            type: 'array',
+                            hidden: ({ parent }) => parent?.comingSoon === true,
+                            description: 'Products shown as a scroll/arrow paginated slider inside this tab. Each product becomes one slide.',
+                            of: [
+                                {
+                                    type: 'object',
+                                    name: 'product',
+                                    title: 'Product',
+                                    fields: [
+                                        {
+                                            name: 'productName',
+                                            title: 'Product Name',
+                                            type: 'string',
+                                            validation: (rule) => rule.required(),
+                                            description: 'Short label shown in the slider pagination (e.g. "Lipstick")',
+                                        },
+                                        {
+                                            name: 'image',
+                                            title: 'Image / Poster',
+                                            type: 'image',
+                                            fields: [
+                                                { name: 'alt', title: 'Alt Text', type: 'string' },
+                                            ],
+                                            description: 'Image for this product. Used as poster when video is present.',
+                                        },
+                                        {
+                                            name: 'video',
+                                            title: 'Video',
+                                            type: 'file',
+                                            options: { accept: 'video/*' },
+                                        },
+                                        {
+                                            name: 'contentTitle',
+                                            title: 'Content Title',
+                                            type: 'string',
+                                        },
+                                        {
+                                            name: 'contentDescription',
+                                            title: 'Content Description',
+                                            type: 'text',
+                                            rows: 3,
+                                        },
+                                        {
+                                            name: 'features',
+                                            title: 'Features',
+                                            type: 'array',
+                                            of: [
+                                                {
+                                                    type: 'object',
+                                                    name: 'feature',
+                                                    title: 'Feature',
+                                                    fields: [
+                                                        {
+                                                            name: 'featureTitle',
+                                                            title: 'Feature Title',
+                                                            type: 'string',
+                                                            validation: (rule) => rule.required(),
+                                                        },
+                                                        {
+                                                            name: 'icon',
+                                                            title: 'Icon',
+                                                            type: 'image',
+                                                            fields: [
+                                                                {
+                                                                    name: 'alt',
+                                                                    title: 'Alt Text',
+                                                                    type: 'string',
+                                                                },
+                                                            ],
+                                                            description: 'Optional icon. Falls back to a checkmark when empty.',
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                        {
+                                            name: 'stats',
+                                            title: 'Statistics',
+                                            type: 'array',
+                                            of: [
+                                                {
+                                                    type: 'object',
+                                                    name: 'statistic',
+                                                    title: 'Statistic',
+                                                    fields: [
+                                                        {
+                                                            name: 'label',
+                                                            title: 'Label',
+                                                            type: 'string',
+                                                            validation: (rule) => rule.required(),
+                                                        },
+                                                        {
+                                                            name: 'value',
+                                                            title: 'Value',
+                                                            type: 'string',
+                                                            validation: (rule) => rule.required(),
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                        {
+                                            name: 'primaryButton',
+                                            title: 'Primary Button',
+                                            type: 'object',
+                                            fields: [
+                                                { name: 'text', title: 'Button Text', type: 'string' },
+                                                { name: 'internalLink', title: 'Internal Link', type: 'reference', to: [{ type: 'page' }] },
+                                                { name: 'externalLink', title: 'External Link', type: 'url', validation: Rule => Rule.uri({ scheme: ['http', 'https'] }) },
+                                                { name: 'showIcon', title: 'Show Icon', type: 'boolean', initialValue: true },
+                                            ],
+                                        },
+                                        {
+                                            name: 'secondaryButton',
+                                            title: 'Secondary Button',
+                                            type: 'object',
+                                            fields: [
+                                                { name: 'text', title: 'Button Text', type: 'string' },
+                                                { name: 'internalLink', title: 'Internal Link', type: 'reference', to: [{ type: 'page' }] },
+                                                { name: 'externalLink', title: 'External Link', type: 'url', validation: Rule => Rule.uri({ scheme: ['http', 'https'] }) },
+                                                { name: 'showIcon', title: 'Show Icon', type: 'boolean', initialValue: true },
+                                            ],
+                                        },
+                                    ],
+                                    preview: {
+                                        select: { title: 'productName', media: 'image' },
+                                        prepare(sel: { title?: string; media?: any }) {
+                                            return {
+                                                title: sel.title || 'Product',
+                                                subtitle: 'Product',
+                                                media: sel.media,
+                                            }
+                                        },
+                                    },
+                                },
+                            ],
+                        },
                     ]
                 }
             ],
