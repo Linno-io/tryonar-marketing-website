@@ -105,11 +105,11 @@ const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
             {data.map(({ label, value }, index) => (
                 <div
                     key={label + index}
-                    className={`flex-1 flex items-center justify-center text-center px-4 relative ${index === 0 ? '' : 'gradient-border'}`}
+                    className={`flex-1 flex items-center justify-center text-center px-2 md:px-4 relative ${index === 0 ? '' : 'gradient-border'}`}
                 >
                     <div>
                         <div className="text-2xl sm:text-[28px] font-medium text-[#838383] tracking-tight">{value}</div>
-                        <div className="text-[16px] text-[#646464]">{label}</div>
+                        <div className="text-sm md:text-[16px] text-[#646464]">{label}</div>
                     </div>
                 </div>
             ))}
