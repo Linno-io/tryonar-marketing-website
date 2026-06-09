@@ -522,15 +522,19 @@
 .bfg-extra-img-3,
 .bfg-extra-img-5 {
     position: absolute;
-    bottom: 5px;
+    bottom: 20px;
     width: 90%;
     height: auto;
     left: 50%;
     transform: translateX(-50%);
 }
 
+.bfg-extra-img-1 {
+  width: 75%;
+}
+
 .bfg-extra-img-5 {
-  bottom: 35px;
+  bottom: 16px;
 }
 
 .toa-interactive-frame {

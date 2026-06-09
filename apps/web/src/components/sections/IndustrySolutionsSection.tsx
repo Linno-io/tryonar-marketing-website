@@ -13,7 +13,7 @@ const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) =
     if (!data || data.length === 0) return null;
 
     return (
-        <div className="bg-[#F8F8F9] flex flex-col sm:flex-row px-4 py-5 rounded-xl gap-4 sm:gap-0">
+        <div className="bg-[#F8F8F9] flex flex-col sm:flex-row px-2 md:px-4 py-5 rounded-xl gap-4 sm:gap-0">
             {data.map(({ label, value }, index) => (
                 <div
                     key={label}
@@ -23,7 +23,7 @@ const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) =
                         <div className="text-2xl sm:text-[28px] font-medium text-[#838383] tracking-tight">
                             {value}
                         </div>
-                        <div className="text-[16px] text-[#646464]">
+                        <div className="text-sm md:text-[16px] text-[#646464]">
                             {label}
                         </div>
                     </div>
@@ -64,11 +64,11 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
     };
 
     return (
-        <div ref={containerRef} className="relative w-full h-full flex items-center justify-center p-8 pb-0">
+        <div ref={containerRef} className="relative bg-cover bg-no-repeat w-full h-full flex items-center justify-center p-8 pb-0" style={{backgroundImage: 'url(/card-bg.webp)'}}>
             <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-h-130 w-auto object-contain"
+                className="max-h-118 w-auto object-contain"
                 style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
             {videoSrc && (
@@ -125,7 +125,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     {tabs.map((tab) => (
                         <div key={tab._key} className="relative">
                             {tab.comingSoon && (
-                                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
+                                <span className="absolute -top-2.5 -right-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
                                     Coming Soon
                                 </span>
                             )}
@@ -157,14 +157,14 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                             </p>
                         )}
 
-                        {!showStatsOnBottom && <StatsSection data={content?.stats} />}
+                        {/* {!showStatsOnBottom && <StatsSection data={content?.stats} />} */}
 
                         {content?.features && content.features.length > 0 && (
-                            <div className={showStatsOnBottom ? 'mt-0' : 'mt-6'}>
-                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4 font-[Sora] leading-none">
+                            <div>
+                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4.5 font-[Sora] leading-none">
                                     Key Features
                                 </h4>
-                                <ul className="space-y-3">
+                                <ul className="space-y-4.5">
                                     {content.features.map((feature, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-[#4E4955]">
                                             <Image
@@ -189,7 +189,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                         )}
 
                         {(content?.primaryButton?.text || content?.secondaryButton?.text) && (
-                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap mt-auto pt-8">
+                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap pt-8">
                                 {content?.primaryButton?.text && (
                                     <Button
                                         variant="primary"
@@ -232,7 +232,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-10 md:pt-14">
                         {primaryButton?.text && (
                             <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
-                                <button className="w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5">
+                                <button className="mx-auto sm:mx-none sm:w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-5 sm:px-9 py-3 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5 text-sm sm:text-base">
                                     {primaryButton.text}
                                     {primaryButton.showIcon !== false && <ArrowUpRight size={20} />}
                                 </button>

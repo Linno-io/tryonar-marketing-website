@@ -306,7 +306,7 @@ export interface EcommerceChallengeSection extends Section {
     tabId: string
     tabLabel: string
     title: string
-    value: string
+    value?: string
     contentDescription?: string,
     featureTitle: string
     features: string[]
@@ -560,6 +560,7 @@ export interface BeautyFeatureGridSection extends Section {
     image: SanityImage
     video?: SanityVideo
     extraImage?: SanityImage
+    cardButton?: Button
   }[]
   primaryButton?: Button
   secondaryButton?: Button
