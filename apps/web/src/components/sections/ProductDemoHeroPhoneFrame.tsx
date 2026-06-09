@@ -498,8 +498,8 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                 style={{
                     position: 'absolute',
                     zIndex: 55,
-                    right: '3%',
-                    bottom: '6.06%',
+                    right: '7%',
+                    bottom: '3%',
                     borderRadius: 16,
                     border: '1px solid #E6E4EA',
                     background: '#FFF',
