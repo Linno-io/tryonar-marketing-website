@@ -52,7 +52,7 @@ export default function Footer(props: FooterProps ) {
                         </div>
 
                         <p className="text-[#E7E5EAB2] text-[13px] leading-relaxed mb-8 max-w-[280px]">
-                            {copyrightText}
+                            &copy; {new Date().getFullYear()} {copyrightText}
                         </p>
 
                         <div className="flex items-center gap-3">
