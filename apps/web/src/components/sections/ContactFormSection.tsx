@@ -145,7 +145,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                         <button
                             type="submit"
                             disabled={status === 'loading' || status === 'success'}
-                            className="w-full h-[60px] bg-[#202020] text-white font-bold text-[18px] rounded-2xl flex items-center justify-center gap-2.5 shadow-[20px_20px_30px_rgba(59,26,115,0.2)] hover:shadow-[20px_20px_30px_rgba(59,26,115,0)] transition-shadow duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                            className="w-full px-5 sm:px-9 py-3 sm:py-4.5 bg-[#151515] text-white font-bold text-sm sm:text-[18px] rounded-lg sm:rounded-2xl flex items-center justify-center gap-2.5 shadow-[20px_20px_30px_rgba(59,26,115,0.2)] hover:shadow-[20px_20px_30px_rgba(59,26,115,0)] transition-shadow duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                         >
                             {status === 'loading' ? 'Sending…' : status === 'success' ? 'Sent!' : submitButtonText}
                             {status !== 'loading' && status !== 'success' && <SendIcon />}
@@ -159,14 +159,14 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                             {termsText}{' '}
                             <a
                                 href={termsLinkUrl || '#'}
-                                className="font-medium text-[#202020] underline underline-offset-2"
+                                className="font-medium text-[#151515] underline underline-offset-2"
                             >
                                 {termsLinkText}
                             </a>
                             {' '}and{' '}
                             <a
                                 href={privacyLinkUrl || '#'}
-                                className="font-medium text-[#202020] underline underline-offset-2"
+                                className="font-medium text-[#151515] underline underline-offset-2"
                             >
                                 {privacyLinkText}
                             </a>
