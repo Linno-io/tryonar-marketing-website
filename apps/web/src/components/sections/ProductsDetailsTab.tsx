@@ -241,7 +241,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
             {/* ── Header + Tabs — scroll normally, not part of sticky track ── */}
             <div className="relative z-10">
                 <Container withBorder className="w-full">
-                    <div className="text-center pt-16 md:pt-24 pb-5 lg:pb-7 shrink-0">
+                    <div className="text-center pt-16 md:pt-24 pb-10 lg:pb-12 shrink-0">
                         <p className="text-[#8b5cf6] font-bold tracking-[0.2em] text-[12px] uppercase mb-3 lg:mb-4">{tagline}</p>
                         {title && title.length > 0 && (
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a202c] mb-2 lg:mb-3">
@@ -257,28 +257,6 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                         {description && <p className="text-[#3E3E42] mx-auto text-base lg:text-lg leading-relaxed">{description}</p>}
                     </div>
 
-                    {/* ── Tabs ── */}
-                    <div className="flex items-center justify-center flex-wrap gap-3 mb-5 lg:mb-7">
-                        {tabs.map((tab) => (
-                            <div key={tab._key} className="relative">
-                                {tab.comingSoon && (
-                                    <span className="absolute -top-2.5 -right-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
-                                        Coming Soon
-                                    </span>
-                                )}
-                                <button
-                                    onClick={() => selectTab(tab)}
-                                    className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
-                                        activeTab._key === tab._key
-                                            ? 'border-[#FFA49B] challenge-active-tab'
-                                            : 'border-[#E5E3EA]'
-                                    } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
-                                >
-                                    {tab.tabLabel}
-                                </button>
-                            </div>
-                        ))}
-                    </div>
                 </Container>
             </div>
 
@@ -291,7 +269,30 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                 <div className={isPinned ? 'sticky top-0 h-screen overflow-visible' : ''}>
                     {/* withBorder adds the visible left/right container borders */}
                     <Container withBorder className={`w-full ${isPinned ? 'h-full overflow-auto' : ''}`}>
-                        <div className={`flex flex-col ${isPinned ? 'h-full pt-7 lg:pt-9' : 'pb-16 md:pb-24'}`}>
+                        <div className={`flex flex-col ${isPinned ? 'h-full pt-5 lg:pt-6' : 'pb-16 md:pb-24'}`}>
+
+                            {/* ── Tabs ── */}
+                            <div className="flex items-center justify-center flex-wrap gap-3 mb-5 lg:mb-6 shrink-0">
+                                {tabs.map((tab) => (
+                                    <div key={tab._key} className="relative">
+                                        {tab.comingSoon && (
+                                            <span className="absolute -top-2.5 -right-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
+                                                Coming Soon
+                                            </span>
+                                        )}
+                                        <button
+                                            onClick={() => selectTab(tab)}
+                                            className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
+                                                activeTab._key === tab._key
+                                                    ? 'border-[#FFA49B] challenge-active-tab'
+                                                    : 'border-[#E5E3EA]'
+                                            } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
+                                        >
+                                            {tab.tabLabel}
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
 
                             {/* ── Products row: border top+bottom, no horizontal padding, no gap ── */}
                             <div className={`-mx-2.5 sm:-mx-3 border-t border-b border-[#EEEDF2] flex flex-col lg:flex-row overflow-visible ${isPinned ? 'flex-1 min-h-auto' : ''}`}>
