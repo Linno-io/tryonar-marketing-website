@@ -1,15 +1,19 @@
 import { TextHeroSection as TextHeroSectionProps } from '@/lib/types/section';
 import { Fragment, memo } from 'react';
 import { Container } from '../ui';
+import clsx from 'clsx';
 
-const TextHeroSection = ({data} : {data: TextHeroSectionProps}) => {
+const TextHeroSection = ({data, page} : {data: TextHeroSectionProps, page: string}) => {
     const {
         title,
         description,
     } = data;
 
     return (
-        <section className="text-hero-section relative bg-[#F8F8F9] overflow-hidden pt-30 pb-16 lg:pt-[203px] lg:pb-25 border-b border-[#eeedf2]">      
+        <section className={clsx(
+            'text-hero-section relative overflow-hidden pt-30 pb-16 lg:pt-[203px] lg:pb-25 border-b border-[#eeedf2]',
+            'pricing' === page ? 'bg-[#F8F8F9]' : 'bg-white'
+        )}>      
             <Container className="relative z-10">
                 <div className="text-center mx-auto px-4">
                     {
