@@ -196,7 +196,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                             </h3>
                         )}
                         {contentDescription && (
-                            <p className="text-[#E7E5EA] text-sm md:text-[15px] leading-relaxed mb-8 max-w-md">
+                            <p className="text-[#E7E5EA] text-base md:text-[18px] leading-relaxed mb-8 max-w-md">
                                 {contentDescription}
                             </p>
                         )}
