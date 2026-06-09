@@ -26,11 +26,11 @@ export default function Button({
 	const baseStyles = 'inline-flex items-center justify-center font-bold leading-[1.2] gap-2 xl:gap-[10px] border rounded-xl xl:rounded-2xl transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-sm xl:text-base px-5 py-3 xl:px-[27px] xl:py-[18px]'
 
 	const variants = {
-		primary: 'bg-[#202020] text-white border-transparent shadow-[20px_20px_60px_0_rgba(59,26,115,0.20)] hover:shadow-[20px_20px_60px_0_rgba(59,26,115,0)]',
+		primary: 'bg-[#151515] text-white border-transparent shadow-[20px_20px_60px_0_rgba(59,26,115,0.20)] hover:shadow-[20px_20px_60px_0_rgba(59,26,115,0)]',
 		secondary: 'bg-[#F0F1F0] text-[#202020] border-transparent hover:bg-gray-300',
 		outline: 'bg-transparent border-[#202020] text-[#202020] hover:bg-gray-50',
 		primary_ghost: 'bg-[#F0F1F0] text-[#2A2730] border-transparent',
-		secondary_ghost: 'bg-[#202020] text-white border-transparent',
+		secondary_ghost: 'bg-[#151515] text-white border-transparent',
 	}
 
 	const sizes = {

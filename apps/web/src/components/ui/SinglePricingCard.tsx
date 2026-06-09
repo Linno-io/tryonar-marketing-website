@@ -50,7 +50,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                             )
                         }
                         <Link href={card.primaryButton.internalLink || card.primaryButton.externalLink || '#'} target={card.primaryButton.externalLink ? '_blank' : '_self'}>
-                            <button className={`cursor-pointer rounded-xl w-full h-10 md:h-11 text-center text-sm md:text-base font-semibold leading-none ${card.isPopular ? 'bg-[#FFFFFF] text-[#202020]' : card.customPricingText ? 'bg-[#F0F1F0] text-[#202020]' : 'bg-[#202020] text-[#FFFFFF]'}`}>
+                            <button className={`cursor-pointer rounded-xl w-full h-10 md:h-11 text-center text-sm md:text-base font-semibold leading-none ${card.isPopular ? 'bg-[#FFFFFF] text-[#202020]' : card.customPricingText ? 'bg-[#F0F1F0] text-[#202020]' : 'bg-[#151515] text-[#FFFFFF]'}`}>
                                 {card.primaryButton.text}
                             </button>
                         </Link>

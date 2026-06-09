@@ -93,7 +93,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
                             currentPlan.primaryButton && currentPlan.primaryButton.text && (
                                 <Link href={currentPlan.primaryButton.internalLink || currentPlan.primaryButton.externalLink || '#'} target={currentPlan.primaryButton.externalLink ? '_blank' : '_self'}>
                                     <button
-                                        className={`rounded-xl cursor-pointer text-center w-full p-2 md:p-2.5 text-sm md:text-base font-semibold ${currentPlan.isPrimary ? 'text-white bg-[#202020]'  : 'text-[#202020] bg-[#F0F1F0]'}`}
+                                        className={`rounded-xl cursor-pointer text-center w-full p-2 md:p-2.5 text-sm md:text-base font-semibold ${currentPlan.isPrimary ? 'text-white bg-[#151515]'  : 'text-[#202020] bg-[#F0F1F0]'}`}
                                     >
                                         {currentPlan.primaryButton.text}
                                     </button>
@@ -145,7 +145,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
                                     plan.primaryButton && plan.primaryButton.text && (
                                         <Link href={plan.primaryButton.internalLink || plan.primaryButton.externalLink || '#'} target={plan.primaryButton.externalLink ? '_blank' : '_self'}>
                                             <button
-                                                className={`rounded-xl cursor-pointer text-center w-full p-2.5 text-base font-semibold ${plan.isPrimary ? 'text-white bg-[#202020]'  : 'text-[#202020] bg-[#F0F1F0]'}`}
+                                                className={`rounded-xl cursor-pointer text-center w-full p-2.5 text-base font-semibold ${plan.isPrimary ? 'text-white bg-[#151515]'  : 'text-[#202020] bg-[#F0F1F0]'}`}
                                             >
                                                 {plan.primaryButton.text}
                                             </button>
