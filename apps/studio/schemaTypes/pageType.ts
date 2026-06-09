@@ -43,6 +43,7 @@ export const pageType = defineType({
         { type: 'beautyFeatureGridSectionType' },
         { type: 'instantTryOnSectionType' },
         { type: 'productsDetailsTabType' },
+        { type: 'contactFormSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),
