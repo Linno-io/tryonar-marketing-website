@@ -32,7 +32,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                     <div className='mt-auto w-full flex flex-col gap-6 md:gap-7 lg:gap-8'>
                         {
                             card.price && card.duration && (
-                                <div className='mt-6 md:mt-8 lg:mt-10'>
+                                <div className='mt-4 md:mt-6 lg:mt-8'>
                                     <p className={`text-3xl md:text-4xl lg:text-[40px] font-bold leading-none ${card.isPopular ? 'text-[#FFFFFFE5]' : 'text-[#000000E5]'}`}>
                                         ${card.price}
                                         <sub className={`${card.isPopular ? 'text-[#989898]' : 'text-[#646464]'} text-xs md:text-sm lg:text-[14px] font-normal ml-2 align-baseline`}>

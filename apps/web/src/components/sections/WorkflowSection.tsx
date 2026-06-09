@@ -14,8 +14,8 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
     return (
         <>
             <section className="workflow-section relative bg-[#F8F8F9] overflow-hidden border-b border-[#eeedf2]">
-                <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[224px] lg:pb-28" withBorder={true} size="xl">
-                    <div className="text-center mx-auto px-4 pb-10 md:pb-30 border-[#E5E3EA] border-b">
+                <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[203px] lg:pb-28" withBorder={true} size="xl">
+                    <div className="text-center mx-auto px-4 pb-10 md:pb-25 border-[#E5E3EA] border-b">
                         {
                             title && title.length > 0 && (
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A202C]">

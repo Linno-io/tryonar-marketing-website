@@ -9,7 +9,7 @@ const TextHeroSection = ({data} : {data: TextHeroSectionProps}) => {
     } = data;
 
     return (
-        <section className="text-hero-section relative bg-[#F8F8F9] overflow-hidden pt-30 pb-16 lg:pt-[253px] lg:pb-28 border-b border-[#eeedf2]">      
+        <section className="text-hero-section relative bg-[#F8F8F9] overflow-hidden pt-30 pb-16 lg:pt-[203px] lg:pb-25 border-b border-[#eeedf2]">      
             <Container className="relative z-10">
                 <div className="text-center mx-auto px-4">
                     {
