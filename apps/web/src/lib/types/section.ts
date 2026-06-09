@@ -560,6 +560,7 @@ export interface BeautyFeatureGridSection extends Section {
     image: SanityImage
     video?: SanityVideo
     extraImage?: SanityImage
+    cardButton?: Button
   }[]
   primaryButton?: Button
   secondaryButton?: Button
