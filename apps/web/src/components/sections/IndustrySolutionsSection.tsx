@@ -64,11 +64,11 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
     };
 
     return (
-        <div ref={containerRef} className="relative w-full h-full flex items-center justify-center p-8 pb-0">
+        <div ref={containerRef} className="relative bg-cover bg-no-repeat w-full h-full flex items-center justify-center p-8 pb-0" style={{backgroundImage: 'url(/card-bg.webp)'}}>
             <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-h-130 w-auto object-contain"
+                className="max-h-118 w-auto object-contain"
                 style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
             {videoSrc && (
@@ -157,14 +157,14 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                             </p>
                         )}
 
-                        {!showStatsOnBottom && <StatsSection data={content?.stats} />}
+                        {/* {!showStatsOnBottom && <StatsSection data={content?.stats} />} */}
 
                         {content?.features && content.features.length > 0 && (
-                            <div className={showStatsOnBottom ? 'mt-0' : 'mt-6'}>
-                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4 font-[Sora] leading-none">
+                            <div>
+                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4.5 font-[Sora] leading-none">
                                     Key Features
                                 </h4>
-                                <ul className="space-y-3">
+                                <ul className="space-y-4.5">
                                     {content.features.map((feature, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-[#4E4955]">
                                             <Image
@@ -189,7 +189,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                         )}
 
                         {(content?.primaryButton?.text || content?.secondaryButton?.text) && (
-                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap mt-auto pt-8">
+                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap pt-8">
                                 {content?.primaryButton?.text && (
                                     <Button
                                         variant="primary"
