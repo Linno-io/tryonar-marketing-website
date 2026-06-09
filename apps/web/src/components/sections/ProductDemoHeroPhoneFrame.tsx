@@ -93,7 +93,7 @@ interface Props {
 const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
     const [cycleIdx, setCycleIdx] = useState(0)
     const [activeFinish] = useState<Finish>('Matte')
-    const [dividerPos, setDividerPos] = useState(50)
+    const [dividerPos, setDividerPos] = useState(20)
     const [showIframe, setShowIframe] = useState(false)
     const [iframeLoading, setIframeLoading] = useState(true)
 
