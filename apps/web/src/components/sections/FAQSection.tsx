@@ -86,7 +86,7 @@ export default function FAQAccordion({data} : {data: FAQSectionProps }) {
                                     <motion.div
                                         animate={{ rotate: isOpen ? 180 : 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                                        className={`flex-shrink-0 w-8 h-8 md:w-[36px] md:h-[36px] rounded-full flex items-center justify-center ${isOpen ? "bg-[#202020]" : "bg-[#f2f1f3]"
+                                        className={`flex-shrink-0 w-8 h-8 md:w-[36px] md:h-[36px] rounded-full flex items-center justify-center ${isOpen ? "bg-[#151515]" : "bg-[#f2f1f3]"
                                             }`}
                                     >
                                         <ChevronIcon isOpen={isOpen} />
