@@ -79,12 +79,12 @@ function SectionMedia({
                     />
 
                     <Image
-                        src="/bottom-image.webp"
+                        src="/bottom-image-updated.webp"
                         width={300}
                         height={100}
                         alt='Bottom image'
                         loading="lazy"
-                        className="hidden md:block absolute -bottom-2.5 -right-7.5 lg:-right-12.5 w-45 lg:w-75 h-auto pointer-events-none z-10"
+                        className="hidden sm:block absolute bottom-13 md:bottom-10 lg:bottom-15 right-4/10 lg:right-12.5 w-45 lg:w-75 h-auto pointer-events-none z-10"
                     />
                 </div>
             )}
@@ -168,7 +168,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                                 >
                                     {stat.value}
                                 </span>
-                                <span className="mt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-base text-[#e7e5ea] uppercase tracking-[0.05em] sm:tracking-widest md:tracking-[0.18em] leading-tight text-center">
+                                <span className="mt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-base text-[#e7e5ea] tracking-[0.16px] leading-tight text-center">
                                     {stat.label}
                                 </span>
                             </div>

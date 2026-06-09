@@ -56,7 +56,6 @@ export const ecommerceChallengeType = defineType({
             name: 'value',
             title: 'Value',
             type: 'string',
-            validation: Rule => Rule.required(),
           }),
           defineField({
             name: 'contentDescription',

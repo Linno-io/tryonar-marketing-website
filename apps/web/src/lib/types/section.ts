@@ -306,7 +306,7 @@ export interface EcommerceChallengeSection extends Section {
     tabId: string
     tabLabel: string
     title: string
-    value: string
+    value?: string
     contentDescription?: string,
     featureTitle: string
     features: string[]
