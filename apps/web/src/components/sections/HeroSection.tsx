@@ -9,6 +9,8 @@ import HeroVideoWithFrame from './HeroVideoWithFrame'
 import InteractiveFrame from './InteractiveFrame'
 import clsx from 'clsx'
 import AutoInteractiveFrame from './AutoInteractiveFrame'
+import ProductDemoHeroPhoneFrame from './ProductDemoHeroPhoneFrame'
+import InteractiveProducts from './InteractiveProducts'
 
 interface HeroSectionProps {
     data: HeroSectionType,
@@ -47,12 +49,12 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                 <div className={clsx(
                     'grid gap-13',
                     customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12',
-                    'home' === page ? 'items-start max-[1100px]:items-end' : 'items-start'
+                    'home' === page ? 'items-start max-[1100px]:items-end' : 'items-start max-[1280px]:items-end'
                 )}>
                     <div className={clsx(
                         `flex flex-col text-left pt-0 lg:pt-10`,
                         customContainer ? 'lg:col-span-7' : 'lg:col-span-6',
-                        'home' === page ? 'md:pb-8' : ''
+                        'home' === page ? 'md:pb-8' : 'md:pb-8'
                     )}>
                         {
                             title && title.length > 0 && (
@@ -124,9 +126,13 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         `lg:col-span-6 relative flex`,
                         'home' === page ? 'justify-center lg:justify-end' : 'justify-center'
                     )}>
-                        <div className="relative w-full max-w-105 lg:max-w-120">
+                        <div className={clsx('relative w-full', 'product-demo' !== page && 'max-w-105 lg:max-w-120')}>
                             {sectionVideo?.url && 'home' === page ? (
-                                <AutoInteractiveFrame />
+                                <InteractiveProducts />
+                            ) : 'product-demo' === page ? (
+                                <>
+                                    <ProductDemoHeroPhoneFrame />
+                                </>
                             ) : sectionVideo?.url ? (
                                 <HeroVideoWithFrame 
                                     data={data}

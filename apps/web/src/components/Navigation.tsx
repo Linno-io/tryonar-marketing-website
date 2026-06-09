@@ -35,7 +35,7 @@ const Navigation = (props: NavigationProps) => {
                         <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
                     </div>
 
-                    <div className='flex items-center lg:gap-8'>
+                    <div className='flex items-center md:gap-8'>
                         <div className="hidden md:flex items-center gap-6 lg:gap-8">
                             {menuItems.map((item, index) => (
                                 <Link

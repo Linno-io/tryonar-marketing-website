@@ -52,7 +52,7 @@ export default function CTASection({ data }: CTAProps) {
 
             {/* 1. DOTTED HEADER & LINE (Z-index 20) */}
             <div
-                className="relative w-full h-[105px] border-b border-white/10 z-20"
+                className="relative w-full h-17 md:h-25 border-b border-white/10 z-20"
                 style={{
                     backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1.5px, transparent 1.5px)`,
                     backgroundSize: '16px 16px',
