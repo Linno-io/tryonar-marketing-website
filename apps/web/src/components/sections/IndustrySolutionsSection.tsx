@@ -58,17 +58,12 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
         return () => observer.disconnect();
     }, [videoUrl]);
 
-    const handleVideoCanPlay = () => {
-        setVideoReady(true);
-        videoRef.current?.play().catch(() => {});
-    };
-
     return (
-        <div ref={containerRef} className="relative bg-cover bg-no-repeat w-full h-full flex items-center justify-center p-8 pb-0" style={{backgroundImage: 'url(/card-bg.webp)'}}>
+        <div ref={containerRef} className="relative w-full">
             <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-h-118 w-auto object-contain"
+                className="w-full h-full object-contain"
                 style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
             {videoSrc && (
@@ -147,12 +142,12 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                 <div className="flex flex-col lg:flex-row gap-5">
 
                     {/* Left — content */}
-                    <div key={activeTab._key} className="flex flex-col lg:w-[45%] p-8 pr-5 md:p-12 md:pr-5 bg-white rounded-3xl border border-slate-100">
+                    <div key={activeTab._key} className="flex flex-col  lg:w-1/2 p-8 pr-5 md:px-18.5 md:py-22.25 md:pr-5 bg-white rounded-3xl border border-slate-100">
                         <h3 className="text-3xl md:text-[40px] font-bold text-[#1A202C] mb-3">
                             {content?.contentTitle}
                         </h3>
                         {content?.contentDescription && (
-                            <p className="text-[#3E3E42] text-[15px] leading-relaxed mb-6">
+                            <p className="text-[#3E3E42] text-[15px] leading-relaxed mb-8.75">
                                 {content.contentDescription}
                             </p>
                         )}
@@ -218,7 +213,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     </div>
 
                     {/* Right — media */}
-                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center min-h-80 sm:min-h-105 bg-white rounded-3xl border border-slate-100 overflow-hidden">
+                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center bg-white rounded-3xl border border-slate-100 overflow-hidden">
                         <TabMedia
                             imageUrl={content?.image?.url ?? ''}
                             imageAlt={content?.image?.alt ?? 'Industry Solution Image'}
