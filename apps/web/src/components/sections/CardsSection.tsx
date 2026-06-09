@@ -45,7 +45,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                 gap={20}
                                 color="bg-gray-300"
                                 borderColor="border-[#eeedf2]"
-                                className="w-full border-x"
+                                className="w-full border-x border-b-0"
                             />
                         </Container>
                     )
