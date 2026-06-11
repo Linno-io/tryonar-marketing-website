@@ -94,15 +94,18 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 ))
                             }
                         </div>
-                        <div className="rounded-[30px] bg-white flex-1 overflow-hidden" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
-                            <Image 
-                                src={steps.find(step => step._key === activeStepKey)?.image?.url || ''}
-                                alt={steps.find(step => step._key === activeStepKey)?.image?.alt || ''}
-                                width={500}
-                                height={500}
-                                fetchPriority="high"
-                                className={`w-full h-[100%] object-contain rounded-2xl ${activeStepKey}`}
-                            />
+                        <div className="rounded-[30px] bg-white flex-1 overflow-hidden relative" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
+                            {steps.map((step) => (
+                                <Image
+                                    key={step._key}
+                                    src={step?.image?.url || ''}
+                                    alt={step?.image?.alt || ''}
+                                    width={500}
+                                    height={500}
+                                    priority={true}
+                                    className={`w-full object-contain rounded-2xl transition-opacity duration-200 ${step._key === activeStepKey ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 h-full'}`}
+                                />
+                            ))}
                         </div>
                     </div>
 
