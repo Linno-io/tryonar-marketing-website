@@ -88,7 +88,7 @@ const DEMO_SLIDES: ProductDetail[] = DEMO_PRODUCTS.map((p) => ({
     image: { url: p.img, alt: p.name },
     features: p.features.map((f) => ({ featureTitle: f, icon: { url: '', alt: '' } })),
     stats: DEMO_STATS,
-    primaryButton: { text: 'Try It Yourself', externalLink: p.demoUrl, showIcon: true },
+    primaryButton: { text: 'Tryon', externalLink: p.demoUrl, showIcon: true },
 }));
 
 function getSlides(tab: ProductsDetailsTabSectionProps['tabs'][number]): ProductDetail[] {
