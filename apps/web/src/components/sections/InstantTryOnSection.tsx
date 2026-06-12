@@ -56,7 +56,7 @@ function SectionMedia({
                 }}
             />
             {videoSrc && (
-                <div className='relative'>
+                <div className='relative min-[1280px]:mr-12'>
                     <Image
                         src="/makeup.webp"
                         width={187}
@@ -79,12 +79,12 @@ function SectionMedia({
                     />
 
                     <Image
-                        src="/bottom-image.webp"
+                        src="/bottom-image-updated.webp"
                         width={300}
                         height={100}
                         alt='Bottom image'
                         loading="lazy"
-                        className="hidden md:block absolute -bottom-2.5 -right-7.5 lg:-right-12.5 w-45 lg:w-75 h-auto pointer-events-none z-10"
+                        className="hidden sm:block absolute bottom-13 md:bottom-10 lg:bottom-15 right-4/10 lg:right-12.5 w-45 lg:w-75 h-auto pointer-events-none z-10"
                     />
                 </div>
             )}
@@ -168,7 +168,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                                 >
                                     {stat.value}
                                 </span>
-                                <span className="mt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-base text-[#e7e5ea] uppercase tracking-[0.05em] sm:tracking-widest md:tracking-[0.18em] leading-tight text-center">
+                                <span className="mt-2 text-[8px] sm:text-[9px] md:text-[10px] lg:text-base text-[#e7e5ea] tracking-[0.16px] leading-tight text-center">
                                     {stat.label}
                                 </span>
                             </div>
@@ -180,7 +180,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
 
             {/* ── NO BORDER ZONE: content + image ── */}
             <Container className="relative z-10 mt-0 sm:mt-4 md:mt-8 lg:mt-8" padding={false}>
-                <div className="flex flex-col min-[1199px]:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-20 px-5">
+                <div className="flex flex-col min-[1280px]:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-20 px-5">
 
                     {/* Left text */}
                     <div className="flex-1 lg:max-w-[500px]">
@@ -196,7 +196,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                             </h3>
                         )}
                         {contentDescription && (
-                            <p className="text-[#E7E5EA] text-sm md:text-[15px] leading-relaxed mb-8 max-w-md">
+                            <p className="text-[#E7E5EA] text-base md:text-[18px] leading-relaxed mb-8 max-w-md">
                                 {contentDescription}
                             </p>
                         )}

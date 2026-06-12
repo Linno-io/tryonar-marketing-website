@@ -306,7 +306,7 @@ export interface EcommerceChallengeSection extends Section {
     tabId: string
     tabLabel: string
     title: string
-    value: string
+    value?: string
     contentDescription?: string,
     featureTitle: string
     features: string[]
@@ -548,6 +548,22 @@ export interface InstantTryOnSection extends Section {
   secondaryButton?: Button
 }
 
+export interface ContactFormSection extends Section {
+  _type: 'contactFormSectionType'
+  _key: string
+  nameLabel?: string
+  emailLabel?: string
+  subjectLabel?: string
+  messageLabel?: string
+  messagePlaceholder?: string
+  submitButtonText?: string
+  termsText?: string
+  termsLinkText?: string
+  termsLinkUrl?: string
+  privacyLinkText?: string
+  privacyLinkUrl?: string
+}
+
 export interface BeautyFeatureGridSection extends Section {
   _type: 'beautyFeatureGridSectionType'
   _key: string
@@ -560,6 +576,7 @@ export interface BeautyFeatureGridSection extends Section {
     image: SanityImage
     video?: SanityVideo
     extraImage?: SanityImage
+    cardButton?: Button
   }[]
   primaryButton?: Button
   secondaryButton?: Button

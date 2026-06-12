@@ -14,8 +14,8 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
     return (
         <>
             <section className="workflow-section relative bg-[#F8F8F9] overflow-hidden border-b border-[#eeedf2]">
-                <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[224px] lg:pb-28" withBorder={true} size="xl">
-                    <div className="text-center mx-auto px-4 pb-10 md:pb-30 border-[#E5E3EA] border-b">
+                <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[203px] lg:pb-28" withBorder={true} size="xl">
+                    <div className="text-center mx-auto px-4 pb-10 md:pb-25 border-[#E5E3EA] border-b">
                         {
                             title && title.length > 0 && (
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A202C]">
@@ -94,15 +94,18 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 ))
                             }
                         </div>
-                        <div className="rounded-[30px] bg-white flex-1 overflow-hidden" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
-                            <Image 
-                                src={steps.find(step => step._key === activeStepKey)?.image?.url || ''}
-                                alt={steps.find(step => step._key === activeStepKey)?.image?.alt || ''}
-                                width={500}
-                                height={500}
-                                fetchPriority="high"
-                                className={`w-full h-[100%] object-contain rounded-2xl ${activeStepKey}`}
-                            />
+                        <div className="rounded-[30px] bg-white flex-1 overflow-hidden relative" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
+                            {steps.map((step) => (
+                                <Image
+                                    key={step._key}
+                                    src={step?.image?.url || ''}
+                                    alt={step?.image?.alt || ''}
+                                    width={500}
+                                    height={500}
+                                    priority={true}
+                                    className={`w-full object-contain rounded-2xl transition-opacity duration-200 ${step._key === activeStepKey ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 h-full'}`}
+                                />
+                            ))}
                         </div>
                     </div>
 

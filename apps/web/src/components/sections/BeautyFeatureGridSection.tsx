@@ -19,6 +19,11 @@ interface FeatureCard {
     image: SanityImage
     video?: SanityVideo
     extraImage?: SanityImage
+    cardButton?: {
+        text?: string
+        internalLink?: string
+        externalLink?: string
+    }
 }
 
 function VideoCard({ card, shouldLoad, index }: { card: FeatureCard; shouldLoad: boolean; index: number }) {
@@ -88,6 +93,16 @@ function VideoCard({ card, shouldLoad, index }: { card: FeatureCard; shouldLoad:
                 >
                     {card.description}
                 </p>
+                {card.cardButton?.text && (
+                    <Link
+                        href={card.cardButton.internalLink || card.cardButton.externalLink || '#'}
+                        target={card.cardButton.externalLink ? '_blank' : '_self'}
+                        className="inline-block mt-5 px-4 py-2 rounded-[10px] text-white text-sm font-medium"
+                        style={{ backgroundColor: '#1E1E1E' }}
+                    >
+                        {card.cardButton.text}
+                    </Link>
+                )}
             </div>
         </div>
     )

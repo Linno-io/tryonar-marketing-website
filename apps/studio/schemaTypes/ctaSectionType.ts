@@ -18,7 +18,6 @@ export const ctaSectionType = defineType({
             title: 'Highlight Text',
             type: 'text',
             rows: 2,
-            validation: (rule) => rule.required(),
             description: 'Highlighted part of heading (e.g. customer experience)'
         },
         {

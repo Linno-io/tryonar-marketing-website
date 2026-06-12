@@ -10,7 +10,7 @@ type TabId = string;
 export default function EcommerceChallenge({ data }: { data: EcommerceChallengeSectionProps }) {
     const { tagline, title, description, tabs } = data;
 
-    const [activeTab, setActiveTab] = useState<TabId>(tabs && tabs.length > 0 ? tabs[0].tabId : '');
+    const [activeTab, setActiveTab] = useState<TabId>(tabs && tabs.length > 1 ? tabs[1].tabId : '');
 
     useEffect(() => {
         if (!tabs || tabs.length === 0) return;
@@ -98,7 +98,8 @@ export default function EcommerceChallenge({ data }: { data: EcommerceChallengeS
                                 <div className="flex items-center gap-4">
                                     <h3 className="text-4xl max-[575px]:text-2xl font-bold text-gray-900 mb-2">
                                         {current.title}
-                                        <span className="text-4xl max-[575px]:text-2xl font-bold text-gray-400 inline-block ml-2">{current.value}</span>
+                                        { current.value && <span className="text-4xl max-[575px]:text-2xl font-bold text-gray-400 inline-block ml-2">{current.value}</span>
+                                        }
                                     </h3>
                                 </div>
                                 <p className="text-[#3E3E42] text-base lg:text-lg mb-10 max-[575px]:mb-6 leading-relaxed max-w-md">

@@ -32,7 +32,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                     <div className='mt-auto w-full flex flex-col gap-6 md:gap-7 lg:gap-8'>
                         {
                             card.price && card.duration && (
-                                <div className='mt-6 md:mt-8 lg:mt-10'>
+                                <div className='mt-4 md:mt-6 lg:mt-8'>
                                     <p className={`text-3xl md:text-4xl lg:text-[40px] font-bold leading-none ${card.isPopular ? 'text-[#FFFFFFE5]' : 'text-[#000000E5]'}`}>
                                         ${card.price}
                                         <sub className={`${card.isPopular ? 'text-[#989898]' : 'text-[#646464]'} text-xs md:text-sm lg:text-[14px] font-normal ml-2 align-baseline`}>
@@ -50,7 +50,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                             )
                         }
                         <Link href={card.primaryButton.internalLink || card.primaryButton.externalLink || '#'} target={card.primaryButton.externalLink ? '_blank' : '_self'}>
-                            <button className={`cursor-pointer rounded-xl w-full h-10 md:h-11 text-center text-sm md:text-base font-semibold leading-none ${card.isPopular ? 'bg-[#FFFFFF] text-[#202020]' : card.customPricingText ? 'bg-[#F0F1F0] text-[#202020]' : 'bg-[#202020] text-[#FFFFFF]'}`}>
+                            <button className={`cursor-pointer rounded-xl w-full h-10 md:h-11 text-center text-sm md:text-base font-semibold leading-none ${card.isPopular ? 'bg-[#FFFFFF] text-[#202020]' : card.customPricingText ? 'bg-[#F0F1F0] text-[#202020]' : 'bg-[#151515] text-[#FFFFFF]'}`}>
                                 {card.primaryButton.text}
                             </button>
                         </Link>

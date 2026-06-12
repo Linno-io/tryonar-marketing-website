@@ -192,7 +192,7 @@ export default function HeroPhoneDemo(_props: HeroPhoneDemoProps) {
                 <button
                     type="button"
                     onClick={handleTryOnClick}
-                    className="absolute rounded-full border border-black bg-[#202020] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[10px] right-[5%] px-[15px] py-[10px] text-[12px] max-[574px]:top-1.5 max-[574px]:px-2.5 max-[574px]:py-1.5 max-[574px]:text-[10px]"
+                    className="absolute rounded-full border border-black bg-[#151515] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[10px] right-[5%] px-[15px] py-[10px] text-[12px] max-[574px]:top-1.5 max-[574px]:px-2.5 max-[574px]:py-1.5 max-[574px]:text-[10px]"
                     style={{
                         zIndex: 6,
                         fontFamily: 'Inter',

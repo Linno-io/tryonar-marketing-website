@@ -32,7 +32,8 @@ import {
     FeatureShowcaseSection as FeatureShowcaseSectionProps,
     BeautyFeatureGridSection as BeautyFeatureGridSectionProps,
     InstantTryOnSection as InstantTryOnSectionProps,
-    ProductsDetailsTabSection as ProductsDetailsTabSectionProps
+    ProductsDetailsTabSection as ProductsDetailsTabSectionProps,
+    ContactFormSection as ContactFormSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -65,6 +66,7 @@ import FeatureShowcaseSection from './sections/FeatureShowcaseSection';
 import BeautyFeatureGridSection from './sections/BeautyFeatureGridSection';
 import InstantTryOnSection from './sections/InstantTryOnSection';
 import ProductsDetailsTab from './sections/ProductsDetailsTab';
+import ContactFormSection from './sections/ContactFormSection';
 
 interface PageRenderedProps {
     page: Page
@@ -125,7 +127,7 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                             case 'gallerySectionType':
                                return <GallerySection key={section._key} data={section as GallerySectionProps} />;
                             case 'textHeroSectionType':
-                               return <TextHeroSection key={section._key} data={section as TextHeroSectionProps} />;
+                               return <TextHeroSection key={section._key} data={section as TextHeroSectionProps} page={page?.slug?.current} />;
                             case 'pricingTableSectionType':
                                return <PricingTableSection key={section._key} data={section as PricingTableSectionProps} />;
                             case 'singleReviewSectionType':
@@ -151,6 +153,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <InstantTryOnSection key={section._key} data={section as InstantTryOnSectionProps} />;
                             case 'productsDetailsTabType':
                                return <ProductsDetailsTab key={section._key} data={section as ProductsDetailsTabSectionProps} />;
+                            case 'contactFormSectionType':
+                               return <ContactFormSection key={section._key} data={section as ContactFormSectionProps} />;
                             default:
                                 return null;
                         }

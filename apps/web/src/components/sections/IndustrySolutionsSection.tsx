@@ -13,7 +13,7 @@ const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) =
     if (!data || data.length === 0) return null;
 
     return (
-        <div className="bg-[#F8F8F9] flex flex-col sm:flex-row px-4 py-5 rounded-xl gap-4 sm:gap-0">
+        <div className="bg-[#F8F8F9] flex flex-col sm:flex-row px-2 md:px-4 py-5 rounded-xl gap-4 sm:gap-0">
             {data.map(({ label, value }, index) => (
                 <div
                     key={label}
@@ -23,7 +23,7 @@ const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) =
                         <div className="text-2xl sm:text-[28px] font-medium text-[#838383] tracking-tight">
                             {value}
                         </div>
-                        <div className="text-[16px] text-[#646464]">
+                        <div className="text-sm md:text-[16px] text-[#646464]">
                             {label}
                         </div>
                     </div>
@@ -58,17 +58,12 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
         return () => observer.disconnect();
     }, [videoUrl]);
 
-    const handleVideoCanPlay = () => {
-        setVideoReady(true);
-        videoRef.current?.play().catch(() => {});
-    };
-
     return (
-        <div ref={containerRef} className="relative w-full h-full flex items-center justify-center p-8 pb-0">
+        <div ref={containerRef} className="relative w-full">
             <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-h-130 w-auto object-contain"
+                className="w-full h-full object-contain"
                 style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
             {videoSrc && (
@@ -147,24 +142,24 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                 <div className="flex flex-col lg:flex-row gap-5">
 
                     {/* Left — content */}
-                    <div key={activeTab._key} className="flex flex-col lg:w-[45%] p-8 pr-5 md:p-12 md:pr-5 bg-white rounded-3xl border border-slate-100">
+                    <div key={activeTab._key} className="flex flex-col  lg:w-1/2 p-8 pr-5 md:px-18.5 md:py-22.25 md:pr-5 bg-white rounded-3xl border border-slate-100">
                         <h3 className="text-3xl md:text-[40px] font-bold text-[#1A202C] mb-3">
                             {content?.contentTitle}
                         </h3>
                         {content?.contentDescription && (
-                            <p className="text-[#3E3E42] text-[15px] leading-relaxed mb-6">
+                            <p className="text-[#3E3E42] text-[15px] leading-relaxed mb-8.75">
                                 {content.contentDescription}
                             </p>
                         )}
 
-                        {!showStatsOnBottom && <StatsSection data={content?.stats} />}
+                        {/* {!showStatsOnBottom && <StatsSection data={content?.stats} />} */}
 
                         {content?.features && content.features.length > 0 && (
-                            <div className={showStatsOnBottom ? 'mt-0' : 'mt-6'}>
-                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4 font-[Sora] leading-none">
+                            <div>
+                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4.5 font-[Sora] leading-none">
                                     Key Features
                                 </h4>
-                                <ul className="space-y-3">
+                                <ul className="space-y-4.5">
                                     {content.features.map((feature, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-[#4E4955]">
                                             <Image
@@ -189,7 +184,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                         )}
 
                         {(content?.primaryButton?.text || content?.secondaryButton?.text) && (
-                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap mt-auto pt-8">
+                            <div className="tryon-cta-buttons flex items-center gap-3.5 flex-wrap pt-8">
                                 {content?.primaryButton?.text && (
                                     <Button
                                         variant="primary"
@@ -218,7 +213,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     </div>
 
                     {/* Right — media */}
-                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center min-h-80 sm:min-h-105 bg-white rounded-3xl border border-slate-100 overflow-hidden">
+                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center bg-white rounded-3xl border border-slate-100 overflow-hidden">
                         <TabMedia
                             imageUrl={content?.image?.url ?? ''}
                             imageAlt={content?.image?.alt ?? 'Industry Solution Image'}

@@ -63,6 +63,26 @@ export const beautyFeatureGridSectionType = defineType({
                             description: 'If provided, image becomes the poster. Video lazy-loads when section enters viewport.',
                         },
                         {
+                            name: 'cardButton',
+                            title: 'Card Button (optional)',
+                            type: 'object',
+                            fields: [
+                                { name: 'text', title: 'Button Text', type: 'string' },
+                                {
+                                    name: 'internalLink',
+                                    title: 'Internal Link',
+                                    type: 'reference',
+                                    to: [{ type: 'page' }],
+                                },
+                                {
+                                    name: 'externalLink',
+                                    title: 'External Link',
+                                    type: 'url',
+                                    validation: (Rule: any) => Rule.uri({ scheme: ['http', 'https'] }),
+                                },
+                            ],
+                        },
+                        {
                             name: 'extraImage',
                             title: 'Extra Image (optional)',
                             type: 'image',
