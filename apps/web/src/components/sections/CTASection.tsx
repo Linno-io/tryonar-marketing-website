@@ -52,7 +52,7 @@ export default function CTASection({ data }: CTAProps) {
 
             {/* 1. DOTTED HEADER & LINE (Z-index 20) */}
             <div
-                className="relative w-full h-17 md:h-25 border-b border-white/10 z-20"
+                className="relative w-full h-17 md:h-25 border-b border-t border-white/10 z-20"
                 style={{
                     backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1.5px, transparent 1.5px)`,
                     backgroundSize: '16px 16px',
@@ -72,16 +72,18 @@ export default function CTASection({ data }: CTAProps) {
             <Container className="tryon-container relative z-30 pt-13 md:pt-25">
                 <div className="flex flex-col items-center text-center mx-auto px-4">
 
-                    <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight">
-                        {title} 
-                        {highlightText && (
-                            <span className='text-[#998188]'>{' ' + highlightText}</span>
-                        )}
-                    </Heading>
+                    <div className="section-title-wrapper mb-8 md:mb-12">
+                        <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight">
+                            {title} 
+                            {highlightText && (
+                                <span className='text-[#998188]'>{' ' + highlightText}</span>
+                            )}
+                        </Heading>
 
-                    <p className="text-gray-400 text-[15px] md:text-[18px] xl:text-[19px] mb-8 md:mb-12 font-normal leading-relaxed max-w-[867px] mx-auto">
-                        {description}
-                    </p>
+                        <p className="text-gray-400 text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[867px] mx-auto">
+                            {description}
+                        </p>
+                    </div>
 
                     {/* BUTTON GROUP */}
                     {(primaryButton?.text || secondaryButton?.text) && (
@@ -103,7 +105,7 @@ export default function CTASection({ data }: CTAProps) {
                                     variant="secondary"
                                     href={secondaryButton.internalLink || secondaryButton.externalLink || '#'}
                                     target={secondaryButton.externalLink ? '_blank' : '_self'}
-                                    icon={<svg fill="none" width="14" height="15" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3.5 xl:w-3.5 xl:h-4"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg>}
+                                    icon=''
                                     showIcon={secondaryButton.showIcon !== false}
                                 >
                                     {secondaryButton.text}

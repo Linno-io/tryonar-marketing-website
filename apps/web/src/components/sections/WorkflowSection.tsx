@@ -1,6 +1,6 @@
 import { WorkflowSection as WorkflowSectionProps } from "@/lib/types/section";
 import { Fragment, memo, useState } from "react";
-import { Container } from "../ui";
+import { Button, Container } from "../ui";
 import Link from "next/link";
 import { ArrowUpRight } from 'lucide-react';
 import Image from "next/image";
@@ -15,7 +15,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
         <>
             <section className="workflow-section relative bg-[#F8F8F9] overflow-hidden border-b border-[#eeedf2]">
                 <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[203px] lg:pb-28" withBorder={true} size="xl">
-                    <div className="text-center mx-auto px-4 pb-10 md:pb-25 border-[#E5E3EA] border-b">
+                    <div className="text-center mx-auto px-4 pb-10 md:pb-25 border-[#eeedf2] border-b">
                         {
                             title && title.length > 0 && (
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A202C]">
@@ -42,7 +42,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                     </div>
                     
                     <div className="flex flex-col min-[991px]:flex-row gap-10 items-stretch justify-between border-b border-[#eeedf2] px-7.5 py-7.5">
-                        <div className="flex flex-col gap-5 flex-1 max-w-full  min-[991px]:max-w-145">
+                        <div className="flex flex-col gap-5 flex-1 max-w-full  min-[991px]:max-w-152">
                             {
                                 steps && steps.length > 0 && steps.map((step, index) => (
                                     <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-[20px] cursor-pointer p-4 md:p-6.5`} onClick={() => setActiveStepKey(step._key)}>
@@ -94,6 +94,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                 ))
                             }
                         </div>
+
                         <div className="rounded-[30px] bg-white flex-1 overflow-hidden relative" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
                             {steps.map((step) => (
                                 <Image
@@ -112,23 +113,28 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                     <div className="flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-17.5 justify-center">
                         {
                             primaryButton && (
-                                <Link href={primaryButton?.internalLink || primaryButton?.externalLink || '#'} target={primaryButton?.externalLink ? '_blank' : '_self'}>
-                                    <button className="mx-auto sm:mx-none sm:w-full cursor-pointer sm:w-auto bg-[#121212] text-white px-5 sm:px-9 py-3 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-black/5 text-sm sm:text-base">
-                                        {primaryButton?.text}
-                                        {primaryButton?.showIcon !== false ? <ArrowUpRight size={20} /> : null}
-                                    </button>
-                                </Link>
+                                <Button
+                                    variant="primary"
+                                    href={primaryButton?.internalLink || primaryButton?.externalLink || '#'}
+                                    target={primaryButton?.externalLink ? '_blank' : '_self'}
+                                    showIcon={primaryButton?.showIcon !== false}
+                                    className='tryon-primary-btn'
+                                >
+                                    {primaryButton?.text}
+                                </Button>
                             )
                         }
 
                         {
                             secondaryButton?.text && (
-                                <Link href={secondaryButton?.internalLink || secondaryButton?.externalLink || '#'} target={secondaryButton?.externalLink ? '_blank' : '_self'}>
-                                    <button className="w-full cursor-pointer sm:w-auto bg-[#F0F1F0] text-[#2A2730] px-7 sm:px-9 py-3.5 sm:py-4.5 rounded-2xl font-bold flex items-center justify-center gap-2">
-                                        {secondaryButton?.text}
-                                        {secondaryButton?.showIcon !== false ? <svg fill="none" width="15" height="16" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path stroke="#292D32" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="1.5" d="M.75 7.867V4.955c0-3.758 2.656-5.274 5.903-3.404l2.519 1.456 2.519 1.456c3.246 1.87 3.246 4.94 0 6.808l-2.519 1.457-2.519 1.456C3.406 16.054.75 14.518.75 10.78V7.867z"/></svg> : null}
-                                    </button>
-                                </Link>
+                                <Button
+                                    variant="secondary"
+                                    href={secondaryButton?.internalLink || secondaryButton?.externalLink || '#'}
+                                    target={secondaryButton?.externalLink ? '_blank' : '_self'}
+                                    showIcon={secondaryButton.showIcon !== false}
+                                >
+                                    {secondaryButton?.text}
+                                </Button>
                             )
                         }
                     </div>

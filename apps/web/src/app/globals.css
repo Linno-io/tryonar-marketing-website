@@ -271,15 +271,15 @@
 
 	.text-hero-section:before {
 		content: "";
+		filter: blur(110px);
+		background: #ffa49b;
 		border-radius: 988.455px;
-		background: #FFA49B;
-		filter: blur(150px);
+		width: 1123.26px;
+		height: 593.232px;
 		position: absolute;
-		top: -140%;
+		top: -145%;
 		left: -500px;
 		transform: rotate(13.504deg);
-		width: 1123.262px;
-		height: 688.232px;
 	}
 
 	.facts-number sub {
