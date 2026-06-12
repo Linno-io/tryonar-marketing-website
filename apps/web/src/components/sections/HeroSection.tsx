@@ -72,7 +72,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                             )
                         }
 
-                        <Text className="text-[#646464] text-[14px] md:text-[18px] lg:text-[24px] mt-4 lg:mt-7 leading-[1.5] mb-6 lg:mb-9">
+                        <Text className="text-[#646464] text-[14px] md:text-[18px] lg:text-[24px] mt-4 lg:mt-4 leading-[1.5] mb-6 lg:mb-7">
                             {description}
                         </Text>
 

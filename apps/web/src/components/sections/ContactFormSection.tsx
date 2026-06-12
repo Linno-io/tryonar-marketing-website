@@ -59,7 +59,15 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
     const labelClass = 'text-[#111827] text-sm font-medium leading-none'
 
     return (
-        <section className="relative w-full overflow-hidden bg-white">
+        <section className="tryon-contact-form-section relative w-full bg-white">
+            {/* Top-right gradient */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute top-[-60px] right-0 w-[28vw] max-w-80 h-[90vw] max-h-175 sm:w-[22vw] sm:h-[75vw]"
+                style={{
+                    background: 'radial-gradient(ellipse 100% 60% at right center, rgba(196,168,255,0.45) 0%, rgba(220,204,255,0.18) 50%, transparent 75%)',
+                }}
+            />
             <Container className="p-0 flex">
                 <DotBackground
                     dotSize={2}
@@ -70,7 +78,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                 />
                 <form
                     onSubmit={handleSubmit}
-                    className="mx-auto max-w-176 flex flex-col gap-7.5 py-10 px-4 md:px-0 md:py-25"
+                    className="w-full mx-auto max-w-176 flex flex-col gap-7.5 py-10 px-4 md:px-0 md:py-25"
                 >
                     {/* Fields */}
                     <div className="flex flex-col gap-5">
