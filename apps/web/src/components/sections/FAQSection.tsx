@@ -77,7 +77,7 @@ export default function FAQAccordion({data} : {data: FAQSectionProps }) {
                                 {/* Question header - clickable */}
                                 <button
                                     onClick={() => toggleAccordion(faq._key)}
-                                    className="w-full flex cursor-pointer items-center justify-between p-5 text-left"
+                                    className="w-full flex cursor-pointer items-center justify-between px-5 md:px-7.5 pt-5 pb-4 text-left"
                                 >
                                     <span className="font-medium text-base md:text-[20px] leading-[26px] md:leading-[30px] tracking-tight md:tracking-[-1px] text-[#1a202c] pr-4">
                                         {faq.question}

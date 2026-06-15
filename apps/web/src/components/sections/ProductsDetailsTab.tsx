@@ -208,7 +208,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
             {/* Sticky product nav */}
             <div ref={navRef} className="sticky top-0 z-20 bg-[#F7F8F9]/95 backdrop-blur-sm border-b border-[#EEEDF2]">
                 <Container withBorder className="w-full">
-                    <div className="flex items-center justify-center flex-wrap gap-3 py-10 md:py-12">
+                    <div className="flex items-center justify-center flex-wrap gap-3 py-6 md:py-8">
                         {sections.map((s) => (
                             <button
                                 key={s._key}
