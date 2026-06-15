@@ -238,6 +238,7 @@ export interface WorkflowSection extends Section {
     stepTitle: SectionTitle[]
     stepDescription: string
     image: SanityImage
+    video?: { url: string }
     tags?: string[]
   }[]
   primaryButton: Button

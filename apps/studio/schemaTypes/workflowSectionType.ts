@@ -52,7 +52,7 @@ export const workFlowSectionType = defineType({
                         },
                         {
                             name: 'image',
-                            title: 'Image',
+                            title: 'Image / Video Poster',
                             type: 'image',
                             fields: [
                                 {
@@ -62,6 +62,13 @@ export const workFlowSectionType = defineType({
                                 }
                             ],
                             description: 'Image representing the industry solution'
+                        },
+                        {
+                            name: 'video',
+                            title: 'Video (optional)',
+                            type: 'file',
+                            options: { accept: 'video/*' },
+                            description: 'If provided, image becomes the poster. Video lazy-loads when section enters viewport.',
                         },
                     ],
                     preview: {

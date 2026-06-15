@@ -1,9 +1,36 @@
 import { WorkflowSection as WorkflowSectionProps } from "@/lib/types/section";
-import { Fragment, memo, useState } from "react";
+import { Fragment, memo, useEffect, useRef, useState } from "react";
 import { Button, Container } from "../ui";
 import Link from "next/link";
 import { ArrowUpRight } from 'lucide-react';
 import Image from "next/image";
+
+const StepVideo = ({ src, poster, isActive, className }: { src: string; poster?: string; isActive: boolean; className: string }) => {
+    const ref = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (!ref.current) return;
+        if (isActive) {
+            ref.current.currentTime = 0;
+            ref.current.play();
+        } else {
+            ref.current.pause();
+            ref.current.currentTime = 0;
+        }
+    }, [isActive]);
+
+    return (
+        <video
+            ref={ref}
+            src={src}
+            poster={poster}
+            loop
+            muted
+            playsInline
+            className={className}
+        />
+    );
+};
 
 const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
     const { title, description, steps, primaryButton, secondaryButton } = data;
@@ -97,15 +124,25 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
 
                         <div className="rounded-[30px] bg-white flex-1 overflow-hidden relative" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
                             {steps.map((step) => (
-                                <Image
-                                    key={step._key}
-                                    src={step?.image?.url || ''}
-                                    alt={step?.image?.alt || ''}
-                                    width={500}
-                                    height={500}
-                                    priority={true}
-                                    className={`w-full object-contain rounded-2xl transition-opacity duration-200 ${step._key === activeStepKey ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 h-full'}`}
-                                />
+                                step.video?.url ? (
+                                    <StepVideo
+                                        key={step._key}
+                                        src={step.video.url}
+                                        poster={step?.image?.url || undefined}
+                                        isActive={step._key === activeStepKey}
+                                        className={`w-full object-cover h-full rounded-2xl transition-opacity duration-200 ${step._key === activeStepKey ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 h-full'}`}
+                                    />
+                                ) : (
+                                    <Image
+                                        key={step._key}
+                                        src={step?.image?.url || ''}
+                                        alt={step?.image?.alt || ''}
+                                        width={500}
+                                        height={500}
+                                        priority={true}
+                                        className={`w-full object-contain rounded-2xl transition-opacity duration-200 ${step._key === activeStepKey ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 h-full'}`}
+                                    />
+                                )
                             ))}
                         </div>
                     </div>
