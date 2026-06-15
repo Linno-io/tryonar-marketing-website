@@ -556,10 +556,12 @@
     display: none;
 }
 
-/* terms and conditions page */
+/* terms and conditions and privacy policy page */
+.privacy-policy-page-container,
 .terms-of-service-page-container {
 	position: relative;
 }
+.privacy-policy-page-container:before,
 .terms-of-service-page-container:before {
 	content: "";
 	background: linear-gradient(180deg, rgba(226, 217, 255, 0.40) 0%, #FFF 100%);
@@ -571,9 +573,11 @@
 	left: 0;
 	z-index: -1;
 }
+.privacy-policy-page-container .terms-and-conditions-section,
 .terms-of-service-page-container .terms-and-conditions-section {
 	position: relative;
 }
+.privacy-policy-page-container .terms-and-conditions-section:before,
 .terms-of-service-page-container .terms-and-conditions-section:before {
 	content: "";
     filter: blur(150px);
@@ -587,6 +591,18 @@
     right: -240px;
 }
 
+.privacy-policy-page-container .text-hero-section,
 .terms-of-service-page-container .text-hero-section {
 	background-color: transparent!important;
+}
+
+.privacy-policy-page-container .tryon-hero-description,
+.terms-of-service-page-container .tryon-hero-description {
+    background: #FFF;
+    box-shadow: 0 20px 25px -5px #E6E2F1;
+    display: inline-block;
+    width: inherit;
+	font-weight: 500;
+
+	@apply p-[8px_16px] xl:p-[12px_25px] rounded-xl xl:rounded-2xl;
 }

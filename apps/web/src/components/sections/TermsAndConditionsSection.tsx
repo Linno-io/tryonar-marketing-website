@@ -66,7 +66,7 @@ const TermsAndConditionsSection = ({ data }: { data: TermsAndConditionsSectionPr
                 <div className="px-[15px] py-13 lg:py-18 xl:py-24 border-r border-l border-[#eeedf2]">
                     <div className="lg:max-w-[775px] xl:max-w-[975px] mx-auto">
                         {sections?.map((section) => (
-                            <div key={section._key} className="mb-12 last:mb-0">
+                            <div key={section._key} className="mb-10 last:mb-0">
                                 <h2 className="text-xl md:text-[26px] xl:text-[32px] font-bold text-[#1A202C] mb-2">
                                     {section.heading}
                                 </h2>
