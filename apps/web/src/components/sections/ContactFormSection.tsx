@@ -47,7 +47,12 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),
             })
-            setStatus(res.ok ? 'success' : 'error')
+            if (res.ok) {
+                setStatus('success')
+                setForm({ name: '', email: '', subject: '', message: '' })
+            } else {
+                setStatus('error')
+            }
         } catch {
             setStatus('error')
         }
@@ -76,6 +81,27 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                     borderColor="border-[#eeedf2]"
                     className="border-y h-auto! max-w-27.5 hidden lg:block"
                 />
+                {status === 'success' ? (
+                    <div className="w-full mx-auto max-w-176 flex flex-col items-center justify-center gap-6 py-10 px-4 md:px-0 md:py-25 text-center">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-[#f0ebff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-8 h-8">
+                                <path d="M20 6L9 17L4 12" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <h3 className="text-[#111827] text-2xl font-bold">Message sent!</h3>
+                            <p className="text-[#6b7280] text-sm leading-relaxed max-w-sm">
+                                Thanks for reaching out. We&apos;ll get back to you as soon as possible.
+                            </p>
+                        </div>
+                        <button
+                            onClick={() => setStatus('idle')}
+                            className="mt-2 px-6 py-2.5 border border-[#eae8ee] rounded-lg text-sm text-[#111827] hover:border-[#202020] transition-colors duration-200 cursor-pointer"
+                        >
+                            Send another message
+                        </button>
+                    </div>
+                ) : (
                 <form
                     onSubmit={handleSubmit}
                     className="w-full mx-auto max-w-176 flex flex-col gap-7.5 py-10 px-4 md:px-0 md:py-25"
@@ -152,11 +178,11 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                     <div className="flex flex-col gap-5 items-center">
                         <button
                             type="submit"
-                            disabled={status === 'loading' || status === 'success'}
+                            disabled={status === 'loading'}
                             className="w-full px-5 sm:px-9 py-3 sm:py-4.5 bg-[#151515] text-white font-bold text-sm sm:text-[18px] rounded-lg sm:rounded-2xl flex items-center justify-center gap-2.5 shadow-[20px_20px_30px_rgba(59,26,115,0.2)] hover:shadow-[20px_20px_30px_rgba(59,26,115,0)] transition-shadow duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                         >
-                            {status === 'loading' ? 'Sending…' : status === 'success' ? 'Sent!' : submitButtonText}
-                            {status !== 'loading' && status !== 'success' && <SendIcon />}
+                            {status === 'loading' ? 'Sending…' : submitButtonText}
+                            {status !== 'loading' && <SendIcon />}
                         </button>
 
                         {status === 'error' && (
@@ -181,6 +207,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                         </p>
                     </div>
                 </form>
+                )}
                 <DotBackground
                     dotSize={2}
                     gap={20}
