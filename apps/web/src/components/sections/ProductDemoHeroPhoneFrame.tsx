@@ -459,7 +459,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
 
                     {/* Iframe overlay */}
                     {showIframe && (
-                        <div className="absolute inset-0 bg-black z-20" style={{}}>
+                        <div className="absolute inset-0 bg-black z-20 overflow-hidden" style={{borderRadius: '16px 16px  0 0'}}>
                             <button
                                 type="button"
                                 onClick={() => { setShowIframe(false); setIframeLoading(true) }}
