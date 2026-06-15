@@ -70,12 +70,12 @@ const CATEGORIES: ProductCategory[] = [
             { name: 'Smoky',     hex: '#404040', image: '/landing-hero-section/eyeshadow-smoky.webp' },
         ],
     },
-    {
-        id: 'eyeliner',
-        label: 'Eyeliner',
-        thumbnail: '/interactive-demo/eyeliner.webp',
-        colors: [],
-    },
+    // {
+    //     id: 'eyeliner',
+    //     label: 'Eyeliner',
+    //     thumbnail: '/interactive-demo/eyeliner.webp',
+    //     colors: [],
+    // },
 ]
 
 const CYCLE_SEQUENCE: { categoryId: string; colorIndex: number }[] = CATEGORIES.flatMap(cat =>
