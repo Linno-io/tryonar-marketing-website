@@ -44,6 +44,7 @@ export const pageType = defineType({
         { type: 'instantTryOnSectionType' },
         { type: 'productsDetailsTabType' },
         { type: 'contactFormSectionType' },
+        { type: 'termsAndConditionsSectionType' },
       ]
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),

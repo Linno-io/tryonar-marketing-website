@@ -5,150 +5,43 @@ import Button from '@/components/ui/Button'
 import Container from '@/components/ui/Container'
 
 export default function NotFound() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-[#020408] via-[#0F0A1F] to-[#1A0E2E] flex items-center justify-center relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#9F3AED] rounded-full opacity-10 blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#0AA44C] rounded-full opacity-10 blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+	return (
+		<div className="min-h-screen bg-white flex flex-col items-center justify-center">
+			<Container className="tryon-container">
+				<div className="text-center max-w-3xl mx-auto px-4 py-20">
+					{/* 404 with robot face */}
+					<div className="flex items-center justify-center gap-2 mb-5 lg:mb-10">
+						<svg className='w-[150px] sm:w-[260px] xl:w-[337] h-[auto]' width="337" height="136" viewBox="0 0 337 136" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M242.039 67.7221C242.042 83.079 236.827 97.9812 227.248 109.985C217.67 121.988 204.297 130.381 189.322 133.786C174.347 137.191 158.66 135.407 144.833 128.726C131.006 122.044 119.859 110.863 113.221 97.0145C106.583 83.1663 104.848 67.4736 108.3 52.5097C111.752 37.5459 120.187 24.1992 132.22 14.6584C144.254 5.1176 159.172 -0.0509298 174.529 0.000378349C189.886 0.0516865 204.769 5.31978 216.739 14.9408C224.634 21.287 231.006 29.3232 235.384 38.4577C239.763 47.5922 242.037 57.5924 242.039 67.7221Z" fill="#bebebe"/><path d="M231.773 57.4473C231.776 70.2249 228.165 82.7426 221.356 93.5551C214.548 104.368 204.82 113.034 193.296 118.553C181.771 124.072 168.921 126.219 156.229 124.746C143.537 123.273 131.52 118.24 121.566 110.229C111.099 97.2212 105.805 80.8065 106.7 64.1349C107.595 47.4632 114.615 31.7093 126.413 19.8966C138.212 8.08396 153.957 1.0448 170.628 0.130145C187.298 -0.784512 203.719 4.48977 216.739 14.9407C226.485 26.9619 231.794 41.9722 231.773 57.4473Z" fill="#e9e9e9"/><path d="M158.187 105.197C158.319 100.799 154.431 95.9781 146.109 95.9781C137.787 95.9781 133.89 100.772 134.022 105.197H158.187Z" fill="#313131"/><path d="M192.512 72.9121C192.406 74.235 191.829 75.4762 190.887 76.4106C189.944 77.345 188.698 77.9108 187.374 78.0055L184.682 78.1726C158.985 79.6841 133.223 79.7752 107.516 78.4453L104.877 78.3046C103.088 78.3045 101.342 77.7495 99.8819 76.7159C98.4213 75.6823 97.3174 74.2211 96.7222 72.5338L96.1855 70.9943C96.1894 70.9651 96.1894 70.9356 96.1855 70.9064C96.2622 71.1063 96.3533 71.3003 96.4582 71.487C96.554 71.6779 96.6658 71.8604 96.7925 72.0324L96.8365 72.0939C96.9509 72.2523 97.0652 72.393 97.1796 72.5338C97.3365 72.7111 97.5071 72.8759 97.6898 73.0264C97.8306 73.1584 97.9889 73.2727 98.1385 73.3959C98.48 73.6406 98.849 73.8443 99.2381 74.0029H99.2908C99.4832 74.0792 99.6801 74.1439 99.8803 74.1964C100.053 74.2489 100.229 74.2871 100.408 74.3108L101.015 74.3899L103.654 74.5307C129.359 75.8649 155.117 75.7739 180.812 74.258L183.504 74.0908C184.829 73.999 186.079 73.436 187.026 72.5035C187.973 71.571 188.555 70.3305 188.667 69.0062C189.938 53.2619 189.938 37.4408 188.667 21.6965V21.3534C188.577 20.3341 188.212 19.3583 187.612 18.5296C187.552 18.4388 187.484 18.3534 187.409 18.2745C187.293 18.1285 187.166 17.9903 187.031 17.8611C186.37 17.2059 185.557 16.7252 184.665 16.4624L185.597 16.7087C187.492 17.2302 189.178 18.3269 190.423 19.8475C191.667 21.368 192.41 23.2374 192.547 25.1977V25.2417V25.576C193.816 41.3296 193.804 57.1603 192.512 72.9121Z" fill="#ffa49b"/><path d="M187.365 78.0058L184.673 78.1642C158.982 79.689 133.226 79.78 107.524 78.4369L104.885 78.3049C103.551 78.2184 102.292 77.6543 101.339 76.7158C100.386 75.7773 99.8022 74.5272 99.6952 73.1939V72.7717C98.4284 57.1183 98.4284 41.3881 99.6952 25.7347V25.2685C99.8012 23.9432 100.379 22.6998 101.323 21.7637C102.267 20.8276 103.515 20.2609 104.841 20.1663C132.322 18.53 159.876 18.53 187.356 20.1663C188.683 20.2591 189.932 20.8253 190.877 21.7617C191.821 22.6981 192.398 23.9425 192.502 25.2685V25.5939C193.782 41.3408 193.782 57.1656 192.502 72.9124C192.393 74.2341 191.815 75.4733 190.874 76.407C189.932 77.3408 188.688 77.9077 187.365 78.0058Z" fill="#ffa49b"/><path d="M183.486 74.1177L180.794 74.276C155.1 75.7993 129.341 75.8933 103.637 74.5575L100.998 74.4168C99.6628 74.3325 98.4028 73.7706 97.4482 72.8337C96.4935 71.8968 95.908 70.6477 95.7987 69.3146V68.8835C94.5319 53.2301 94.5319 37.5 95.7987 21.8465V21.3803C95.9067 20.0543 96.486 18.8107 97.4316 17.8748C98.3772 16.9389 99.6266 16.3725 100.954 16.2781C128.431 14.6419 155.982 14.6419 183.46 16.2781C184.786 16.3743 186.035 16.9412 186.98 17.8768C187.925 18.8124 188.505 20.0549 188.615 21.3803V21.7058C189.907 37.4456 189.925 53.2641 188.668 69.0067C188.562 70.3392 187.981 71.5892 187.029 72.5278C186.078 73.4665 184.82 74.0309 183.486 74.1177Z" fill="#313131"/><path d="M129.993 53.3215C129.634 53.321 129.289 53.1788 129.034 52.9256L115.654 39.5368C115.4 39.2825 115.257 38.9376 115.257 38.5779C115.257 38.2183 115.4 37.8734 115.654 37.619C115.908 37.3647 116.253 37.2219 116.613 37.2219C116.973 37.2219 117.317 37.3647 117.572 37.619L130.952 51.0079C131.204 51.2632 131.346 51.6077 131.346 51.9668C131.346 52.3258 131.204 52.6704 130.952 52.9256C130.826 53.0518 130.677 53.1517 130.512 53.2197C130.347 53.2876 130.171 53.3222 129.993 53.3215Z" fill="#fff"/><path d="M116.929 53.3215C116.57 53.3201 116.226 53.178 115.97 52.9256C115.718 52.6704 115.576 52.3258 115.576 51.9668C115.576 51.6077 115.718 51.2632 115.97 51.0079L129.359 37.619C129.485 37.4931 129.635 37.3932 129.799 37.3251C129.964 37.2569 130.14 37.2219 130.318 37.2219C130.496 37.2219 130.672 37.2569 130.837 37.3251C131.001 37.3932 131.151 37.4931 131.277 37.619C131.403 37.745 131.503 37.8945 131.571 38.059C131.639 38.2235 131.674 38.3998 131.674 38.5779C131.674 38.756 131.639 38.9323 131.571 39.0968C131.503 39.2614 131.403 39.4108 131.277 39.5368L117.888 52.9256C117.762 53.0518 117.613 53.1517 117.448 53.2197C117.284 53.2876 117.107 53.3222 116.929 53.3215Z" fill="#fff"/><path d="M167.502 53.3217C167.143 53.3212 166.798 53.179 166.543 52.9259L153.163 39.537C152.93 39.2797 152.805 38.9427 152.813 38.5955C152.821 38.2484 152.962 37.9176 153.207 37.6715C153.452 37.4255 153.782 37.2828 154.129 37.2731C154.476 37.2634 154.814 37.3873 155.072 37.6193L168.435 51.0081C168.625 51.1976 168.754 51.4392 168.806 51.7022C168.859 51.9652 168.832 52.2379 168.729 52.4857C168.627 52.7334 168.453 52.9452 168.23 53.094C168.006 53.2428 167.744 53.3221 167.476 53.3217H167.502Z" fill="#fff"/><path d="M154.44 53.3215C154.081 53.3201 153.737 53.178 153.481 52.9256C153.229 52.6704 153.087 52.3258 153.087 51.9668C153.087 51.6077 153.229 51.2632 153.481 51.0079L166.87 37.619C166.996 37.4931 167.145 37.3932 167.31 37.3251C167.474 37.2569 167.651 37.2219 167.829 37.2219C168.007 37.2219 168.183 37.2569 168.348 37.3251C168.512 37.3932 168.662 37.4931 168.788 37.619C168.914 37.745 169.013 37.8945 169.082 38.059C169.15 38.2235 169.185 38.3998 169.185 38.5779C169.185 38.756 169.15 38.9323 169.082 39.0968C169.013 39.2614 168.914 39.4108 168.788 39.5368L155.399 52.9256C155.273 53.0518 155.124 53.1517 154.959 53.2197C154.794 53.2876 154.618 53.3222 154.44 53.3215Z" fill="#fff"/><path d="M45.8512 129.036V108.803H7.875V91.9222L31.3539 6.41638H63.9024V92.9338H73.3151V108.768H63.9024V129.001L45.8512 129.036ZM24.422 92.969H45.8512V22.286L24.422 92.969Z" fill="#000"/><path d="M37.9674 129.036V108.803H0V91.9222L23.4701 6.41638H56.0186V92.9338H65.4313V108.768H56.0186V129.001L37.9674 129.036ZM16.547 92.969H37.9674V22.286L16.547 92.969Z" fill="#313131"/><path d="M309.414 129.036V108.803H271.438V91.9222L294.916 6.41638H327.465V92.9338H336.878V108.768H327.465V129.001L309.414 129.036ZM287.993 92.969H309.414V22.286L287.993 92.969Z" fill="#000"/><path d="M301.542 129.036V108.803H263.565V91.9222L287.044 6.41638H319.593V92.9338H329.006V108.768H319.593V129.001L301.542 129.036ZM280.156 92.9338H301.586V22.286L280.156 92.9338Z" fill="#313131"/></svg>
+					</div>
 
-      <Container className="relative z-10">
-        <div className="text-center max-w-3xl mx-auto px-4 py-20">
-          {/* AR-themed 404 visual */}
-          <div className="mb-8 relative">
-            <div className="relative inline-block">
-              <div className="text-[120px] md:text-[180px] lg:text-[220px] font-bold leading-none">
-                <span className="bg-gradient-to-r from-[#ffffff] via-[#454147] to-[#0f0615] bg-clip-text text-transparent animate-gradient">
-                  404
-                </span>
-              </div>
-              
-              {/* AR scanning lines effect */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#0AA44C] to-transparent animate-scan"></div>
-              </div>
-            </div>
-          </div>
+					{/* Message */}
+					<h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-[#1a1a1a] mb-13">
+						The page you are looking for can&apos;t be found.
+					</h1>
 
-          {/* Main message */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-['Circular_Std',sans-serif]">
-            Lost in the Virtual Space?
-          </h1>
-          
-          <p className="text-lg md:text-xl text-[#E7E5EAB2] mb-3 max-w-2xl mx-auto leading-relaxed">
-            Looks like you&apos;ve wandered off the path to <span className="text-white font-semibold">TryOnAR</span>
-          </p>
+					{/* CTA buttons */}
+					<div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+						<Button
+							variant="primary"
+							href="/"
+							showIcon={true}
+							className='tryon-primary-btn'
+						>
+							Go To Homepage
+						</Button>
 
-          <p className="text-base md:text-lg text-[#B8B6BB] mb-10 max-w-xl mx-auto">
-            The page you&apos;re looking for doesn&apos;t exist in this reality. Let&apos;s get you back on track to experience the future of virtual try-on.
-          </p>
+						<Button
+							variant="secondary"
+							href="/product-demo"
+							icon=''
+							showIcon={false}
+						>
+							View Demo
+						</Button>
 
-          {/* AR-themed icon */}
-          <div className="mb-10 flex justify-center">
-            <div className="relative">
-              <svg 
-                width="100" 
-                height="100" 
-                viewBox="0 0 100 100" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="animate-float"
-              >
-                {/* AR marker corners */}
-                <path d="M10 10H25M10 10V25" stroke="#454147" strokeWidth="3" strokeLinecap="round" />
-                <path d="M90 10H75M90 10V25" stroke="#454147" strokeWidth="3" strokeLinecap="round" />
-                <path d="M10 90H25M10 90V75" stroke="#454147" strokeWidth="3" strokeLinecap="round" />
-                <path d="M90 90H75M90 90V75" stroke="#454147" strokeWidth="3" strokeLinecap="round" />
-                
-                {/* Center crosshair */}
-                <circle cx="50" cy="50" r="20" stroke="white" strokeWidth="2" strokeDasharray="4 4" opacity="0.6" />
-                <circle cx="50" cy="50" r="12" stroke="white" strokeWidth="2" opacity="0.8" />
-                <path d="M50 35V65M35 50H65" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-              
-              {/* Pulsing ring */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 border-2 border-[#9F3AED] rounded-full animate-ping opacity-20"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-
-            <Link href="/">
-              <Button variant="primary" size="lg" className='bg-[#454147] hover:!bg-[#403e4c]'>
-                Return to Home
-              </Button>
-            </Link>
-
-            <Link href="/product-demo">
-              <Button variant="secondary" size="lg" className='bg-white hover:!bg-white !text-[var(--color-text-primary)] '>
-                Try Our Demo
-              </Button>
-            </Link>
-          </div>
-
-          {/* Help text */}
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <p className="text-sm text-[#B8B6BB]">
-              Need help? <Link href="/contact" className="text-white hover:text-[#B8B6BB] transition-colors underline">Contact our team</Link>
-            </p>
-          </div>
-        </div>
-      </Container>
-
-      {/* Custom animations */}
-      <style jsx>{`
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
-        @keyframes scan {
-          0% {
-            transform: translateY(-100px);
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateY(100px);
-            opacity: 0;
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-        
-        .animate-scan {
-          animation: scan 3s ease-in-out infinite;
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-      `}</style>
-    </div>
-  )
+					</div>
+				</div>
+			</Container>
+		</div>
+	)
 }

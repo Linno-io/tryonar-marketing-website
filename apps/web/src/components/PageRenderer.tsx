@@ -33,7 +33,8 @@ import {
     BeautyFeatureGridSection as BeautyFeatureGridSectionProps,
     InstantTryOnSection as InstantTryOnSectionProps,
     ProductsDetailsTabSection as ProductsDetailsTabSectionProps,
-    ContactFormSection as ContactFormSectionProps
+    ContactFormSection as ContactFormSectionProps,
+    TermsAndConditionsSection as TermsAndConditionsSectionProps
 } from '@/lib/types/section';
 
 import HeroSection from './sections/HeroSection'
@@ -67,6 +68,7 @@ import BeautyFeatureGridSection from './sections/BeautyFeatureGridSection';
 import InstantTryOnSection from './sections/InstantTryOnSection';
 import ProductsDetailsTab from './sections/ProductsDetailsTab';
 import ContactFormSection from './sections/ContactFormSection';
+import TermsAndConditionsSection from './sections/TermsAndConditionsSection';
 
 interface PageRenderedProps {
     page: Page
@@ -155,6 +157,8 @@ export default function PageRenderer({page, home}: PageRenderedProps) {
                                return <ProductsDetailsTab key={section._key} data={section as ProductsDetailsTabSectionProps} />;
                             case 'contactFormSectionType':
                                return <ContactFormSection key={section._key} data={section as ContactFormSectionProps} />;
+                            case 'termsAndConditionsSectionType':
+                               return <TermsAndConditionsSection key={section._key} data={section as TermsAndConditionsSectionProps} />;
                             default:
                                 return null;
                         }

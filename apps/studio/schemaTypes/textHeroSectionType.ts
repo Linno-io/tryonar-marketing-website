@@ -17,7 +17,7 @@ export const textHeroSectionType = defineType({
             title: 'Description',
             type: 'text',
             rows: 3,
-            validation: (rule) => rule.required(),
+            // validation: (rule) => rule.required(),
             description: 'Supporting text below the title'
         },
     ],
