@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { Button, Container } from '@/components/ui'
 import { BeautyFeatureGridSection as BeautyFeatureGridSectionProps } from '@/lib/types/section'
 import { SanityImage, SanityVideo } from '@/lib/types/siteSettings'
+import clsx from 'clsx'
 
 interface SectionTitle {
     text: string
@@ -97,7 +98,10 @@ function VideoCard({ card, shouldLoad, index }: { card: FeatureCard; shouldLoad:
                     <Link
                         href={card.cardButton.internalLink || card.cardButton.externalLink || '#'}
                         target={card.cardButton.externalLink ? '_blank' : '_self'}
-                        className="inline-block mt-5 px-4 py-2 rounded-[10px] text-white text-sm font-medium"
+                        className={clsx(
+                            'inline-block mt-5 px-4 py-2 rounded-[10px] text-white text-sm font-medium',
+                            (!card.cardButton.internalLink && !card.cardButton.externalLink) ? 'cursor-not-allowed opacity-60 select-none' : ''
+                        )}
                         style={{ backgroundColor: '#1E1E1E' }}
                     >
                         {card.cardButton.text}
