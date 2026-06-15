@@ -116,27 +116,31 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                 </div>
 
                 {/* Tabs */}
-                {/* <div className="flex items-center justify-center flex-wrap gap-3 mb-8">
-                    {tabs.map((tab) => (
-                        <div key={tab._key} className="relative">
-                            {tab.comingSoon && (
-                                <span className="absolute -top-2.5 -right-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
-                                    Coming Soon
-                                </span>
-                            )}
-                            <button
-                                onClick={() => !tab.comingSoon && setActiveTab(tab)}
-                                className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
-                                    activeTab._key === tab._key
-                                        ? 'border-[#FFA49B] border-solid challenge-active-tab'
-                                        : 'border border-[#E5E3EA]'
-                                } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
-                            >
-                                {tab.tabLabel}
-                            </button>
+                {
+                    tabs.length > 1 && (
+                        <div className="flex items-center justify-center flex-wrap gap-3 mb-8">
+                            {tabs.map((tab) => (
+                                <div key={tab._key} className="relative">
+                                    {tab.comingSoon && (
+                                        <span className="absolute -top-2.5 -right-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
+                                            Coming Soon
+                                        </span>
+                                    )}
+                                    <button
+                                        onClick={() => !tab.comingSoon && setActiveTab(tab)}
+                                        className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 ${
+                                            activeTab._key === tab._key
+                                                ? 'border-[#FFA49B] border-solid challenge-active-tab'
+                                                : 'border border-[#E5E3EA]'
+                                        } ${tab.comingSoon ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}`}
+                                    >
+                                        {tab.tabLabel}
+                                    </button>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div> */}
+                    )
+                }
 
                 {/* Two cards */}
                 <div className="flex flex-col lg:flex-row gap-5">
