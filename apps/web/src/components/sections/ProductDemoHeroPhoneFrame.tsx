@@ -214,7 +214,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
     })
 
     return (
-        <div className="pb-7.5 sm:pb-0 w-full select-none flex flex-col items-center gap-2" style={{ maxWidth: 643 }}>
+        <div className="pb-7.5 sm:pb-0 w-full select-none flex flex-col items-center gap-2" style={{ maxWidth: 570 }}>
             {/* Phone frame + screen overlay + desktop sidebar */}
             <div className="relative w-full">
             <Image
