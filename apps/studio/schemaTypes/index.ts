@@ -41,6 +41,7 @@ import { beautyFeatureGridSectionType } from './beautyFeatureGridSectionType'
 import { instantTryOnSectionType } from './instantTryOnSectionType'
 import { productsDetailsTabType } from './productsDetailsTabType'
 import { contactFormSectionType } from './contactFormSectionType'
+import { termsAndConditionsSectionType } from './termsAndConditionsSectionType'
 
 export const schemaTypes = [
   link,
@@ -85,6 +86,7 @@ export const schemaTypes = [
   instantTryOnSectionType,
   productsDetailsTabType,
   contactFormSectionType,
+  termsAndConditionsSectionType,
 
   // userType
 ]

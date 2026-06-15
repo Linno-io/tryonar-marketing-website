@@ -271,15 +271,15 @@
 
 	.text-hero-section:before {
 		content: "";
+		filter: blur(110px);
+		background: #ffa49b;
 		border-radius: 988.455px;
-		background: #FFA49B;
-		filter: blur(150px);
+		width: 1123.26px;
+		height: 593.232px;
 		position: absolute;
-		top: -140%;
+		top: -145%;
 		left: -500px;
 		transform: rotate(13.504deg);
-		width: 1123.262px;
-		height: 688.232px;
 	}
 
 	.facts-number sub {
@@ -554,4 +554,39 @@
 }
 .no-scrollbar::-webkit-scrollbar {
     display: none;
+}
+
+/* terms and conditions page */
+.terms-of-service-page-container {
+	position: relative;
+}
+.terms-of-service-page-container:before {
+	content: "";
+	background: linear-gradient(180deg, rgba(226, 217, 255, 0.40) 0%, #FFF 100%);
+	width: 100%;
+	height: 100%;
+	max-height: 980px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.terms-of-service-page-container .terms-and-conditions-section {
+	position: relative;
+}
+.terms-of-service-page-container .terms-and-conditions-section:before {
+	content: "";
+    filter: blur(150px);
+    z-index: -1;
+    background: #aa73e4;
+    border-radius: 1123.26px;
+    width: 250px;
+    height: 380px;
+    position: absolute;
+    top: 0;
+    right: -240px;
+}
+
+.terms-of-service-page-container .text-hero-section {
+	background-color: transparent!important;
 }

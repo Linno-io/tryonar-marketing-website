@@ -1,6 +1,6 @@
 import { TrustCardSection as TrustCardSectionProps } from '@/lib/types/section';
 import { Fragment, memo } from 'react';
-import { Container, DotBackground } from '../ui';
+import { Container, DotBackground, Heading } from '../ui';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { SanityImage } from '@/lib/types/siteSettings';
@@ -24,7 +24,7 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
 
     return (
         <>
-            <section className="trust-cards-section relative py-12 sm:py-16 md:py-20 lg:py-28 bg-[#00020B] overflow-hidden z-10">
+            <section className="tryon-trust relative p-[50px_0_60px] lg:p-[70px_0_80px] xl:p-[100px_0_110px] bg-[#00020B] overflow-hidden z-10">
                 <div
                     className="absolute -top-[100px] left-1/2 -translate-x-1/2 w-full h-[300px] opacity-40 pointer-events-none z-10"
                     style={{
@@ -34,10 +34,10 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
                 />
 
                 <Container>
-                    <div className="text-center max-w-3xl mx-auto">
+                    <div className="section-title-wrapper text-center mb-9 xl:mb-12">
                         {
                             title && title.length > 0 && (
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
+                                <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight">
                                     {
                                         title.map((block, index) => {
                                             if(block.type === 'normal') {
@@ -49,13 +49,13 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
                                             }
                                         })
                                     }
-                                </h2>
+                                </Heading>
                             )
                         }
     
                         {
                             description && (
-                                <p className="text-[#E7E5EABF] text-sm sm:text-base md:text-lg mx-auto">{description}</p>
+                                <p className="text-[#e7e5eabf] text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[800px] mx-auto">{description}</p>
                             )
                         }
                     </div>
@@ -74,9 +74,11 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
                                                 className="h-6.5 w-6.5 object-contain"
                                             />
                                         </span>
-                                        <h3 className='text-[#1A202C] text-2xl sm:text-[26px] md:text-[28px] lg:text-[30px] font-bold leading-none mt-5 sm:mt-6 lg:mt-7'>
+
+                                        <h3 className='text-[#1A202C] text-2xl sm:text-[20px] md:text-[24px] xl:text-[30px] tracking-[-0.6px] font-bold font-[Circular_Std_Bold] leading-none mt-5 sm:mt-6 lg:mt-7'>
                                             {card.cardTitle}
                                         </h3>
+
                                         <p className='text-[#3E3E42] text-sm sm:text-base leading-normal mt-2'>
                                             {card.description}
                                         </p>

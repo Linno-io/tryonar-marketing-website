@@ -1,4 +1,5 @@
 import { SanityImage, SanityVideo } from "./siteSettings"
+import type { PortableTextBlock } from '@portabletext/types'
 
 export interface Section {
   _type: string
@@ -562,6 +563,16 @@ export interface ContactFormSection extends Section {
   termsLinkUrl?: string
   privacyLinkText?: string
   privacyLinkUrl?: string
+}
+
+export interface TermsAndConditionsSection extends Section {
+  _type: 'termsAndConditionsSectionType'
+  _key: string
+  sections: {
+    _key: string
+    heading: string
+    body: PortableTextBlock[]
+  }[]
 }
 
 export interface BeautyFeatureGridSection extends Section {

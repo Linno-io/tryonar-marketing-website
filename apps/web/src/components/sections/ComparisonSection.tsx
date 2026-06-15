@@ -1,6 +1,6 @@
 import { ComparisonSection as ComparisonSectionProps } from '@/lib/types/section';
 import { Fragment, memo } from 'react';
-import { Container, DotBackground } from '../ui';
+import { Container, DotBackground, Heading } from '../ui';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { SanityImage } from '@/lib/types/siteSettings';
@@ -18,19 +18,24 @@ const Card = ({data, featured = false} : {data : Card, featured?: boolean}) => {
         title,
         features,
     } = data;
+
     return (
-        <div className={`comparison-card ${featured ? 'bg-[#00020B]' : 'bg-white border border-[#ECEDF1] '} rounded-2xl md:rounded-[30px] py-4 md:py-10 px-8 md:px-12.5 flex-1 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)] relative`}>
+        <div className={`comparison-card ${featured ? 'bg-[#00020B]' : 'bg-white border border-[#ECEDF1] '} rounded-2xl xl:rounded-[30px] py-4 md:py-6 xl:py-10 px-4 md:px-6 xl:px-12.5 flex-1 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)] relative`}>
             {
                 featured && (
-                    <span className=' sm:block absolute top-1 md:top-7 right-3 md:right-6.5'>
+                    <span className=' sm:block absolute top-2 xl:top-7 right-3 xl:right-6.5'>
                         <PopularTag />
                     </span>
                 )
             }
-            <h3 className={`text-xl md:text-[30px] font-semibold mb-4 md:mb-7.5  ${featured ? 'text-white' : 'text-[#838383]'}`}>{title}</h3>
-            <ul className="list-none list-inside space-y-2">
+
+            <h3 className={`text-xl lg:text-[24px] xl:text-[30px] font-[Circular_Std_Bold] font-bold tracking-[-0.6px] mb-4 xl:mb-5  ${featured ? 'text-white' : 'text-[#838383]'}`}>
+                {title}
+            </h3>
+
+            <ul className="list-none list-inside space-y-2 xl:space-y-3">
                 {features.map((feature, index) => (
-                    <li key={index} className={`${featured ? 'text-[#FFFFFFBF]' : 'text-[#3E3E42BF] '} flex items-center gap-5 `}>
+                    <li key={index} className={`${featured ? 'text-[#FFFFFFBF]' : 'text-[#3e3e42bf] '} flex items-center gap-2.5 md:gap-4 text-base font-normal leading-normal font-[Inter]`}>
                         {
                             featured ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M12.5508 1L4.60962 10L1 5.90909" stroke="#35BD4C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -58,12 +63,12 @@ const ComparisonSection = ({data} : {data : ComparisonSectionProps}) => {
 
     return (
         <>
-            <section className="trust-cards-section relative py-12 sm:py-16 md:py-20 lg:py-28 bg-[##F8F8F9] overflow-hidden z-10">
+            <section className="tryon-comparison relative p-[50px_0_60px] lg:p-[70px_0_80px] xl:p-[100px_0_110px] bg-[#F8F8F9] overflow-hidden z-10">
                 <Container>
-                    <div className="text-center max-w-3xl mx-auto">
+                    <div className="section-title-wrapper text-center mb-9 xl:mb-12">
                         {
                             title && title.length > 0 && (
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A202C] mb-3 md:mb-4">
+                                <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-[#1A202C] mb-2.5 tracking-tight leading-tight max-w-[867px] mx-auto">
                                     {
                                         title.map((block, index) => {
                                             if(block.type === 'normal') {
@@ -75,20 +80,20 @@ const ComparisonSection = ({data} : {data : ComparisonSectionProps}) => {
                                             }
                                         })
                                     }
-                                </h2>
+                                </Heading>
                             )
                         }
     
                         {
                             description && (
-                                <p className="text-[#3E3E42] text-sm sm:text-base md:text-lg mx-auto">{description}</p>
+                                <p className="text-[#3E3E42] text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[867px] mx-auto">{description}</p>
                             )
                         }
                     </div>
 
-                    <div className="cards-wrapper flex flex-col lg:flex-row items-stretch justify-between gap-4 sm:gap-5 md:gap-6 lg:gap-2 mt-8 sm:mt-12 md:mt-14 lg:mt-17.5">
+                    <div className="cards-wrapper flex flex-col lg:flex-row items-stretch justify-between gap-4 sm:gap-5 md:gap-6 lg:gap-2">
                         <Card data={traditionalAR}  />
-                        <Card data={tryOnAR}  featured={true} />
+                        <Card data={tryOnAR} featured={true} />
                         <Card data={basicWebAR}  />
                     </div>
 
