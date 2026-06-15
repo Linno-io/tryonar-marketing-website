@@ -57,18 +57,18 @@ const CATEGORIES: ProductCategory[] = [
             { name: 'Espresso', hex: '#6B3A1F', image: '/product-demo-hero-section/foundation-espresso.webp' },
         ],
     },
-    {
-        id: 'eyeliner',
-        label: 'Eyeliner',
-        thumbnail: '/interactive-demo/eyeliner.webp',
-        colors: [],
-    },
-    {
-        id: 'eyeshadow',
-        label: 'Eyeshadow',
-        thumbnail: '/interactive-demo/eyeshadow.webp',
-        colors: [],
-    },
+    // {
+    //     id: 'eyeliner',
+    //     label: 'Eyeliner',
+    //     thumbnail: '/interactive-demo/eyeliner.webp',
+    //     colors: [],
+    // },
+    // {
+    //     id: 'eyeshadow',
+    //     label: 'Eyeshadow',
+    //     thumbnail: '/interactive-demo/eyeshadow.webp',
+    //     colors: [],
+    // },
 ]
 
 // Flat sequence of only categories that have showcase images
