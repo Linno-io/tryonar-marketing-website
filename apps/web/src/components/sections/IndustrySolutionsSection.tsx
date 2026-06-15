@@ -165,7 +165,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                                 </h4>
                                 <ul className="space-y-4.5">
                                     {content.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-center gap-3 text-[#4E4955]">
+                                        <li key={idx} className="flex items-center gap-3 text-[#3e3e42]">
                                             <Image
                                                 src={feature.icon.url ?? ''}
                                                 width={11}

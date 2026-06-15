@@ -43,7 +43,7 @@ const BusinessResultsSection = ({ data }: { data: BusinessResultsSectionProps })
                                     <h3 className="text-[24px] font-medium text-[#0B0E1E] leading-snug">
                                         {card.cardTitle}
                                     </h3>
-                                    <p className="text-[16px] text-[#6B6B7A] leading-relaxed">
+                                    <p className="text-[16px] text-[#3e3e42] leading-relaxed">
                                         {card.description}
                                     </p>
                                 </div>

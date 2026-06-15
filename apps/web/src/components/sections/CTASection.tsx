@@ -80,7 +80,7 @@ export default function CTASection({ data }: CTAProps) {
                             )}
                         </Heading>
 
-                        <p className="text-gray-400 text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[867px] mx-auto">
+                        <p className="text-[#e7e5ea] text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[867px] mx-auto">
                             {description}
                         </p>
                     </div>
@@ -123,7 +123,7 @@ export default function CTASection({ data }: CTAProps) {
                                     if (!Icon) return null
 
                                     return (
-                                        <div key={index} className="flex items-center gap-2.5 opacity-90">
+                                        <div key={index} className="flex items-center gap-2.5 text-[#e7e5ea]">
                                             {Icon}
                                             <span className="text-sm md:text-base">{stat.label}</span>
                                         </div>
