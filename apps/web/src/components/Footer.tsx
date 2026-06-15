@@ -46,7 +46,7 @@ export default function Footer(props: FooterProps ) {
                 <div className="max-w-[1013px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 relative z-10">
 
                     {/* Brand Section */}
-                    <div className="lg:col-span-5 col-span-full">
+                    <div className="lg:col-span-7 col-span-full">
                         <div className="flex items-center gap-3 mb-3">
                             <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
                         </div>
@@ -88,9 +88,9 @@ export default function Footer(props: FooterProps ) {
                     </div>
 
                     {/* Fixed Menu Titles - Reduced tracking and size to prevent overlap */}
-                    <div className="lg:col-span-7 col-span-full grid grid-cols-1 sm:grid-cols-3 md:gap-4 gap-10">
+                    <div className="lg:col-span-5 col-span-full flex flex-wrap sm:flex-nowrap gap-y-10 sm:gap-0">
                         {footerMenus?.map((menu: any, index: number) => (
-                            <div key={index}>
+                            <div key={index} className='w-1/2 sm:w-full'>
                                 <p className="text-[13px] font-bold uppercase tracking-widest text-white mb-2 md:mb-5 leading-[1.1]">
                                     {menu.title}
                                 </p>
