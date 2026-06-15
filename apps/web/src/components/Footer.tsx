@@ -43,10 +43,10 @@ export default function Footer(props: FooterProps ) {
     return (
         <footer className="bg-[#020408] text-white xl:pt-23 lg:pt-20 md:pt-15 pt-13 pb-0 relative overflow-hidden">
             <Container className="tryon-container">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 relative z-10">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-10 relative z-10">
 
                     {/* Brand Section */}
-                    <div className="lg:col-span-4 col-span-full">
+                    <div className="footer-brand">
                         <div className="flex items-center gap-3 mb-3">
                             <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
                         </div>
@@ -88,7 +88,7 @@ export default function Footer(props: FooterProps ) {
                     </div>
 
                     {/* Fixed Menu Titles - Reduced tracking and size to prevent overlap */}
-                    <div className="lg:col-span-8 col-span-full grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-10">
+                    <div className="flex gap-10 items-start">
                         {footerMenus?.map((menu: any, index: number) => (
                             <div key={index}>
                                 <p className="text-[13px] font-bold uppercase tracking-widest text-white mb-2 md:mb-5">
