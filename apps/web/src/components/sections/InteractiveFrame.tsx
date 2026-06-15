@@ -188,7 +188,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                     )}
 
                     <iframe
-                        src="https://trystaging.tryonar.net/"
+                        src="https://try.tryonar.net/"
                         className="w-full h-full"
                         style={{
                             border: 'none',

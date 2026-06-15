@@ -236,7 +236,7 @@ const AutoInteractiveFrame = ({ priority = false }: AutoInteractiveFrameProps) =
                     )}
 
                     <iframe
-                        src="https://trystaging.tryonar.net/"
+                        src="https://try.tryonar.net/"
                         className="w-full h-full"
                         style={{ border: 'none', borderRadius: 'inherit' }}
                         allow="camera"

@@ -79,11 +79,11 @@ const CYCLE_SEQUENCE: { categoryId: string; colorIndex: number }[] = CATEGORIES.
 const FINISHES: Finish[] = ['Satin', 'Matte', 'Glossy']
 
 const IFRAME_URLS: Record<string, string> = {
-    lipstick: 'https://trystaging.tryonar.net/',
-    eyeshadow: 'https://trystaging.tryonar.net/?type=eyeshadow',
-    eyeliner: 'https://trystaging.tryonar.net/?type=eyeliner',
-    blush: 'https://trystaging.tryonar.net/?type=blush',
-    foundation: 'https://trystaging.tryonar.net/?type=foundation',
+    lipstick: 'https://try.tryonar.net/',
+    eyeshadow: 'https://try.tryonar.net/?type=eyeshadow',
+    eyeliner: 'https://try.tryonar.net/?type=eyeliner',
+    blush: 'https://try.tryonar.net/?type=blush',
+    foundation: 'https://try.tryonar.net/?type=foundation',
 }
 
 interface Props {
@@ -481,7 +481,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
 
                             <iframe
                                 key={activeCategoryId}
-                                src={IFRAME_URLS[activeCategoryId] ?? 'https://trystaging.tryonar.net/'}
+                                src={IFRAME_URLS[activeCategoryId] ?? 'https://try.tryonar.net/'}
                                 className="w-full h-full"
                                 style={{ border: 'none' }}
                                 allow="camera"
