@@ -95,6 +95,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                                             width={530}
                                                             height={340}
                                                             className='w-full h-[calc(100%+1px)] mb-[-1px] object-contain rounded-[20px]'
+                                                            fetchPriority='high'
                                                         />
                                                     </div>
                                                     <h3 className='mt-4 sm:mt-5 md:mt-6 mb-2 text-xl sm:text-2xl md:text-[26px] lg:text-[30px] leading-tight md:leading-none text-[#1A202C]'>
