@@ -68,7 +68,14 @@ export const cardsSectionType = defineType({
                                     type: 'string',
                                 }
                             ],
-                            description: 'Image representing the card'
+                            description: 'Card image. If video is provided, this becomes the poster frame.'
+                        },
+                        {
+                            name: 'video',
+                            title: 'Video (optional)',
+                            type: 'file',
+                            options: { accept: 'video/*' },
+                            description: 'If provided, image becomes the poster. Video autoplays muted on loop.',
                         },
                     ],
                     preview: {

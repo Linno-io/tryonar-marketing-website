@@ -256,6 +256,7 @@ export interface CardsSection extends Section {
     cardTitle: string
     description: string
     image: SanityImage
+    video?: SanityVideo
     tags?: string[]
   }[]
   primaryButton: Button

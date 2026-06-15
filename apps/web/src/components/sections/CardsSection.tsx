@@ -1,17 +1,59 @@
+'use client'
+
 import { CardsSection as CardsSectionProps } from '@/lib/types/section';
-import { Fragment, memo } from 'react';
+import { Fragment, memo, useEffect, useRef } from 'react';
 import { Container, DotBackground } from '../ui';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { SanityImage } from '@/lib/types/siteSettings';
+import { SanityImage, SanityVideo } from '@/lib/types/siteSettings';
 import Image from 'next/image';
+
 
 interface Card {
     _key: string;
     cardTitle: string;
     description: string;
     image: SanityImage;
+    video?: SanityVideo;
     tags?: string[];
+}
+
+function CardMedia({ card }: { card: Card }) {
+    const videoRef = useRef<HTMLVideoElement>(null)
+
+    useEffect(() => {
+        if (!card.video?.url || !videoRef.current) return
+        const video = videoRef.current
+        video.src = card.video.url
+        video.load()
+        video.play().catch(() => {})
+    }, [card.video?.url])
+
+    return (
+        <div className='overflow-hidden'>
+            {card.video?.url ? (
+                // eslint-disable-next-line jsx-a11y/media-has-caption
+                <video
+                    ref={videoRef}
+                    poster={card.image?.url}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className='w-full h-full min-[1024px]:h-65 min-[1280px]:h-94.25 -mb-px object-cover rounded-[20px]'
+                />
+            ) : (
+                <Image
+                    src={card.image?.url || '/placeholder-image.png'}
+                    alt={card.image?.alt || card.cardTitle}
+                    width={530}
+                    height={340}
+                    className='w-full h-[calc(100%+1px)] mb-[-1px] object-contain rounded-[20px]'
+                    fetchPriority='high'
+                />
+            )}
+        </div>
+    )
 }
 
 const CardsSection = ({data} : {data : CardsSectionProps}) => {
@@ -88,16 +130,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
                                         {row.map((card, index) => (
                                             <div className={`card flex-1 flex flex-col justify-between ${index === 0 ? 'md:border-r border-[#E5E3EA]' : ''} ${index === 0 && row.length > 1 ? 'border-b md:border-b-0 border-[#E5E3EA]' : ''}`} key={index}>
                                                 <div className="card-info p-6 sm:p-10 md:p-12 lg:p-8.75 pb-4 sm:pb-5 md:pb-6">
-                                                    <div className='overflow-hidden'>
-                                                        <Image 
-                                                            src={card.image?.url || '/placeholder-image.png'}
-                                                            alt={card.image?.alt || card.cardTitle}
-                                                            width={530}
-                                                            height={340}
-                                                            className='w-full h-[calc(100%+1px)] mb-[-1px] object-contain rounded-[20px]'
-                                                            fetchPriority='high'
-                                                        />
-                                                    </div>
+                                                    <CardMedia card={card} />
                                                     <h3 className='mt-4 sm:mt-5 md:mt-6 mb-2 text-xl sm:text-2xl md:text-[26px] lg:text-[30px] leading-tight md:leading-none text-[#1A202C]'>
                                                         {card.cardTitle}
                                                     </h3>
