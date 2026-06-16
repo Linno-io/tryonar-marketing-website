@@ -36,7 +36,7 @@ const MagicSection = ({data} : {data: MagicSectionProps}) => {
     
                         {
                             description && (
-                                <p className="text-[#E7E5EABF] text-base md:text-lg mx-auto">{description}</p>
+                                <p className="text-[#e7e5ea] text-base md:text-lg mx-auto">{description}</p>
                             )
                         }
 

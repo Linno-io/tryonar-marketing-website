@@ -55,7 +55,7 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
     
                         {
                             description && (
-                                <p className="text-[#e7e5eabf] text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[800px] mx-auto">{description}</p>
+                                <p className="text-[#e7e5ea] text-[15px] md:text-[18px] xl:text-[19px] font-normal leading-relaxed max-w-[800px] mx-auto">{description}</p>
                             )
                         }
                     </div>
