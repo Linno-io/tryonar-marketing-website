@@ -68,7 +68,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                                 <ul className="flex flex-col gap-4 md:gap-5 lg:gap-6">
                                     {
                                         card.inCludedFeatures.map((feature, index) => (
-                                            <li key={index} className={`text-sm md:text-[15px] flex items-center gap-2 md:gap-2.5 leading-normal ${card.isPopular ? 'text-[#E6E6E6]' : 'text-[#646464]'}`}>
+                                            <li key={index} className={`text-sm md:text-[15px] flex items-center gap-2 md:gap-2.5 leading-normal ${card.isPopular ? 'text-[#E6E6E6]' : 'text-[#3e3e42]'}`}>
                                                 {
                                                     card.isPopular ? (
                                                         <svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 0C3.36466 0 0 3.36466 0 7.5C0 11.6353 3.36466 15 7.5 15C11.6353 15 15 11.6353 15 7.5C15 3.36466 11.6353 0 7.5 0ZM11.6917 5.52632L6.8985 10.282C6.61654 10.5639 6.16541 10.5827 5.86466 10.3008L3.32707 7.98872C3.02632 7.70677 3.00752 7.23684 3.27068 6.93609C3.55263 6.63534 4.02256 6.61654 4.32331 6.8985L6.33459 8.7406L10.6203 4.45489C10.9211 4.15414 11.391 4.15414 11.6917 4.45489C11.9925 4.75564 11.9925 5.22556 11.6917 5.52632Z" fill="white"/></svg>
@@ -95,7 +95,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                                 <ul className="flex flex-col gap-4 md:gap-5 lg:gap-6">
                                     {
                                         card.usageLimits.map((feature, index) => (
-                                            <li key={index} className={`text-sm md:text-[15px] flex items-center gap-2 md:gap-2.5 leading-normal ${card.isPopular ? 'text-[#E6E6E6]' : 'text-[#646464]'}`}>
+                                            <li key={index} className={`text-sm md:text-[15px] flex items-center gap-2 md:gap-2.5 leading-normal ${card.isPopular ? 'text-[#E6E6E6]' : 'text-[#3e3e42]'}`}>
                                                 {
                                                     card.isPopular ? (
                                                         <svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 0C3.36466 0 0 3.36466 0 7.5C0 11.6353 3.36466 15 7.5 15C11.6353 15 15 11.6353 15 7.5C15 3.36466 11.6353 0 7.5 0ZM11.6917 5.52632L6.8985 10.282C6.61654 10.5639 6.16541 10.5827 5.86466 10.3008L3.32707 7.98872C3.02632 7.70677 3.00752 7.23684 3.27068 6.93609C3.55263 6.63534 4.02256 6.61654 4.32331 6.8985L6.33459 8.7406L10.6203 4.45489C10.9211 4.15414 11.391 4.15414 11.6917 4.45489C11.9925 4.75564 11.9925 5.22556 11.6917 5.52632Z" fill="white"/></svg>

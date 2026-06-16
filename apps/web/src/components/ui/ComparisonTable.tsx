@@ -156,7 +156,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
 
                             {
                                 features.map(feature => (
-                                    <p key={feature._key} className='text-[#2D3149] h-[64px] font-normal text-[15px] leading-none py-6 text-center flex items-center justify-center border-b border-[#F4EEF7] border-l'>
+                                    <p key={feature._key} className='text-[#3e3e42] h-[64px] font-normal text-[15px] leading-none py-6 text-center flex items-center justify-center border-b border-[#F4EEF7] border-l'>
                                       {feature.values && feature.values[index] ? 
                                         feature.values[index].type === 'check' ? <span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M13.7 0.323529C13.3 -0.107843 12.7 -0.107843 12.3 0.323529L4.8 8.41176L1.7 5.06863C1.3 4.63725 0.7 4.63725 0.3 5.06863C-0.1 5.5 -0.1 6.14706 0.3 6.57843L4.1 10.6765C4.3 10.8922 4.5 11 4.8 11C5.1 11 5.3 10.8922 5.5 10.6765L13.7 1.83333C14.1 1.40196 14.1 0.754902 13.7 0.323529Z" fill="#202020"/></svg> 

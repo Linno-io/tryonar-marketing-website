@@ -11,7 +11,7 @@ const TextHeroSection = ({data, page} : {data: TextHeroSectionProps, page: strin
 
     return (
         <section className={clsx(
-            'text-hero-section relative overflow-hidden pt-30 pb-16 lg:pt-[203px] lg:pb-25 border-b border-[#eeedf2]',
+            'text-hero-section relative overflow-hidden pt-32 pb-12 lg:pt-[203px] lg:pb-25 border-b border-[#eeedf2]',
             'pricing' === page ? 'bg-[#F8F8F9]' : 'bg-white'
         )}>      
             <Container className="relative z-10">
