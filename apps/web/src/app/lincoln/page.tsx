@@ -82,7 +82,7 @@ export default function LincolnPage() {
                     text-align: center;
                     line-height: 1.65;
                     max-width: 340px;
-                    margin: 0 0 2.25rem;
+                    margin: 0 0 1rem;
                 }
                 .actions {
                     display: flex;
@@ -257,49 +257,32 @@ export default function LincolnPage() {
                 }
                 .btn-demo-cta:hover { opacity: 0.88; transform: translateY(-1px); }
 
-                /* Contact cards */
-                .contact-grid {
-                    width: 100%;
-                    max-width: 380px;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 0.75rem;
-                    margin-bottom: 2rem;
-                }
-                .contact-card {
-                    background: rgba(255,255,255,0.04);
-                    border: 1px solid rgba(255,255,255,0.08);
-                    border-radius: 16px;
-                    padding: 1.25rem 1rem;
-                    text-decoration: none;
+                /* Social icon row */
+                .social-icons {
                     display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 0.6rem;
-                    transition: background 0.15s, border-color 0.15s;
+                    gap: 1rem;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 1.75rem;
                 }
-                .contact-card:hover {
-                    background: rgba(139,92,246,0.08);
-                    border-color: rgba(139,92,246,0.25);
+                .social-icon {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: rgba(255,255,255,0.06);
+                    border: 1px solid rgba(255,255,255,0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #9ca3af;
+                    text-decoration: none;
+                    transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
                 }
-                .contact-card-icon {
-                    color: #6b7280;
-                }
-                .contact-card-label {
-                    font-size: 0.65rem;
-                    font-weight: 700;
-                    letter-spacing: 0.18em;
-                    color: #6b7280;
-                    text-transform: uppercase;
-                }
-                .contact-card-value {
-                    font-size: 0.82rem;
-                    color: #e5e7eb;
-                    font-weight: 500;
-                    word-break: break-all;
-                }
-                .contact-card-full {
-                    grid-column: span 2;
+                .social-icon:hover {
+                    background: rgba(139,92,246,0.15);
+                    border-color: rgba(139,92,246,0.4);
+                    color: #a78bfa;
+                    transform: translateY(-2px);
                 }
                 .footer-note {
                     font-size: 0.75rem;
@@ -318,14 +301,26 @@ export default function LincolnPage() {
                     Founder at Linno · Trusted by 100+ Businesses Worldwide, incl. GE &amp; Hitachi | Now Building TryonAR — Virtual Try-On for Beauty Brands 🇳🇱
                 </p>
 
+                <div className="social-icons">
+                    <a href="mailto:lincoln@tryonar.net" className="social-icon" title="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                    <a href="https://tryonar.net" target="_blank" rel="noopener noreferrer" className="social-icon" title="Website">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lincolnislam/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+
                 <div className="actions">
                     <a href="/lincoln.vcf" download className="btn btn-primary">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         Save Contact
                     </a>
-                    <a href="https://tryonar.net" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        Visit TryonAR
+                    <a href="https://linnoglobal.sg.larksuite.com/scheduler/383291fb9d630bb4" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Book a Meeting
                     </a>
                 </div>
 
@@ -356,24 +351,6 @@ export default function LincolnPage() {
                     </div>
                 </div>
 
-                {/* Contact cards */}
-                <div className="contact-grid">
-                    <a href="mailto:lincoln@tryonar.net" className="contact-card">
-                        <svg className="contact-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        <span className="contact-card-label">Email</span>
-                        <span className="contact-card-value">lincoln@tryonar.net</span>
-                    </a>
-                    <a href="https://tryonar.net" target="_blank" rel="noopener noreferrer" className="contact-card">
-                        <svg className="contact-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span className="contact-card-label">Website</span>
-                        <span className="contact-card-value">tryonar.net</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/lincolnislam/" target="_blank" rel="noopener noreferrer" className="contact-card contact-card-full">
-                        <svg className="contact-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        <span className="contact-card-label">LinkedIn</span>
-                        <span className="contact-card-value">linkedin.com/in/lincolnislam</span>
-                    </a>
-                </div>
 
             </div>
         </>
