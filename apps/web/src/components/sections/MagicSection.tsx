@@ -52,12 +52,12 @@ const MagicSection = ({data} : {data: MagicSectionProps}) => {
 
                     {
                         statistics && statistics.length > 0 && (
-                            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
+                            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6'>
                                 {
                                     statistics.map((statistic, index) => (
-                                        <div key={index} className='flex flex-col sm:flex-row items-center sm:items-center gap-6 md:gap-8 lg:gap-12 rounded-3xl md:rounded-[40px] lg:rounded-[50px] bg-[linear-gradient(270deg,#FFF_23.08%,rgba(255,234,231,0.68)_100%)] px-6 md:px-8 lg:px-12 py-8 md:py-10 lg:py-12'>
-                                            <h3 className='facts-number text-[#2A2730] text-4xl md:text-5xl lg:text-6xl leading-tight tracking-[-2px] font-medium flex-shrink-0' dangerouslySetInnerHTML={{__html: statistic.value}}></h3>
-                                            <div className='flex flex-col gap-2 text-center sm:text-left highlighted-border'>
+                                        <div key={index} className='flex flex-row items-center sm:items-center gap-6 md:gap-8 lg:gap-12 rounded-xl md:rounded-[20px] lg:rounded-[30px] xl:rounded-[50px] bg-[linear-gradient(270deg,#FFF_23.08%,rgba(255,234,231,0.68)_100%)] p-5 sm:p-6 lg:p-8 xl:p-12'>
+                                            <h3 className='facts-number text-[#2A2730] text-3xl md:text-5xl xl:text-6xl leading-tight tracking-[-2px] font-medium flex-shrink-0' dangerouslySetInnerHTML={{__html: statistic.value}}></h3>
+                                            <div className='flex flex-col gap-2 text-left sm:text-left highlighted-border'>
                                                 <h4 className='text-[#3E3E42] text-lg md:text-xl leading-tight font-semibold'>
                                                     {statistic.title}
                                                 </h4>
