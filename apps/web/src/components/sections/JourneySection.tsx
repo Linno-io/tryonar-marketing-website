@@ -42,7 +42,7 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
 
     return (
         <section className="font-sans relative overflow-hidden bg-white z-10">
-             <Container className='py-10 md:py-24 !px-[10px]'>
+             <Container className='py-12.5 md:py-24 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
                     <h2 className="section-title">
                         {title && title.map((block, index) => {
@@ -101,13 +101,12 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
 
                 {/* CTA Card */}
                 <div
-                    className="mt-12 md:mt-20 overflow-hidden bg-gradient-to-r from-[#f0ecff] via-[#faf9ff] to-[#f0ecff] md:bg-[url('/journey_cta_bg.webp')] md:bg-cover md:bg-center md:bg-no-repeat border border-[#ECEDF1]"
+                    className="mt-12 md:mt-20 overflow-hidden bg-gradient-to-r from-[#f0ecff] via-[#faf9ff] to-[#f0ecff] md:bg-[url('/journey_cta_bg.webp')] md:bg-cover md:bg-center md:bg-no-repeat border border-[#ECEDF1] rounded-xl md:rounded-3xl"
                     style={{
-                        borderRadius: '30px',
                         boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
                     }}
                 >
-                    <div className="flex flex-col items-center justify-center text-center py-16 px-6 md:py-20 md:px-12">
+                    <div className="flex flex-col items-center justify-center text-center py-8 px-6 md:py-20 md:px-12">
                         {ctaTitle && (
                             <h2 className="section-title">
                                 {ctaTitle.map((block, index) => (
@@ -124,7 +123,7 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
                         )}
                         {primaryButton && (
                             <Link href={primaryButton.internalLink || primaryButton.externalLink || '#'} target={primaryButton.externalLink ? '_blank' : '_self'}>
-                                <button className="bg-[#18181b] text-white px-6 md:px-8 py-4 rounded-2xl cursor-pointer font-bold text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
+                                <button className="bg-[#18181b] text-white px-4 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl cursor-pointer font-bold text-base md:text-lg flex items-center gap-3 hover:bg-black transition-all shadow-xl hover:shadow-2xl">
                                     {primaryButton.text}
                                     {primaryButton.showIcon && <ArrowUpRight size={20} />}
                                 </button>

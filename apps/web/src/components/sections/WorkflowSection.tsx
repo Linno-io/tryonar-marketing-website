@@ -41,7 +41,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
     return (
         <>
             <section className="workflow-section relative bg-[#F8F8F9] overflow-hidden border-b border-[#eeedf2]">
-                <Container padding={false} className="relative z-10 pt-30 pb-16 lg:pt-[203px] lg:pb-28" withBorder={true} size="xl">
+                <Container padding={false} className="relative z-10 pt-30 pb-[30px] md:pb-16 lg:pt-[203px] lg:pb-28" withBorder={true} size="xl">
                     <div className="text-center mx-auto px-4 pb-10 md:pb-25 border-[#eeedf2] border-b">
                         {
                             title && title.length > 0 && (
@@ -72,7 +72,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                         <div className="flex flex-col gap-5 flex-1 max-w-full  min-[991px]:max-w-152">
                             {
                                 steps && steps.length > 0 && steps.map((step, index) => (
-                                    <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-[20px] cursor-pointer p-4 md:p-6.5`} onClick={() => setActiveStepKey(step._key)}>
+                                    <div key={step._key} className={`${step._key === activeStepKey ? 'workflow-step-active' : ''} transition-height border border-[#E5E3EA] rounded-xl md:rounded-[20px] cursor-pointer p-4 md:p-6.5`} onClick={() => setActiveStepKey(step._key)}>
                                         <div className="flex gap-4 items-start">
                                             <span className={`${step._key === activeStepKey ? 'text-white bg-[#202020] ' : 'text-[#838383] border border-[#ECEDF1] bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)]'} text-[24px] font-semibold flex items-center justify-center w-10 h-10 rounded-[10px]`}>
                                                 {index + 1}
@@ -147,7 +147,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-17.5 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 mt-auto px-6 sm:px-8 md:px-14 pt-[30px] mx:pt-17.5 justify-center">
                         {
                             primaryButton && (
                                 <Button

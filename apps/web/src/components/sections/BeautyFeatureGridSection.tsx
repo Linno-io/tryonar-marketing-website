@@ -39,7 +39,7 @@ function VideoCard({ card, shouldLoad, index }: { card: FeatureCard; shouldLoad:
     }, [shouldLoad, card.video?.url])
 
     return (
-        <div className="bg-white rounded-2xl border border-[#EEEDF2] p-1.25">
+        <div className="bg-white rounded-xl md:rounded-2xl border border-[#EEEDF2] p-1.25">
             <div className="relative w-full overflow-hidden rounded-xl" style={{ aspectRatio: '403/302' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -134,7 +134,7 @@ const BeautyFeatureGridSection = ({ data }: { data: BeautyFeatureGridSectionProp
     }, [])
 
     return (
-        <section ref={sectionRef} className="bg-[#F8F8F9] py-14 md:py-18 lg:py-22">
+        <section ref={sectionRef} className="bg-[#F8F8F9] py-12.5 md:py-18 lg:py-22">
             <Container size="xl">
                 <div className="text-center mb-10 md:mb-12">
                     <h2 className="text-[26px] sm:text-[30px] md:text-[36px] lg:text-[40px] font-bold text-[#1A1A1A] leading-tight tracking-tight mb-3">

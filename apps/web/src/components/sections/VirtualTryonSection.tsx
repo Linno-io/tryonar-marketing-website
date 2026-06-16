@@ -9,7 +9,7 @@ const VirtualTryOnSection = ({ data }: { data: VirtualTryonSectionProps }) => {
     const { title, description, sectionImage, primaryButton } = data;
 
     return (
-        <section className="max-w-7xl mx-auto px-6 py-16 md:py-32">
+        <section className="max-w-7xl mx-auto px-6 py-12.5 md:py-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
                 {/* Left Content Column */}
@@ -28,7 +28,7 @@ const VirtualTryOnSection = ({ data }: { data: VirtualTryonSectionProps }) => {
                         })}
                     </h2>
 
-                    <p className="text-base sm:text-lg text-[#3E3E42] max-w-md leading-relaxed mt-5 mb-7.5">
+                    <p className="text-base sm:text-lg text-[#3E3E42] max-w-md leading-relaxed mt-3 md:mt-5 mb-5 md:mb-7.5">
                         {description}
                     </p>
 

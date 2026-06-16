@@ -95,8 +95,8 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
     const content = activeTab.tabContent;
 
     return (
-        <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative">
-            <Container className={`pt-20 md:pt-32 ${hasPaddingBottom ? 'pb-20 md:pb-32' : 'pb-0'}`}>
+        <section className="bg-[#F7F8F9] px-6 flex items-center relative">
+            <Container className={`pt-12.5 md:pt-32 ${hasPaddingBottom ? 'pb-20 md:pb-32' : 'pb-0'}`}>
 
                 {/* Header */}
                 <div className="text-center mb-10 md:mb-14">
@@ -146,7 +146,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                 <div className="flex flex-col lg:flex-row gap-5">
 
                     {/* Left — content */}
-                    <div key={activeTab._key} className="flex flex-col  lg:w-1/2 p-8 pr-5 md:px-18.5 md:py-22.25 md:pr-5 bg-white rounded-3xl border border-slate-100">
+                    <div key={activeTab._key} className="flex flex-col  lg:w-1/2 p-8 pr-5 md:px-18.5 md:py-22.25 md:pr-5 bg-white rounded-xl md:rounded-3xl border border-slate-100">
                         <h3 className="text-3xl md:text-[40px] font-bold text-[#1A202C] mb-3">
                             {content?.contentTitle}
                         </h3>
@@ -217,7 +217,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                     </div>
 
                     {/* Right — media */}
-                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center bg-white rounded-3xl border border-slate-100 overflow-hidden">
+                    <div key={activeTab._key + '_media'} className="flex-1 flex items-center justify-center bg-white rounded-xl md:rounded-3xl border border-slate-100 overflow-hidden">
                         <TabMedia
                             imageUrl={content?.image?.url ?? ''}
                             imageAlt={content?.image?.alt ?? 'Industry Solution Image'}
