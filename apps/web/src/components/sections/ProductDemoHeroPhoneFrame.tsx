@@ -261,6 +261,8 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                     transition: 'opacity 600ms ease-in-out',
                                     zIndex: 1,
                                 }}
+                                className='select-none pointer-events-none'
+                            draggable="false"
                             />
                         )
                     })}
@@ -274,6 +276,8 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                             priority={priority}
                             style={{ objectFit: 'cover', zIndex: 1 }}
+                            className='select-none pointer-events-none'
+                            draggable="false"
                         />
                     )}
 
@@ -289,6 +293,8 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                             priority={priority}
                             style={{ objectFit: 'cover' }}
+                            className='select-none pointer-events-none'
+                            draggable="false"
                         />
                     </div>
 

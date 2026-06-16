@@ -258,6 +258,8 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                                     opacity: cycleIdx === i ? 1 : 0,
                                     zIndex: 1,
                                 }}
+                                className='select-none pointer-events-none'
+                                draggable="false"
                             />
                         )
                     })}
@@ -285,6 +287,8 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                             sizes="(max-width: 640px) 85vw, 370px"
                             priority={priority}
                             style={{ objectFit: 'cover' }}
+                            className='select-none pointer-events-none'
+                            draggable="false"
                         />
                     </div>
 
