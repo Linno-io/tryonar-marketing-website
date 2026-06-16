@@ -408,7 +408,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                             </div>
                         )}
 
-                        <div className="flex items-center justify-start gap-3 w-full">
+                        {/* <div className="flex items-center justify-start gap-3 w-full">
                             {FINISHES.map((finish) => (
                                 <span
                                     key={finish}
@@ -423,7 +423,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                                     {finish}
                                 </span>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Iframe overlay */}

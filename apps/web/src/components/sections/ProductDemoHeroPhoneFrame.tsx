@@ -445,7 +445,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                         )}
 
                         {/* Finish pills — display only */}
-                        <div className="flex items-center justify-start gap-3 w-full">
+                        {/* <div className="flex items-center justify-start gap-3 w-full">
                             {FINISHES.map((finish) => (
                                 <span
                                     key={finish}
@@ -460,7 +460,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                     {finish}
                                 </span>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Iframe overlay */}
