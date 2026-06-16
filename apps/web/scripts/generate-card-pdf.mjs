@@ -7,7 +7,7 @@ const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 // Read QR SVG and photo as base64
 const qrSvg = readFileSync(resolve('public/lincoln-qr.svg'), 'utf8');
 const qrDataUrl = `data:image/svg+xml;base64,${Buffer.from(qrSvg).toString('base64')}`;
-const photoData = readFileSync(resolve('public/lincoln-photo.jpg'));
+const photoData = readFileSync(resolve('public/lincoln.webp'));
 const photoDataUrl = `data:image/jpeg;base64,${photoData.toString('base64')}`;
 
 const html = `<!DOCTYPE html>

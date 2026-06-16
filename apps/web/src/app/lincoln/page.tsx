@@ -309,7 +309,7 @@ export default function LincolnPage() {
             `}</style>
             <div className="card">
                 <div className="avatar">
-                    <img src="/lincoln-photo.jpg" alt="Lincoln Islam" />
+                    <img src="/lincoln.webp" alt="Lincoln Islam" />
                 </div>
                 <p className="brand">TryonAR</p>
                 <h1 className="name">Lincoln Islam</h1>
