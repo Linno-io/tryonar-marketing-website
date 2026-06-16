@@ -95,7 +95,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
     const content = activeTab.tabContent;
 
     return (
-        <section className="bg-[#F7F8F9] px-6 min-h-screen flex items-center relative">
+        <section className="bg-[#F7F8F9] px-6 flex items-center relative">
             <Container className={`pt-12.5 md:pt-32 ${hasPaddingBottom ? 'pb-20 md:pb-32' : 'pb-0'}`}>
 
                 {/* Header */}
