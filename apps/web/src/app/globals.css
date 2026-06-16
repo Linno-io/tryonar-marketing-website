@@ -355,6 +355,8 @@
 		left: 0;
 		z-index: 1;
 		opacity: 0.4;
+
+    @apply h-[38px] md:h-[318px]
 	}
 
 	.faq-section:after {
@@ -371,6 +373,8 @@
 		top: -50px;
 		left: 108px;
 		z-index: 1;
+
+    @apply top-[-180px] md:-top-12.5
 	}
 
 	.gradient-border {

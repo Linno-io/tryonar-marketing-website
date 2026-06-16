@@ -36,7 +36,7 @@ const TextHeroSection = ({data, page} : {data: TextHeroSectionProps, page: strin
 
                     {
                         description && (
-                            <p className="tryon-hero-description text-[#3E3E42] w-full mt-4 max-w-2xl text-base md:text-lg mx-auto">{description}</p>
+                            <p className="tryon-hero-description text-[#646464] w-full mt-4 max-w-2xl text-base md:text-lg mx-auto">{description}</p>
                         )
                     }
                 </div>

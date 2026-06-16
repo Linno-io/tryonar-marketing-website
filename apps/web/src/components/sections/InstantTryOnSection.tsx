@@ -180,7 +180,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
 
             {/* ── NO BORDER ZONE: content + image ── */}
             <Container className="relative z-10 mt-0 sm:mt-4 md:mt-8 lg:mt-8" padding={false}>
-                <div className="flex flex-col min-[1280px]:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-20 px-5">
+                <div className="flex flex-col min-[1280px]:flex-row items-center gap-10 md:gap-12 lg:gap-16 py-10 md:py-16 lg:py-27.5 px-5">
 
                     {/* Left text */}
                     <div className="flex-1 lg:max-w-[500px]">

@@ -24,7 +24,7 @@ const TrustCardSection = ({data} : {data : TrustCardSectionProps}) => {
 
     return (
         <>
-            <section className="tryon-trust relative p-[50px_0_60px] lg:p-[70px_0_80px] xl:p-[100px_0_110px] bg-[#00020B] overflow-hidden z-10">
+            <section className="tryon-trust relative p-[50px_0_60px] lg:p-[70px_0_80px] xl:p-[110px_0_110px] bg-[#00020B] overflow-hidden z-10">
                 <div
                     className="absolute -top-[100px] left-1/2 -translate-x-1/2 w-full h-[300px] opacity-40 pointer-events-none z-10"
                     style={{

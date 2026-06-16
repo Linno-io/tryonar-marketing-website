@@ -78,7 +78,7 @@ const CardsSection = ({data} : {data : CardsSectionProps}) => {
 
     return (
         <>
-            <section className="cards-section relative pb-10 sm:pb-16 md:pb-20 lg:pb-24 bg-white overflow-hidden z-10">
+            <section className="cards-section relative pb-10 sm:pb-16 md:pb-20 lg:pb-27.5 bg-white overflow-hidden z-10">
                 {
                     showDivider && (
                         <Container size="xl" padding={false} className="relative">

@@ -122,12 +122,12 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
                 {
                     visiblePlans.map((plan, index) => (
                         <div key={plan._key} className={`hidden lg:block col-span-1`}>
-                            <div className='px-8 lg:px-10 xl:px-12 flex flex-col justify-between gap-5 h-[173px] border-b border-[#F4EEF7] pb-[45px]'>
+                            <div className='px-8 lg:px-10 xl:px-12 flex flex-col justify-between gap-5 h-[173px] border-b border-[#F4EEF7] pb-8'>
                                 <div className='flex flex-col gap-3.5'>
                                     <h3 className='text-[#202020E5] text-lg font-bold leading-none'>{plan.title}</h3>
                                     {
                                         plan.price && (
-                                            <p className='text-[#202020E5] text-base leading-none'>
+                                            <p className='text-[#202020E5] text-lg font-medium leading-none'>
                                                 {plan.price}
 
                                                 {

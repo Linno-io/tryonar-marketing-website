@@ -73,7 +73,7 @@ export default function CTASection({ data }: CTAProps) {
                 <div className="flex flex-col items-center text-center mx-auto px-4">
 
                     <div className="section-title-wrapper mb-8 md:mb-12">
-                        <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-white mb-2.5 tracking-tight leading-tight">
+                        <Heading level={2} className="2xl:text-5xl lg:text-4xl text-3xl font-bold text-white mb-2.5 tracking-normal leading-tight">
                             {title} 
                             {highlightText && (
                                 <span className='text-[#998188]'>{' ' + highlightText}</span>

@@ -42,7 +42,7 @@ export default function JourneySection({ data }: { data: JourneySectionProps }) 
 
     return (
         <section className="font-sans relative overflow-hidden bg-white z-10">
-             <Container className='py-12.5 md:py-24 !px-[10px]'>
+             <Container className='py-12.5 md:py-27.5 !px-[10px]'>
                 <div className="text-center mb-10 md:mb-20">
                     <h2 className="section-title">
                         {title && title.map((block, index) => {

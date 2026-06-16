@@ -116,8 +116,8 @@ const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
                     className={`flex-1 flex items-center justify-center text-center px-2 md:px-4 relative ${index === 0 ? '' : 'gradient-border'}`}
                 >
                     <div>
-                        <div className="text-2xl sm:text-[28px] font-medium text-[#838383] tracking-tight">{value}</div>
-                        <div className="text-sm md:text-[16px] text-[#646464]">{label}</div>
+                        <div className="text-2xl text-left sm:text-[28px] font-medium text-[#838383] tracking-tight">{value}</div>
+                        <div className="text-sm text-left md:text-[16px] text-[#646464]">{label}</div>
                     </div>
                 </div>
             ))}
