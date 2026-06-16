@@ -113,7 +113,7 @@ const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
             {data.map(({ label, value }, index) => (
                 <div
                     key={label + index}
-                    className={`flex-1 flex items-center justify-center text-center px-2 md:px-4 relative ${index === 0 ? '' : 'gradient-border'}`}
+                    className={`flex-1 flex items-center justify-center text-left sm:text-center px-2 md:px-4 relative ${index === 0 ? '' : 'gradient-border'}`}
                 >
                     <div>
                         <div className="text-2xl text-left sm:text-[28px] font-medium text-[#838383] tracking-tight">{value}</div>
@@ -219,12 +219,12 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
             {/* Sticky product nav */}
             <div ref={navRef} className="sticky top-0 z-20 bg-[#F7F8F9]/95 backdrop-blur-sm border-b border-[#EEEDF2]">
                 <Container withBorder className="w-full">
-                    <div className="flex items-center justify-center flex-wrap gap-3 py-6 md:py-8">
+                    <div className="flex items-center justify-center flex-wrap gap-1 md:gap-3 py-4 md:py-8">
                         {sections.map((s) => (
                             <button
                                 key={s._key}
                                 onClick={() => scrollTo(s._key)}
-                                className={`bg-white relative p-[7px_16px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                                className={`bg-white relative p-[5px_12px] lg:p-[8px_20px] text-[#1A202C] rounded-full border text-[12px] sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
                                     activeKey === s._key
                                         ? 'border-[#FFA49B] challenge-active-tab'
                                         : 'border-[#E5E3EA]'

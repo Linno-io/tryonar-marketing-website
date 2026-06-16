@@ -63,7 +63,7 @@ function SectionMedia({
                         height={227}
                         alt='Makeup image'
                         loading="lazy"
-                        className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-36.75 xl:-left-42.5 w-40 xl:w-46.75 h-auto pointer-events-none z-10"
+                        className="hidden lg:block absolute top-1/2 -translate-y-1/2 -left-36.75 xl:-left-49 w-40 xl:w-54 h-auto pointer-events-none z-10"
                     />
                     <video
                         ref={videoRef}

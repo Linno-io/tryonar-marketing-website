@@ -96,7 +96,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                                                         </h3>
                                                     )
                                                 }
-                                                <p className="text-[#6C6C73] text-base">
+                                                <p className="text-[#3E3E42] text-base">
                                                     {step.stepDescription}
                                                 </p>
                                             </div>
@@ -122,7 +122,7 @@ const WorkflowSection = ({ data }: { data: WorkflowSectionProps }) => {
                             }
                         </div>
 
-                        <div className="rounded-[30px] bg-white flex-1 overflow-hidden relative" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
+                        <div className="rounded-xl md:rounded-[20px] xl:rounded-[30px] bg-white flex-1 overflow-hidden relative" style={{boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -6px rgba(0, 0, 0, 0.05)'}}>
                             {steps.map((step) => (
                                 step.video?.url ? (
                                     <StepVideo

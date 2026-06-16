@@ -22,7 +22,7 @@ const CompareSection = ({data} : {data: CompareSectionProps}) => {
                     />
                 </Container>
 
-                <div className={`border-[#EEEDF2] border-t`}>
+                <div>
                     <Container withBorder={true} className='py-8 sm:py-12 md:py-14 lg:py-17.5'>
                         <div className="text-center max-w-3xl mx-auto">
                             {

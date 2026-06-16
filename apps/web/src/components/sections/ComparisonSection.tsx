@@ -20,7 +20,7 @@ const Card = ({data, featured = false} : {data : Card, featured?: boolean}) => {
     } = data;
 
     return (
-        <div className={`comparison-card ${featured ? 'bg-[#00020B]' : 'bg-white border border-[#ECEDF1] '} rounded-2xl xl:rounded-[30px] py-4 md:py-6 xl:py-10 px-4 md:px-6 xl:px-12.5 flex-1 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)] relative`}>
+        <div className={`comparison-card ${featured ? 'bg-[#00020B]' : 'bg-white border border-[#ECEDF1] '} rounded-2xl md:rounded-[20px] xl:rounded-[30px] p-[22px_24px] xl:p-[40px_50px] flex-1 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.04),0_8px_10px_-6px_rgba(0,0,0,0.05)] relative`}>
             {
                 featured && (
                     <span className=' sm:block absolute top-2 xl:top-7 right-3 xl:right-6.5'>
