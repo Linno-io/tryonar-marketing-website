@@ -134,7 +134,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
             <Container className="instant-tryon-container relative z-10" padding={false}>
 
                 {/* Header */}
-                <div className="max-w-[840px] mx-auto text-center pt-16 md:pt-24 pb-10 md:pb-19 px-5">
+                <div className="max-w-[840px] mx-auto text-center pt-12 md:pt-24 pb-10 md:pb-19 px-5">
                     {title && title.length > 0 && (
                         <h2
                             className="font-bold text-white mb-4 text-3xl md:text-[42px] lg:text-[52px] leading-tight"
@@ -160,7 +160,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                         {stats.map((stat, i) => (
                             <div
                                 key={stat._key ?? i}
-                                className={`flex-1 min-w-0 overflow-hidden bg-[#00020B] flex flex-col items-center justify-center text-center py-9 md:py-12 px-3 relative instant-tryon-stat-divider ${i === 0 ? 'rounded-tr-3xl' : i === 1 ? 'rounded-t-3xl' : 'rounded-tl-3xl'}`}
+                                className={`flex-1 min-w-0 overflow-hidden bg-[#00020B] flex flex-col items-center justify-center text-center py-9 md:py-12 px-3 relative instant-tryon-stat-divider ${i === 0 ? 'rounded-tr-xl md:rounded-tr-3xl' : i === 1 ? 'rounded-t-xl md:rounded-t-3xl' : 'rounded-tl-xl md:rounded-tl-3xl'}`}
                             >
                                 <span
                                     className="font-medium text-white text-2xl sm:text-4xl md:text-5xl lg:text-[64px] leading-none tracking-tight whitespace-nowrap"
@@ -186,7 +186,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                     <div className="flex-1 lg:max-w-[500px]">
                         {contentTitle && contentTitle.length > 0 && (
                             <h3
-                                className="font-bold text-white mb-5 text-[28px] md:text-[38px] lg:text-[48px] leading-tight"
+                                className="font-bold text-white mb-2 md:mb-5 text-[28px] md:text-[38px] lg:text-[48px] leading-tight"
                             >
                                 {contentTitle.map((block, i) =>
                                     block.type === 'normal'
@@ -196,7 +196,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
                             </h3>
                         )}
                         {contentDescription && (
-                            <p className="text-[#E7E5EA] text-base md:text-[18px] leading-relaxed mb-8 max-w-md">
+                            <p className="text-[#E7E5EA] text-base md:text-[18px] leading-relaxed mb-4 md:mb-8 max-w-md">
                                 {contentDescription}
                             </p>
                         )}

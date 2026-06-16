@@ -41,7 +41,7 @@ export default function Footer(props: FooterProps ) {
     }
 
     return (
-        <footer className="bg-[#020408] text-white xl:pt-23 lg:pt-20 md:pt-15 pt-13 pb-0 relative overflow-hidden">
+        <footer className="bg-[#020408] text-white px-2 md:px-0 xl:pt-23 lg:pt-20 md:pt-15 pt-13 pb-0 relative overflow-hidden">
             <Container className="tryon-container">
                 <div className="max-w-205.5 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 relative z-10">
 

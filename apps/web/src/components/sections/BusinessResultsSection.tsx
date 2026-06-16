@@ -11,7 +11,7 @@ const BusinessResultsSection = ({ data }: { data: BusinessResultsSectionProps })
     const { title, cards, enableBottomPadding } = data
 
     return (
-        <section className={`pt-16 lg:pt-24 ${enableBottomPadding ? 'pb-16 lg:pb-24' : ''} bg-white`}>
+        <section className={`pt-12.5 lg:pt-24 ${enableBottomPadding ? 'pb-16 lg:pb-24' : ''} bg-white`}>
             <Container size="xl" padding={false}>
                 <div className='px-2'>
                     <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-bold text-center text-[#0B0E1E] leading-tight mb-10 lg:mb-17.5">
@@ -26,7 +26,7 @@ const BusinessResultsSection = ({ data }: { data: BusinessResultsSectionProps })
                         {cards && cards.map((card, index) => (
                             <div
                                 key={card._key || index}
-                                className="bg-[#F8F8F9] rounded-2xl p-7 lg:p-8 flex flex-col gap-5"
+                                className="bg-[#F8F8F9] rounded-xl md:rounded-2xl p-7 lg:p-8 flex flex-col gap-5"
                             >
                                 {card.icon?.url && (
                                     <div className="w-14 h-14 flex items-center justify-center shrink-0">
