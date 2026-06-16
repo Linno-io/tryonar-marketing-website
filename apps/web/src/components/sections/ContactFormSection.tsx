@@ -79,7 +79,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                     gap={20}
                     color="bg-gray-300"
                     borderColor="border-[#eeedf2]"
-                    className="border-y h-auto! max-w-27.5 hidden lg:block"
+                    className="border-y h-auto! max-w-25.75 hidden lg:block"
                 />
                 {status === 'success' ? (
                     <div className="w-full mx-auto max-w-176 flex flex-col items-center justify-center gap-6 py-10 px-4 md:px-0 md:py-25 text-center">
@@ -213,7 +213,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                     gap={20}
                     color="bg-gray-300"
                     borderColor="border-[#eeedf2]"
-                    className="border-y max-w-27.5 h-auto! hidden lg:block"
+                    className="border-y max-w-25.75 h-auto! hidden lg:block"
                 />
             </Container>
         </section>

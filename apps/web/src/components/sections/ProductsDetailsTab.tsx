@@ -250,7 +250,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                                 className={`flex flex-col lg:flex-row ${idx > 0 ? 'border-t border-[#EEEDF2]' : ''}`}
                             >
                                 {/* Left */}
-                                <div className="flex flex-col lg:w-[46%] border-b lg:border-b-0 lg:border-r border-[#EEEDF2] px-8 py-8 lg:px-15 lg:py-10">
+                                <div className="flex flex-col lg:w-[46%] border-b lg:border-b-0 lg:border-r border-[#EEEDF2] px-8 pt-8 pb-9 lg:px-15 lg:pt-10 lg:pb-10.5">
                                     <h3 className="text-3xl sm:text-4xl md:text-[40px] font-bold text-[#1A202C] mb-3 lg:mb-4 leading-tight">
                                         {s.product.contentTitle}
                                     </h3>

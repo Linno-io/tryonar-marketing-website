@@ -42,7 +42,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
             <Container className="relative z-10" custom={customContainer ? "max-w-full lg:max-w-[1280px] xl:max-w-[1390px]" : undefined} size={customContainer ? 'custom' : "xl"}>
                 <div className={clsx(
                     customContainer ? 'lg:grid-cols-13' : 'lg:grid-cols-12',
-                    'home' === page ? 'items-start max-[1100px]:items-end' : 'items-start max-[1280px]:items-end',
+                    'home' === page ? 'items-center max-[1100px]:items-end' : 'items-start max-[1280px]:items-end',
                     'home' === page ? 'flex flex-col lg:flex-row gap-13 lg:gap-0' : 'grid gap-13'
                 )}>
                     <div className={clsx(
@@ -80,7 +80,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                             tags && tags.length > 0 && (
                                 <div className="flex flex-wrap gap-3 mb-6 lg:mb-9">
                                     {tags.map((badge, index) => (
-                                        <Badge key={index} text={badge} icon={<CheckIcon />} showDash={false} className='h-10'/>
+                                        <Badge key={index} text={badge} icon={<CheckIcon />} showDash={false} className='h-8 md:h-10'/>
                                     ))}
                                 </div>
                             )
@@ -118,7 +118,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
 
                     <div className={clsx(
                         `relative flex`,
-                        'home' === page ? 'justify-center lg:justify-end' : 'justify-center',
+                        'home' === page ? 'w-full justify-center lg:justify-end' : 'justify-center',
                         'home' === page ? 'lg:flex-6' : 'lg:col-span-6'
                     )}>
                         <div className={clsx('relative w-full', 'product-demo' !== page && 'max-w-105 lg:max-w-120')}>

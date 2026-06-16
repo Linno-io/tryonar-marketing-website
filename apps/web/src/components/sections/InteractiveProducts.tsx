@@ -229,7 +229,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                 {/* Screen */}
                 <div
                     ref={screenRef}
-                    className="absolute overflow-hidden cursor-ew-resize rounded-tl-[20px] rounded-tr-[20px] sm:rounded-tl-[43px] sm:rounded-tr-[39px]"
+                    className="absolute overflow-hidden cursor-ew-resize rounded-tl-[34px] rounded-tr-[34px] sm:rounded-tl-[43px] sm:rounded-tr-[39px]"
                     style={{
                         top: '2.5%',
                         left: '5.4%',
