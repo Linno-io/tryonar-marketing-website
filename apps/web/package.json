@@ -12,10 +12,12 @@
     "@netlify/next": "^1.4.9",
     "@netlify/plugin-nextjs": "^5.15.3",
     "@portabletext/react": "^6.2.0",
+    "@portabletext/types": "^4.0.2",
     "@sanity/image-url": "^2.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
+    "motion": "^12.40.0",
     "next": "16.1.0",
     "next-sanity": "^12.0.5",
     "react": "19.2.3",
@@ -25,11 +27,15 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
+    "puppeteer": "^25.1.0",
+    "puppeteer-core": "^25.1.0",
+    "qrcode": "^1.5.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
