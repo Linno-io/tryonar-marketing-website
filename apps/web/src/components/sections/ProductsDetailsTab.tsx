@@ -95,7 +95,7 @@ const DEMO_SLIDES: ProductDetail[] = DEMO_PRODUCTS.map((p) => ({
     image: { url: p.img, alt: p.name },
     features: p.features.map((f) => ({ featureTitle: f, icon: { url: '', alt: '' } })),
     stats: DEMO_STATS,
-    primaryButton: { text: 'Tryon', externalLink: p.demoUrl, showIcon: true },
+    primaryButton: { text: 'Try on', externalLink: p.demoUrl, showIcon: true },
 }));
 
 type Section = { _key: string; label: string; product: ProductDetail };

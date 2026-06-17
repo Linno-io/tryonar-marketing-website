@@ -41,11 +41,11 @@ const CATEGORIES: ProductCategory[] = [
         label: 'Blush',
         thumbnail: '/interactive-demo/blash.webp',
         colors: [
-            { name: 'Rose',   hex: '#E8A0AA', image: '/landing-hero-section/blush-rose.webp' },
-            { name: 'Coral',  hex: '#E8785A', image: '/landing-hero-section/blush-coral.webp' },
-            { name: 'Peach',  hex: '#F0B090', image: '/landing-hero-section/blush-peach.webp' },
-            { name: 'Mauve',  hex: '#A0708A', image: '/landing-hero-section/blush-mauve.webp' },
-            { name: 'Berry',  hex: '#8B1A4A', image: '/landing-hero-section/blush-berry.webp' },
+            { name: 'Rose',   hex: '#E8A0AA', image: '/landing-hero-section/blush-rose2.webp' },
+            { name: 'Coral',  hex: '#E8785A', image: '/landing-hero-section/blush-coral2.webp' },
+            { name: 'Peach',  hex: '#F0B090', image: '/landing-hero-section/blush-peach2.webp' },
+            { name: 'Mauve',  hex: '#A0708A', image: '/landing-hero-section/blush-mauve2.webp' },
+            { name: 'Berry',  hex: '#8B1A4A', image: '/landing-hero-section/blush-berry2.webp' },
         ],
     },
     {
@@ -53,9 +53,9 @@ const CATEGORIES: ProductCategory[] = [
         label: 'Foundation',
         thumbnail: '/interactive-demo/foundation.webp',
         colors: [
-            { name: 'Honey',    hex: '#C8813A', image: '/landing-hero-section/foundation-honey.webp' },
-            { name: 'Caramel',  hex: '#A0622A', image: '/landing-hero-section/foundation-caramel.webp' },
-            { name: 'Espresso', hex: '#6B3A1F', image: '/landing-hero-section/foundation-espresso.webp' },
+            { name: 'Honey',    hex: '#C8813A', image: '/landing-hero-section/foundation-honey2.webp' },
+            { name: 'Caramel',  hex: '#A0622A', image: '/landing-hero-section/foundation-caramel2.webp' },
+            { name: 'Espresso', hex: '#6B3A1F', image: '/landing-hero-section/foundation-espresso2.webp' },
         ],
     },
     {
@@ -63,11 +63,11 @@ const CATEGORIES: ProductCategory[] = [
         label: 'Eyeshadow',
         thumbnail: '/interactive-demo/eyeshadow.webp',
         colors: [
-            { name: 'Bronze',    hex: '#8B6914', image: '/landing-hero-section/eyeshadow-bronze.webp' },
-            { name: 'Champagne', hex: '#F0D5A0', image: '/landing-hero-section/eyeshadow-champagne.webp' },
-            { name: 'Mauve',     hex: '#B07898', image: '/landing-hero-section/eyeshadow-mauve.webp' },
-            { name: 'Sapphire',  hex: '#2048A0', image: '/landing-hero-section/eyeshadow-sapphire.webp' },
-            { name: 'Smoky',     hex: '#404040', image: '/landing-hero-section/eyeshadow-smoky.webp' },
+            { name: 'Champagne', hex: '#F0D5A0', image: '/landing-hero-section/eyeshadow-champagne2.webp' },
+            { name: 'Mauve',     hex: '#B07898', image: '/landing-hero-section/eyeshadow-mauve2.webp' },
+            { name: 'Rose Gold', hex: '#c98080', image: '/landing-hero-section/eyeshadow-rose-gold2.webp' },
+            { name: 'Smoky',     hex: '#404040', image: '/landing-hero-section/eyeshadow-smoky2.webp' },
+            { name: 'Bronze',    hex: '#8B6914', image: '/landing-hero-section/eyeshadow-bronze2.webp' },
         ],
     },
     // {

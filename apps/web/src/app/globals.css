@@ -436,7 +436,7 @@
 		left: 0;
 		width: 1px;
 		height: 100%;
-		background: linear-gradient(180deg, transparent 0%, #89787D 15%, #89787D 80%, transparent 100%);
+		background: linear-gradient(180deg, transparent 0%, #4C434A 15%, #4C434A 80%, transparent 100%);
 		pointer-events: none;
 		z-index: 2;
 	}
@@ -448,7 +448,7 @@
 		right: 0;
 		width: 1px;
 		height: 100%;
-		background: linear-gradient(180deg, transparent 0%, #89787D 15%, #89787D 80%, transparent 100%);
+		background: linear-gradient(180deg, transparent 0%, #4C434A 15%, #4C434A 80%, transparent 100%);
 		pointer-events: none;
 		z-index: 2;
 	}
@@ -464,7 +464,7 @@
     left: 0;
     width: 1px;
     height: calc(100% + 15px);
-    background: linear-gradient(180deg, #89787D 0%, #89787D 75%, transparent 100%);
+    background: linear-gradient(180deg, #4C434A 0%, #4C434A 75%, transparent 100%);
     pointer-events: none;
   }
 
