@@ -13,28 +13,24 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
 
     return (
         <>
-            <div className={`rounded-2xl md:rounded-[20px] p-6 md:p-7 lg:p-9 ${card.isPopular ? 'bg-[#202020]' : 'bg-white'}`}>
-                <div className="card-info flex flex-col items-start justify-between min-h-[200px] md:min-h-[220px] lg:min-h-[235px]">
+            <div className={`tryon-single-price-card rounded-2xl md:rounded-[20px] p-6 md:p-7 lg:p-9 ${card.isPopular ? 'bg-[#202020]' : 'bg-white'}`}>
+                <div className="price-card-header flex flex-col items-start justify-between min-h-[200px] md:min-h-[220px] lg:min-h-[235px]">
                     <div className='flex flex-col h-full relative'>
-                        {card.isPopular && (
-                            <span className='text-base text-[#2A2730] rounded-[10px] bg-white shadow-[0_4px_4px_rgba(107,101,101,0.11)] w-[87px] h-[30px] font-medium text-center flex justify-center items-center absolute right-0 -top-3'>
-                                Popular
-                            </span>
-                        )}
-                        <h3 className={`text-xl md:text-2xl lg:text-[26px] font-bold leading-tight mb-2 md:mb-2.5 ${card.isPopular ? 'text-[#FFFFFFE5]' : 'text-[#2A2730E5]'}`}>
+                        <h3 className={`price-card-name text-xl md:text-2xl lg:text-[26px] font-bold leading-tight mb-2 md:mb-2.5 ${card.isPopular ? 'text-[#FFFFFFE5]' : 'text-[#2A2730E5]'}`}>
                             {card.heading}
                         </h3>
-                        <p className={`font-normal text-sm md:text-[15px] leading-normal ${card.isPopular ? 'text-[#AEAEAE]' : 'text-[#646464]'}`}>
+                        <p className={`price-card-description font-normal text-sm md:text-[15px] leading-normal ${card.isPopular ? 'text-[#AEAEAE]' : 'text-[#646464]'}`}>
                             {card.description}
                         </p>
                     </div>
 
-                    <div className='mt-auto w-full flex flex-col gap-6 md:gap-7 lg:gap-8'>
+                    <div className='price-card-price-wrapper mt-auto w-full flex flex-col gap-6 md:gap-7 lg:gap-8'>
                         {
-                            card.price && card.duration && (
-                                <div className='mt-4 md:mt-6 lg:mt-8'>
+                            card.price != null && (
+                                <div className='price-card-price mt-4 md:mt-6 lg:mt-8'>
                                     <p className={`text-3xl md:text-4xl lg:text-[40px] font-bold leading-none ${card.isPopular ? 'text-[#FFFFFFE5]' : 'text-[#000000E5]'}`}>
                                         ${card.price}
+
                                         <sub className={`${card.isPopular ? 'text-[#989898]' : 'text-[#646464]'} text-xs md:text-sm lg:text-[14px] font-normal ml-2 align-baseline`}>
                                             {card.duration}
                                         </sub>
@@ -57,7 +53,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                     </div>
                 </div>
 
-                <div className="mt-6 md:mt-7 lg:mt-8">
+                <div className="price-card-body mt-6 md:mt-7 lg:mt-8">
                     {
                         card.inCludedFeatures && card.inCludedFeatures.length > 0 && (
                             <>
@@ -71,7 +67,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                                             <li key={index} className={`text-sm md:text-[15px] flex items-center gap-2 md:gap-2.5 leading-normal ${card.isPopular ? 'text-[#E6E6E6]' : 'text-[#3e3e42]'}`}>
                                                 {
                                                     card.isPopular ? (
-                                                        <svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 0C3.36466 0 0 3.36466 0 7.5C0 11.6353 3.36466 15 7.5 15C11.6353 15 15 11.6353 15 7.5C15 3.36466 11.6353 0 7.5 0ZM11.6917 5.52632L6.8985 10.282C6.61654 10.5639 6.16541 10.5827 5.86466 10.3008L3.32707 7.98872C3.02632 7.70677 3.00752 7.23684 3.27068 6.93609C3.55263 6.63534 4.02256 6.61654 4.32331 6.8985L6.33459 8.7406L10.6203 4.45489C10.9211 4.15414 11.391 4.15414 11.6917 4.45489C11.9925 4.75564 11.9925 5.22556 11.6917 5.52632Z" fill="white"/></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill="#fff" d="M10.74 1.8a.87.87 0 0 0-1.23 0L3.96 7.35 1.49 4.88A.87.87 0 1 0 .26 6.12L3.34 9.2a.87.87 0 0 0 1.23 0l6.17-6.17a.87.87 0 0 0 0-1.23"/></svg>
                                                     ) : (
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill="#636364" d="M10.74 1.8a.87.87 0 0 0-1.23 0L3.96 7.35 1.49 4.88A.87.87 0 1 0 .26 6.12L3.34 9.2a.87.87 0 0 0 1.23 0l6.17-6.17a.87.87 0 0 0 0-1.23"/></svg>
                                                     )
@@ -98,7 +94,7 @@ const SinglePricingCard = (props: SinglePricingCardProps) => {
                                             <li key={index} className={`text-sm md:text-[15px] flex items-center gap-2 md:gap-2.5 leading-normal ${card.isPopular ? 'text-[#E6E6E6]' : 'text-[#3e3e42]'}`}>
                                                 {
                                                     card.isPopular ? (
-                                                        <svg  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 0C3.36466 0 0 3.36466 0 7.5C0 11.6353 3.36466 15 7.5 15C11.6353 15 15 11.6353 15 7.5C15 3.36466 11.6353 0 7.5 0ZM11.6917 5.52632L6.8985 10.282C6.61654 10.5639 6.16541 10.5827 5.86466 10.3008L3.32707 7.98872C3.02632 7.70677 3.00752 7.23684 3.27068 6.93609C3.55263 6.63534 4.02256 6.61654 4.32331 6.8985L6.33459 8.7406L10.6203 4.45489C10.9211 4.15414 11.391 4.15414 11.6917 4.45489C11.9925 4.75564 11.9925 5.22556 11.6917 5.52632Z" fill="white"/></svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill="#fff" d="M10.74 1.8a.87.87 0 0 0-1.23 0L3.96 7.35 1.49 4.88A.87.87 0 1 0 .26 6.12L3.34 9.2a.87.87 0 0 0 1.23 0l6.17-6.17a.87.87 0 0 0 0-1.23"/></svg>
                                                     ) : (
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path fill="#636364" d="M10.74 1.8a.87.87 0 0 0-1.23 0L3.96 7.35 1.49 4.88A.87.87 0 1 0 .26 6.12L3.34 9.2a.87.87 0 0 0 1.23 0l6.17-6.17a.87.87 0 0 0 0-1.23"/></svg>
                                                     )

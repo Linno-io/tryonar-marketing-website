@@ -124,6 +124,7 @@ export default function HeroSection({ data, page }: HeroSectionProps) {
                         <div className={clsx('relative w-full', 'product-demo' !== page && 'max-w-105 lg:max-w-120')}>
                             {sectionVideo?.url && 'home' === page ? (
                                 <InteractiveProducts />
+                                
                             ) : 'product-demo' === page ? (
                                 <>
                                     <ProductDemoHeroPhoneFrame />
