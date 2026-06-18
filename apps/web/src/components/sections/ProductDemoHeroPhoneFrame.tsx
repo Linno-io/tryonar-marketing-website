@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 
-const FRAME = '/interactive-demo/frame.webp'
+const FRAME = '/interactive-demo/frame1.webp'
 const BEFORE_IMAGE = '/product-demo-hero-section/before-img.webp'
 const CYCLE_INTERVAL_MS = 2500
 const RESUME_DELAY_MS = 6000
@@ -223,7 +223,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                 width={1286}
                 height={1320}
                 priority={priority}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
+                style={{ width: '100%', height: 'auto', display: 'block', zIndex: '0' }}
                 className="relative z-10 pointer-events-none"
             />
 
@@ -258,7 +258,6 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                 style={{
                                     objectFit: 'cover',
                                     opacity: cycleIdx === i ? 1 : 0,
-                                    transition: 'opacity 600ms ease-in-out',
                                     zIndex: 1,
                                 }}
                                 className='select-none pointer-events-none'
