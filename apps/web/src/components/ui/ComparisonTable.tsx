@@ -56,7 +56,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
 
                 <div className="grid grid-cols-2 lg:grid-cols-5">
                 <div className='col-span-1 lg:col-span-2'>   
-                    <p className='h-[120px] md:h-[140px] lg:h-[173px] text-[#646464] text-xs md:text-sm uppercase leading-normal border-b border-[#F4EEF7] flex justify-start px-4 md:px-6 lg:px-8 pb-4 md:pb-5 lg:pb-6 items-end'>
+                    <p className='h-[120px] md:h-[140px] lg:h-[155px] text-[#646464] text-xs md:text-sm uppercase leading-normal border-b border-[#F4EEF7] flex justify-start px-4 md:px-6 lg:px-8 pb-4 md:pb-5 lg:pb-6 items-end'>
                         {heading}
                     </p>
                     {
@@ -122,7 +122,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
                 {
                     visiblePlans.map((plan, index) => (
                         <div key={plan._key} className={`hidden lg:block col-span-1`}>
-                            <div className='px-8 lg:px-10 xl:px-12 flex flex-col justify-between gap-5 h-[173px] border-b border-[#F4EEF7] pb-8'>
+                            <div className='px-8 lg:px-10 xl:px-12 flex flex-col justify-between gap-5 h-[155px] border-b border-[#F4EEF7] pb-8'>
                                 <div className='flex flex-col gap-3.5'>
                                     <h3 className='text-[#202020E5] text-lg font-bold leading-none'>{plan.title}</h3>
                                     {

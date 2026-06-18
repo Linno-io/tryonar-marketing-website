@@ -322,32 +322,16 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                     {/* Tryon button — top right */}
                     <div
                         className="absolute"
-                        style={{ right: '4%', top: '4%', zIndex: 7 }}
+                        style={{ right: '4%', top: '10px', zIndex: 7 }}
                         onMouseDown={(e) => e.stopPropagation()}
                         onTouchStart={(e) => e.stopPropagation()}
                     >
                         <button
                             type="button"
                             onClick={() => { setShowIframe(true); setIframeLoading(true) }}
-                            className="flex items-center gap-1.5 cursor-pointer transition-all"
-                            style={{
-                                background: '#151515',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: 20,
-                                padding: '6px 14px',
-                                fontSize: 12,
-                                fontWeight: 600,
-                                lineHeight: 1,
-                                boxShadow: '20px 20px 60px 0 rgba(59,26,115,0.20)',
-                                backdropFilter: 'blur(2px)',
-                            }}
+                            className="flex items-center gap-1.5 cursor-pointer transition-all rounded-full border border-black bg-[#202020] px-4 py-3 text-xs lg:px-[18px] lg:py-4 lg:text-sm font-semibold leading-none text-white shadow-[0_10px_20px_0_rgba(0,0,0,0.29)]"
                         >
-                            <svg width="13" height="13" viewBox="0 0 18 18" fill="none">
-                                <path d="M16.5 13.5a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 13.5V6.75A1.5 1.5 0 0 1 3 5.25h2.25L6.75 3h4.5l1.5 2.25H15A1.5 1.5 0 0 1 16.5 6.75z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                <circle cx="9" cy="9.75" r="2.25" stroke="white" strokeWidth="1.5"/>
-                            </svg>
-                            Tryon
+                            Try on yourself
                         </button>
                     </div>
 
