@@ -63,11 +63,10 @@ const CATEGORIES: ProductCategory[] = [
         label: 'Eyeshadow',
         thumbnail: '/interactive-demo/eyeshadow.webp',
         colors: [
+            { name: 'Sapphire',  hex: '#2048A0', image: '/landing-hero-section/eyeshadow-sapphire.webp' },
             { name: 'Bronze',    hex: '#8B6914', image: '/landing-hero-section/eyeshadow-bronze.webp' },
             { name: 'Champagne', hex: '#F0D5A0', image: '/landing-hero-section/eyeshadow-champagne.webp' },
             { name: 'Mauve',     hex: '#B07898', image: '/landing-hero-section/eyeshadow-mauve.webp' },
-            { name: 'Sapphire',  hex: '#2048A0', image: '/landing-hero-section/eyeshadow-sapphire.webp' },
-            { name: 'Smoky',     hex: '#404040', image: '/landing-hero-section/eyeshadow-smoky.webp' },
         ],
     },
     // {
