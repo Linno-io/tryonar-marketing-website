@@ -331,64 +331,35 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                         </div>
                     </div>
 
-                    {/* Right-side action buttons */}
+                    {/* Tryon button — top right */}
                     <div
-                        className="absolute flex flex-col gap-2"
-                        style={{ right: '2.55%', top: '47%', transform: 'translateY(-50%)', zIndex: 7 }}
+                        className="absolute"
+                        style={{ right: '4%', top: '4%', zIndex: 7 }}
                         onMouseDown={(e) => e.stopPropagation()}
                         onTouchStart={(e) => e.stopPropagation()}
                     >
-                        {/* Compare toggle */}
-                        <button
-                            type="button"
-                            className="flex items-center justify-center rounded-full cursor-pointer transition-colors"
-                            style={{
-                                width: 40,
-                                height: 40,
-                                background: 'rgba(28,28,28,0.58)',
-                                backdropFilter: 'blur(2px)',
-                                border: '1px solid rgba(255,255,255,0.14)',
-                            }}
-                        >
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <path d="M4.5 7L9 2.5 13.5 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M4.5 11L9 15.5 13.5 11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </button>
-                        {/* Undo */}
-                        <button
-                            type="button"
-                            className="flex items-center justify-center rounded-full cursor-pointer transition-colors"
-                            style={{
-                                width: 40,
-                                height: 40,
-                                background: 'rgba(28,28,28,0.58)',
-                                backdropFilter: 'blur(2px)',
-                                border: '1px solid rgba(255,255,255,0.14)',
-                            }}
-                        >
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                <path d="M2.25 9a6.75 6.75 0 1 0 1.98-4.77" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M2.25 4.5v4.5h4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </button>
-                        {/* Camera / Try on yourself */}
                         <button
                             type="button"
                             onClick={() => { setShowIframe(true); setIframeLoading(true) }}
-                            className="flex items-center justify-center rounded-full cursor-pointer transition-colors"
+                            className="flex items-center gap-1.5 cursor-pointer transition-all"
                             style={{
-                                width: 40,
-                                height: 40,
-                                background: 'rgba(28,28,28,0.58)',
+                                background: '#151515',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: 20,
+                                padding: '6px 14px',
+                                fontSize: 12,
+                                fontWeight: 600,
+                                lineHeight: 1,
+                                boxShadow: '20px 20px 60px 0 rgba(59,26,115,0.20)',
                                 backdropFilter: 'blur(2px)',
-                                border: '1px solid rgba(255,255,255,0.14)',
                             }}
                         >
-                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                            <svg width="13" height="13" viewBox="0 0 18 18" fill="none">
                                 <path d="M16.5 13.5a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 13.5V6.75A1.5 1.5 0 0 1 3 5.25h2.25L6.75 3h4.5l1.5 2.25H15A1.5 1.5 0 0 1 16.5 6.75z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                 <circle cx="9" cy="9.75" r="2.25" stroke="white" strokeWidth="1.5"/>
                             </svg>
+                            Tryon
                         </button>
                     </div>
 
