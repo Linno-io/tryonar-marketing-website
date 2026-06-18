@@ -156,7 +156,7 @@ export default function InstantTryOnSection({ data }: { data: InstantTryOnSectio
 
                 {/* Stats row — always horizontal */}
                 {stats && stats.length > 0 && (
-                    <div className="flex flex-wrap flex-row bg-[#89787D] pt-px ">
+                    <div className="flex flex-wrap flex-row bg-[#4C434A] pt-px ">
                         {stats.map((stat, i) => (
                             <div
                                 key={stat._key ?? i}

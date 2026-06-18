@@ -41,11 +41,11 @@ const CATEGORIES: ProductCategory[] = [
         label: 'Blush',
         thumbnail: '/interactive-demo/blash.webp',
         colors: [
-            { name: 'Rose',   hex: '#E8A0AA', image: '/landing-hero-section/blush-rose.webp' },
-            { name: 'Coral',  hex: '#E8785A', image: '/landing-hero-section/blush-coral.webp' },
-            { name: 'Peach',  hex: '#F0B090', image: '/landing-hero-section/blush-peach.webp' },
-            { name: 'Mauve',  hex: '#A0708A', image: '/landing-hero-section/blush-mauve.webp' },
-            { name: 'Berry',  hex: '#8B1A4A', image: '/landing-hero-section/blush-berry.webp' },
+            { name: 'Rose',   hex: '#E8A0AA', image: '/landing-hero-section/blush-rose2.webp' },
+            { name: 'Coral',  hex: '#E8785A', image: '/landing-hero-section/blush-coral2.webp' },
+            { name: 'Peach',  hex: '#F0B090', image: '/landing-hero-section/blush-peach2.webp' },
+            { name: 'Mauve',  hex: '#A0708A', image: '/landing-hero-section/blush-mauve2.webp' },
+            { name: 'Berry',  hex: '#8B1A4A', image: '/landing-hero-section/blush-berry2.webp' },
         ],
     },
     {
@@ -53,9 +53,9 @@ const CATEGORIES: ProductCategory[] = [
         label: 'Foundation',
         thumbnail: '/interactive-demo/foundation.webp',
         colors: [
-            { name: 'Honey',    hex: '#C8813A', image: '/landing-hero-section/foundation-honey.webp' },
-            { name: 'Caramel',  hex: '#A0622A', image: '/landing-hero-section/foundation-caramel.webp' },
-            { name: 'Espresso', hex: '#6B3A1F', image: '/landing-hero-section/foundation-espresso.webp' },
+            { name: 'Honey',    hex: '#C8813A', image: '/landing-hero-section/foundation-honey2.webp' },
+            { name: 'Caramel',  hex: '#A0622A', image: '/landing-hero-section/foundation-caramel2.webp' },
+            { name: 'Espresso', hex: '#6B3A1F', image: '/landing-hero-section/foundation-espresso2.webp' },
         ],
     },
     {
