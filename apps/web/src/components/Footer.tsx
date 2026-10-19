@@ -1,7 +1,7 @@
 'use client'
 import Container from '@/components/ui/Container'
 import { getMenuItemUrl } from '@/lib/utils/navigation'
-import { useLocale } from '@/lib/i18n/LocaleProvider'
+import { useDictionary, useLocale } from '@/lib/i18n/LocaleProvider'
 import { localizePath } from '@/lib/i18n/links'
 import Logo from './ui/Logo'
 import { ContactInfo, FooterMenu, SanityImage, SocialLink, SocialPlatform } from '@/lib/types/siteSettings'
@@ -36,6 +36,7 @@ export default function Footer(props: FooterProps ) {
         contactInfo
     } = props;
     const locale = useLocale();
+    const { navigation } = useDictionary();
 
     const SocialIcons: { [key in SocialPlatform]: JSX.Element } = {
         LinkedIn: <LinkedinIcon />,
@@ -60,7 +61,7 @@ export default function Footer(props: FooterProps ) {
 
                         <div className="flex items-center gap-3">
                             <Link href={contactInfo?.internalSlug || contactInfo?.externalLink || '#'} className="bg-[#EEF2FF] text-[#020408] px-8 py-3 rounded-xl font-bold hover:bg-white transition-all text-sm flex items-center justify-center">
-                                {contactInfo?.label || 'Contact Us'}
+                                {contactInfo?.label || navigation.contactUs}
                             </Link>
 
                             {

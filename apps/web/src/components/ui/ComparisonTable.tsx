@@ -3,6 +3,7 @@
 import { PricingTable } from '@/lib/types/section';
 import Link from 'next/link';
 import { memo, useState } from 'react';
+import { useDictionary } from '@/lib/i18n/LocaleProvider';
 
 const ComparisonTable = ({data} : {data: PricingTable}) => {
     const {
@@ -12,6 +13,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
     } = data;
 
     const [currentPlanIndex, setCurrentPlanIndex] = useState(0);
+    const { common } = useDictionary();
 
     const handleNext = () => {
         setCurrentPlanIndex((prev) => (prev + 1) % plans.length);
@@ -34,7 +36,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
                     <button
                         onClick={handlePrevious}
                         className="p-2 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
-                        aria-label="Previous plan"
+                        aria-label={common.previousPlan}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M15 18l-6-6 6-6"/>
@@ -46,7 +48,7 @@ const ComparisonTable = ({data} : {data: PricingTable}) => {
                     <button
                         onClick={handleNext}
                         className="p-2 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
-                        aria-label="Next plan"
+                        aria-label={common.nextPlan}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M9 18l6-6-6-6"/>

@@ -3,11 +3,16 @@ import { createImageUrlBuilder } from '@sanity/image-url'
 import type { Locale } from '@/lib/i18n/config'
 import { localizeLinks } from '@/lib/i18n/links'
 
+// Draft preview for QA (locally or on staging): renders unpublished drafts, e.g.
+// translations under review. Never enable on production — visitors would see drafts.
+const previewDrafts = process.env.SANITY_PREVIEW_DRAFTS === 'true' && Boolean(process.env.SANITY_API_TOKEN)
+
 export const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "90a20xmm",
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
     apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-01-01",
     useCdn: false,
+    ...(previewDrafts ? { token: process.env.SANITY_API_TOKEN, perspective: 'drafts' as const } : {}),
 });
 
 const builder = createImageUrlBuilder(client)

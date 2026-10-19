@@ -26,7 +26,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
     const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
     const [showIframe, setShowIframe] = useState(false)
     const [iframeLoading, setIframeLoading] = useState(true)
-    const { common } = useDictionary()
+    const { common, demo } = useDictionary()
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
     const startTimer = useCallback(() => {
@@ -93,7 +93,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
             >
                 <Image
                     src={STATIC_BEFORE_IMAGE}
-                    alt="Before"
+                    alt={demo.before}
                     fill
                     sizes="(max-width: 768px) 100vw, 450px"
                     priority={priority}
@@ -135,7 +135,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                     fontWeight: 600,
                 }}
             >
-                Try on yourself
+                {demo.tryOnYourself}
             </button>
 
             {showIframe && (
@@ -153,7 +153,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                         type="button"
                         onClick={handleCloseIframe}
                         className="absolute top-2.5 cursor-pointer left-4 z-60 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-200 active:scale-95"
-                        aria-label="Close"
+                        aria-label={demo.close}
                     >
                         <svg
                             width="20"
@@ -198,7 +198,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                         }}
                         allow="camera"
                         onLoad={handleIframeLoad}
-                        title="Try On Yourself"
+                        title={demo.tryOnYourself}
                     />
                 </div>
             )}

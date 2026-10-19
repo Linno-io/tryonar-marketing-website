@@ -346,7 +346,9 @@ To test locally, simulate a country: `curl -I -H "x-nf-geo: $(printf '{"country"
 - **Page content** is translated in Sanity Studio. `page` and `siteSettings` documents have a **Language** field and a **Translations** menu (from `@sanity/document-internationalization`) to create linked FR/ES/NL versions.
 - **Keep the same slug** as the English page — the French version of `pricing` is served at `/fr/pricing`. Slugs only have to be unique within a language.
 - Until a translation is **published**, that language shows the English content, and its canonical URL points at the English page so it isn't indexed as a duplicate. Documents created before i18n have no language and count as English.
-- **Hardcoded UI text** (contact-form status messages, 404 page, language selector) lives in `apps/web/src/lib/i18n/dictionaries.ts`. Use `useDictionary()` in client components instead of hardcoding strings.
+- **Hardcoded UI text** (product-demo tabs, demo labels, contact-form status messages, 404 page, nav/ARIA labels, language selector) lives in `apps/web/src/lib/i18n/dictionaries.ts`. Use `useDictionary()` in client components instead of hardcoding strings.
+- **Reviewing drafts before publishing:** set `SANITY_PREVIEW_DRAFTS=true` and a `SANITY_API_TOKEN` that can read drafts (e.g. in `apps/web/.env.local`, or on the staging site only) and the site renders unpublished drafts. **Never enable this on production.**
+- Privacy Policy and Terms of Service are intentionally English-only for now (they need legal review before translation).
 - **Internal links** from Sanity are localized automatically (`src/lib/i18n/links.ts`). For links written in code, wrap paths with `localizePath(path, useLocale())`.
 
 To add a language, add it to `LOCALES` in `apps/web/src/lib/i18n/config.ts`, `SUPPORTED_LANGUAGES` in `apps/studio/i18n.ts`, the country map in `detect.ts` and a dictionary in `dictionaries.ts`.
@@ -414,6 +416,7 @@ pnpm test
 |----------|-------------|-------------|
 | `SANITY_API_TOKEN` | Sanity read token | For ISR, on-demand revalidation, or draft previews |
 | `NEXT_PUBLIC_SITE_URL` | Public site origin, default `https://tryonar.net` | Used for canonical and hreflang URLs |
+| `SANITY_PREVIEW_DRAFTS` | `true` renders unpublished drafts (needs `SANITY_API_TOKEN`) | Local QA or staging only — never production |
 
 ## 🐛 Troubleshooting
 
