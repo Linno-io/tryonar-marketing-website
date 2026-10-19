@@ -1,4 +1,5 @@
 import { defineType, defineField } from 'sanity'
+import { isUniqueSlugPerLanguage, languageField } from '../i18n'
 
 export const pageType = defineType({
   name: 'page',
@@ -6,7 +7,14 @@ export const pageType = defineType({
   type: 'document',
   fields: [
     defineField({ name: 'title', title: 'Page Title', type: 'string' }),
-    defineField({ name: 'slug', title: 'Slug', type: 'slug', options: { source: 'title', maxLength: 96 } }),
+    languageField,
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Use the same slug as the English page so the translation lives at /fr/<slug>, /es/<slug>, /nl/<slug>.',
+      options: { source: 'title', maxLength: 96, isUnique: isUniqueSlugPerLanguage },
+    }),
     defineField({
       name: 'sections',
       title: 'Page Sections',

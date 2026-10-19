@@ -1,4 +1,5 @@
 import { memo, useState, useRef, useEffect } from 'react';
+import { useDictionary } from '@/lib/i18n/LocaleProvider';
 
 interface CaseStudyCardProps {
     _key: string
@@ -25,6 +26,7 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
 
     const [isExpanded, setIsExpanded] = useState(false);
     const [showReadMore, setShowReadMore] = useState(false);
+    const { common } = useDictionary();
     const textRef = useRef<HTMLParagraphElement>(null);
 
     useEffect(() => {
@@ -67,7 +69,7 @@ const CaseStudyCard = (props: CaseStudyCardProps) => {
                         onClick={() => setIsExpanded(!isExpanded)}
                         className="text-[#AA73E4] cursor-pointer font-semibold text-base mt-1 hover:underline focus:outline-none transition-opacity duration-200"
                     >
-                        {isExpanded ? 'Read Less' : 'Read More'}
+                        {isExpanded ? common.readLess : common.readMore}
                     </button>
                 )}
             </div>

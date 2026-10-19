@@ -5,16 +5,18 @@ import Image from 'next/image'
 interface LogoProps {
     url: string;
     alt?: string;
+    href?: string;
 }
 const Logo = (props: LogoProps) => {
     const { 
         url, 
-        alt 
+        alt,
+        href = '/',
     } = props;
 
     return (
         <>
-            <Link href="/" className="flex items-center">
+            <Link href={href} className="flex items-center">
                 <Image
                     src={url}
                     alt={alt || 'Logo'}

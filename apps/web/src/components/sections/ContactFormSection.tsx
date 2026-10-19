@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react'
 import Container from '@/components/ui/Container'
 import { ContactFormSection as ContactFormSectionType } from '@/lib/types/section'
 import { DotBackground } from '../ui'
+import { useDictionary } from '@/lib/i18n/LocaleProvider'
 
 interface ContactFormSectionProps {
     data: ContactFormSectionType
@@ -33,6 +34,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
 
     const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+    const { contactForm: t } = useDictionary()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -89,16 +91,16 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                             </svg>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <h3 className="text-[#111827] text-2xl font-bold">Message sent!</h3>
+                            <h3 className="text-[#111827] text-2xl font-bold">{t.sentTitle}</h3>
                             <p className="text-[#6b7280] text-sm leading-relaxed max-w-sm">
-                                Thanks for reaching out. We&apos;ll get back to you as soon as possible.
+                                {t.sentBody}
                             </p>
                         </div>
                         <button
                             onClick={() => setStatus('idle')}
                             className="mt-2 px-6 py-2.5 border border-[#eae8ee] rounded-lg text-sm text-[#111827] hover:border-[#202020] transition-colors duration-200 cursor-pointer"
                         >
-                            Send another message
+                            {t.sendAnother}
                         </button>
                     </div>
                 ) : (
@@ -181,12 +183,12 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                             disabled={status === 'loading'}
                             className="w-full px-5 sm:px-9 py-3 sm:py-4.5 bg-[#151515] text-white font-bold text-sm sm:text-[18px] rounded-lg sm:rounded-2xl flex items-center justify-center gap-2.5 shadow-[20px_20px_30px_rgba(59,26,115,0.2)] hover:shadow-[20px_20px_30px_rgba(59,26,115,0)] transition-shadow duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                         >
-                            {status === 'loading' ? 'Sending…' : submitButtonText}
+                            {status === 'loading' ? t.sending : submitButtonText}
                             {status !== 'loading' && <SendIcon />}
                         </button>
 
                         {status === 'error' && (
-                            <p className="text-[#ff1d38] text-xs">Something went wrong. Please try again.</p>
+                            <p className="text-[#ff1d38] text-xs">{t.error}</p>
                         )}
 
                         <p className="text-[12px] text-[#3e3e42] text-center leading-[22px] tracking-[-0.12px]">
@@ -197,7 +199,7 @@ export default function ContactFormSection({ data }: ContactFormSectionProps) {
                             >
                                 {termsLinkText}
                             </a>
-                            {' '}and{' '}
+                            {' '}{t.and}{' '}
                             <a
                                 href={privacyLinkUrl || '#'}
                                 className="font-medium text-[#151515] underline underline-offset-2"

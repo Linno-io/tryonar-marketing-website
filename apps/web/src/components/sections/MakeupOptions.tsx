@@ -3,9 +3,12 @@
 import { memo, useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 import { clsx } from 'clsx'
+import { useDictionary } from '@/lib/i18n/LocaleProvider'
+import type { MakeupCategoryId } from '@/lib/i18n/dictionaries'
 
+// `label` is the English name kept for reference; the rendered label comes from the dictionary.
 interface MakeupCategory {
-    id: string
+    id: MakeupCategoryId
     label: string
     sectionTitle?: string
     options?: string[]
@@ -46,6 +49,7 @@ const MakeupOptions = ({
     const activeCategoryId = isControlled ? controlledId : internalId
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string[]>>({})
     const scrollRef = useRef<HTMLDivElement>(null)
+    const { demo, makeupOptions } = useDictionary()
     const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
 
     const activeCategory = MAKEUP_CATEGORIES.find(c => c.id === activeCategoryId) ?? MAKEUP_CATEGORIES[0]
@@ -87,11 +91,11 @@ const MakeupOptions = ({
             </div>
 
             <div className="flex items-center justify-between px-2.5 sm:px-4 py-1 sm:py-2">
-                <h2 className="text-[13px] sm:text-[16px] md:text-[20px] font-medium text-white tracking-[-0.2px] leading-none m-0">Beauty features</h2>
+                <h2 className="text-[13px] sm:text-[16px] md:text-[20px] font-medium text-white tracking-[-0.2px] leading-none m-0">{makeupOptions.title}</h2>
                 <button
                     type="button"
                     onClick={onClose}
-                    aria-label="Close beauty features"
+                    aria-label={makeupOptions.close}
                     className="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-black/30 hover:bg-black/40 transition-colors flex items-center justify-center"
                 >
                     <X size={14} className="text-white" />
@@ -118,7 +122,7 @@ const MakeupOptions = ({
                                     !isDisabled && !isActive && 'bg-white text-[#1A1A1A] hover:bg-white/90',
                                 )}
                             >
-                                {cat.label}
+                                {demo.categories[cat.id]}
                             </button>
                         )
                     })}

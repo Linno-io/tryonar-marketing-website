@@ -1,6 +1,8 @@
 'use client'
 import Container from '@/components/ui/Container'
 import { getMenuItemUrl } from '@/lib/utils/navigation'
+import { useDictionary, useLocale } from '@/lib/i18n/LocaleProvider'
+import { localizePath } from '@/lib/i18n/links'
 import Logo from './ui/Logo'
 import { ContactInfo, FooterMenu, SanityImage, SocialLink, SocialPlatform } from '@/lib/types/siteSettings'
 import Link from 'next/link'
@@ -33,6 +35,8 @@ export default function Footer(props: FooterProps ) {
         socialLinks,
         contactInfo
     } = props;
+    const locale = useLocale();
+    const { navigation } = useDictionary();
 
     const SocialIcons: { [key in SocialPlatform]: JSX.Element } = {
         LinkedIn: <LinkedinIcon />,
@@ -48,7 +52,7 @@ export default function Footer(props: FooterProps ) {
                     {/* Brand Section */}
                     <div className="lg:col-span-7 col-span-full">
                         <div className="flex items-center gap-3 mb-3">
-                            <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} />
+                            <Logo url={logo?.url || ''} alt={logo?.alt || 'Logo'} href={localizePath('/', locale)} />
                         </div>
 
                         <p className="text-[#E7E5EAB2] text-[13px] leading-relaxed mb-8 max-w-[280px]">
@@ -57,7 +61,7 @@ export default function Footer(props: FooterProps ) {
 
                         <div className="flex items-center gap-3">
                             <Link href={contactInfo?.internalSlug || contactInfo?.externalLink || '#'} className="bg-[#EEF2FF] text-[#020408] px-8 py-3 rounded-xl font-bold hover:bg-white transition-all text-sm flex items-center justify-center">
-                                {contactInfo?.label || 'Contact Us'}
+                                {contactInfo?.label || navigation.contactUs}
                             </Link>
 
                             {
@@ -97,7 +101,7 @@ export default function Footer(props: FooterProps ) {
                                 <ul className="md:space-y-3 space-y-2">
                                     {menu.items.map((item: any, i: number) => (
                                         <li key={i}>
-                                            <Link href={getMenuItemUrl(item)} className="text-[#E7E5EAB2] hover:text-white text-[14px] transition-colors">
+                                            <Link href={getMenuItemUrl(item, locale)} className="text-[#E7E5EAB2] hover:text-white text-[14px] transition-colors">
                                                 {item.label}
                                             </Link>
                                         </li>

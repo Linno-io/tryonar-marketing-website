@@ -8,103 +8,48 @@ import {
 } from '@/lib/types/section';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useDictionary } from '@/lib/i18n/LocaleProvider';
+import type { DemoProductId, Dictionary } from '@/lib/i18n/dictionaries';
 
-const DEMO_PRODUCTS = [
-    {
-        name: 'Lipstick',
-        description: 'Let shoppers try every shade before they buy. No guesswork, no wrong orders, no returns.',
-        features: ['Real-time shade on live camera', 'Matte, satin & glossy finish simulation', 'Switch shades instantly', 'Precision lip boundary detection'],
-        demoUrl: 'https://try.tryonar.net/',
-        img: '/product-demo/lipstic.webp',
-    },
-    {
-        name: 'Lip Liner',
-        description: 'Give customers the perfect pout preview. Define, overline, and blend in real time before a single product ships.',
-        features: ['Sub-pixel lip-edge detection', 'Natural over-line simulation', 'Fade & blend shade preview', 'Accurate across all skin tones'],
-        demoUrl: 'https://try.tryonar.net/?type=lipliner',
-        img: '/product-demo/lip-liner.webp',
-    },
-    {
-        name: 'Eyeliner',
-        description: 'From everyday to graphic, let shoppers test every liner look on their own eyes — live, with zero commitment.',
-        features: ['Real-time lash-line detection', 'Winged, tightline & graphic presets', 'Adapts to any eye shape', 'Sub-millimeter line accuracy'],
-        demoUrl: 'https://try.tryonar.net/?type=eyeliner',
-        img: '/product-demo/eyeliner.webp',
-    },
-    {
-        name: 'Eye Shadow',
-        description: 'Turn every palette into an instant try-on experience. Shoppers see full looks on their lids before they add to cart.',
-        features: ['Multi-zone lid, crease & brow bone', 'Matte, shimmer & glitter finishes', 'Up to 6 shades simultaneously', 'Natural fade & transition rendering'],
-        demoUrl: 'https://try.tryonar.net/?type=eyeshadow',
-        img: '/product-demo/eyeshadow.webp',
-    },
-    {
-        name: 'Eyebrow',
-        description: 'Help customers find their perfect brow shape and shade. AI maps their unique brow structure for a naturally tailored preview.',
-        features: ['AI-powered brow shape mapping', 'Natural hair-stroke fill simulation', 'Shape, arch & tail definition', 'Tint shade match for all types'],
-        demoUrl: 'https://try.tryonar.net/?type=eyebrow',
-        img: '/product-demo/eyebrow.webp',
-    },
-    {
-        name: 'Foundation',
-        description: "Eliminate shade guessing forever. AI matches each shopper's skin tone and undertone to the exact foundation they need.",
-        features: ['AI skin tone match, 40+ shades', 'Light to full coverage simulation', 'Matte, natural & dewy finishes', 'Undertone detection for exact match'],
-        demoUrl: 'https://try.tryonar.net/?type=foundation',
-        img: '/product-demo/foundation.webp',
-    },
-    {
-        name: 'Bronzer',
-        description: 'Let shoppers sculpt and sun-kiss their look in real time. See exactly how each bronzer lands on their face before buying.',
-        features: ['Contour & sun-kissed simulation', 'Cheekbone, temple & nose placement', 'Matte and shimmer bronzer finishes', 'Natural gradient blending'],
-        demoUrl: 'https://try.tryonar.net/?type=bronzer',
-        img: '/product-demo/bronzer.webp',
-    },
-    {
-        name: 'Blush',
-        description: 'From subtle flush to bold drape, shoppers can preview every blush placement and intensity on their own cheeks — instantly.',
-        features: ['Real-time cheek flush simulation', 'Cheekbone, nose & draping placement', 'Sheer to intense buildable coverage', 'Works across all skin tones'],
-        demoUrl: 'https://try.tryonar.net/?type=blush',
-        img: '/product-demo/blush.webp',
-    },
-    {
-        name: 'Highlighter',
-        description: 'Give every shopper their glow-up moment. Preview luminosity from barely-there shimmer to full-beam highlight — in real time.',
-        features: ['Luminosity on facial high points', "Brow bone, nose bridge & cupid's bow", 'Subtle glow to blinding intensity', 'Shader-based light reflection simulation'],
-        demoUrl: 'https://try.tryonar.net/?type=highlighter',
-        img: '/product-demo/highlighter.webp',
-    },
-    {
-        name: 'Concealer',
-        description: "Help shoppers find the perfect match with confidence. Simulate coverage and shade blend on their actual skin, not a model's.",
-        features: ['Under-eye circle coverage simulation', 'Blemish & redness concealing preview', 'Light to full coverage tones', 'Shade-matching AI for seamless blend'],
-        demoUrl: 'https://try.tryonar.net/?type=concealer',
-        img: '/product-demo/concealer.webp',
-    },
+// Copy for each product lives in the i18n dictionary (productDemo.products).
+const DEMO_PRODUCTS: { id: DemoProductId; demoUrl: string; img: string }[] = [
+    { id: 'lipstick', demoUrl: 'https://try.tryonar.net/', img: '/product-demo/lipstic.webp' },
+    { id: 'lipLiner', demoUrl: 'https://try.tryonar.net/?type=lipliner', img: '/product-demo/lip-liner.webp' },
+    { id: 'eyeliner', demoUrl: 'https://try.tryonar.net/?type=eyeliner', img: '/product-demo/eyeliner.webp' },
+    { id: 'eyeShadow', demoUrl: 'https://try.tryonar.net/?type=eyeshadow', img: '/product-demo/eyeshadow.webp' },
+    { id: 'eyebrow', demoUrl: 'https://try.tryonar.net/?type=eyebrow', img: '/product-demo/eyebrow.webp' },
+    { id: 'foundation', demoUrl: 'https://try.tryonar.net/?type=foundation', img: '/product-demo/foundation.webp' },
+    { id: 'bronzer', demoUrl: 'https://try.tryonar.net/?type=bronzer', img: '/product-demo/bronzer.webp' },
+    { id: 'blush', demoUrl: 'https://try.tryonar.net/?type=blush', img: '/product-demo/blush.webp' },
+    { id: 'highlighter', demoUrl: 'https://try.tryonar.net/?type=highlighter', img: '/product-demo/highlighter.webp' },
+    { id: 'concealer', demoUrl: 'https://try.tryonar.net/?type=concealer', img: '/product-demo/concealer.webp' },
 ];
-
-const DEMO_STATS = [
-    { value: '+28%', label: 'Conversion' },
-    { value: '-24%', label: 'Fewer returns' },
-    { value: '96%', label: 'Accuracy' },
-];
-
-const DEMO_SLIDES: ProductDetail[] = DEMO_PRODUCTS.map((p) => ({
-    productName: p.name,
-    contentTitle: p.name,
-    contentDescription: p.description,
-    image: { url: p.img, alt: p.name },
-    features: p.features.map((f) => ({ featureTitle: f, icon: { url: '', alt: '' } })),
-    stats: DEMO_STATS,
-    primaryButton: { text: 'Try on', externalLink: p.demoUrl, showIcon: true },
-}));
 
 type Section = { _key: string; label: string; product: ProductDetail };
 
-const SECTIONS: Section[] = DEMO_SLIDES.map((slide, i) => ({
-    _key: String(i),
-    label: slide.productName ?? DEMO_PRODUCTS[i].name,
-    product: slide,
-}));
+function buildSections({ productDemo: t }: Dictionary): Section[] {
+    const stats = [
+        { value: '+28%', label: t.stats.conversion },
+        { value: '-24%', label: t.stats.fewerReturns },
+        { value: '96%', label: t.stats.accuracy },
+    ];
+    return DEMO_PRODUCTS.map((p, i) => {
+        const copy = t.products[p.id];
+        return {
+            _key: String(i),
+            label: copy.name,
+            product: {
+                productName: copy.name,
+                contentTitle: copy.name,
+                contentDescription: copy.description,
+                image: { url: p.img, alt: copy.name },
+                features: copy.features.map((f) => ({ featureTitle: f, icon: { url: '', alt: '' } })),
+                stats,
+                primaryButton: { text: t.tryOn, externalLink: p.demoUrl, showIcon: true },
+            },
+        };
+    });
+}
 
 const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
     if (!data || data.length === 0) return null;
@@ -156,7 +101,8 @@ function CtaButtons({ product }: { product: ProductDetail }) {
 
 export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabSectionProps }) {
     const { tagline, title, description } = data;
-    const sections = SECTIONS;
+    const dictionary = useDictionary();
+    const sections = buildSections(dictionary);
 
     const [activeKey, setActiveKey] = useState<string>(sections[0]?._key ?? '');
     const sectionRefs = useRef<Map<string, HTMLElement>>(new Map());
@@ -314,7 +260,7 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                                         ) : (
                                             <img
                                                 src={s.product.image?.url ?? ''}
-                                                alt={s.product.image?.alt ?? s.product.contentTitle ?? 'Product'}
+                                                alt={s.product.image?.alt ?? s.product.contentTitle ?? dictionary.productDemo.productImageAlt}
                                                 className="max-h-full w-auto object-contain object-bottom drop-shadow-[0_30px_40px_rgba(0,0,0,0.1)]"
                                             />
                                         )}

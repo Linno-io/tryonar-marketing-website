@@ -3,8 +3,13 @@
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import Container from '@/components/ui/Container'
+import { useDictionary, useLocale } from '@/lib/i18n/LocaleProvider'
+import { localizePath } from '@/lib/i18n/links'
 
 export default function NotFound() {
+	const locale = useLocale()
+	const { notFound } = useDictionary()
+
 	return (
 		<div className="min-h-screen bg-white flex flex-col items-center justify-center">
 			<Container className="tryon-container">
@@ -16,27 +21,27 @@ export default function NotFound() {
 
 					{/* Message */}
 					<h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-[#1a1a1a] mb-13">
-						The page you are looking for can&apos;t be found.
+						{notFound.title}
 					</h1>
 
 					{/* CTA buttons */}
 					<div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
 						<Button
 							variant="primary"
-							href="/"
+							href={localizePath('/', locale)}
 							showIcon={true}
 							className='tryon-primary-btn'
 						>
-							Go To Homepage
+							{notFound.home}
 						</Button>
 
 						<Button
 							variant="secondary"
-							href="/product-demo"
+							href={localizePath('/product-demo', locale)}
 							icon=''
 							showIcon={false}
 						>
-							View Demo
+							{notFound.demo}
 						</Button>
 
 					</div>

@@ -2,6 +2,8 @@
 
 import Image from 'next/image'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
+import { useDictionary } from '@/lib/i18n/LocaleProvider'
+import { makeupCategoryLabel } from '@/lib/i18n/dictionaries'
 
 const FRAME = '/interactive-demo/frame1.webp'
 const BEFORE_IMAGE = '/product-demo-hero-section/before-img.webp'
@@ -96,6 +98,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
     const [dividerPos, setDividerPos] = useState(20)
     const [showIframe, setShowIframe] = useState(false)
     const [iframeLoading, setIframeLoading] = useState(true)
+    const dictionary = useDictionary()
 
     const isDragging = useRef(false)
     const screenRef = useRef<HTMLDivElement>(null)
@@ -207,7 +210,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                 }}
             >
                 <div className="relative w-full h-full rounded-lg overflow-hidden">
-                    <Image src={cat.thumbnail} alt={cat.label} fill sizes="48px" style={{ objectFit: 'cover' }} />
+                    <Image src={cat.thumbnail} alt={makeupCategoryLabel(dictionary, cat.id, cat.label)} fill sizes="48px" style={{ objectFit: 'cover' }} />
                 </div>
             </button>
         )
@@ -219,7 +222,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
             <div className="relative w-full">
             <Image
                 src={FRAME}
-                alt="Phone frame"
+                alt={dictionary.demo.phoneFrame}
                 width={1286}
                 height={1320}
                 priority={priority}
@@ -270,7 +273,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                     {!activeColor && (
                         <Image
                             src={BEFORE_IMAGE}
-                            alt="Before"
+                            alt={dictionary.demo.before}
                             fill
                             sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                             priority={priority}
@@ -287,7 +290,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                     >
                         <Image
                             src={BEFORE_IMAGE}
-                            alt="Before"
+                            alt={dictionary.demo.before}
                             fill
                             sizes="(max-width: 768px) 80vw, (max-width: 1280px) 45vw, 530px"
                             priority={priority}
@@ -342,7 +345,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                             onClick={() => { setShowIframe(true); setIframeLoading(true) }}
                             className="flex items-center gap-1.5 cursor-pointer transition-all rounded-full border border-black bg-[#202020] px-4 py-3 text-xs lg:px-[18px] lg:py-4 lg:text-sm font-semibold leading-none text-white shadow-[0_10px_20px_0_rgba(0,0,0,0.29)]"
                         >
-                            Try on yourself
+                            {dictionary.demo.tryOnYourself}
                         </button>
                     </div>
 
@@ -446,7 +449,7 @@ const ProductDemoHeroPhoneFrame = ({ priority = false }: Props) => {
                                 style={{ border: 'none' }}
                                 allow="camera"
                                 onLoad={() => setIframeLoading(false)}
-                                title="Try On Yourself"
+                                title={dictionary.demo.tryOnYourself}
                             />
                         </div>
                     )}

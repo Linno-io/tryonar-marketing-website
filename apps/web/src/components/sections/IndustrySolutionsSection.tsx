@@ -8,6 +8,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import InteractiveFrame from './InteractiveFrame';
+import { useDictionary } from '@/lib/i18n/LocaleProvider';
 
 const StatsSection = ({ data }: { data?: { label: string; value: string }[] }) => {
     if (!data || data.length === 0) return null;
@@ -88,6 +89,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
     } = data;
 
     const [activeTab, setActiveTab] = useState(tabs ? tabs[0] : null);
+    const { common } = useDictionary();
 
     if (!tabs || tabs.length === 0 || !activeTab) return null;
 
@@ -123,7 +125,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                                 <div key={tab._key} className="relative">
                                     {tab.comingSoon && (
                                         <span className="absolute -top-2.5 -right-4/10 -translate-x-1/2 bg-[#3E3E42] text-white text-[9px] px-2.5 py-0.5 rounded-full font-medium whitespace-nowrap z-10">
-                                            Coming Soon
+                                            {common.comingSoon}
                                         </span>
                                     )}
                                     <button
@@ -161,7 +163,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
                         {content?.features && content.features.length > 0 && (
                             <div>
                                 <h4 className="font-bold text-[#1A202C] text-[20px] mb-4.5 font-[Sora] leading-none">
-                                    Key Features
+                                    {common.keyFeatures}
                                 </h4>
                                 <ul className="space-y-4.5">
                                     {content.features.map((feature, idx) => (
