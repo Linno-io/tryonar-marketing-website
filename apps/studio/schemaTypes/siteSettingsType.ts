@@ -1,10 +1,12 @@
 import { defineType } from 'sanity'
+import { languageField } from '../i18n'
 
 export default defineType({
     name: 'siteSettings',
     type: 'document',
     title: 'Site Settings',
     fields: [
+        languageField,
         {
             name: 'siteTitle',
             type: 'string',

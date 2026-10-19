@@ -12,6 +12,7 @@ A modern, content-driven marketing website built with Next.js and Sanity CMS, st
 - [Development](#development)
 - [Deployment](#deployment)
 - [Working with Content](#working-with-content)
+- [Multilingual (i18n)](#-multilingual-i18n)
 - [Available Scripts](#available-scripts)
 - [Environment Variables](#environment-variables)
 - [Troubleshooting](#troubleshooting)
@@ -324,6 +325,32 @@ export const pageQuery = `
 `
 ```
 
+## 🌍 Multilingual (i18n)
+
+The site supports **English, French, Spanish and Dutch**. English is served unprefixed (`/pricing`); the others live under a prefix (`/fr/pricing`, `/es/pricing`, `/nl/pricing`).
+
+### How the language is chosen
+
+`apps/web/src/proxy.ts` runs on every page request (on Netlify, before the cache) and only acts on **unprefixed** URLs:
+
+1. **Manual choice wins.** The language selector in the nav writes a `NEXT_LOCALE` cookie (1 year). If it's set, the visitor goes to that language.
+2. **Otherwise, location.** The country comes from the host's geo header (`x-nf-geo` on Netlify) and is mapped to a language in `src/lib/i18n/detect.ts` — e.g. FR → French, MX → Spanish, NL → Dutch. Belgium, Switzerland and Canada use the browser language to choose between their options.
+3. **Countries without a supported language get English.** The browser language is only used when the host gives no country at all (e.g. local dev).
+
+URLs that already carry a language (`/fr/...`) are always served as-is, `/en/...` redirects to the unprefixed URL, and search-engine bots are never redirected. Every response carries an `x-tryonar-locale: <lang>; source=<cookie|country|accept-language|default>` header so you can check in DevTools which signal decided.
+
+To test locally, simulate a country: `curl -I -H "x-nf-geo: $(printf '{"country":{"code":"FR"}}' | base64)" localhost:3000/pricing`.
+
+### Translating content
+
+- **Page content** is translated in Sanity Studio. `page` and `siteSettings` documents have a **Language** field and a **Translations** menu (from `@sanity/document-internationalization`) to create linked FR/ES/NL versions.
+- **Keep the same slug** as the English page — the French version of `pricing` is served at `/fr/pricing`. Slugs only have to be unique within a language.
+- Until a translation is **published**, that language shows the English content, and its canonical URL points at the English page so it isn't indexed as a duplicate. Documents created before i18n have no language and count as English.
+- **Hardcoded UI text** (contact-form status messages, 404 page, language selector) lives in `apps/web/src/lib/i18n/dictionaries.ts`. Use `useDictionary()` in client components instead of hardcoding strings.
+- **Internal links** from Sanity are localized automatically (`src/lib/i18n/links.ts`). For links written in code, wrap paths with `localizePath(path, useLocale())`.
+
+To add a language, add it to `LOCALES` in `apps/web/src/lib/i18n/config.ts`, `SUPPORTED_LANGUAGES` in `apps/studio/i18n.ts`, the country map in `detect.ts` and a dictionary in `dictionaries.ts`.
+
 ## 📜 Available Scripts
 
 ### Root Level
@@ -366,6 +393,9 @@ pnpm start
 
 # Run linting
 pnpm lint
+
+# Run unit tests (Vitest)
+pnpm test
 ```
 
 ## 🔐 Environment Variables
@@ -383,6 +413,7 @@ pnpm lint
 | Variable | Description | When to Use |
 |----------|-------------|-------------|
 | `SANITY_API_TOKEN` | Sanity read token | For ISR, on-demand revalidation, or draft previews |
+| `NEXT_PUBLIC_SITE_URL` | Public site origin, default `https://tryonar.net` | Used for canonical and hreflang URLs |
 
 ## 🐛 Troubleshooting
 

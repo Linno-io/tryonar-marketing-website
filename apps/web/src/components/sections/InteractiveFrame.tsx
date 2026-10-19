@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import MakeupOptions from './MakeupOptions';
+import { useDictionary } from '@/lib/i18n/LocaleProvider';
 
 const STATIC_BEFORE_IMAGE = '/hero-section/before-image.webp'
 const Frame = '/hero-section/frame.webp'
@@ -25,6 +26,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
     const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null)
     const [showIframe, setShowIframe] = useState(false)
     const [iframeLoading, setIframeLoading] = useState(true)
+    const { common } = useDictionary()
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
     const startTimer = useCallback(() => {
@@ -182,7 +184,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                                         }}
                                     ></div>
                                 </div>
-                                <p className="text-white text-sm font-medium">Loading...</p>
+                                <p className="text-white text-sm font-medium">{common.loading}</p>
                             </div>
                         </div>
                     )}

@@ -1,8 +1,14 @@
 import { client } from './client'
 import { SiteSettings } from '../types/siteSettings'
+import type { Locale } from '@/lib/i18n/config'
+import { localizeLinks } from '@/lib/i18n/links'
 
-export async function getSiteSettings(): Promise<SiteSettings | null> {
-  const query = `*[_type == "siteSettings"][0]{
+// Same fallback rule as pages: the translated settings if published, else English.
+export async function getSiteSettings(lang: Locale): Promise<SiteSettings | null> {
+  const query = `coalesce(
+    *[_type == "siteSettings" && language == $lang][0],
+    *[_type == "siteSettings" && coalesce(language, "en") == "en"][0]
+  ){
     siteTitle,
     siteDescription,
     "logo": {
@@ -56,5 +62,6 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
     }
   }`
   
-  return client.fetch(query)
+  const settings: SiteSettings | null = await client.fetch(query, { lang }, { next: { revalidate: 60 } })
+  return settings ? localizeLinks(settings, lang) : null
 }
