@@ -162,13 +162,13 @@ const fr: Dictionary = {
         products: {
             lipstick: {
                 name: 'Rouge à lèvres',
-                description: "Laissez vos clients essayer chaque teinte avant d'acheter. Pas de devinettes, pas d'erreurs de commande, pas de retours.",
+                description: "Vos clients essaient toutes les teintes avant d'acheter. Pas de hasard, pas d'erreur de commande, pas de retour.",
                 features: ['Teinte en temps réel sur la caméra', 'Simulation des finis mat, satiné et brillant', 'Changement de teinte instantané', 'Détection précise du contour des lèvres'],
             },
             lipLiner: {
                 name: 'Crayon à lèvres',
                 description: "Offrez à vos clients un aperçu parfait de leurs lèvres. Dessiner, redessiner et estomper en temps réel, avant même l'expédition du produit.",
-                features: ['Détection du contour des lèvres au sous-pixel', 'Simulation naturelle du contour agrandi', 'Aperçu du dégradé et du fondu', 'Précis sur toutes les carnations'],
+                features: ['Détection du contour des lèvres au sous-pixel', 'Simulation naturelle du contour agrandi', 'Aperçu du dégradé et du fondu', 'Précis sur tous les teints'],
             },
             eyeliner: {
                 name: 'Eye-liner',
@@ -187,8 +187,8 @@ const fr: Dictionary = {
             },
             foundation: {
                 name: 'Fond de teint',
-                description: "Fini les hésitations sur la teinte. L'IA associe la carnation et le sous-ton de chaque client au fond de teint exact dont il a besoin.",
-                features: ['Analyse de carnation par IA, plus de 40 teintes', 'Simulation de couvrance légère à totale', 'Finis mat, naturel et lumineux', 'Détection du sous-ton pour une teinte exacte'],
+                description: "Fini les erreurs de teinte. L'IA analyse le teint et le sous-ton de chaque client pour trouver le fond de teint qu'il lui faut.",
+                features: ['Analyse du teint par IA, plus de 40 teintes', 'Simulation de couvrance légère à totale', 'Finis mat, naturel et lumineux', 'Détection du sous-ton pour une teinte exacte'],
             },
             bronzer: {
                 name: 'Poudre bronzante',
@@ -198,7 +198,7 @@ const fr: Dictionary = {
             blush: {
                 name: 'Blush',
                 description: "Du rose léger au draping intense, vos clients prévisualisent chaque placement et chaque intensité de blush sur leurs propres joues, instantanément.",
-                features: ['Simulation du blush en temps réel', 'Placement sur pommettes, nez et draping', 'Couvrance modulable, du voile à l’intense', 'Fonctionne sur toutes les carnations'],
+                features: ['Simulation du blush en temps réel', 'Placement sur pommettes, nez et draping', 'Couvrance modulable, du voile à l’intense', 'Pour tous les teints'],
             },
             highlighter: {
                 name: 'Enlumineur',
@@ -231,11 +231,11 @@ const es: Dictionary = {
         before: 'Antes',
         close: 'Cerrar',
         phoneFrame: 'Marco de teléfono',
-        tryOnYourself: 'Pruébalo tú mismo',
+        tryOnYourself: 'Pruébatelo',
         categories: {
-            lipstick: 'Pintalabios', lipliner: 'Perfilador de labios', eyeshadow: 'Sombra de ojos', eyeliner: 'Delineador', mascara: 'Máscara de pestañas',
-            eyebrows: 'Cejas', foundation: 'Base de maquillaje', concealer: 'Corrector', contour: 'Contorno', bronzer: 'Bronceador',
-            blush: 'Colorete', highlighter: 'Iluminador',
+            lipstick: 'Labial', lipliner: 'Delineador de labios', eyeshadow: 'Sombras', eyeliner: 'Delineador', mascara: 'Máscara de pestañas',
+            eyebrows: 'Cejas', foundation: 'Base', concealer: 'Corrector', contour: 'Contorno', bronzer: 'Bronceador',
+            blush: 'Rubor', highlighter: 'Iluminador',
         },
     },
     makeupOptions: {
@@ -243,28 +243,28 @@ const es: Dictionary = {
         close: 'Cerrar funciones de belleza',
     },
     productDemo: {
-        tryOn: 'Pruébalo',
+        tryOn: 'Pruébatelo',
         productImageAlt: 'Producto',
         stats: { conversion: 'Conversión', fewerReturns: 'Menos devoluciones', accuracy: 'Precisión' },
         products: {
             lipstick: {
-                name: 'Pintalabios',
-                description: 'Deja que los compradores prueben cada tono antes de comprar. Sin suposiciones, sin pedidos equivocados, sin devoluciones.',
+                name: 'Labial',
+                description: 'Tus clientes prueban todos los tonos antes de comprar. Sin adivinar, sin pedidos equivocados y sin devoluciones.',
                 features: ['Tono en tiempo real con la cámara', 'Simulación de acabados mate, satinado y brillante', 'Cambio de tono al instante', 'Detección precisa del contorno de labios'],
             },
             lipLiner: {
-                name: 'Perfilador de labios',
+                name: 'Delineador de labios',
                 description: 'Ofrece a tus clientes una vista previa perfecta de sus labios. Define, sobredibuja y difumina en tiempo real antes de enviar un solo producto.',
                 features: ['Detección del borde de los labios a nivel de subpíxel', 'Simulación natural de labios sobredibujados', 'Vista previa de degradado y difuminado', 'Preciso en todos los tonos de piel'],
             },
             eyeliner: {
                 name: 'Delineador',
-                description: 'Del día a día al gráfico, deja que los compradores prueben cada look de delineado en sus propios ojos, en directo y sin compromiso.',
+                description: 'Del día a día al gráfico, tus clientes prueban cada delineado en sus propios ojos, en vivo y sin compromiso.',
                 features: ['Detección de la línea de pestañas en tiempo real', 'Ajustes de ala, línea interior y gráfico', 'Se adapta a cualquier forma de ojo', 'Precisión de línea submilimétrica'],
             },
             eyeShadow: {
-                name: 'Sombra de ojos',
-                description: 'Convierte cada paleta en una prueba instantánea. Los compradores ven el look completo en sus párpados antes de añadirlo al carrito.',
+                name: 'Sombras',
+                description: 'Convierte cada paleta en una prueba instantánea. Tus clientes ven el look completo en sus párpados antes de agregarlo al carrito.',
                 features: ['Varias zonas: párpado, cuenca y arco de la ceja', 'Acabados mate, shimmer y glitter', 'Hasta 6 tonos a la vez', 'Degradados y transiciones naturales'],
             },
             eyebrow: {
@@ -273,28 +273,28 @@ const es: Dictionary = {
                 features: ['Mapeo de la forma de las cejas con IA', 'Simulación natural pelo a pelo', 'Definición de forma, arco y cola', 'Tono adaptado a todos los tipos'],
             },
             foundation: {
-                name: 'Base de maquillaje',
-                description: 'Olvídate para siempre de adivinar el tono. La IA empareja el tono y el subtono de piel de cada comprador con la base exacta que necesita.',
+                name: 'Base',
+                description: 'Olvídate para siempre de adivinar el tono. La IA analiza el tono y el subtono de piel de cada cliente para encontrar la base exacta que necesita.',
                 features: ['Ajuste de tono de piel con IA, más de 40 tonos', 'Simulación de cobertura ligera a total', 'Acabados mate, natural y luminoso', 'Detección del subtono para un tono exacto'],
             },
             bronzer: {
                 name: 'Bronceador',
-                description: 'Deja que los compradores esculpan y den un toque bronceado a su look en tiempo real. Ven exactamente cómo queda cada bronceador en su cara antes de comprar.',
+                description: 'Tus clientes esculpen y broncean su look en tiempo real. Ven exactamente cómo les queda cada bronceador antes de comprar.',
                 features: ['Simulación de contorno y efecto bronceado', 'Aplicación en pómulos, sienes y nariz', 'Acabados bronceadores mate y shimmer', 'Difuminado natural en degradado'],
             },
             blush: {
-                name: 'Colorete',
-                description: 'Del rubor sutil al draping intenso, los compradores pueden previsualizar cada ubicación e intensidad de colorete en sus propias mejillas, al instante.',
+                name: 'Rubor',
+                description: 'Del rubor sutil al draping intenso, tus clientes ven al instante cómo les queda cada rubor en sus propias mejillas.',
                 features: ['Simulación de rubor en tiempo real', 'Aplicación en pómulos, nariz y draping', 'Cobertura modulable, de ligera a intensa', 'Funciona en todos los tonos de piel'],
             },
             highlighter: {
                 name: 'Iluminador',
-                description: 'Dale a cada comprador su momento glow. Previsualiza la luminosidad, desde un brillo sutil hasta un iluminado intenso, en tiempo real.',
+                description: 'Dale a cada cliente su momento glow. Previsualiza la luminosidad, desde un brillo sutil hasta un iluminado intenso, en tiempo real.',
                 features: ['Luminosidad en los puntos altos del rostro', 'Arco de la ceja, puente de la nariz y arco de cupido', 'Del brillo sutil a la máxima intensidad', 'Simulación de reflejos de luz con shaders'],
             },
             concealer: {
                 name: 'Corrector',
-                description: 'Ayuda a los compradores a encontrar el tono perfecto con confianza. Simula la cobertura y el difuminado en su propia piel, no en la de una modelo.',
+                description: 'Ayuda a tus clientes a encontrar el tono perfecto sin dudar. Simula la cobertura y el difuminado en su propia piel, no en la de una modelo.',
                 features: ['Simulación de cobertura de ojeras', 'Vista previa de corrección de imperfecciones y rojeces', 'Tonos de cobertura ligera a total', 'IA de ajuste de tono para un acabado perfecto'],
             },
         },
@@ -330,13 +330,13 @@ const nl: Dictionary = {
         close: 'Beautyfuncties sluiten',
     },
     productDemo: {
-        tryOn: 'Probeer het',
+        tryOn: 'Probeer het uit',
         productImageAlt: 'Product',
         stats: { conversion: 'Conversie', fewerReturns: 'Minder retouren', accuracy: 'Nauwkeurigheid' },
         products: {
             lipstick: {
                 name: 'Lippenstift',
-                description: 'Laat shoppers elke tint proberen vóór ze kopen. Geen gokwerk, geen verkeerde bestellingen, geen retouren.',
+                description: 'Laat klanten elke kleur uitproberen voordat ze kopen. Geen gokwerk, geen verkeerde bestellingen, geen retouren.',
                 features: ['Tint in realtime op de live camera', 'Simulatie van matte, satijnen en glanzende finish', 'Direct van tint wisselen', 'Nauwkeurige detectie van de lipcontour'],
             },
             lipLiner: {
@@ -346,12 +346,12 @@ const nl: Dictionary = {
             },
             eyeliner: {
                 name: 'Eyeliner',
-                description: 'Van alledaags tot grafisch: laat shoppers elke eyeliner-look live op hun eigen ogen testen, zonder verplichtingen.',
+                description: 'Van alledaags tot grafisch: laat klanten elke eyeliner-look live op hun eigen ogen uitproberen, zonder verplichtingen.',
                 features: ['Detectie van de wimperlijn in realtime', 'Presets voor wing, tightline en grafisch', 'Past zich aan elke oogvorm aan', 'Lijnnauwkeurigheid tot op de submillimeter'],
             },
             eyeShadow: {
                 name: 'Oogschaduw',
-                description: 'Maak van elk palet een directe try-on. Shoppers zien de volledige look op hun oogleden voordat ze iets in hun winkelwagen leggen.',
+                description: 'Maak van elk palet een directe try-on. Klanten zien de hele look op hun oogleden voordat ze iets in hun winkelwagen leggen.',
                 features: ['Meerdere zones: ooglid, plooi en wenkbrauwboog', 'Matte, shimmer- en glitterfinishes', 'Tot 6 tinten tegelijk', 'Natuurlijke overgangen en verlopen'],
             },
             eyebrow: {
@@ -361,27 +361,27 @@ const nl: Dictionary = {
             },
             foundation: {
                 name: 'Foundation',
-                description: 'Nooit meer gokken naar de juiste tint. AI koppelt de huidtint en ondertoon van elke shopper aan precies de foundation die ze nodig hebben.',
+                description: 'Nooit meer gokken naar de juiste tint. AI kijkt naar de huidtint en ondertoon van elke klant en vindt precies de juiste foundation.',
                 features: ['AI-huidtintmatch, 40+ tinten', 'Simulatie van lichte tot volledige dekking', 'Matte, natuurlijke en dewy finishes', 'Ondertoondetectie voor een exacte match'],
             },
             bronzer: {
                 name: 'Bronzer',
-                description: 'Laat shoppers hun look in realtime contouren en een zongebruinde gloed geven. Ze zien precies hoe elke bronzer op hun gezicht valt vóór ze kopen.',
+                description: 'Laat klanten hun look live contouren en een zongebruinde gloed geven. Ze zien precies hoe elke bronzer op hun gezicht valt vóór ze kopen.',
                 features: ['Simulatie van contour en zongebruinde look', 'Plaatsing op jukbeenderen, slapen en neus', 'Matte en shimmer bronzerfinishes', 'Natuurlijke, vloeiende overgangen'],
             },
             blush: {
                 name: 'Blush',
-                description: 'Van subtiele blos tot uitgesproken draping: shoppers zien direct elke plaatsing en intensiteit van blush op hun eigen wangen.',
+                description: 'Van subtiele blos tot uitgesproken draping: klanten zien meteen hoe elke blush op hun eigen wangen staat.',
                 features: ['Simulatie van blos in realtime', 'Plaatsing op jukbeenderen, neus en draping', 'Opbouwbare dekking van licht tot intens', 'Werkt op alle huidtinten'],
             },
             highlighter: {
                 name: 'Highlighter',
-                description: 'Geef elke shopper hun glow-up-moment. Bekijk de glans in realtime, van een vleugje shimmer tot een intense highlight.',
+                description: 'Geef elke klant een glow-up-moment. Bekijk de glans in realtime, van een vleugje shimmer tot een intense highlight.',
                 features: ['Glans op de hoogste punten van het gezicht', 'Wenkbrauwboog, neusbrug en cupidoboog', 'Van subtiele glow tot maximale intensiteit', 'Lichtreflectie gesimuleerd met shaders'],
             },
             concealer: {
                 name: 'Concealer',
-                description: 'Help shoppers met vertrouwen de perfecte match te vinden. Simuleer dekking en blending op hun eigen huid, niet die van een model.',
+                description: 'Help klanten zonder twijfel de perfecte kleur te vinden. Simuleer dekking en blending op hun eigen huid, niet die van een model.',
                 features: ['Simulatie van dekking voor donkere kringen', 'Voorbeeld van het camoufleren van onzuiverheden en roodheid', 'Tinten van lichte tot volledige dekking', 'AI-tintmatching voor een naadloze blend'],
             },
         },
