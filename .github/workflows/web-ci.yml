@@ -1,0 +1,38 @@
+name: Web CI
+
+# Runs the same install as the production deploy (npm ci on Node 20, in apps/web)
+# plus tests and a build, so dependency or build problems show up on the PR
+# instead of after merging to master.
+on:
+  pull_request:
+    paths:
+      - 'apps/web/**'
+      - '.github/workflows/web-ci.yml'
+      - '.github/workflows/netlify.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check package-lock.json is in sync
+        run: npm run check:lockfile
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
