@@ -16,8 +16,15 @@ jobs:
         with:
           node-version: 20
 
+      # npm 10 crashes with a cryptic 'edgesOut' error on an out-of-sync lockfile,
+      # so check it first and fail with a readable message.
+      - name: Check package-lock.json is in sync
+        run: npm run check:lockfile
+        working-directory: apps/web
+
+      # npm ci installs exactly what package-lock.json pins and never rewrites it.
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         working-directory: apps/web
 
       - name: Build with Netlify

@@ -239,6 +239,18 @@ Components are organized by purpose:
 - **UI Components**: `apps/web/src/components/ui/`
 - **Layout Components**: `apps/web/src/components/`
 
+### Adding or Updating Dependencies (apps/web)
+
+Locally the repo uses pnpm, but the production deploy (GitHub Actions → Netlify) installs `apps/web` with **npm** from `apps/web/package-lock.json`. pnpm never updates that file, so after changing dependencies in `apps/web/package.json`:
+
+```bash
+cd apps/web
+npm install --package-lock-only   # sync package-lock.json
+npm run check:lockfile            # same check CI runs
+```
+
+Commit `package-lock.json` together with `package.json`. Every PR touching `apps/web` runs the **Web CI** workflow (lockfile check, `npm ci`, tests, build) so problems show up before merging to `master`.
+
 ### Type Safety
 
 TypeScript types for content are defined in `apps/web/src/lib/types/`. Update these when modifying schemas to maintain type safety.
