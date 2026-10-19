@@ -1,6 +1,6 @@
 # TryonAR Marketing Website 🚀
 
-A modern, content-driven marketing website built with Next.js and Sanity CMS, structured as a monorepo for optimal development experience.
+A modern, content-driven marketing website built with Next.js and Sanity CMS, structured as a monorepo for optimal development experience. 
 
 ## 📋 Table of Contents
 
