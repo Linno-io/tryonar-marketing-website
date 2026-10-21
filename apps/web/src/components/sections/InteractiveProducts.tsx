@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useDictionary } from '@/lib/i18n/LocaleProvider'
 import { makeupCategoryLabel } from '@/lib/i18n/dictionaries'
+import { shouldMountCycleImage, usePageLoaded } from '@/lib/utils/heroCycle'
 
 const FRAME = '/frame.webp'
 const BEFORE_IMAGE = '/landing-hero-section/before-img.webp'
@@ -99,6 +100,7 @@ interface Props {
 
 const InteractiveProducts = ({ priority = false }: Props) => {
     const [cycleIdx, setCycleIdx]     = useState(0)
+    const pageLoaded = usePageLoaded()
     const [activeFinish]              = useState<Finish>('Matte')
     const [dividerPos, setDividerPos] = useState(20)
     const [showIframe, setShowIframe] = useState(false)
@@ -223,6 +225,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                     alt={dictionary.demo.phoneFrame}
                     width={954}
                     height={1470}
+                    sizes="(max-width: 640px) 85vw, 370px"
                     priority={priority}
                     style={{ width: '100%', height: 'auto', display: 'block' }}
                     className="relative z-10 pointer-events-none"
@@ -246,7 +249,7 @@ const InteractiveProducts = ({ priority = false }: Props) => {
                     {CYCLE_SEQUENCE.map((step, i) => {
                         const cat   = CATEGORIES.find(c => c.id === step.categoryId)
                         const color = cat?.colors[step.colorIndex]
-                        if (!color) return null
+                        if (!color || !shouldMountCycleImage(i, cycleIdx, CYCLE_SEQUENCE.length, pageLoaded)) return null
                         return (
                             <Image
                                 key={`${step.categoryId}-${step.colorIndex}`}

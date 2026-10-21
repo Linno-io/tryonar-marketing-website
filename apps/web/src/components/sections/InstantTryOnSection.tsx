@@ -47,6 +47,8 @@ function SectionMedia({
             <img
                 src={imageUrl}
                 alt={imageAlt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain max-h-[457px]"
                 style={{
                     transition: 'opacity 0.4s ease',

@@ -86,7 +86,7 @@ function VideoCard({ card, shouldLoad, index }: { card: FeatureCard; shouldLoad:
                 <p
                     style={{
                         color: '#3E3E42',
-                        fontFamily: 'Inter, sans-serif',
+                        fontFamily: 'var(--font-body)',
                         fontSize: '16px',
                         fontWeight: 400,
                         lineHeight: '24px',

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
+import { fontVariables } from "@/lib/fonts";
 import { getSiteSettings } from "@/lib/sanity/queries";
 
 // Standalone business-card page: its own root layout because the site layout
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function LincolnLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" className={fontVariables}>
             <body className="antialiased">{children}</body>
         </html>
     );
