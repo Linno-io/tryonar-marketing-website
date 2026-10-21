@@ -70,6 +70,30 @@ const StatsRow = ({ data }: { data?: { label: string; value: string }[] }) => {
     );
 };
 
+// Autoplay ignores preload="none", so the video gets its src only when it is
+// near the viewport. Otherwise the first one (~1 MB) competes with the hero.
+function LazyVideo({ src, poster, className }: { src: string; poster?: string; className?: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null)
+
+    useEffect(() => {
+        const video = videoRef.current
+        if (!video) return
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) return
+                video.src = src
+                video.load()
+                observer.disconnect()
+            },
+            { rootMargin: '200px' }
+        )
+        observer.observe(video)
+        return () => observer.disconnect()
+    }, [src])
+
+    return <video ref={videoRef} poster={poster} autoPlay muted loop playsInline className={className} />
+}
+
 function CtaButtons({ product }: { product: ProductDetail }) {
     if (!product.primaryButton?.text && !product.secondaryButton?.text) return null;
     return (
@@ -248,19 +272,17 @@ export default function ProductsDetailsTab({ data }: { data: ProductsDetailsTabS
                                 >
                                     <div className="absolute inset-0 flex items-end justify-center px-8 pt-6">
                                         {s.product.video?.url ? (
-                                            <video
+                                            <LazyVideo
                                                 src={s.product.video.url}
                                                 poster={s.product.image?.url}
-                                                autoPlay
-                                                muted
-                                                loop
-                                                playsInline
                                                 className="max-h-full w-auto object-contain object-bottom"
                                             />
                                         ) : (
                                             <img
                                                 src={s.product.image?.url ?? ''}
                                                 alt={s.product.image?.alt ?? s.product.contentTitle ?? dictionary.productDemo.productImageAlt}
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="max-h-full w-auto object-contain object-bottom drop-shadow-[0_30px_40px_rgba(0,0,0,0.1)]"
                                             />
                                         )}

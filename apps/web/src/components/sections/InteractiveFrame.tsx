@@ -130,7 +130,7 @@ const InteractiveFrame = ({ priority = false }: InteractiveFrameProps) => {
                 onClick={handleTryOnClick}
                 className="absolute rounded-full border border-black bg-[#151515] text-white font-semibold shadow-[0_10px_10px_rgba(18,17,19,0.20)] cursor-pointer transition-transform active:scale-95 top-[6%] right-[10%] px-3.75 py-2.5 text-[12px] z-40"
                 style={{
-                    fontFamily: 'Inter',
+                    fontFamily: 'var(--font-body)',
                     fontStyle: 'normal',
                     fontWeight: 600,
                 }}

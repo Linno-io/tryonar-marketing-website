@@ -153,6 +153,8 @@ const FeatureShowcaseSection = ({ data }: { data: FeatureShowcaseSectionProps })
                             <img
                                 src={sectionImage.url}
                                 alt={sectionImage.alt || ''}
+                                loading="lazy"
+                                decoding="async"
                                 className="fss-content-img"
                             />
                         ) : null}
@@ -163,6 +165,8 @@ const FeatureShowcaseSection = ({ data }: { data: FeatureShowcaseSectionProps })
                             <img
                                 src={frameImage.url}
                                 alt={frameImage.alt || 'Phone frame'}
+                                loading="lazy"
+                                decoding="async"
                                 className="fss-frame-img"
                             />
                         )}

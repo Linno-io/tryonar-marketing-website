@@ -104,7 +104,7 @@ export default function FAQAccordion({data} : {data: FAQSectionProps }) {
                                             className="overflow-hidden"
                                         >
                                             <div className="px-5 md:px-[30px] pb-5 md:pb-[30px] pt-0">
-                                                <p className="font-['Inter',sans-serif] text-sm md:text-[16px] leading-[22px] md:leading-[28px] text-[#3e3e42]">
+                                                <p className="font-(family-name:--font-body) text-sm md:text-[16px] leading-[22px] md:leading-[28px] text-[#3e3e42]">
                                                     {faq.answer}
                                                 </p>
                                             </div>
