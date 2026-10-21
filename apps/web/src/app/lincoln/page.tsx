@@ -12,7 +12,7 @@ export default function LincolnPage() {
                 * { box-sizing: border-box; }
                 body {
                     margin: 0;
-                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
                     background: #0d0d14;
                     color: #f0f0f5;
                 }

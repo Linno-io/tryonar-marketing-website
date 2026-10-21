@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "../globals.css";
+import { fontVariables } from "@/lib/fonts";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { getSiteSettings } from "@/lib/sanity/queries";
@@ -44,7 +45,7 @@ export default async function SiteLayout({ children, params }: SiteLayoutProps) 
     const siteSettings = await getSiteSettings(lang);
 
     return (
-        <html lang={lang}>
+        <html lang={lang} className={fontVariables}>
             <body className="antialiased">
                 <LocaleProvider locale={lang}>
                     <Navigation

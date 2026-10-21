@@ -64,6 +64,8 @@ function TabMedia({ imageUrl, imageAlt, videoUrl }: { imageUrl: string; imageAlt
             <img
                 src={imageUrl}
                 alt={imageAlt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain"
                 style={{ transition: 'opacity 0.4s ease', opacity: videoReady ? 0 : 1, position: videoSrc ? 'absolute' : 'relative' }}
             />
@@ -162,7 +164,7 @@ export default function IndustryARSection({ data }: { data: IndustrySolutionsSec
 
                         {content?.features && content.features.length > 0 && (
                             <div>
-                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4.5 font-[Sora] leading-none">
+                                <h4 className="font-bold text-[#1A202C] text-[20px] mb-4.5 font-(family-name:--font-sora) leading-none">
                                     {common.keyFeatures}
                                 </h4>
                                 <ul className="space-y-4.5">
