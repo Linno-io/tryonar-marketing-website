@@ -133,8 +133,8 @@ export const pricingTableSectionType = defineType({
                                             const pricing = price !== undefined ? price.toFixed(2) : 'N/A'
                                             const durationValue = duration ? duration : ''
                                             const subTitle = isPopular
-                                                ? `Popular - $${pricing} ${durationValue}`
-                                                : `$${pricing} ${durationValue}`
+                                                ? `Popular - €${pricing} ${durationValue}`
+                                                : `€${pricing} ${durationValue}`
 
                                             return {
                                                 title: title || 'Untitled Card',
